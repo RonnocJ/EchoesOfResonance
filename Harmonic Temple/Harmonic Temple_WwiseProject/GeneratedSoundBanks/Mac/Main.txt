@@ -1,0 +1,10 @@
+Event	ID	Name			Wwise Object Path	Notes
+	279424403	playTone			\Default Work Unit\playTone	
+	2019189489	stopTone			\Default Work Unit\stopTone	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1795621276	midiPitch			\Default Work Unit\midiPitch	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	620939299	TestSample	Y:\Desktop\GitHub\SFCM_GameJam_Winter2025\Harmonic Temple\Harmonic Temple_WwiseProject\.cache\82\{82896EE3-DD84-AF44-4419-3AFBD826EF94}.wem		\Actor-Mixer Hierarchy\Default Work Unit\FluteInstrument\TestSample		307922
+

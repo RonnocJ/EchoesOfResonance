@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8EEDD58C-5586-45A3-B776-41F592289DF0}" SchemaVersion="123" RootDocumentID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" ParentDocumentID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}">
+	<AudioObjects>
+		<WorkUnit Name="FluteInstrument" ID="{8EEDD58C-5586-45A3-B776-41F592289DF0}" OwnerID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" PersistMode="Nested">
+			<ChildrenList>
+				<Sound Name="TestSample" ID="{3AC17391-3E06-41C2-9682-8E8B69DFCCB9}" ShortID="161205673">
+					<PropertyList>
+						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="69 Attack Lead AELITA A3" ID="{3A289468-5EB9-4862-9758-FF885C3D64C7}">
+							<Language>SFX</Language>
+							<AudioFile>69 Attack Lead AELITA A3.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="670538497"/>
+							</MediaIDList>
+						</AudioFileSource>
+						<AudioFileSource Name="69 Drunkpad AELITA A3" ID="{F87F0923-A9CD-4EE8-BE22-9BB2CBCF769D}">
+							<Language>SFX</Language>
+							<AudioFile>69 Drunkpad AELITA A3.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="794395371"/>
+							</MediaIDList>
+						</AudioFileSource>
+						<AudioFileSource Name="69 Sawtooth FORMANTA POLIVOKS A3" ID="{33BC507F-EAC5-4DA4-8922-D3B46FDF459E}">
+							<Language>SFX</Language>
+							<AudioFile>69 Sawtooth FORMANTA POLIVOKS A3.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="620939299"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{99196E55-52A2-4738-B9A6-8C29236D992B}" ShortID="786277887">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Pitch"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="midiPitch" ID="{796D6E2C-BDB4-4528-999B-D307F0302A65}" WorkUnitID="{833261EF-16E9-41F7-A490-BC3B685E41FC}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{4EA62982-1B2B-45D7-A426-8988ADB2B3A2}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>1</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>2</XPos>
+																<YPos>88</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>3</XPos>
+																<YPos>166</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>4</XPos>
+																<YPos>275</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>5</XPos>
+																<YPos>400</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>6</XPos>
+																<YPos>500</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>7</XPos>
+																<YPos>575</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>8</XPos>
+																<YPos>680</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>9</XPos>
+																<YPos>800</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>10</XPos>
+																<YPos>900</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>11</XPos>
+																<YPos>1000</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Constant</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>12</XPos>
+																<YPos>1100</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+					<ActiveSourceList>
+						<ActiveSource Name="69 Sawtooth FORMANTA POLIVOKS A3" ID="{33BC507F-EAC5-4DA4-8922-D3B46FDF459E}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

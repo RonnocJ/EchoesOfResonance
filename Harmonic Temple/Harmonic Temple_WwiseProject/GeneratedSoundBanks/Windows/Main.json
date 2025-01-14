@@ -1,0 +1,63 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3161908922",
+    "Type": "User",
+    "GUID": "{11F8CFB0-AE41-4B88-8087-4ADA5710DCBC}",
+    "Language": "SFX",
+    "Hash": "{9B2A514F-B71F-A479-1C69-F1F41DA21BA2}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
+    "ShortName": "Main",
+    "Path": "Main.bnk",
+    "Media": [
+     {
+      "Id": "620939299",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "69 Sawtooth FORMANTA POLIVOKS A3.wav",
+      "CachePath": "82/{82896EE3-DD84-AF44-4419-3AFBD826EF94}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "279424403",
+      "Name": "playTone",
+      "ObjectPath": "\\Events\\Default Work Unit\\playTone",
+      "GUID": "{FB197FA8-CDE4-48AB-9A13-E0431669CD86}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "620939299"
+       }
+      ]
+     },
+     {
+      "Id": "2019189489",
+      "Name": "stopTone",
+      "ObjectPath": "\\Events\\Default Work Unit\\stopTone",
+      "GUID": "{34313151-BEBD-4197-ABC3-8F6D821386E6}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1795621276",
+      "Name": "midiPitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\midiPitch",
+      "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{478134D7-D6A8-5FAC-C23D-C2FBDEAFE194}"
+ }
+}
