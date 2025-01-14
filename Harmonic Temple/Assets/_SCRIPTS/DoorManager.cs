@@ -1,10 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    [SerializeField] private float timeLimit, gemIntensity;
+    [SerializeField] private float timeLimit, gemIntensity, doorMoveSpeed;
     [SerializeField] private Transform doorList;
     [SerializeField] private DoorData[] dataList;
     public DoorData currentDoorData;
@@ -13,6 +14,7 @@ public class DoorManager : MonoBehaviour
     [SerializeField] private Material hourglassMat;
     private List<Transform> currentDoorGems = new List<Transform>();
     private List<Material> gemMats = new List<Material>();
+    private Coroutine doorRoutine;
     void Start()
     {
         timer = timeLimit;
@@ -28,6 +30,7 @@ public class DoorManager : MonoBehaviour
 
         for (int i = 0; i < currentDoorData.solutions.Length; i++)
         {
+            currentDoorData.solutions[i].noteHeld = false;
             currentDoorGems.Add(currentDoorObj.transform.GetChild(i + 1));
             gemMats.Add(currentDoorGems[i].GetComponent<MeshRenderer>().material);
             gemMats[i].SetColor("_BaseColor", currentDoorData.solutions[i].gemColor);
@@ -62,13 +65,10 @@ public class DoorManager : MonoBehaviour
 
         if (!isCorrectNote) currentDoorData.solved--;
 
-        if (currentDoorData.solved == currentDoorData.solutions.Length)
+        if (currentDoorData.solved == currentDoorData.solutions.Length && doorRoutine == null)
         {
-            currentDoorObj.GetComponent<Animator>().SetTrigger("openDoor");
-            currentDoorData = dataList[currentDoorObj.transform.GetSiblingIndex() + 1];
-            currentDoorObj = doorList.GetChild(currentDoorObj.transform.GetSiblingIndex() + 1).gameObject;
-            EstablishDoor();
-            GetComponent<NoteManager>().AllNotesOff();
+            doorRoutine = StartCoroutine(NextDoor());
+            StartCoroutine(doorList.parent.GetComponent<TempleManager>().MoveForward());
         }
     }
     public void RemoveNote(string oldNote)
@@ -83,13 +83,38 @@ public class DoorManager : MonoBehaviour
                 if (currentDoorData.solutions[i].noteHeld)
                 {
                     currentDoorData.solutions[i].noteHeld = false;
-                    currentDoorData.solved--;
-                    gemMats[i].DisableKeyword("_EMMISSION");
-                    gemMats[i].SetColor("_EmissionColor", Vector4.zero);
+                    if (currentDoorData.solved > 0) currentDoorData.solved--;
+                    if (currentDoorData.solved < 4)
+                    {
+                        gemMats[i].DisableKeyword("_EMMISSION");
+                        gemMats[i].SetColor("_EmissionColor", Vector4.zero);
+                    }
                 }
             }
         }
 
         if (!isCorrectNote) currentDoorData.solved++;
+    }
+
+    IEnumerator NextDoor()
+    {
+        StartCoroutine(OpenDoor(currentDoorObj.transform));
+        currentDoorData = dataList[currentDoorObj.transform.GetSiblingIndex() + 1];
+        currentDoorObj = doorList.GetChild(currentDoorObj.transform.GetSiblingIndex() + 1).gameObject;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<NoteManager>().AllNotesOff();
+        yield return new WaitForSeconds(0.25f);
+        EstablishDoor();
+
+        doorRoutine = null;
+    }
+
+    IEnumerator OpenDoor(Transform door)
+    {
+        while(door.localPosition.y < 12)
+        {
+            door.position += Vector3.up * Time.deltaTime * doorMoveSpeed;
+            yield return null;
+        }
     }
 }

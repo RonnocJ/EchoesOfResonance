@@ -47,7 +47,8 @@ public class NoteManager : MonoBehaviour
     }
     public void AllNotesOff()
     {
-        foreach(string note in activeNotes)
+        var notes = new List<string>(activeNotes);
+        foreach(string note in notes)
         {
             NoteOff(note);
         }
