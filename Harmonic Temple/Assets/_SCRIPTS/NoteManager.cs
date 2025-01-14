@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Minis;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +12,7 @@ public class NoteManager : MonoBehaviour
     public AK.Wwise.Event playTone, stopTone;
     public AK.Wwise.RTPC tonePitch;
     private MidiDevice midiController;
+    private List<string> activeNotes = new List<string>();
     void Start()
     {
         InputSystem.onDeviceChange += (device, change) =>
@@ -19,19 +22,48 @@ public class NoteManager : MonoBehaviour
             midiController = device as MidiDevice;
             if (midiController == null) return;
 
-            midiController.onWillNoteOn += (note, velocity) =>
-            {
-                string newNote = note.shortDisplayName.Remove(note.shortDisplayName.Length - 1);
-                doorManager.CheckNote(newNote);
-                playTone.Post(heldNotes[GetNote(newNote)]);
-                tonePitch.SetValue(heldNotes[GetNote(newNote)], GetNote(newNote));
-            };
-            midiController.onWillNoteOff += (note) =>
-            {
-                string oldNote = note.shortDisplayName.Remove(note.shortDisplayName.Length - 1);
-                Debug.Log($"Released note {note.shortDisplayName}");
-                stopTone.Post(heldNotes[GetNote(oldNote)]);
-            };
+            midiController.onWillNoteOn += NoteOn;
+            midiController.onWillNoteOff += note => NoteOff(note.shortDisplayName);
+        };
+    }
+    private void NoteOn(MidiNoteControl note, float velocity)
+    {
+        activeNotes.Add(note.shortDisplayName);
+        string newNote = note.shortDisplayName.Remove(note.shortDisplayName.Length - 1);
+        doorManager.CheckNote(newNote);
+        playTone.Post(heldNotes[GetNote(newNote) - 1]);
+        tonePitch.SetValue(heldNotes[GetNote(newNote) - 1], GetNote(newNote));
+    }
+    private void NoteOff(string note)
+    {
+        if (activeNotes.Contains(note))
+        {
+            activeNotes.Remove(note);
+            string oldNote = note.Remove(note.Length - 1);
+            doorManager.RemoveNote(oldNote);
+            Debug.Log($"Released note {note}");
+            stopTone.Post(heldNotes[GetNote(oldNote) - 1]);
+        }
+    }
+    public void AllNotesOff()
+    {
+        foreach(string note in activeNotes)
+        {
+            NoteOff(note);
+        }
+    }
+
+    void OnDestroy()
+    {
+        InputSystem.onDeviceChange += (device, change) =>
+        {
+            if (change != InputDeviceChange.Removed) return;
+
+            midiController = device as MidiDevice;
+            if (midiController == null) return;
+
+            midiController.onWillNoteOn -= NoteOn;
+            midiController.onWillNoteOff -= note => NoteOff(note.shortDisplayName);
         };
     }
 

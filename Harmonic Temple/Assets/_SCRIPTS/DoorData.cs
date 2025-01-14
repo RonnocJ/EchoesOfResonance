@@ -8,7 +8,7 @@ public class DoorData : ScriptableObject
     public class SolutionData
     {
         public string correctNote;
-        public GameObject gemObject;
+        public Color gemColor;
         [HideInInspector]
         public bool noteHeld;
     }
