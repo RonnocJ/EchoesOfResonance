@@ -70,7 +70,14 @@
             "m_Id": "746d0e012f184926983ea39aa6eafe1e"
         }
     ],
-    "m_GroupDatas": [],
+    "m_GroupDatas": [
+        {
+            "m_Id": "da342fe1a017469fa34da09854ee0ede"
+        },
+        {
+            "m_Id": "3a946b698a4743529c8cb755027af14b"
+        }
+    ],
     "m_StickyNoteDatas": [],
     "m_Edges": [
         {
@@ -216,8 +223,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 0.0
+            "x": 208.99998474121095,
+            "y": 26.500011444091798
         },
         "m_Blocks": [
             {
@@ -233,8 +240,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 0.0,
-            "y": 200.0
+            "x": 208.99998474121095,
+            "y": 226.5000457763672
         },
         "m_Blocks": [
             {
@@ -633,6 +640,17 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "3a946b698a4743529c8cb755027af14b",
+    "m_Title": "Drain Over Time",
+    "m_Position": {
+        "x": -803.5001220703125,
+        "y": 272.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.BlockNode",
     "m_ObjectId": "3ad86d901e644396b6c691f25f49a434",
     "m_Group": {
@@ -772,7 +790,7 @@
     "m_Type": "UnityEditor.ShaderGraph.TilingAndOffsetNode",
     "m_ObjectId": "41823cde8ef545a788937917f7f13e6e",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "3a946b698a4743529c8cb755027af14b"
     },
     "m_Name": "Tiling And Offset",
     "m_DrawState": {
@@ -1041,7 +1059,7 @@
     "m_Type": "UnityEditor.ShaderGraph.RectangleNode",
     "m_ObjectId": "700ae1a06cdf4777a45eb36d174aaea5",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "3a946b698a4743529c8cb755027af14b"
     },
     "m_Name": "Rectangle",
     "m_DrawState": {
@@ -1135,17 +1153,17 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "746d0e012f184926983ea39aa6eafe1e",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "da342fe1a017469fa34da09854ee0ede"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -430.2699890136719,
-            "y": 185.23001098632813,
-            "width": 208.0,
-            "height": 302.0
+            "x": -546.0,
+            "y": 61.5000114440918,
+            "width": 126.00003051757813,
+            "height": 118.00001525878906
         }
     },
     "m_Slots": [
@@ -1262,17 +1280,17 @@
     "m_Type": "UnityEditor.ShaderGraph.TimeNode",
     "m_ObjectId": "86bb500b28534342831c5b8cf818f993",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "da342fe1a017469fa34da09854ee0ede"
     },
     "m_Name": "Time",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -901.0,
-            "y": 135.49996948242188,
-            "width": 123.5,
-            "height": 172.99996948242188
+            "x": -1104.0,
+            "y": 48.0000114440918,
+            "width": 123.49993896484375,
+            "height": 173.0
         }
     },
     "m_Slots": [
@@ -1307,16 +1325,16 @@
     "m_Type": "UnityEditor.ShaderGraph.SineNode",
     "m_ObjectId": "883c6da4b1c54a63b21b057b211410b5",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "da342fe1a017469fa34da09854ee0ede"
     },
     "m_Name": "Sine",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -576.5,
-            "y": 135.49996948242188,
-            "width": 127.49993896484375,
+            "x": -742.5,
+            "y": 61.5000114440918,
+            "width": 127.5,
             "height": 94.0
         }
     },
@@ -1583,8 +1601,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -234.0303192138672,
-            "y": 294.46966552734377,
+            "x": -95.0,
+            "y": 272.5,
             "width": 208.0,
             "height": 302.0
         }
@@ -1606,7 +1624,7 @@
         "x"
     ],
     "m_Precision": 0,
-    "m_PreviewExpanded": false,
+    "m_PreviewExpanded": true,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 0,
     "m_CustomColors": {
@@ -1619,17 +1637,17 @@
     "m_Type": "UnityEditor.ShaderGraph.MultiplyNode",
     "m_ObjectId": "b719c4156934436c80304de140b700a0",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "da342fe1a017469fa34da09854ee0ede"
     },
     "m_Name": "Multiply",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -702.5,
-            "y": 135.49996948242188,
+            "x": -906.5,
+            "y": 61.5000114440918,
             "width": 126.0,
-            "height": 117.99995422363281
+            "height": 118.00001525878906
         }
     },
     "m_Slots": [
@@ -1712,17 +1730,17 @@
     "m_Type": "UnityEditor.ShaderGraph.SampleGradient",
     "m_ObjectId": "bcabd6ef3a2e4a48988d06ed30b80819",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "da342fe1a017469fa34da09854ee0ede"
     },
     "m_Name": "Sample Gradient",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -234.0000457763672,
-            "y": 111.50001525878906,
-            "width": 168.00003051757813,
-            "height": 118.0
+            "x": -296.0,
+            "y": 16.50000762939453,
+            "width": 167.99998474121095,
+            "height": 118.0000228881836
         }
     },
     "m_Slots": [
@@ -1988,10 +2006,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.GroupData",
+    "m_ObjectId": "da342fe1a017469fa34da09854ee0ede",
+    "m_Title": "Flashing Light",
+    "m_Position": {
+        "x": -1129.0001220703125,
+        "y": -42.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "dd3432fdaf4442f1971359eea00c4f5b",
     "m_Group": {
-        "m_Id": ""
+        "m_Id": "3a946b698a4743529c8cb755027af14b"
     },
     "m_Name": "Property",
     "m_DrawState": {

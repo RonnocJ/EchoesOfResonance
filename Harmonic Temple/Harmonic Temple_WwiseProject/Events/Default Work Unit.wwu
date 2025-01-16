@@ -11,7 +11,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="TestSample" ID="{3AC17391-3E06-41C2-9682-8E8B69DFCCB9}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
+									<ObjectRef Name="InstrumentRange" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -26,7 +26,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="TestSample" ID="{3AC17391-3E06-41C2-9682-8E8B69DFCCB9}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
+									<ObjectRef Name="InstrumentRange" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

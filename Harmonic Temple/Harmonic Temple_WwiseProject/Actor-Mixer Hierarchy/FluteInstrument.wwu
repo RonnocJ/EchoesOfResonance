@@ -3,9 +3,9 @@
 	<AudioObjects>
 		<WorkUnit Name="FluteInstrument" ID="{8EEDD58C-5586-45A3-B776-41F592289DF0}" OwnerID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" PersistMode="Nested">
 			<ChildrenList>
-				<Sound Name="TestSample" ID="{3AC17391-3E06-41C2-9682-8E8B69DFCCB9}" ShortID="161205673">
+				<BlendContainer Name="InstrumentRange" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" ShortID="1017450568">
 					<PropertyList>
-						<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+						<Property Name="BlendBehavior" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -16,132 +16,248 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="69 Attack Lead AELITA A3" ID="{3A289468-5EB9-4862-9758-FF885C3D64C7}">
-							<Language>SFX</Language>
-							<AudioFile>69 Attack Lead AELITA A3.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="670538497"/>
-							</MediaIDList>
-						</AudioFileSource>
-						<AudioFileSource Name="69 Drunkpad AELITA A3" ID="{F87F0923-A9CD-4EE8-BE22-9BB2CBCF769D}">
-							<Language>SFX</Language>
-							<AudioFile>69 Drunkpad AELITA A3.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="794395371"/>
-							</MediaIDList>
-						</AudioFileSource>
-						<AudioFileSource Name="69 Sawtooth FORMANTA POLIVOKS A3" ID="{33BC507F-EAC5-4DA4-8922-D3B46FDF459E}">
-							<Language>SFX</Language>
-							<AudioFile>69 Sawtooth FORMANTA POLIVOKS A3.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="620939299"/>
-							</MediaIDList>
-						</AudioFileSource>
+						<Sound Name="TestSample" ID="{3AC17391-3E06-41C2-9682-8E8B69DFCCB9}" ShortID="161205673">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="69 Attack Lead AELITA A3" ID="{3A289468-5EB9-4862-9758-FF885C3D64C7}">
+									<Language>SFX</Language>
+									<AudioFile>69 Attack Lead AELITA A3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="670538497"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="69 Drunkpad AELITA A3" ID="{F87F0923-A9CD-4EE8-BE22-9BB2CBCF769D}">
+									<Language>SFX</Language>
+									<AudioFile>69 Drunkpad AELITA A3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="794395371"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="69 Sawtooth FORMANTA POLIVOKS A3" ID="{33BC507F-EAC5-4DA4-8922-D3B46FDF459E}">
+									<Language>SFX</Language>
+									<AudioFile>69 Sawtooth FORMANTA POLIVOKS A3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="620939299"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="69 Sawtooth FORMANTA POLIVOKS A3" ID="{33BC507F-EAC5-4DA4-8922-D3B46FDF459E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
-					<ObjectLists>
-						<ObjectList Name="RTPC">
-							<Reference>
-								<Local>
-									<RTPC Name="" ID="{99196E55-52A2-4738-B9A6-8C29236D992B}" ShortID="786277887">
-										<PropertyList>
-											<Property Name="PropertyName" Type="string" Value="Pitch"/>
-										</PropertyList>
-										<ReferenceList>
-											<Reference Name="ControlInput">
-												<ObjectRef Name="midiPitch" ID="{796D6E2C-BDB4-4528-999B-D307F0302A65}" WorkUnitID="{833261EF-16E9-41F7-A490-BC3B685E41FC}"/>
-											</Reference>
-											<Reference Name="Curve">
-												<Custom>
-													<Curve Name="" ID="{4EA62982-1B2B-45D7-A426-8988ADB2B3A2}">
-														<PropertyList>
-															<Property Name="Flags" Type="int32" Value="65537"/>
-														</PropertyList>
-														<PointList>
-															<Point>
-																<XPos>1</XPos>
-																<YPos>0</YPos>
-																<Flags>5</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>2</XPos>
-																<YPos>88</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>3</XPos>
-																<YPos>166</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>4</XPos>
-																<YPos>275</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>5</XPos>
-																<YPos>400</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>6</XPos>
-																<YPos>500</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>7</XPos>
-																<YPos>575</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>8</XPos>
-																<YPos>680</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>9</XPos>
-																<YPos>800</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>10</XPos>
-																<YPos>900</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>11</XPos>
-																<YPos>1000</YPos>
-																<Flags>0</Flags>
-																<SegmentShape>Constant</SegmentShape>
-															</Point>
-															<Point>
-																<XPos>12</XPos>
-																<YPos>1100</YPos>
-																<Flags>37</Flags>
-															</Point>
-														</PointList>
-													</Curve>
-												</Custom>
-											</Reference>
-										</ReferenceList>
-									</RTPC>
-								</Local>
-							</Reference>
-						</ObjectList>
-					</ObjectLists>
-					<ActiveSourceList>
-						<ActiveSource Name="69 Sawtooth FORMANTA POLIVOKS A3" ID="{33BC507F-EAC5-4DA4-8922-D3B46FDF459E}" Platform="Linked"/>
-					</ActiveSourceList>
-				</Sound>
+					<BlendTrackList>
+						<BlendTrack Name="InstrumentRange" ID="{9EBD60F4-ABB6-4F71-BE6E-34DF6D59FAFC}" ShortID="1063048157">
+							<PropertyList>
+								<Property Name="EnableCrossFading" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="LayerCrossFadeControlInput">
+									<ObjectRef Name="midiPitch" ID="{796D6E2C-BDB4-4528-999B-D307F0302A65}" WorkUnitID="{833261EF-16E9-41F7-A490-BC3B685E41FC}"/>
+								</Reference>
+							</ReferenceList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{83B7E57C-ECDB-4E4C-A32A-4D44094452E9}" ShortID="304076896">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Pitch"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="midiPitch" ID="{796D6E2C-BDB4-4528-999B-D307F0302A65}" WorkUnitID="{833261EF-16E9-41F7-A490-BC3B685E41FC}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{C8F8A784-4546-412A-9FA8-EDA495171BF7}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-2100</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>2</XPos>
+																		<YPos>-2000</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>3</XPos>
+																		<YPos>-1900</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>4</XPos>
+																		<YPos>-1800</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>5</XPos>
+																		<YPos>-1700</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>6</XPos>
+																		<YPos>-1600</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>7</XPos>
+																		<YPos>-1500</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>8</XPos>
+																		<YPos>-1400</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>9</XPos>
+																		<YPos>-1300</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>10</XPos>
+																		<YPos>-1200</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>11</XPos>
+																		<YPos>-1100</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>12</XPos>
+																		<YPos>-1000</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>13</XPos>
+																		<YPos>-900</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>14</XPos>
+																		<YPos>-800</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>15</XPos>
+																		<YPos>-700</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>16</XPos>
+																		<YPos>-600</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>17</XPos>
+																		<YPos>-500</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>18</XPos>
+																		<YPos>-400</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>19</XPos>
+																		<YPos>-300</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>20</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>21</XPos>
+																		<YPos>-100</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>22</XPos>
+																		<YPos>0</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>23</XPos>
+																		<YPos>100</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>24</XPos>
+																		<YPos>200</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Constant</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>25</XPos>
+																		<YPos>300</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<BlendTrackAssocList>
+								<BlendTrackAssoc>
+									<ItemRef Name="TestSample" ID="{3AC17391-3E06-41C2-9682-8E8B69DFCCB9}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>1</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>25</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+							</BlendTrackAssocList>
+						</BlendTrack>
+					</BlendTrackList>
+				</BlendContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
