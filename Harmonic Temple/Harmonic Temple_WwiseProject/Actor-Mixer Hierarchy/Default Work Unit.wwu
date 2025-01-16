@@ -3,7 +3,8 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" PersistMode="Standalone">
 			<ChildrenList>
-				<WorkUnit Name="FluteInstrument" ID="{8EEDD58C-5586-45A3-B776-41F592289DF0}" PersistMode="Reference"/>
+				<WorkUnit Name="Broadcaster" ID="{8EEDD58C-5586-45A3-B776-41F592289DF0}" PersistMode="Reference"/>
+				<WorkUnit Name="Puzzles" ID="{D0748E86-15D7-4512-A10C-E4F01965A492}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

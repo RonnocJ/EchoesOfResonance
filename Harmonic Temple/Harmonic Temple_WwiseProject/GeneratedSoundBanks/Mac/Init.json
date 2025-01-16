@@ -10,11 +10,29 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{816F2C34-8CA8-7CCF-7A32-63298FB2BDDC}",
+    "Hash": "{F36EF81E-6F22-40C7-6105-B617F10FF6C0}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "702543456",
+       "Name": "Tunnel1",
+       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Tunnel1",
+       "GUID": "{CC44B890-9865-4157-965F-86FED27BC4C6}",
+       "LibName": "Wwise Matrix Reverb",
+       "LibId": "7536643"
+      },
+      {
+       "Id": "1904434771",
+       "Name": "Medium_Room1",
+       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Medium_Room1",
+       "GUID": "{71B802A7-03E2-4998-B241-B2B84FE9DDFF}",
+       "LibName": "Wwise Matrix Reverb",
+       "LibId": "7536643"
+      }
+     ],
      "AudioDevices": [
       {
        "Id": "2317455096",
@@ -42,6 +60,34 @@
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
      }
     ],
+    "AuxBusses": [
+     {
+      "Id": "1198315964",
+      "Name": "BroadcasterVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\BroadcasterVerb",
+      "GUID": "{200737CF-426B-4F54-BBE3-AE99F17E6472}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "1904434771"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "2258982450",
+      "Name": "DoorVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\DoorVerb",
+      "GUID": "{5D0BE815-DF1F-4AA6-8A38-EA7DA08D453D}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "702543456"
+        }
+       ]
+      }
+     }
+    ],
     "GameParameters": [
      {
       "Id": "1795621276",
@@ -52,6 +98,6 @@
     ]
    }
   ],
-  "FileHash": "{8195C78F-6305-D627-9D34-B486FA690552}"
+  "FileHash": "{D1387F45-AE86-D252-142B-1EE8D7739E0F}"
  }
 }

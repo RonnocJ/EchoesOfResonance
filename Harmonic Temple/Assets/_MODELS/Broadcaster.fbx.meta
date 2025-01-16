@@ -3,7 +3,17 @@ guid: 5248a5b666c234a2992dfb5bd02790f9
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BroadcasterBody
+    second: {fileID: 2100000, guid: 8529d347760454411b16521e0b67263e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BroadcasterLight
+    second: {fileID: 2100000, guid: d58260024bcc7431eab4a55bcad60d6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -9,6 +9,42 @@
 							<ObjectRef Name="System" ID="{62EF1AE2-90B5-40E0-826A-428C8242CADC}" WorkUnitID="{F16791FD-E48A-45A2-9A96-1825336EF2AB}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<AuxBus Name="DoorVerb" ID="{5D0BE815-DF1F-4AA6-8A38-EA7DA08D453D}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{F818755D-2C15-4D85-8159-A6574CE47912}" ShortID="402228487">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+														<ObjectRef Name="Tunnel1" ID="{CC44B890-9865-4157-965F-86FED27BC4C6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</AuxBus>
+						<AuxBus Name="BroadcasterVerb" ID="{200737CF-426B-4F54-BBE3-AE99F17E6472}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{AB7A03D2-3346-4421-8EC6-6DE6FC8464BA}" ShortID="1069777756">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+														<ObjectRef Name="Medium_Room1" ID="{71B802A7-03E2-4998-B241-B2B84FE9DDFF}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</AuxBus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

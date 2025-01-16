@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 
 public class NoteManager : Singleton<NoteManager>, IInputScript
 {
-    public DoorManager doorManager;
     public AK.Wwise.Event playTone, stopTone;
     public AK.Wwise.RTPC tonePitch;
     private List<GameObject> heldNotes = new List<GameObject>();

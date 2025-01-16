@@ -50,8 +50,8 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript
             if (notesHeld == 0) regenRoutine = StartCoroutine(RegenRoutine());
         });
 
-        InputManager.root.AddListener<float>(ActionTypes.ModwheelChange, input => input = moveInput);
-        InputManager.root.AddListener<float>(ActionTypes.PitchbendChange, input => input = lookInput);
+        InputManager.root.AddListener<float>(ActionTypes.ModwheelChange, input => moveInput = input);
+        InputManager.root.AddListener<float>(ActionTypes.PitchbendChange, input => lookInput = input);
     }
     IEnumerator RegenRoutine()
     {

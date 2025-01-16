@@ -14,11 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorMoveSpeed: 1.5
   doorOpenParticle: {fileID: 1211629323239332852, guid: e429a628282fa4a1ba3ccdbd5939190e, type: 3}
-  doorStartOpening:
+  doorOpening:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
-  doorFinishOpening:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 75036a8d6268241568a7a6adf11953fd, type: 2}

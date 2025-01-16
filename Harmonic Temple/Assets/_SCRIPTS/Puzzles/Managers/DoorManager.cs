@@ -20,8 +20,7 @@ public class DoorManager : BasicPuzzle
 
     IEnumerator OpenDoor()
     {
-        GameObject doorParticles = Instantiate(globalDoorData.doorOpenParticle, transform.position - (Vector3.up * 2.75f), Quaternion.identity);
-        Destroy(doorParticles, 5f);
+        globalDoorData.doorOpening.Post(gameObject);
 
         Vector3 originalPos = transform.position;
 
@@ -31,6 +30,9 @@ public class DoorManager : BasicPuzzle
             yield return null;
             transform.position = originalPos;
         }
+
+        GameObject doorParticles = Instantiate(globalDoorData.doorOpenParticle, transform.position - (Vector3.up * 2.75f), Quaternion.identity);
+        Destroy(doorParticles, 5f);
 
         while (transform.localPosition.y < 7.5f)
         {

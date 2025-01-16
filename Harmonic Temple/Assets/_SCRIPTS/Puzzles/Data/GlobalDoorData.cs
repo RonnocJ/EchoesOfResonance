@@ -5,5 +5,5 @@ public class GlobalDoorData : ScriptableObject
 {
     public float doorMoveSpeed;
     public GameObject doorOpenParticle;
-    public AK.Wwise.Event doorStartOpening, doorFinishOpening;
+    public AK.Wwise.Event doorOpening;
 }

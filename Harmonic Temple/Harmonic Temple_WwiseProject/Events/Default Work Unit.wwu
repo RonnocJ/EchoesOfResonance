@@ -11,7 +11,7 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="InstrumentRange" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
+									<ObjectRef Name="Instrument" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -26,7 +26,29 @@
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
-									<ObjectRef Name="InstrumentRange" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
+									<ObjectRef Name="Instrument" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playDoorOpen" ID="{E44E47B7-6CC6-47E9-B928-1BE9DEB6A11E}">
+					<ChildrenList>
+						<Action Name="" ID="{150E52CA-C294-4B96-8B09-9B136B3F829F}" ShortID="812222284">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DoorOpen" ID="{537CA94E-043B-4A2A-A2BB-164D59B14589}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playBroadcasterBeep" ID="{88730A47-1065-4B88-B47A-5ED23D69E404}">
+					<ChildrenList>
+						<Action Name="" ID="{5205D536-3FF6-489F-BDC7-6D0B360E473D}" ShortID="1027791711">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Beep" ID="{3FA07131-A77D-4C49-90D5-56A8E649294E}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

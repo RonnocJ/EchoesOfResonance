@@ -3,6 +3,7 @@ using UnityEngine;
 public class ConfigureKeyboard : MonoBehaviour, IInputScript
 {
     static public float middleKey;
+    public TitleSequence titleSequence;
     private float tempMiddleKey;
     private Animator anim;
 
@@ -24,9 +25,10 @@ public class ConfigureKeyboard : MonoBehaviour, IInputScript
         {
             if (newMiddle == tempMiddleKey)
             {
-                anim.SetTrigger("toGameplay");
+                anim.SetTrigger("toTitle");
                 middleKey = newMiddle;
-                GameManager.root.currentState = GameState.InPuzzle;
+                titleSequence.StartCoroutine(titleSequence.PlayTitleCredits());
+                GameManager.root.currentState = GameState.Title;
             }
             else
             {

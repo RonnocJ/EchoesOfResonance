@@ -2,6 +2,7 @@ using UnityEngine;
 public enum GameState
 {
     Config,
+    Title,
     InPuzzle,
     Roaming,
     Shutdown

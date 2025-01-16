@@ -38,8 +38,42 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy/Default Work Unit
     guid: f0ce0862294ed74ea8feb85abb8c6979
     GuidInternal: 
-    m_lastTime: -8584647943716932701
+    m_lastTime: -8584645407693336755
     List:
+    - name: BroadcasterVerb
+      guid: cf3707206b42544fbbe3ae99f17e6472
+      id: 1198315964
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f0ce0862294ed74ea8feb85abb8c6979
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: BroadcasterVerb
+        ObjectType: 1
+        guid: cf3707206b42544fbbe3ae99f17e6472
+      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/BroadcasterVerb
+    - name: DoorVerb
+      guid: 15e80b5d1fdfa64a8a38ea7da08d453d
+      id: 2258982450
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: f0ce0862294ed74ea8feb85abb8c6979
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: DoorVerb
+        ObjectType: 1
+        guid: 15e80b5d1fdfa64a8a38ea7da08d453d
+      Path: Master-Mixer Hierarchy/Default Work Unit/Master Audio Bus/DoorVerb
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
       id: 3803692087
@@ -94,8 +128,42 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 05760e8b89de3649adde474e0d5001d7
     GuidInternal: 
-    m_lastTime: -8584646861803243072
+    m_lastTime: -8584645407837974931
     List:
+    - name: playBroadcasterBeep
+      guid: 470a73886510884bb47a5ed23d69e404
+      id: 2409822221
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 05760e8b89de3649adde474e0d5001d7
+      - ElementName: playBroadcasterBeep
+        ObjectType: 3
+        guid: 470a73886510884bb47a5ed23d69e404
+      Path: Events/Default Work Unit/playBroadcasterBeep
+      maxAttenuation: 5
+      maxDuration: 0.52213687
+      minDuration: 0.47880167
+    - name: playDoorOpen
+      guid: b7474ee4c66ce947b9281be9deb6a11e
+      id: 3639922799
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 05760e8b89de3649adde474e0d5001d7
+      - ElementName: playDoorOpen
+        ObjectType: 3
+        guid: b7474ee4c66ce947b9281be9deb6a11e
+      Path: Events/Default Work Unit/playDoorOpen
+      maxAttenuation: 0
+      maxDuration: 9
+      minDuration: 9
     - name: playTone
       guid: a87f19fbe4cdab489a13e0431669cd86
       id: 279424403
