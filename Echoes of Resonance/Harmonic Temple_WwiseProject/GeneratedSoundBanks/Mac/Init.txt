@@ -1,0 +1,21 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	399092848	volumeSFX			\Default Work Unit\volumeSFX	
+	3923584592	volumeMusic			\Default Work Unit\volumeMusic	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	2886307548	MusicBus			\Default Work Unit\MusicBus	
+	3803850708	SFXBus			\Default Work Unit\SFXBus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	1198315964	BroadcasterVerb			\Default Work Unit\SFXBus\BroadcasterVerb	
+	2413215442	PuzzleVerb			\Default Work Unit\SFXBus\PuzzleVerb	
+	3736295661	PlayerVerb			\Default Work Unit\SFXBus\PlayerVerb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	702543456	Tunnel1	Wwise Matrix Reverb			
+	2849147824	Medium	Wwise RoomVerb			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

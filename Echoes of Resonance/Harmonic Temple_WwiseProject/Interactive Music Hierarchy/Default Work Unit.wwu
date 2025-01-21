@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7B44D635-8D54-4EB1-B339-9E3713D59818}" SchemaVersion="123">
+	<InteractiveMusic>
+		<WorkUnit Name="Default Work Unit" ID="{7B44D635-8D54-4EB1-B339-9E3713D59818}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicPlaylistContainer Name="LevelMusic" ID="{6EF6B1BF-5A65-4144-90E2-CB2331163C0C}" ShortID="703965595">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="102"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-12</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="MusicBus" ID="{EC62AEBE-2FED-4166-9D40-D71B991A8894}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+						<Reference Name="PlaylistRoot">
+							<Custom>
+								<MusicPlaylistItem Name="" ID="{A8DE9200-2B44-4D94-A266-D62C8E722AEE}" ShortID="622255075">
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{E04D7AC0-58AB-49D9-A603-8359A9179A8E}" ShortID="366309247">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="SFCMWT25_GameLoop_v2" ID="{2761C653-46D6-4E60-A124-985BE7D27869}" WorkUnitID="{7B44D635-8D54-4EB1-B339-9E3713D59818}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Custom>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{7A598F5B-810C-4818-B4A1-FCC408BA7AF9}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{6F475A94-C51A-4F97-8956-48F737798B22}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="SFCMWT25_GameLoop_v2" ID="{2761C653-46D6-4E60-A124-985BE7D27869}" ShortID="519389195">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="72352.9583333333"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="SFCMWT25_GameLoop_v3" ID="{32AF542B-1098-4108-8AFE-E7C3D863B3B6}" ShortID="941099317">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{00CD715E-D336-4C5C-9A49-A8126371C261}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="SFCMWT25_GameLoop_v3" ID="{384077C9-E177-4DDD-A1D1-B3BCAFAA481F}">
+											<Language>SFX</Language>
+											<AudioFile>SFCMWT25_GameLoop_v3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="262085091"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{BCEEBAD7-3FBE-49A5-AE84-7C851C61167E}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="SFCMWT25_GameLoop_v3" ID="{85CD44B7-161F-409E-A23E-E47D5B0397D0}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="72352.9583333333"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="SFCMWT25_GameLoop_v3" ID="{384077C9-E177-4DDD-A1D1-B3BCAFAA481F}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{07755CB1-E726-4690-BAC4-0A4451B7A370}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{86FE243F-4C17-4807-B4ED-D9F6E7F497E5}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="65882.3529411765"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>

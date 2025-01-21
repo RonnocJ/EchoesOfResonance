@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{BE4F72B6-C9FB-4A19-A490-5BE385AFA45F}" SchemaVersion="123" RootDocumentID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" ParentDocumentID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}">
+	<AudioObjects>
+		<WorkUnit Name="Ambiences" ID="{BE4F72B6-C9FB-4A19-A490-5BE385AFA45F}" OwnerID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" PersistMode="Nested">
+			<ChildrenList>
+				<BlendContainer Name="IntroAmbience" ID="{D3FE6AD7-D3D5-4285-AD1B-73AD007DFDD7}" ShortID="802724247">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="DarkDrone" ID="{A6E55D52-1112-43BE-A9CC-EE77971BB38F}" ShortID="89958566">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-600</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+								<Property Name="Soundly:FileID" Type="string" Value="SND65645"/>
+								<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1737021839ETVB0s6ICMc4Kef8CWF&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND65645/sfy_ITZCmEvgWoPFWyjyIdXOqdhpqNDYMM"/>
+								<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+								<Property Name="Soundly:HandleStopTime" Type="string" Value="179.61055208333335"/>
+								<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+								<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+								<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+								<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+								<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+								<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Ambience, Designed, Abandoned City Soundscape, Wind, Drone In C 01 SND65645.wav"/>
+								<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+								<Property Name="Soundly:SelectionStartTime" Type="string" Value="0.007398273736128237"/>
+								<Property Name="Soundly:SelectionStopTime" Type="string" Value="1.0"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Ambience, Designed, Abandoned City Soundscape, Wind, Drone In C 01 SND65645" ID="{A06BDF3E-4E0A-4771-975C-587E1DB633BE}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="LoopBegin" Type="Real64" Value="16.1941863091307"/>
+										<Property Name="LoopEnd" Type="Real64" Value="168.423205543527"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND65645"/>
+										<Property Name="TrimBegin" Type="Real64" Value="1.32880803020962"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Soundly Audio\Ambience, Designed, Abandoned City Soundscape, Wind, Drone In C 01 SND65645.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="620721570"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Ambience, Designed, Abandoned City Soundscape, Wind, Drone In C 01 SND65645" ID="{A06BDF3E-4E0A-4771-975C-587E1DB633BE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="ScratchyDrone" ID="{E7835C8D-7219-406C-AC68-71467BF6EF28}" ShortID="1053245476">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+								<Property Name="Soundly:FileID" Type="string" Value="SND56675"/>
+								<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1737021839ETVB0s6ICMc4Kef8CWF&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND56675/sfy_mMmeAPybotssOBtCvNeecAuiYmkmtm"/>
+								<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+								<Property Name="Soundly:HandleStopTime" Type="string" Value="150.0"/>
+								<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+								<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+								<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+								<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+								<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+								<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Ambience, Designed, Abstract, Noisy, Drone, Dark, Noisy, Interference SND56675.wav"/>
+								<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+								<Property Name="Soundly:SelectionStartTime" Type="string" Value="0"/>
+								<Property Name="Soundly:SelectionStopTime" Type="string" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Ambience, Designed, Abstract, Noisy, Drone, Dark, Noisy, Interference SND56675" ID="{5461F24A-3CA4-4545-A93B-8BF88494C43B}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="LoopBegin" Type="Real64" Value="13.5665529010239"/>
+										<Property Name="LoopEnd" Type="Real64" Value="138.097269624573"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND56675"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Soundly Audio\Ambience, Designed, Abstract, Noisy, Drone, Dark, Noisy, Interference SND56675.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="18982989"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Ambience, Designed, Abstract, Noisy, Drone, Dark, Noisy, Interference SND56675" ID="{5461F24A-3CA4-4545-A93B-8BF88494C43B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="Noises" ID="{A981D740-0531-4E74-819D-5A6EC221D739}" ShortID="1002718612">
+							<PropertyList>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+								<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="1"/>
+								<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="50">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{EBE3C054-1374-4F4F-B264-01BDBE25F9A0}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="25"/>
+													<Property Name="Min" Type="Real64" Value="-25"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+								<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Noise4" ID="{D394A997-7A68-4A40-9182-0B06117CA7FF}" ShortID="331915138">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>33</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+										<Property Name="Soundly:FileID" Type="string" Value="SND13421"/>
+										<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1737021839ETVB0s6ICMc4Kef8CWF&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND13421/sfy_MSqsJVqZqWBFPeBBkCJRvoMHhaoJdx"/>
+										<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+										<Property Name="Soundly:HandleStopTime" Type="string" Value="5.84"/>
+										<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+										<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+										<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+										<Property Name="Soundly:ProcessList" Type="string" Value="[&quot;reverse&quot;]"/>
+										<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+										<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Natural Disaster, Earthquake, Impact, Small Crack 01 SND13421.wav"/>
+										<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+										<Property Name="Soundly:SelectionStartTime" Type="string" Value="0.36128236744759556"/>
+										<Property Name="Soundly:SelectionStopTime" Type="string" Value="1"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Natural Disaster, Earthquake, Impact, Small Crack 01 SND13421" ID="{65CEC062-D64A-4C19-9B47-C4EB118CBAF7}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.119590446810673"/>
+												<Property Name="LoopBegin" Type="Real64" Value="2.10988902589396"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND13421"/>
+												<Property Name="TrimBegin" Type="Real64" Value="2.10988902589396"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Soundly Audio\Natural Disaster, Earthquake, Impact, Small Crack 01 SND13421.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="235771073"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Natural Disaster, Earthquake, Impact, Small Crack 01 SND13421" ID="{65CEC062-D64A-4C19-9B47-C4EB118CBAF7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Noise3" ID="{13314615-E766-4FCF-8F8F-A9C4599C2497}" ShortID="753286169">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>66</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+										<Property Name="Soundly:FileID" Type="string" Value="SND118385"/>
+										<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1737021839ETVB0s6ICMc4Kef8CWF&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND118385/sfy_eyJfYQSpzuGaYVDlNGXhVsnEwYtyUr"/>
+										<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+										<Property Name="Soundly:HandleStopTime" Type="string" Value="45.507958333333335"/>
+										<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+										<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+										<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+										<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+										<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+										<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Geothermal, Geyser, Eruption, Blow Out, Designed, Iceland 01 SND118385 1.wav"/>
+										<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+										<Property Name="Soundly:SelectionStartTime" Type="string" Value="0.48273736128236744"/>
+										<Property Name="Soundly:SelectionStopTime" Type="string" Value="0.6263871763255241"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Geothermal, Geyser, Eruption, Blow Out, Designed, Iceland 01 SND118385 1" ID="{9B00E692-17F7-4850-9E93-366705DCDA91}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="3.53346768662384"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND118385"/>
+												<Property Name="TrimBegin" Type="Real64" Value="21.9683917231813"/>
+												<Property Name="TrimEnd" Type="Real64" Value="28.5056015207563"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Soundly Audio\Geothermal, Geyser, Eruption, Blow Out, Designed, Iceland 01 SND118385 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="25129230"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Geothermal, Geyser, Eruption, Blow Out, Designed, Iceland 01 SND118385 1" ID="{9B00E692-17F7-4850-9E93-366705DCDA91}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Noise2" ID="{05BA1B8A-1042-4F65-9092-D29AAB6D3A4D}" ShortID="692993837">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>33</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>50</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+										<Property Name="Soundly:FileID" Type="string" Value="SND79387"/>
+										<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1737021839ETVB0s6ICMc4Kef8CWF&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND79387/sfy_mnTQrToLIumaaqReVPTFzfFwwVObaj"/>
+										<Property Name="Soundly:HandleStartTime" Type="string" Value="10.505548705302097"/>
+										<Property Name="Soundly:HandleStopTime" Type="string" Value="93.5881627620222"/>
+										<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+										<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+										<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+										<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+										<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+										<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Bells, Large, Church Bells, Distant 01 SND79387.wav"/>
+										<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+										<Property Name="Soundly:SelectionStartTime" Type="string" Value="0.22503082614056721"/>
+										<Property Name="Soundly:SelectionStopTime" Type="string" Value="0.3532675709001233"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Bells, Large, Church Bells, Distant 01 SND79387" ID="{38DEEB5D-0998-462E-9B3C-7BEC83F2BD1D}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="14.3905887799051"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="9.42831678683441"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND79387"/>
+												<Property Name="TrimBegin" Type="Real64" Value="40.5055487053021"/>
+												<Property Name="TrimEnd" Type="Real64" Value="63.5881627620222"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Soundly Audio\Bells, Large, Church Bells, Distant 01 SND79387.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="198980918"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Bells, Large, Church Bells, Distant 01 SND79387" ID="{38DEEB5D-0998-462E-9B3C-7BEC83F2BD1D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Noise1" ID="{55371A4D-4F17-4E4E-91DA-C0EE3C0BE9F2}" ShortID="634587794">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>25</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>66</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+										<Property Name="Soundly:FileID" Type="string" Value="SND28167"/>
+										<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1737021839ETVB0s6ICMc4Kef8CWF&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND28167/sfy_IKleeiVMYsQOMrercIehPWgYctFxgd"/>
+										<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+										<Property Name="Soundly:HandleStopTime" Type="string" Value="13.804875"/>
+										<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+										<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+										<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+										<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+										<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+										<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Chains, Movement, Around Metal Fence, Rattle SND28167.wav"/>
+										<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+										<Property Name="Soundly:SelectionStartTime" Type="string" Value="0"/>
+										<Property Name="Soundly:SelectionStopTime" Type="string" Value="0.6226880394574599"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Chains, Movement, Around Metal Fence, Rattle SND28167" ID="{D69D0E91-AFE7-41E2-B72F-036A48331062}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="1.0012068317205"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="1.15433258245423"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND28167"/>
+												<Property Name="TrimEnd" Type="Real64" Value="8.5961305487053"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Soundly Audio\Chains, Movement, Around Metal Fence, Rattle SND28167.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="770221763"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Chains, Movement, Around Metal Fence, Rattle SND28167" ID="{D69D0E91-AFE7-41E2-B72F-036A48331062}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{819335C5-DAB0-4434-B021-D137D514755D}" ShortID="210220617">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+														<ObjectRef Name="Holy" ID="{CC7B8638-C670-4AD5-B3FB-331EA81037F6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+						<Sound Name="Wind" ID="{AE4C4B0C-415C-4D96-A5B3-42A042B5B73A}" ShortID="1048032563">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+								<Property Name="Soundly:FileID" Type="string" Value="SND81312"/>
+								<Property Name="Soundly:FileName" Type="string" Value="https://2-dot-soundly-server.appspot.com/?Type=GetFile&amp;SessionID=1737021839ETVB0s6ICMc4Kef8CWF&amp;File=soundlyeu/1426367345Ff4sxqvM_wkFwG/SND81312/sfy_JGBlCduNoVeaXPPcxkqfzjHdCHtlVl"/>
+								<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+								<Property Name="Soundly:HandleStopTime" Type="string" Value="150.57066666666665"/>
+								<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+								<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+								<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+								<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+								<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+								<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Wind, Gust, Strong Wind, Howling, Desert, Moon Valley Atacama, Chile SND81312.wav"/>
+								<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+								<Property Name="Soundly:SelectionStartTime" Type="string" Value="0.02466091245376079"/>
+								<Property Name="Soundly:SelectionStopTime" Type="string" Value="0.8051787916152897"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Wind, Gust, Strong Wind, Howling, Desert, Moon Valley Atacama, Chile SND81312" ID="{5CFD4E7B-EEB4-4935-AB94-2584462E0A2D}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="LoopBegin" Type="Real64" Value="22.8557261161176"/>
+										<Property Name="LoopEnd" Type="Real64" Value="97.8541736950996"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND81312"/>
+										<Property Name="TrimBegin" Type="Real64" Value="3.71321002877106"/>
+										<Property Name="TrimEnd" Type="Real64" Value="121.236307439375"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Soundly Audio\Wind, Gust, Strong Wind, Howling, Desert, Moon Valley Atacama, Chile SND81312.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="714574361"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Wind, Gust, Strong Wind, Howling, Desert, Moon Valley Atacama, Chile SND81312" ID="{5CFD4E7B-EEB4-4935-AB94-2584462E0A2D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{76A9698A-72A4-43D2-AB0E-1530B77E20E3}" ShortID="961591337">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+												<ObjectRef Name="Hall_Medium" ID="{50286348-176A-4235-9E4C-CA5F73D87818}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</BlendContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
