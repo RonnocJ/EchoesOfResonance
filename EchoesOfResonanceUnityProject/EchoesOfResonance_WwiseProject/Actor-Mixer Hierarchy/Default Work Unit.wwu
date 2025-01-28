@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" PersistMode="Standalone">
+			<ChildrenList>
+				<WorkUnit Name="Puzzles" ID="{D0748E86-15D7-4512-A10C-E4F01965A492}" PersistMode="Reference"/>
+				<WorkUnit Name="Ambiences" ID="{BE4F72B6-C9FB-4A19-A490-5BE385AFA45F}" PersistMode="Reference"/>
+				<WorkUnit Name="Player" ID="{D17F7659-F27A-4D2F-8982-660EE5E86B31}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

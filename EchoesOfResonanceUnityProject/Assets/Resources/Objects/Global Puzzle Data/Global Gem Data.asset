@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342ead5fb626e46b798884fe350e7d29, type: 3}
+  m_Name: Global Gem Data
+  m_EditorClassIdentifier: 
+  gemMeshes:
+  - {fileID: 2962929322132258886, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
+  - {fileID: 256412666039963641, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
+  - {fileID: 3047503064463021889, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
+  - {fileID: 4228556506607390173, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
+  - {fileID: 4348124009803173057, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
+  gemColors:
+  - {r: 0.3137255, g: 0, b: 0, a: 0}
+  - {r: 0.3137255, g: 0.3137255, b: 0, a: 0}
+  - {r: 0, g: 0.39215687, b: 0.23529412, a: 0}
+  - {r: 0, g: 0.15686275, b: 0.3529412, a: 0}
+  - {r: 0.29411766, g: 0, b: 0.37254903, a: 0}
