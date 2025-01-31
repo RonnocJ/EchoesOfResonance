@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}" SchemaVersion="123">
 	<Triggers>
-		<WorkUnit Name="Default Work Unit" ID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}" PersistMode="Standalone">
+			<ChildrenList>
+				<Trigger Name="EntrancePuzzleComplete01" ID="{BC965B5F-7DCD-4F04-9A1C-5A8610DD3C6B}"/>
+				<Trigger Name="EntrancePuzzleComplete02" ID="{08BEBE6C-902D-45C5-936E-B2B336F4AA3D}"/>
+				<Trigger Name="EntrancePuzzleComplete03" ID="{EAF18FD1-F763-4BCC-A83E-11A465B2BDD3}"/>
+				<Trigger Name="EntrancePuzzleComplete04" ID="{131A1B0B-1864-4520-965F-A63FF64CF054}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Triggers>
 </WwiseDocument>

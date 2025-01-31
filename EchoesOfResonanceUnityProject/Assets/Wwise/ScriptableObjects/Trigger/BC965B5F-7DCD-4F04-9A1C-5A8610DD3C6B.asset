@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51205fb4770fa49ccbd144e9fde31afd, type: 3}
+  m_Name: BC965B5F-7DCD-4F04-9A1C-5A8610DD3C6B
+  m_EditorClassIdentifier: 
+  objectName: EntrancePuzzleComplete01
+  id: 4134073719
+  guid: BC965B5F-7DCD-4F04-9A1C-5A8610DD3C6B

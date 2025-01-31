@@ -278,6 +278,638 @@
 						</MusicSegment>
 					</ChildrenList>
 				</MusicPlaylistContainer>
+				<MusicPlaylistContainer Name="EntranceHall" ID="{7A0AA9BE-ED6C-484F-A7EA-B8CAD32CB583}" ShortID="959562326">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="72"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="MusicBus" ID="{EC62AEBE-2FED-4166-9D40-D71B991A8894}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+						<Reference Name="PlaylistRoot">
+							<Custom>
+								<MusicPlaylistItem Name="" ID="{31B4F471-34E7-4B04-87FD-0C08A08A1659}" ShortID="720930186">
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{44C7A00D-1C05-4887-8ED0-7AF1A2ACB119}" ShortID="477964340">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Segment">
+													<ObjectRef Name="MainLoop" ID="{5BA6A804-48E0-4EB6-9FD2-F81675E0F768}" WorkUnitID="{7B44D635-8D54-4EB1-B339-9E3713D59818}"/>
+												</Reference>
+											</ReferenceList>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Custom>
+						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{341EFD01-AC36-43B6-9DEA-55E95A929EC4}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{CFF3461E-EAA5-4DE0-9A2C-146DE2EE9B2D}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="MainLoop" ID="{5BA6A804-48E0-4EB6-9FD2-F81675E0F768}" ShortID="76211235">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="32693.6961451247"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="EOR_EntranceHallBase" ID="{C5852F44-5D1A-4AAF-8A34-8A41FA5C0507}" ShortID="643748347">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{A5C8B172-A38C-42A9-95E9-9C5C4BB7931A}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_EntranceHallBase" ID="{E59679FB-8BFE-4F14-9672-941E92794DFC}">
+											<Language>SFX</Language>
+											<AudioFile>EOR_EntranceHallBase.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="422257837"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{0D0695DC-C63B-4338-A61A-35E07C388115}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="EOR_EntranceHallBase" ID="{58D0C344-FEED-4F9C-B481-1B5D4AD4AA26}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="32693.6961451247"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="EOR_EntranceHallBase" ID="{E59679FB-8BFE-4F14-9672-941E92794DFC}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+								<MusicTrack Name="EOR_EntranceHall_Layer01" ID="{F487741E-2996-4A7E-99AC-5588B0F6A33B}" ShortID="282985756">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="MusicBus" ID="{EC62AEBE-2FED-4166-9D40-D71B991A8894}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{7E536BC8-239E-4BBF-BDFD-C029261F4923}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_EntranceHall_Layer01" ID="{52DC9DC3-8668-4DD5-A71E-3C6B8F5A8CDB}">
+											<Language>SFX</Language>
+											<AudioFile>EOR_EntranceHall_Layer01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="23966850"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<StateInfo>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="EntranceHall_States" ID="{2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="Base" ID="{CF315996-1AF3-442E-9FE4-2D48B67C6864}"/>
+												<CustomState Name="" ID="{A52136F3-C62D-4AE7-B9EE-8BB51911B986}" ShortID="686000390">
+													<PropertyList>
+														<Property Name="Volume" Type="Real64" Value="-108"/>
+													</PropertyList>
+												</CustomState>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Puzzle01" ID="{71162D71-7CBB-4EF9-8D04-0F14EDF54A4F}"/>
+												<CustomState Name="" ID="{F2703392-8FD9-47F4-B474-3C1976BAB5A3}" ShortID="613340127"/>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{E22758A1-EA87-48EC-8D6A-7C7ACEFD6099}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="EOR_EntranceHall_Layer01" ID="{4C9F63EE-6AFE-42EA-B43F-024BB534AA9C}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="31207.619047619"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="EOR_EntranceHall_Layer01" ID="{52DC9DC3-8668-4DD5-A71E-3C6B8F5A8CDB}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{A2AC29C2-8E8B-47AE-9217-EF38D817E364}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{66F5EBEB-AE80-449F-A520-C46B81DC92A9}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="26666.6666666667"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="Stinger04" ID="{A09B9588-EF73-4D95-8E51-3117BD8E69C2}" ShortID="1047657407">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="13374.693877551"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="EOR_EntranceHall_Stinger04" ID="{132267D0-8942-4F73-AEE6-3C7FBCBBBC7F}" ShortID="925727251">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{E0C6917B-3BC7-4246-BA2C-0D09C9111279}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_EntranceHall_Stinger04" ID="{F474F17D-7EE6-4FE0-B29B-72260608BD13}">
+											<Language>SFX</Language>
+											<AudioFile>EOR_EntranceHall_Stinger04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="102335938"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{56242612-BA50-449E-9E19-6B87C7C4A1D8}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="EOR_EntranceHall_Stinger04" ID="{C06A723A-96CE-43DD-8DC9-9FFC21DC4197}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="13374.693877551"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="EOR_EntranceHall_Stinger04" ID="{F474F17D-7EE6-4FE0-B29B-72260608BD13}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{736CAED7-3B5D-45B3-96C0-BF66A06EFDE3}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{CD524503-29C6-4824-9E78-36D9F59116AE}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="13374.693877551"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="Stinger03" ID="{4EEEDD68-E1F8-44BF-BB0D-E1EB70E60EC4}" ShortID="281376242">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="14860.7709750567"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="EOR_EntranceHall_Stinger03" ID="{5D5A5DFB-3F00-458D-BFB1-613B8FD1120F}" ShortID="543216856">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{3A79DEE1-DE09-4DE1-99C0-D1173F52743F}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_EntranceHall_Stinger03" ID="{D3CBCD78-E213-474D-9C11-922DAB0A5976}">
+											<Language>SFX</Language>
+											<AudioFile>EOR_EntranceHall_Stinger03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="429472023"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{1280A60D-D33C-425D-9BA0-CE18D51F94EF}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="EOR_EntranceHall_Stinger03" ID="{8EA0D98C-542F-4961-B1E1-1F85183A6418}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="14860.7709750567"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="EOR_EntranceHall_Stinger03" ID="{D3CBCD78-E213-474D-9C11-922DAB0A5976}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{38409733-784C-4422-A423-EC37124B7CFB}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{6F154851-C518-4E03-9F3D-2274D81F2F76}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="14860.7709750567"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="Stinger02" ID="{EA4B80A7-87E2-4066-A8DC-27C422EBFA77}" ShortID="628664955">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="14860.7709750567"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="EOR_EntranceHall_Stinger02" ID="{D9DAD8DA-9C91-48E6-BA87-4A3B16CAD079}" ShortID="533222531">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{01A13F0B-5443-4333-A57B-649D441A3E81}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_EntranceHall_Stinger02" ID="{0C8C5ED6-D873-407F-B135-4BFE05D4AB64}">
+											<Language>SFX</Language>
+											<AudioFile>EOR_EntranceHall_Stinger02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="664330545"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{1C813E97-66E4-4DB2-A435-8F7F4210F5B8}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="EOR_EntranceHall_Stinger02" ID="{A131C250-118A-4ACD-932E-8ED952CA17DC}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="14860.7709750567"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="EOR_EntranceHall_Stinger02" ID="{0C8C5ED6-D873-407F-B135-4BFE05D4AB64}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{976A4A83-9C45-408D-A5B8-1A1832C9276D}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{A3C55C20-4F64-42CE-A1CD-65C363B4D01D}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="14860.7709750567"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+						<MusicSegment Name="Stinger01" ID="{68E20224-DAB6-406B-BF2A-52E7714533E7}" ShortID="598624018">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="14860.7709750567"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="EOR_EntranceHall_Stinger01" ID="{0CFDCE6D-5912-49B7-AFDF-99CFE030AB27}" ShortID="289300662">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{B8681429-BBDA-4B69-9AB6-77B60C9E5E52}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_EntranceHall_Stinger01" ID="{10FD908B-38A4-4C7A-A0C9-C1C44214D484}">
+											<Language>SFX</Language>
+											<AudioFile>EOR_EntranceHall_Stinger01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="297333489"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{5E49F9C8-CB7B-4339-933F-B23C65383664}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="EOR_EntranceHall_Stinger01" ID="{428957F7-157D-4B8F-A2ED-990306D99AE5}">
+																			<PropertyList>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="14860.7709750567"/>
+																				<Property Name="FadeInMode" Type="int16" Value="0"/>
+																				<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="EOR_EntranceHall_Stinger01" ID="{10FD908B-38A4-4C7A-A0C9-C1C44214D484}"/>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Cues">
+									<Reference>
+										<Local>
+											<MusicCue Name="Entry Cue" ID="{1D926FE0-7506-49FF-9DCA-5A7A76A0F2C0}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{03EAD993-785F-4147-BA62-5462540CE946}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="14860.7709750567"/>
+												</PropertyList>
+											</MusicCue>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</MusicSegment>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Stingers">
+							<Reference>
+								<Local>
+									<MusicStinger Name="" ID="{2867E597-1458-44BE-8D8F-B4DA18890A06}">
+										<PropertyList>
+											<Property Name="PlaySegmentAt" Type="int16" Value="2"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="Segment">
+												<ObjectRef Name="Stinger01" ID="{68E20224-DAB6-406B-BF2A-52E7714533E7}" WorkUnitID="{7B44D635-8D54-4EB1-B339-9E3713D59818}"/>
+											</Reference>
+											<Reference Name="Trigger">
+												<ObjectRef Name="EntrancePuzzleComplete01" ID="{BC965B5F-7DCD-4F04-9A1C-5A8610DD3C6B}" WorkUnitID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}"/>
+											</Reference>
+										</ReferenceList>
+									</MusicStinger>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicStinger Name="" ID="{E4385DAA-42EC-436B-B2CE-2525E23B9403}">
+										<PropertyList>
+											<Property Name="PlaySegmentAt" Type="int16" Value="2"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="Segment">
+												<ObjectRef Name="Stinger02" ID="{EA4B80A7-87E2-4066-A8DC-27C422EBFA77}" WorkUnitID="{7B44D635-8D54-4EB1-B339-9E3713D59818}"/>
+											</Reference>
+											<Reference Name="Trigger">
+												<ObjectRef Name="EntrancePuzzleComplete02" ID="{08BEBE6C-902D-45C5-936E-B2B336F4AA3D}" WorkUnitID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}"/>
+											</Reference>
+										</ReferenceList>
+									</MusicStinger>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicStinger Name="" ID="{C0099304-19F5-4A7A-98F4-A6D3C6BED208}">
+										<PropertyList>
+											<Property Name="PlaySegmentAt" Type="int16" Value="2"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="Segment">
+												<ObjectRef Name="Stinger03" ID="{4EEEDD68-E1F8-44BF-BB0D-E1EB70E60EC4}" WorkUnitID="{7B44D635-8D54-4EB1-B339-9E3713D59818}"/>
+											</Reference>
+											<Reference Name="Trigger">
+												<ObjectRef Name="EntrancePuzzleComplete03" ID="{EAF18FD1-F763-4BCC-A83E-11A465B2BDD3}" WorkUnitID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}"/>
+											</Reference>
+										</ReferenceList>
+									</MusicStinger>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MusicStinger Name="" ID="{24E5C504-CBB2-4D8A-9953-D57ADD9421DC}">
+										<PropertyList>
+											<Property Name="PlaySegmentAt" Type="int16" Value="2"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="Segment">
+												<ObjectRef Name="Stinger04" ID="{A09B9588-EF73-4D95-8E51-3117BD8E69C2}" WorkUnitID="{7B44D635-8D54-4EB1-B339-9E3713D59818}"/>
+											</Reference>
+											<Reference Name="Trigger">
+												<ObjectRef Name="EntrancePuzzleComplete04" ID="{131A1B0B-1864-4520-965F-A63FF64CF054}" WorkUnitID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}"/>
+											</Reference>
+										</ReferenceList>
+									</MusicStinger>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</MusicPlaylistContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>

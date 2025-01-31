@@ -14,5 +14,6 @@ public class GameManager : Singleton<GameManager>
 {
     public GameState currentState;
     public PuzzleData currentPuzzle;
+    public PuzzlePlate currentPlate;
 }
 

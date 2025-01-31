@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class DoorManager : BasicPuzzle
 {
-    [SerializeField] private GlobalDoorData globalDoorData;
     [SerializeField] private TrData target;
 
     public override void FinishedPuzzle()
@@ -14,7 +13,7 @@ public class DoorManager : BasicPuzzle
 
     IEnumerator OpenDoor()
     {
-        globalDoorData.doorOpening.Post(gameObject);
+        DH.Get<GlobalDoorData>().doorOpening.Post(gameObject);
 
         Vector3 originalPos = transform.position;
 
@@ -25,10 +24,10 @@ public class DoorManager : BasicPuzzle
             transform.position = originalPos;
         }
 
-        GameObject doorParticles = Instantiate(globalDoorData.doorOpenParticle, transform.position - (transform.up * 2.75f), Quaternion.identity);
+        GameObject doorParticles = Instantiate(DH.Get<GlobalDoorData>().doorOpenParticle, transform.position - (transform.up * 2.75f), Quaternion.identity);
 
         Destroy(doorParticles, 5f);
 
-        CRManager.root.Begin(target.ApplyToOverTime(transform, globalDoorData.doorMoveSpeed), "DoorMove", this);
+        CRManager.root.Begin(target.ApplyToOverTime(transform, DH.Get<GlobalDoorData>().doorMoveSpeed), "DoorMove", this);
     }
 }

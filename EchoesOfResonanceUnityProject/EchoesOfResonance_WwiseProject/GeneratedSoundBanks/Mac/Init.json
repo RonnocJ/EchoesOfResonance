@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{920BEF55-D4A0-2C6E-D8E0-87A98004CEFE}",
+    "Hash": "{F47BFE62-B1D7-CE67-FCCE-DC4676EB5EFF}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -126,9 +126,37 @@
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\volumeMusic",
       "GUID": "{E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92}"
      }
+    ],
+    "StateGroups": [
+     {
+      "Id": "1786189059",
+      "Name": "EntranceHall_States",
+      "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States",
+      "GUID": "{2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States\\None",
+        "GUID": "{0EC2ED20-3789-40AE-8777-A852B301E348}"
+       },
+       {
+        "Id": "1291433366",
+        "Name": "Base",
+        "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States\\Base",
+        "GUID": "{CF315996-1AF3-442E-9FE4-2D48B67C6864}"
+       },
+       {
+        "Id": "3267866964",
+        "Name": "Puzzle01",
+        "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States\\Puzzle01",
+        "GUID": "{71162D71-7CBB-4EF9-8D04-0F14EDF54A4F}"
+       }
+      ]
+     }
     ]
    }
   ],
-  "FileHash": "{897A4C5C-B9FD-54FD-ED96-937F9844A736}"
+  "FileHash": "{56E396D7-CD6D-2950-0320-37E5378B2C6A}"
  }
 }

@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5371344547674050497}
-  m_Mesh: {fileID: -2115668839366137275, guid: fa3d53e243f5f4ce5b13566a3d534f8c, type: 3}
+  m_Mesh: {fileID: -2115668839366137275, guid: 234feb4d9738d4939ba0609dd1608966, type: 3}
 --- !u!23 &8760403088364391689
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -66,7 +66,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d0bad05c06af4422e8b29762505b3b5b, type: 2}
+  - {fileID: 2100000, guid: 7aaa6694a1270493b8446930d82b6fa7, type: 2}
+  - {fileID: 2100000, guid: cdbfd8d78e6d24e4a8a677b0dc156635, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,15 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046017ecb8f404e51bdabfbb7e540403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAlignSpeed: 5
-  playerAlignRotation: {x: 0, y: 0, z: 0}
+  alignRotation: {x: 0, y: 0, z: 0}
   linkedData: {fileID: 0}
+  gems: []
   linkedPuzzles: []
   executeWithPuzzle:
     m_PersistentCalls:
       m_Calls: []
-  activePlateColor: {r: 1, g: 0, b: 0, a: 0}
-  completedPlateColor: {r: 0.2, g: 1, b: 0, a: 0}
 --- !u!135 &3630712019956474419
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -129,4 +128,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1.5
-  m_Center: {x: 0, y: -2.75, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}

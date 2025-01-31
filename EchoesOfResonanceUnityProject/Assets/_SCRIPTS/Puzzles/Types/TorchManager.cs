@@ -3,26 +3,18 @@ using UnityEngine;
 
 public class TorchManager : BasicPuzzle
 {
-    [SerializeField] private GlobalTorchData globalTorchData;
     [SerializeField] private int earlyCompletion = -1;
     [SerializeField] private float torchTimer = -1;
-    private ParticleSystem flameParticle, glowParticle;
+    public ParticleSystem flameParticle, glowParticle;
+    public Light torchLight;
     private bool alreadyPlayed;
-    private Light torchLight;
 
-    public override void Awake()
+    void Awake()
     {
-        base.Awake();
-
-        flameParticle = transform.GetChild(0).GetComponent<ParticleSystem>();
-        glowParticle = transform.GetChild(1).GetComponent<ParticleSystem>();
-        torchLight = transform.GetChild(2).GetComponent<Light>();
-        torchLight.enabled = false;
-
         alreadyPlayed = false;
 
         if (earlyCompletion > -1)
-            attachedData.OnValueChanged += ActivateEarly;
+            linkedData.OnSolvedChanged += ActivateEarly;
     }
     public void ActivateEarly(int solveCheck)
     {
@@ -31,7 +23,7 @@ public class TorchManager : BasicPuzzle
             flameParticle.Play();
             glowParticle.Play();
             torchLight.enabled = true;
-            globalTorchData.torchLightUp.Post(gameObject);
+            DH.Get<GlobalTorchData>().torchLightUp.Post(gameObject);
             alreadyPlayed = true;
 
             if (torchTimer > -1)
@@ -48,21 +40,14 @@ public class TorchManager : BasicPuzzle
     {
         yield return new WaitForSeconds(delay);
 
-        if (PuzzleManager.root.currentPuzzle.solved < PuzzleManager.root.currentPuzzle.solutions.Length && torchLight.enabled)
+        if (torchLight.enabled && (overrideSolution || linkedData.solved < linkedData.solutions.Length))
         {
             flameParticle.Stop();
             glowParticle.Stop();
             torchLight.enabled = false;
-            globalTorchData.torchExtinguish.Post(gameObject);
-            PuzzleManager.root.ResetPuzzle();
+            DH.Get<GlobalTorchData>().torchExtinguish.Post(gameObject);
         }
-        else if(overrideSolution && torchLight.enabled)
-        {
-            flameParticle.Stop();
-            glowParticle.Stop();
-            torchLight.enabled = false;
-            globalTorchData.torchExtinguish.Post(gameObject);
-        }
+
     }
     public override void FinishedPuzzle()
     {
@@ -72,7 +57,7 @@ public class TorchManager : BasicPuzzle
             flameParticle.Play();
             glowParticle.Play();
             torchLight.enabled = true;
-            globalTorchData.torchLightUp.Post(gameObject);
+            DH.Get<GlobalTorchData>().torchLightUp.Post(gameObject);
         }
     }
 }

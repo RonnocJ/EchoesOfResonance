@@ -29,11 +29,28 @@ namespace AK
         static const AkUniqueID PLAYTORCHEXTINGUISH = 3679901891U;
         static const AkUniqueID PLAYTORCHIGNITE = 1562608897U;
         static const AkUniqueID RESUMEALL = 3240900869U;
+        static const AkUniqueID STARTENTRANCEHALL = 4015453144U;
         static const AkUniqueID STOPINSTRUMENTFX = 3820804860U;
         static const AkUniqueID STOPINTROAMBIENCE = 941857173U;
         static const AkUniqueID STOPLEVELMUSIC = 1307992046U;
         static const AkUniqueID STOPTONE = 2019189489U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace ENTRANCEHALL_STATES
+        {
+            static const AkUniqueID GROUP = 1786189059U;
+
+            namespace STATE
+            {
+                static const AkUniqueID BASE = 1291433366U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID PUZZLE01 = 3267866964U;
+            } // namespace STATE
+        } // namespace ENTRANCEHALL_STATES
+
+    } // namespace STATES
 
     namespace GAME_PARAMETERS
     {
@@ -41,6 +58,14 @@ namespace AK
         static const AkUniqueID VOLUMEMUSIC = 3923584592U;
         static const AkUniqueID VOLUMESFX = 399092848U;
     } // namespace GAME_PARAMETERS
+
+    namespace TRIGGERS
+    {
+        static const AkUniqueID ENTRANCEPUZZLECOMPLETE01 = 4134073719U;
+        static const AkUniqueID ENTRANCEPUZZLECOMPLETE02 = 4134073716U;
+        static const AkUniqueID ENTRANCEPUZZLECOMPLETE03 = 4134073717U;
+        static const AkUniqueID ENTRANCEPUZZLECOMPLETE04 = 4134073714U;
+    } // namespace TRIGGERS
 
     namespace BANKS
     {

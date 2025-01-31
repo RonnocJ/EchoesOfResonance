@@ -253,6 +253,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="startEntranceHall" ID="{5819F8E6-A8FF-4D09-87A3-121EB1A40402}">
+					<ChildrenList>
+						<Action Name="" ID="{C2208D96-4439-4288-B10E-81E9F585F6FB}" ShortID="885938102">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EntranceHall" ID="{7A0AA9BE-ED6C-484F-A7EA-B8CAD32CB583}" WorkUnitID="{7B44D635-8D54-4EB1-B339-9E3713D59818}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

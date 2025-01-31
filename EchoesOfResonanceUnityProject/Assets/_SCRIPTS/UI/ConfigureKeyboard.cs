@@ -41,12 +41,12 @@ public class ConfigureKeyboard : Singleton<ConfigureKeyboard>, IInputScript
             }
             else if (tempMiddleKey != -1)
             {
-                CRManager.root.Begin(UIFade.root.FadeItems(0.25f, 0, true, new List<GameObject> { keyboardConfirm, keyboardConfirmText }), "FadeOutKeyboardConfirm", this);
+                CRManager.root.Begin(UIFade.root.FadeItems(0.25f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { keyboardConfirm, keyboardConfirmText }), "FadeOutKeyboardConfirm", this);
                 tempMiddleKey = -1;
             }
             else if (tempMiddleKey == -1)
             {
-                CRManager.root.Begin(UIFade.root.FadeItems(0.25f, 0, false, new List<GameObject> { keyboardConfirm, keyboardConfirmText }), "FadeInKeyboardConfirm", this);
+                CRManager.root.Begin(UIFade.root.FadeItems(0.25f * DH.Get<TestOverrides>().uiSpeed, 0, false, new List<GameObject> { keyboardConfirm, keyboardConfirmText }), "FadeInKeyboardConfirm", this);
                 tempMiddleKey = newMiddle;
             }
         }
@@ -55,14 +55,14 @@ public class ConfigureKeyboard : Singleton<ConfigureKeyboard>, IInputScript
     {
         if (InputManager.root.usingMidiKeyboard)
         {
-            CRManager.root.Begin(UIFade.root.FadeItems(1f, 0, true, new List<GameObject> { keyboardConfig, useKeyboard, useKeyboardText, keyboardConfirm, keyboardConfirmText }), "FadeOutKeyboard", this);
+            CRManager.root.Begin(UIFade.root.FadeItems(1f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { keyboardConfig, useKeyboard, useKeyboardText, keyboardConfirm, keyboardConfirmText }), "FadeOutKeyboard", this);
         }
         else
         {
-            CRManager.root.Begin(UIFade.root.FadeItems(1f, 0, true, new List<GameObject> { keyboardConfig, useKeyboard, useKeyboardText }), "FadeOutKeyboard", this);
+            CRManager.root.Begin(UIFade.root.FadeItems(1f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { keyboardConfig, useKeyboard, useKeyboardText }), "FadeOutKeyboard", this);
         }
 
-        CRManager.root.Begin(UIFade.root.FadeItems(0.5f, 1.5f, false, new List<GameObject> { settingsConfig }), "FadeInSettings", this);
+        CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 1.5f * DH.Get<TestOverrides>().uiSpeed, false, new List<GameObject> { settingsConfig }), "FadeInSettings", this);
 
         inSettingsMenu = true;
     }
@@ -82,13 +82,19 @@ public class ConfigureKeyboard : Singleton<ConfigureKeyboard>, IInputScript
             }
             else if (newKnob > 0 && tempSettingsCC == -1)
             {
-                CRManager.root.Begin(UIFade.root.FadeItems(0.5f, 0, false, new List<GameObject> { settingsConfirm, settingsConfirmText }), "FadeInSettingsConfirm", this);
+                CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, false, new List<GameObject> { settingsConfirm, settingsConfirmText }), "FadeInSettingsConfirm", this);
             }
         }
     }
     public void ToTitle()
     {
-        CRManager.root.Begin(UIFade.root.FadeItems(1f, 0, true, new List<GameObject> { gameObject, settingsConfig, settingsConfirm, settingsConfirmText }), "FadeOutSettings", this);
-        CRManager.root.Begin(titleSequence.PlayTitleCredits(), "PlayTitleCredits", titleSequence);
+        CRManager.root.Begin(UIFade.root.FadeItems(1f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { gameObject, settingsConfig, settingsConfirm, settingsConfirmText }), "FadeOutSettings", this);
+        
+        if (!DH.Get<TestOverrides>().skipIntro)
+            CRManager.root.Begin(titleSequence.PlayTitleCredits(), "PlayTitleCredits", titleSequence);
+        else
+        {
+            titleSequence.ToGameplay(13);
+        }
     }
 }

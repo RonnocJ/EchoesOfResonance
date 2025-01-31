@@ -1,31 +1,27 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using Vector3 = UnityEngine.Vector3;
 
 public class PuzzlePlate : MonoBehaviour, IInputScript
 {
-    [SerializeField] private float playerAlignSpeed;
-    [SerializeField] private Vector3 playerAlignRotation;
+    [SerializeField] private Vector3 alignRotation;
     public PuzzleData linkedData;
+    public Gem[] gems;
     public BasicPuzzle[] linkedPuzzles;
     [SerializeField] private UnityEvent executeWithPuzzle;
-    [SerializeField] private Color activePlateColor, completedPlateColor;
-    private Gem[] gems;
-    private Transform playerTr;
+    private bool active;
+    private Transform targetTr;
     private Material plateMat;
     void Awake()
     {
-        plateMat = GetComponent<MeshRenderer>().material;
-        linkedData.OnValueChanged += solved => UpdateGem(solved);
-        linkedData.OnPuzzleCompleted += () => PlateCompleted();
-        gems = GetComponentsInChildren<Gem>();
+        plateMat = GetComponent<MeshRenderer>().materials[1];
 
-        if(gems.Length != linkedData.solutions.Length)
-        {
-            Debug.LogError($"Update {gameObject} so that the gems and linked puzzle data match! Found {gems.Length} gems and {linkedData.solutions.Length} puzzle solution entries");
-        }
+        linkedData.OnSolvedChanged += solved => UpdateGem(solved);
+        linkedData.OnPuzzleCompleted += () => PlateCompleted();
+        linkedData.OnReset += () => EjectPlayer();
+
+        linkedData.solved = 0;
+        active = false;
     }
     public void AddInputs()
     {
@@ -33,34 +29,52 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player") && GameManager.root.currentState == GameState.Roaming && linkedData.solved < linkedData.solutions.Length)
+        if (targetTr == null && linkedData.solved < linkedData.solutions.Length)
         {
-            GameManager.root.currentState = GameState.InPuzzle;
-
-            plateMat.SetColor("_EmissionColor", activePlateColor * 5);
-
-            if (linkedData.hasOrphans)
+            if (col.CompareTag("Player") && GameManager.root.currentState == GameState.Roaming)
             {
-                linkedPuzzles[0].orphanParent = GameObject.Find($"{linkedData}GemParent").transform;
-                Debug.Log(linkedPuzzles[0].orphanParent);
-            }
+                GameManager.root.currentState = GameState.InPuzzle;
+                GameManager.root.currentPuzzle = linkedData;
+                GameManager.root.currentPlate = this;
 
-            if (executeWithPuzzle != null)
+                plateMat.SetColor("_EmissionColor", DH.Get<GlobalPlateData>().activeColor * 5);
+
+                if (executeWithPuzzle != null)
+                {
+                    executeWithPuzzle.Invoke();
+                }
+
+                targetTr = col.GetComponent<Transform>();
+                var targetTrData = new TrData(transform.position + Vector3.up * 3.1f, Quaternion.Euler(alignRotation), transform.localScale);
+                CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed, true), $"AlignPlayerTo{gameObject.name}", this);
+                active = true;
+            }
+            else if (col.CompareTag("Boulder"))
             {
-                executeWithPuzzle.Invoke();
+                targetTr = col.GetComponent<Transform>();
+                Debug.Log(transform.position + Vector3.up * (targetTr.localScale.y / 2f));
+                var targetTrData = new TrData(transform.position + Vector3.up * (targetTr.localScale.y / 2f), Quaternion.identity, Vector3.zero);
+                CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed * 0.5f, true), $"AlignBoulderTo{gameObject.name}", this);
             }
-
-            playerTr = col.GetComponent<Transform>();
-            var targetTr = new TrData(transform.position, transform.rotation, transform.localScale);
-            CRManager.root.Begin(targetTr.ApplyToOverTime(playerTr, 2f, true), $"AlignPlayerTo{gameObject.name}", this);
         }
     }
     [AllowedStates(GameState.InPuzzle)]
     public void CheckNote(float noteInput)
     {
-        if(playerTr != null)
+        if (targetTr != null && active)
         {
-            if(noteInput == PuzzleManager.root.GetNoteNumber(linkedData.solutions[linkedData.solved].correctNote))
+            float note = PuzzleUtilities.root.GetNoteNumber(linkedData.solutions[linkedData.solved]);
+
+            if (noteInput == 13)
+            {
+                linkedData.reset++;
+            }
+            else
+            {
+                linkedData.reset = 0;
+            }
+
+            if (note == noteInput && linkedData.reset < 3)
             {
                 linkedData.solved++;
             }
@@ -68,33 +82,59 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
             {
                 linkedData.solved = 0;
             }
+
         }
     }
     public void UpdateGem(int solved)
     {
-        for(int i = 0; i < solved; i++)
+        for (int i = 0; i < solved; i++)
         {
-            if(!gems[i].gemLit)
+            if (!gems[i].gemLit)
                 gems[i].LightOn();
         }
-        for(int j = linkedData.solutions.Length; j > solved; j--)
+        for (int j = linkedData.solutions.Length - 1; j >= solved; j--)
         {
-            if(gems[j].gemLit)
+            if (gems[j].gemLit)
                 gems[j].LightOff();
         }
     }
+    void EjectPlayer()
+    {
+        linkedData.solved = 0;
+        active = false;
+
+        if (targetTr.TryGetComponent(out Rigidbody rb))
+        {
+            Vector2 sideForce = Random.insideUnitCircle * DH.Get<GlobalPlateData>().ejectForce;
+            rb.AddForce(new Vector3(sideForce.x, DH.Get<GlobalPlateData>().ejectForce, sideForce.y));
+        }
+
+        CRManager.root.Begin(Cooldown(), $"{gameObject}Cooldown", this); 
+
+        GameManager.root.currentState = GameState.Roaming; 
+    }
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(2f);
+        targetTr = null;
+        linkedData.reset = 0;
+    }
     void PlateCompleted()
     {
-        playerTr = null;
+        targetTr = null;
+        active = false;
+
         foreach (var p in linkedPuzzles)
         {
             p.FinishedPuzzle();
         }
 
-        plateMat.SetColor("_EmissionColor", completedPlateColor * 5);
+        plateMat.SetColor("_EmissionColor", DH.Get<GlobalPlateData>().completedColor * 5);
     }
-    void OnDestroy()
+    void OnDisable()
     {
+        Destroy(plateMat);
+        linkedData.OnSolvedChanged -= solved => UpdateGem(solved);
         linkedData.OnPuzzleCompleted -= () => PlateCompleted();
     }
 }

@@ -159,7 +159,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 05760e8b89de3649adde474e0d5001d7
     GuidInternal: 
-    m_lastTime: -8584639974646532725
+    m_lastTime: -8584633304855924217
     List:
     - name: pauseAll
       guid: 84b21f44472ce446a2e00ffd6bf59c37
@@ -433,6 +433,23 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: startEntranceHall
+      guid: e6f81958ffa8094d87a3121eb1a40402
+      id: 4015453144
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 05760e8b89de3649adde474e0d5001d7
+      - ElementName: startEntranceHall
+        ObjectType: 3
+        guid: e6f81958ffa8094d87a3121eb1a40402
+      Path: Events/Default Work Unit/startEntranceHall
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: stopInstrumentFX
       guid: f5345614ba58c84ea6422f59a6d133a2
       id: 3820804860
@@ -569,8 +586,74 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit
     guid: b0e00b1ac79152458f2bacb892dce628
     GuidInternal: 
-    m_lastTime: -8584641060085322260
-    List: []
+    m_lastTime: -8584633001597641216
+    List:
+    - name: EntranceHall_States
+      guid: d4a7e92acccac14e9d95fbd8a94000ea
+      id: 1786189059
+      PathAndIcons:
+      - ElementName: States
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: b0e00b1ac79152458f2bacb892dce628
+      - ElementName: EntranceHall_States
+        ObjectType: 9
+        guid: d4a7e92acccac14e9d95fbd8a94000ea
+      Path: States/Default Work Unit/EntranceHall_States
+      values:
+      - name: Base
+        guid: 965931cff31a2e449fe42d48b67c6864
+        id: 1291433366
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: b0e00b1ac79152458f2bacb892dce628
+        - ElementName: EntranceHall_States
+          ObjectType: 9
+          guid: d4a7e92acccac14e9d95fbd8a94000ea
+        - ElementName: Base
+          ObjectType: 8
+          guid: 965931cff31a2e449fe42d48b67c6864
+      - name: None
+        guid: 20edc20e8937ae408777a852b301e348
+        id: 748895195
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: b0e00b1ac79152458f2bacb892dce628
+        - ElementName: EntranceHall_States
+          ObjectType: 9
+          guid: d4a7e92acccac14e9d95fbd8a94000ea
+        - ElementName: None
+          ObjectType: 8
+          guid: 20edc20e8937ae408777a852b301e348
+      - name: Puzzle01
+        guid: 712d1671bb7cf94e8d040f14edf54a4f
+        id: 3267866964
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: b0e00b1ac79152458f2bacb892dce628
+        - ElementName: EntranceHall_States
+          ObjectType: 9
+          guid: d4a7e92acccac14e9d95fbd8a94000ea
+        - ElementName: Puzzle01
+          ObjectType: 8
+          guid: 712d1671bb7cf94e8d040f14edf54a4f
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
   SwitchWwu:
   - PhysicalPath: Switches/Default Work Unit.wwu
     PathAndIcons:
@@ -597,10 +680,66 @@ MonoBehaviour:
     ParentPath: Triggers/Default Work Unit
     guid: bfc0f46ffc2ba549bc802ff6fe293cfd
     GuidInternal: 
-    m_lastTime: -8584641060085301684
-    List: []
+    m_lastTime: -8584633040172318188
+    List:
+    - name: EntrancePuzzleComplete01
+      guid: 5f5b96bccd7d044f9a1c5a8610dd3c6b
+      id: 4134073719
+      PathAndIcons:
+      - ElementName: Triggers
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: bfc0f46ffc2ba549bc802ff6fe293cfd
+      - ElementName: EntrancePuzzleComplete01
+        ObjectType: 14
+        guid: 5f5b96bccd7d044f9a1c5a8610dd3c6b
+      Path: Triggers/Default Work Unit/EntrancePuzzleComplete01
+    - name: EntrancePuzzleComplete02
+      guid: 6cbebe082d90c545936eb2b336f4aa3d
+      id: 4134073716
+      PathAndIcons:
+      - ElementName: Triggers
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: bfc0f46ffc2ba549bc802ff6fe293cfd
+      - ElementName: EntrancePuzzleComplete02
+        ObjectType: 14
+        guid: 6cbebe082d90c545936eb2b336f4aa3d
+      Path: Triggers/Default Work Unit/EntrancePuzzleComplete02
+    - name: EntrancePuzzleComplete03
+      guid: d18ff1ea63f7cc4ba83e11a465b2bdd3
+      id: 4134073717
+      PathAndIcons:
+      - ElementName: Triggers
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: bfc0f46ffc2ba549bc802ff6fe293cfd
+      - ElementName: EntrancePuzzleComplete03
+        ObjectType: 14
+        guid: d18ff1ea63f7cc4ba83e11a465b2bdd3
+      Path: Triggers/Default Work Unit/EntrancePuzzleComplete03
+    - name: EntrancePuzzleComplete04
+      guid: 0b1b1a1364182045965fa63ff64cf054
+      id: 4134073714
+      PathAndIcons:
+      - ElementName: Triggers
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: bfc0f46ffc2ba549bc802ff6fe293cfd
+      - ElementName: EntrancePuzzleComplete04
+        ObjectType: 14
+        guid: 0b1b1a1364182045965fa63ff64cf054
+      Path: Triggers/Default Work Unit/EntrancePuzzleComplete04
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0500000006000000070000000b0000000c00000014000000150000001600000022000000230000002800000029000000
+  ExpandedWaapiItemIds: 05000000070000000b0000000c0000001400000015000000160000002200000023000000260000002700000028000000290000005a0000005b0000005c000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

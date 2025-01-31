@@ -1,3 +1,11 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	1786189059	EntranceHall_States			\Default Work Unit\EntranceHall_States	
+
+State	ID	Name	State Group			Notes
+	748895195	None	EntranceHall_States			
+	1291433366	Base	EntranceHall_States			
+	3267866964	Puzzle01	EntranceHall_States			
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	399092848	volumeSFX			\Default Work Unit\volumeSFX	
 	3923584592	volumeMusic			\Default Work Unit\volumeMusic	

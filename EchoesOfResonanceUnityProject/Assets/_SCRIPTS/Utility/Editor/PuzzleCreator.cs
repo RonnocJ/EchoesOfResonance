@@ -1,104 +1,120 @@
-using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework.Internal;
 using UnityEditor;
 using UnityEngine;
-
 public class PuzzleCreator : MonoBehaviour
 {
     [MenuItem("Utilities/Generate New Puzzle")]
     static void CreateNewPuzzle()
     {
+
+        Transform plate = null;
+
+        Selection.transforms.ToList().ForEach(tr =>
+        {
+            if (tr.GetComponent<PuzzlePlate>() != null) plate = tr;
+        });
+
+        if (plate == null)
+        {
+            Debug.LogError("Puzzle Plate not selected!");
+            return;
+        }
+
         PuzzleData newPuzzle = ScriptableObject.CreateInstance<PuzzleData>();
         string assetPath = AssetDatabase.GenerateUniqueAssetPath($"Assets/Resources/Objects/NewPuzzleData.asset");
         AssetDatabase.CreateAsset(newPuzzle, assetPath);
 
-        SetPositions(newPuzzle, CheckSelection());
+        plate.GetComponent<PuzzlePlate>().linkedData = newPuzzle;
     }
 
     [MenuItem("Utilities/Update Existing Puzzle")]
     static void UpdateExistingPuzzle()
     {
-        PuzzleData selectedPuzzle = null;
-
-        Selection.objects.ToList().ForEach(obj => { if (obj is PuzzleData puzzle) selectedPuzzle = puzzle; });
-
-        if (selectedPuzzle == null)
-        {
-            Debug.LogError("Please select a PuzzleData ScriptableObject in the Project window!");
-            return;
-        }
-
-        SetPositions(selectedPuzzle, CheckSelection());
-    }
-
-    static List<Transform> CheckSelection()
-    {
-        bool allGems = true;
-        List<Transform> gems = new();
+        Transform plate = null;
 
         Selection.transforms.ToList().ForEach(tr =>
         {
-            if (tr.GetComponent<Gem>() == null) allGems = false;
-            else gems.Add(tr);
+            if (tr.GetComponent<PuzzlePlate>() != null) plate = tr;
         });
 
-        if (!allGems || Selection.transforms.Length == 0)
+        if (plate == null)
         {
-            Debug.LogError("Please only select gem objects in the Scene!");
-            return null;
-        }
-
-        return gems;
-    }
-
-    static void SetPositions(PuzzleData puzzle, List<Transform> gems)
-    {
-        puzzle.solutions = new PuzzleData.SolutionData[gems.Count];
-
-        for (int i = 0; i < gems.Count; i++)
-        {
-            PuzzleData.SolutionData solution = new PuzzleData.SolutionData();
-
-            solution.gemTransform = new TrData
-            {
-                position = gems[i].localPosition,
-                rotation = gems[i].rotation.eulerAngles,
-                scale = gems[i].localScale
-            };
-
-            puzzle.solutions[i] = solution;
-        }
-
-        EditorUtility.SetDirty(puzzle);
-        AssetDatabase.SaveAssets();
-    }
-    [MenuItem("Utilities/Apply Gem Color and Shape")]
-    static void ApplyGemCoS()
-    {
-        PuzzleData selectedPuzzle = null;
-
-        Selection.objects.ToList().ForEach(obj => { if (obj is PuzzleData puzzle) selectedPuzzle = puzzle; });
-
-        if (selectedPuzzle == null)
-        {
-            Debug.LogError("Please select a PuzzleData ScriptableObject in the Project window!");
+            Debug.LogError("Puzzle Plate not selected!");
             return;
         }
 
-        var gems = CheckSelection();
+        PuzzleData data = null;
+        Selection.objects.ToList().ForEach(obj => { if (obj is PuzzleData puzzle) data = puzzle; });
 
-        if (gems.Count != selectedPuzzle.solutions.Length)
+        if (data == null)
         {
-            Debug.LogError($"Gem selection does not match solutions within the selected Scriptable Object! Please update the object first. There are {gems.Count} gems and {selectedPuzzle.solutions.Length} items in the object");
+            Debug.LogError("Puzzle Scriptable Object not selected!");
+            return;
         }
-        else
+
+        plate.GetComponent<PuzzlePlate>().linkedData = data;
+
+        var gems = plate.GetComponentsInChildren<Gem>();
+
+        if (gems == null || gems.Length != data.solutions.Length)
         {
-            for (int i = 0; i < gems.Count; i++)
+            Debug.LogError($"Mistmatch between gem objects and expected gems. The plate has {gems.Length} gems as children, but was expecting {data.solutions.Length} gems");
+            return;
+        }
+
+        for (int i = 0; i < gems.Length; i++)
+        {
+            float newNoteFloat = PuzzleUtilities.root.GetNoteNumber(data.solutions[i]);
+            gems[i].transform.GetChild(0).GetComponent<MeshFilter>().mesh = DH.Get<GlobalGemData>().gemMeshes[((int)newNoteFloat - 1) % 5];
+
+            var gemMat = new Material(gems[i].transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial);
+            gems[i].transform.GetChild(0).GetComponent<MeshRenderer>().material = gemMat;
+
+            gemMat.SetColor("_gemColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)]);
+            gems[i].gemMat = gemMat;
+
+            if (PrefabUtility.IsPartOfAnyPrefab(gems[i].gameObject))
+                PrefabUtility.UnpackPrefabInstance(gems[i].gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
+        }
+
+        plate.GetComponent<PuzzlePlate>().gems = gems;
+
+        var puzzles = plate.GetComponentsInChildren<BasicPuzzle>();
+
+        if (puzzles != null)
+        {
+            plate.GetComponent<PuzzlePlate>().linkedPuzzles = puzzles;
+
+            foreach (var p in puzzles)
             {
-                float newNoteFloat = PuzzleManager.root.GetNoteNumber(selectedPuzzle.solutions[i].correctNote);
-                gems[i].GetChild(0).GetComponent<MeshFilter>().mesh = GlobalGemData.root.gemMeshes[((int)newNoteFloat - 1) % 5];
-                gems[i].GetChild(0).GetComponent<MeshRenderer>().material.SetColor("_BaseColor", GlobalGemData.root.gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)]);
+                p.linkedData = data;
+
+                if (PrefabUtility.IsPartOfAnyPrefab(p.gameObject))
+                    PrefabUtility.UnpackPrefabInstance(p.gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
+
+                switch (p)
+                {
+                    case DoorManager door:
+
+                        break;
+
+                    case TorchManager torch:
+
+                        torch.flameParticle = torch.transform.GetChild(0).GetComponent<ParticleSystem>();
+                        torch.glowParticle = torch.transform.GetChild(1).GetComponent<ParticleSystem>();
+
+                        torch.torchLight = torch.transform.GetChild(2).GetComponent<Light>();
+                        torch.torchLight.enabled = false;
+
+                        break;
+                }
             }
         }
+
+        if (PrefabUtility.IsPartOfAnyPrefab(plate.gameObject))
+            PrefabUtility.UnpackPrefabInstance(plate.gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
+
+        Debug.Log("Puzzle updated successfully!");
     }
 }

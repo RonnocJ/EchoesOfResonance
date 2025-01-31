@@ -9,7 +9,8 @@ public enum ActionTypes
     KeyUp,
     ModwheelChange,
     PitchbendChange,
-    Settings
+    Settings,
+    KeyHoldToggle
 }
 [Serializable]
 public class ActionData
@@ -28,55 +29,45 @@ public class InputManager : Singleton<InputManager>
     [HideInInspector]
     public bool usingMidiKeyboard, usingEscKey, settingsToggleState;
     [SerializeField] private InputActionAsset keyInputs;
-    private bool checkingKeys, verticalArrowHeld;
+    private bool checkingKeys, keyToggle, verticalArrowHeld;
     public float arrowInput, arrowDirection;
-    private HashSet<Key> heldKeys = new();
+    private HashSet<float> heldNotes = new();
+    private float heldNote;
+    private Key lastKey, lastNum;
     private List<IInputScript> inputs = new List<IInputScript>();
     private Dictionary<ActionTypes, ActionData> actionDict = new Dictionary<ActionTypes, ActionData>();
     private MidiDevice midiController;
     private Melanchall.DryWetMidi.Multimedia.IInputDevice midiPitchController;
+    private Dictionary<Key, float> numberOctaveMapping = new Dictionary<Key, float>
+{
+    { Key.Digit1, 0f },
+    { Key.Digit2, 1f },
+    { Key.Digit3, 2f },
+    { Key.Digit4, 3f },
+    { Key.Digit5, 4f },
+};
     private Dictionary<Key, float> keyNoteMapping = new Dictionary<Key, float>
 {
-    { Key.Q, 1f },
-    { Key.W, 2f },
-    { Key.E, 3f },
-    { Key.R, 4f },
-    { Key.T, 5f },
-    { Key.Y, 6f },
-    { Key.U, 7f },
-    { Key.I, 8f },
-    { Key.O, 9f },
-    { Key.A, 10f },
-    { Key.S, 11f },
-    { Key.D, 12f },
-    { Key.F, 13f },
-    { Key.G, 14f },
-    { Key.H, 15f },
-    { Key.J, 16f },
-    { Key.K, 17f },
-    { Key.L, 18f },
-    { Key.Z, 19f },
-    { Key.X, 20f },
-    { Key.C, 21f },
-    { Key.V, 22f },
-    { Key.B, 23f },
-    { Key.N, 24f },
-    { Key.M, 25f },
+    { Key.A, 1f },
+    { Key.S, 2f },
+    { Key.D, 3f },
+    { Key.F, 4f },
+    { Key.G, 5f },
 };
 
     void Start()
     {
-        if (!TestOverrides.root.ignoreMidi)
+        if (!DH.Get<TestOverrides>().ignoreMidi)
         {
             usingMidiKeyboard = false;
             InputSystem.onDeviceChange += (device, change) =>
             {
                 if (change != InputDeviceChange.Added) return;
-    
+
                 midiController = device as MidiDevice;
                 midiPitchController = Melanchall.DryWetMidi.Multimedia.InputDevice.GetByIndex(0);
                 midiPitchController.StartEventsListening();
-    
+
                 if (midiController == null) return;
                 usingMidiKeyboard = true;
                 InitializeActions();
@@ -196,12 +187,36 @@ public class InputManager : Singleton<InputManager>
             map.FindAction("KeyUp").performed += _ =>
             {
                 checkingKeys = false;
-                foreach (var key in keyNoteMapping.Keys)
+
+                if (!keyToggle)
                 {
-                    var keyControl = Keyboard.current[key];
-                    if (keyControl.wasReleasedThisFrame && heldKeys.Remove(key))
-                        actionDict[ActionTypes.KeyUp].actionEvent.Invoke(keyNoteMapping[key]);
+                    if (heldNote > 0)
+                    {
+                        actionDict[ActionTypes.KeyUp].actionEvent.Invoke(heldNote);
+                        heldNote = 0;
+                    }
+
+                    lastKey = Key.None;
+                    lastNum = Key.None;
                 }
+
+            };
+
+            map.FindAction("Toggle").performed += _ =>
+            {
+                keyToggle = !keyToggle;
+
+                if (!keyToggle)
+                {
+                    foreach (float note in heldNotes)
+                    {
+                        actionDict[ActionTypes.KeyUp].actionEvent.Invoke(note);
+                    }
+                    heldNotes.Clear();
+                }
+
+                lastNum = Key.None;
+                lastKey = Key.None;
             };
 
             map.FindAction("ArrowVertical").performed += amount =>
@@ -263,18 +278,73 @@ public class InputManager : Singleton<InputManager>
     {
         if (checkingKeys)
         {
-            foreach (var key in keyNoteMapping.Keys)
+            if (keyToggle)
             {
-                var keyControl = Keyboard.current[key];
-                if (
-                    keyControl.wasPressedThisFrame &&
-                    Enum.TryParse(keyControl.keyCode.ToString(), out Key heldKey) &&
-                    heldKeys.Add(heldKey)
-                )
-                    actionDict[ActionTypes.KeyDown].actionEvent.Invoke(keyNoteMapping[key]);
+                foreach (var num in numberOctaveMapping.Keys)
+                {
+                    var keyControl = Keyboard.current[num];
+                    if (keyControl.wasPressedThisFrame && Enum.TryParse(keyControl.keyCode.ToString(), out Key heldNum))
+                        lastNum = heldNum;
+                }
+                foreach (var key in keyNoteMapping.Keys)
+                {
+                    var keyControl = Keyboard.current[key];
+                    if (keyControl.wasPressedThisFrame && Enum.TryParse(keyControl.keyCode.ToString(), out Key heldKey))
+                        lastKey = heldKey;
+                }
 
-                else if (keyControl.wasReleasedThisFrame && heldKeys.Remove(key))
-                    actionDict[ActionTypes.KeyUp].actionEvent.Invoke(keyNoteMapping[key]);
+                if (lastNum != Key.None && lastKey != Key.None)
+                {
+                    if (heldNotes.Remove(numberOctaveMapping[lastNum] * 5 + keyNoteMapping[lastKey]))
+                    {
+                        actionDict[ActionTypes.KeyUp].actionEvent.Invoke(numberOctaveMapping[lastNum] * 5 + keyNoteMapping[lastKey]);
+                        lastNum = Key.None;
+                        lastKey = Key.None;
+
+                    }
+                    else if (heldNotes.Add(numberOctaveMapping[lastNum] * 5 + keyNoteMapping[lastKey]))
+                    {
+                        actionDict[ActionTypes.KeyDown].actionEvent.Invoke(numberOctaveMapping[lastNum] * 5 + keyNoteMapping[lastKey]);
+                        lastNum = Key.None;
+                        lastKey = Key.None;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var num in numberOctaveMapping.Keys)
+                {
+                    var keyControl = Keyboard.current[num];
+                    if (keyControl.wasPressedThisFrame && Enum.TryParse(keyControl.keyCode.ToString(), out Key heldNum))
+                        lastNum = heldNum;
+                    else if (keyControl.wasReleasedThisFrame && lastNum == num)
+                        lastNum = Key.None;
+                }
+                foreach (var key in keyNoteMapping.Keys)
+                {
+                    var keyControl = Keyboard.current[key];
+                    if (keyControl.wasPressedThisFrame && Enum.TryParse(keyControl.keyCode.ToString(), out Key heldKey))
+                        lastKey = heldKey;
+                    else if (keyControl.wasReleasedThisFrame && lastNum == key)
+                        lastKey = Key.None;
+                }
+
+                if (lastNum != Key.None && lastKey != Key.None)
+                {
+                    if (heldNote != numberOctaveMapping[lastNum] * 5 + keyNoteMapping[lastKey])
+                    {
+                        if(heldNote > 0)
+                            actionDict[ActionTypes.KeyUp].actionEvent.Invoke(heldNote);
+                            
+                        actionDict[ActionTypes.KeyDown].actionEvent.Invoke(numberOctaveMapping[lastNum] * 5 + keyNoteMapping[lastKey]);
+                        heldNote = numberOctaveMapping[lastNum] * 5 + keyNoteMapping[lastKey];
+                    }
+                }
+                else if (heldNote > 0)
+                {
+                    actionDict[ActionTypes.KeyUp].actionEvent.Invoke(heldNote);
+                    heldNote = 0;
+                }
             }
         }
 
@@ -393,12 +463,19 @@ public class InputManager : Singleton<InputManager>
                 map.FindAction("KeyUp").performed -= _ =>
                 {
                     checkingKeys = false;
-                    foreach (var key in keyNoteMapping.Keys)
+
+                    if (!keyToggle)
                     {
-                        var keyControl = Keyboard.current[key];
-                        if (keyControl.wasReleasedThisFrame && heldKeys.Remove(key))
-                            actionDict[ActionTypes.KeyUp].actionEvent.Invoke(keyNoteMapping[key]);
+                        if (heldNote > 0)
+                        {
+                            actionDict[ActionTypes.KeyUp].actionEvent.Invoke(heldNote);
+                            heldNote = 0;
+                        }
+
+                        lastKey = Key.None;
+                        lastNum = Key.None;
                     }
+
                 };
 
                 map.FindAction("ArrowVertical").performed -= amount =>

@@ -8,9 +8,9 @@ public class TitleSequence : MonoBehaviour, IInputScript
     [TextArea(5, 5)]
     [SerializeField] private string openingCreditText, titleScreenText;
     [SerializeField] private Animator broadcasterAnim;
-    [SerializeField] private GameObject broadcasterInfo;
+    [SerializeField] private GameObject broadcasterInfo, musicManager;
     [SerializeField] private PuzzleData finalPuzzle;
-    [SerializeField] GameHints hintManager;
+    [SerializeField] private GameHints hintManager;
     [SerializeField] private TempleManager templeManager;
     [SerializeField] private AK.Wwise.Event beep, bloop, plunk, playMainMusic, stopMainMusic;
     private TextMeshProUGUI titleCreditTextManager, titleScreenTextManager;
@@ -28,7 +28,7 @@ public class TitleSequence : MonoBehaviour, IInputScript
         beginButton.enabled = false;
         broadcasterInfo.SetActive(false);
 
-        if (TestOverrides.root.skipIntro)
+        if (DH.Get<TestOverrides>().skipIntro && DH.Get<TestOverrides>().ignoreMidi)
             ToGameplay(13);
     }
 
@@ -64,7 +64,7 @@ public class TitleSequence : MonoBehaviour, IInputScript
 
         plunk.Post(gameObject);
         titleCreditTextManager.text = "";
-        titleRoutine = StartCoroutine(PlayTitleScreen());
+        CRManager.root.Begin(PlayTitleScreen(), "PlayTitleScreen", this);
     }
     IEnumerator PlayTitleScreen()
     {
@@ -78,34 +78,22 @@ public class TitleSequence : MonoBehaviour, IInputScript
             yield return new WaitForSeconds(beginButton.enabled ? buttonSpeed * 1.5f : buttonSpeed);
         }
     }
-    void ToGameplay(float newNote)
+    [AllowedStates(GameState.Title)]
+    public void ToGameplay(float newNote)
     {
-        if (GameManager.root.currentState == GameState.Title && titleRoutine != null)
+        CRManager.root.Stop("PlayTitleScreen", this);
+        broadcasterAnim.SetTrigger("toGameplay");
+
+        musicManager.SetActive(true);
+
+        broadcasterInfo.SetActive(true);
+        gameObject.SetActive(false);
+        GameManager.root.currentState = GameState.Roaming;
+
+        if (!DH.Get<TestOverrides>().skipIntro)
         {
-            broadcasterAnim.SetTrigger("toGameplay");
-            playMainMusic.Post(gameObject);
 
-            StopAllCoroutines();
-
-            hintManager.StartCoroutine(hintManager.ShowHints());
-
-            broadcasterInfo.SetActive(true);
-            gameObject.SetActive(false);
+            CRManager.root.Begin(hintManager.ShowHints(), "ShowHints", hintManager);
         }
-        else if (TestOverrides.root.skipIntro)
-        {
-            broadcasterAnim.SetTrigger("toGameplay");
-
-            StopAllCoroutines();
-            
-            broadcasterInfo.SetActive(true);
-            gameObject.SetActive(false);
-            GameManager.root.currentState = GameState.Roaming;
-        }
-    }
-
-    public void EndMusic()
-    {
-        stopMainMusic.Post(gameObject);
     }
 }

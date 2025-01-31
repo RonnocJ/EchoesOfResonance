@@ -1,9 +1,18 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Objects/Audio/MusicTracker", order = 1)]
 public class MusicTracker : ScriptableObject
 {
     public AK.Wwise.Event musicEvent;
+    public UnityEvent playMusic;
+    [Serializable]
+    public class MusicState
+    {
+        public AK.Wwise.State musicState;
+        public Event setState;
+    }
+    public MusicState[] states;
     public int beat;
     public int bar;
     public int grid;

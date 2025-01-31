@@ -87,7 +87,7 @@ public class Broadcaster : Singleton<Broadcaster>, IInputScript
         frequency = 2 + (lastNotePlayed * 0.32f);
         speed = 1 + (lastNotePlayed * 0.36f);
 
-        noteInfoText.text = PuzzleManager.root.GetNoteName(lastNotePlayed);
+        noteInfoText.text = PuzzleUtilities.root.GetNoteName(lastNotePlayed);
 
         CRManager.root.Restart(DrainBatteryRoutine(noteSustainDrainAmount * notesHeld), "DrainBatteryNote", this);
     }
@@ -129,19 +129,7 @@ public class Broadcaster : Singleton<Broadcaster>, IInputScript
     {
         if (modInput > 0.2f)
         {
-            List<Gem> currentGems = new List<Gem>();
-
-            if (!PuzzleManager.root.currentPuzzle.hasOrphans)
-            {
-                foreach (var b in PuzzleManager.root.currentPuzzleBehaviors)
-                {
-                    currentGems.AddRange(b.GetComponentsInChildren<Gem>());
-                }
-            }
-            else
-            {
-                currentGems.AddRange(PuzzleManager.root.currentPuzzleBehaviors[0].orphanParent.GetComponentsInChildren<Gem>());
-            }
+            List<Gem> currentGems = GameManager.root.currentPlate.gems.ToList();
 
             if (gemTarget == null || newPitch != 0f)
             {
@@ -150,16 +138,16 @@ public class Broadcaster : Singleton<Broadcaster>, IInputScript
                 gemLaser.enabled = true;
                 gemLaserParticle.Play();
 
-                if (notesHeld == 0 && gemNoteName != PuzzleManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()].correctNote)
+                if (notesHeld == 0 && gemNoteName != GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()])
                 {
-                    gemNoteName = PuzzleManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()].correctNote;
-                    gemNoteNumber = PuzzleManager.root.GetNoteNumber(gemNoteName);
+                    gemNoteName = GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()];
+                    gemNoteNumber = PuzzleUtilities.root.GetNoteNumber(gemNoteName);
                     CRManager.root.Begin(FindGemRoutine(), "FindGem", this);
                     CRManager.root.Begin(DrainBatteryRoutine(modInput * 0.5f), "DrainBatteryFinder", this);
                 }
-                else if (notesHeld > 0 && noteInfoText.text != PuzzleManager.root.GetNoteName(lastNotePlayed))
+                else if (notesHeld > 0 && noteInfoText.text != PuzzleUtilities.root.GetNoteName(lastNotePlayed))
                 {
-                    noteInfoText.text = PuzzleManager.root.GetNoteName(lastNotePlayed);
+                    noteInfoText.text = PuzzleUtilities.root.GetNoteName(lastNotePlayed);
                 }
             }
         }
@@ -167,7 +155,7 @@ public class Broadcaster : Singleton<Broadcaster>, IInputScript
         {
             DisableFinder();
 
-            noteInfoText.text = (notesHeld > 0) ? PuzzleManager.root.GetNoteName(lastNotePlayed) : "";
+            noteInfoText.text = (notesHeld > 0) ? PuzzleUtilities.root.GetNoteName(lastNotePlayed) : "";
         }
     }
     Transform FindClosestGem(Vector3 position, List<Gem> gems)
@@ -207,7 +195,7 @@ public class Broadcaster : Singleton<Broadcaster>, IInputScript
                     gemNoteNumber + (6 * Mathf.Abs(1 - modInput))
                 ));
                 fakeNoteNumber = Mathf.Clamp(fakeNoteNumber, 1, 25);
-                noteInfoText.text = PuzzleManager.root.GetNoteName(fakeNoteNumber);
+                noteInfoText.text = PuzzleUtilities.root.GetNoteName(fakeNoteNumber);
                 yield return new WaitForSeconds(gemFinderMinSpeed + (Mathf.Abs(1 - modInput) * gemFinderSpeedScale));
             }
         }

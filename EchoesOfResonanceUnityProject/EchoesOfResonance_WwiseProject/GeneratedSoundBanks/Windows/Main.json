@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{11F8CFB0-AE41-4B88-8087-4ADA5710DCBC}",
     "Language": "SFX",
-    "Hash": "{C6B96660-D9D9-67A4-A9AC-A4FB5C69082D}",
+    "Hash": "{6FB995F9-74DE-AD1C-DC09-415C6B44F77C}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -30,6 +30,14 @@
       "Location": "Memory",
       "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 2.wav",
       "CachePath": "88/{88FC0176-E2C4-66C6-8754-07768BC84A56}.wem"
+     },
+     {
+      "Id": "23966850",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Layer01.wav",
+      "CachePath": "14/{14FABA60-6AAA-2EE2-7B51-383C9BBF84A2}.wem"
      },
      {
       "Id": "25129230",
@@ -70,6 +78,14 @@
       "Location": "Memory",
       "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 5.wav",
       "CachePath": "35/{358C784E-FF2D-C426-4E58-7F811994DC34}.wem"
+     },
+     {
+      "Id": "102335938",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Stinger04.wav",
+      "CachePath": "9D/{9D53A5C6-56DB-9A11-CBD4-574BEF0FA459}.wem"
      },
      {
       "Id": "126475547",
@@ -168,6 +184,14 @@
       "CachePath": "17/{17F4F44A-B141-3D79-C371-1F259966AA49}.wem"
      },
      {
+      "Id": "297333489",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Stinger01.wav",
+      "CachePath": "A0/{A0B31018-13DD-9A02-67A1-794444DBB5A3}.wem"
+     },
+     {
       "Id": "313485624",
       "Language": "SFX",
       "Streaming": "false",
@@ -206,6 +230,22 @@
       "Location": "Memory",
       "ShortName": "Soundly Audio\\Communications, Static, Television, Buzz, Noise 01 SND103982 1.wav",
       "CachePath": "2F/{2F5A3EE5-EBE2-F428-32CD-1A9CF3B28608}.wem"
+     },
+     {
+      "Id": "422257837",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHallBase.wav",
+      "CachePath": "17/{178A44C3-9D36-BE7D-032D-167A0C40F529}.wem"
+     },
+     {
+      "Id": "429472023",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Stinger03.wav",
+      "CachePath": "5E/{5E545609-BB7E-3BF7-62AF-24B11F8BDA42}.wem"
      },
      {
       "Id": "456898177",
@@ -303,6 +343,14 @@
       "Location": "Memory",
       "ShortName": "Soundly Audio\\Ambience, Designed, Abandoned City Soundscape, Wind, Drone In C 01 SND65645.wav",
       "CachePath": "50/{50777B60-1FBE-2338-5F12-8C86C9CB60CC}.wem"
+     },
+     {
+      "Id": "664330545",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Stinger02.wav",
+      "CachePath": "92/{92F61F5A-9051-1891-BD82-DC7AC7BBF1CC}.wem"
      },
      {
       "Id": "706874511",
@@ -927,6 +975,33 @@
       "DurationMax": "0"
      },
      {
+      "Id": "4015453144",
+      "Name": "startEntranceHall",
+      "ObjectPath": "\\Events\\Default Work Unit\\startEntranceHall",
+      "GUID": "{5819F8E6-A8FF-4D09-87A3-121EB1A40402}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "23966850"
+       },
+       {
+        "Id": "102335938"
+       },
+       {
+        "Id": "297333489"
+       },
+       {
+        "Id": "422257837"
+       },
+       {
+        "Id": "429472023"
+       },
+       {
+        "Id": "664330545"
+       }
+      ]
+     },
+     {
       "Id": "3820804860",
       "Name": "stopInstrumentFX",
       "ObjectPath": "\\Events\\Default Work Unit\\stopInstrumentFX",
@@ -974,9 +1049,35 @@
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\midiPitch",
       "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
      }
+    ],
+    "Triggers": [
+     {
+      "Id": "4134073714",
+      "Name": "EntrancePuzzleComplete04",
+      "ObjectPath": "\\Triggers\\Default Work Unit\\EntrancePuzzleComplete04",
+      "GUID": "{131A1B0B-1864-4520-965F-A63FF64CF054}"
+     },
+     {
+      "Id": "4134073716",
+      "Name": "EntrancePuzzleComplete02",
+      "ObjectPath": "\\Triggers\\Default Work Unit\\EntrancePuzzleComplete02",
+      "GUID": "{08BEBE6C-902D-45C5-936E-B2B336F4AA3D}"
+     },
+     {
+      "Id": "4134073717",
+      "Name": "EntrancePuzzleComplete03",
+      "ObjectPath": "\\Triggers\\Default Work Unit\\EntrancePuzzleComplete03",
+      "GUID": "{EAF18FD1-F763-4BCC-A83E-11A465B2BDD3}"
+     },
+     {
+      "Id": "4134073719",
+      "Name": "EntrancePuzzleComplete01",
+      "ObjectPath": "\\Triggers\\Default Work Unit\\EntrancePuzzleComplete01",
+      "GUID": "{BC965B5F-7DCD-4F04-9A1C-5A8610DD3C6B}"
+     }
     ]
    }
   ],
-  "FileHash": "{FE987361-C4CB-C5F1-2436-434A52D51D01}"
+  "FileHash": "{09235C58-9277-491A-078D-8874FB8CDD96}"
  }
 }

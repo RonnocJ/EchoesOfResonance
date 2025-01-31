@@ -3,21 +3,20 @@ using UnityEngine;
 public class Gem : MonoBehaviour
 {
     [HideInInspector]
-public bool gemLit;
-    private Material gemMat;
+    public bool gemLit;
+    public Material gemMat;
     void Awake()
     {
-        gemMat = transform.GetChild(0).GetComponent<MeshRenderer>().material;
-        gemMat.SetColor("_EmissionColor", Vector4.zero);
+        gemMat.SetColor("_glowColor", Vector4.zero);
     }
     public void LightOn()
     {
         gemLit = true;
-        gemMat.SetColor("_EmissionColor", gemMat.color * 50);
+        gemMat.SetColor("_glowColor", gemMat.GetColor("_gemColor") * 5);
     }
     public void LightOff()
     {
         gemLit = false;
-        gemMat.SetColor("_EmissionColor", Vector4.zero);
+        gemMat.SetColor("_glowColor", Vector4.zero);
     }
 }
