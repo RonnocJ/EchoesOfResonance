@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{CB235CCA-98A1-41EF-9D62-E1B852266103}" SchemaVersion="123" RootDocumentID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}" ParentDocumentID="{6B5323F9-469B-4BF4-AD7A-17B26BC0E375}">
+	<Triggers>
+		<WorkUnit Name="IntroBridge" ID="{CB235CCA-98A1-41EF-9D62-E1B852266103}" OwnerID="{6B5323F9-469B-4BF4-AD7A-17B26BC0E375}" PersistMode="Nested">
+			<ChildrenList>
+				<Trigger Name="BridgeCrossing01" ID="{A11DA1BA-004B-4193-92E5-5AFC9CFE9CE9}"/>
+				<Trigger Name="BridgeCrossing02" ID="{C1A74C5A-33E1-4AA9-9CD8-FB3469F00FCA}"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Triggers>
+</WwiseDocument>

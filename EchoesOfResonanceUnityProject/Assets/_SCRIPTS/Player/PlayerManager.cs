@@ -1,29 +1,31 @@
-using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
-public class PlayerManager : Singleton<PlayerManager>, IInputScript
+public class PlayerManager : Singleton<PlayerManager>, IInputScript, IBeatListener
 {
     [SerializeField] private float moveSpeed, lookSpeed, bobIntensity, bobSpeed;
-    [SerializeField] private AK.Wwise.Event footstepSound;
-    private bool hasPlayedFootstep;
-    public float moveInput, lookInput, sineTime, baseMoveSpeed;
+    public UnityEvent onFootstep;
+    private bool isGrounded, hasPlayedFootstep;
+    private float moveInput, lookInput, sineTime;
+    private RaycastHit groundHit;
     private Rigidbody rb;
-    private Transform cameraTr, broadcasterTr;
+    private Transform cameraTr;
     void Start()
     {
-        baseMoveSpeed = moveSpeed;
         rb = GetComponent<Rigidbody>();
         cameraTr = transform.GetChild(0);
-        broadcasterTr = cameraTr.GetChild(0);
     }
     public void AddInputs()
     {
         InputManager.root.AddListener<float>(ActionTypes.ModwheelChange, UpdateMoveInput);
         InputManager.root.AddListener<float>(ActionTypes.PitchbendChange, UpdateLookInput);
     }
-    [AllowedStates(GameState.Roaming)]
+    public void SubscribeToMusic()
+    {
+        MusicManager.root.currentSong.AddBeatListener(0.25f, FootstepBeatSync);
+    }
+
+    [AllowedStates(GameState.Roaming, GameState.Shutdown)]
     void UpdateMoveInput(float modInput)
     {
         moveInput = modInput;
@@ -35,21 +37,24 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript
     }
     void Update()
     {
-        if (GameManager.root.currentState != GameState.Final)
+        if (lookInput != 0)
+            transform.localEulerAngles += Vector3.up * lookInput * (InputManager.root.usingMidiKeyboard ? lookSpeed : lookSpeed / 2f) * Time.deltaTime;
+
+        if (GameManager.root.currentState is GameState.Roaming or GameState.Shutdown && moveInput > 0.2f)
         {
-            if (lookInput != 0)
-                transform.localEulerAngles += Vector3.up * lookInput * (InputManager.root.usingMidiKeyboard? lookSpeed : lookSpeed / 2f) * Time.deltaTime;
-    
-            if (GameManager.root.currentState == GameState.Roaming && moveInput > 0.2f)
+            isGrounded = Physics.CheckSphere(transform.position - transform.up * 4, 1.5f);
+
+            if (isGrounded)
             {
-                sineTime += Time.deltaTime * bobSpeed * moveInput;
-                rb.AddForce(transform.forward * moveInput * moveSpeed * Time.deltaTime);
+                sineTime += Time.deltaTime * bobSpeed;
+    
+                rb.AddForce(moveInput * moveSpeed * Time.deltaTime * (OnSlope()? Vector3.ProjectOnPlane(transform.forward, groundHit.normal).normalized * 1.5f : transform.forward.normalized), ForceMode.Acceleration);
                 cameraTr.localPosition = new Vector3(0, Mathf.Abs(moveInput * bobIntensity * Mathf.Sin(sineTime)), 0);
-                broadcasterTr.localPosition = new Vector3(broadcasterTr.localPosition.x, -0.38f + -Mathf.Abs(moveInput * 0.5f * bobIntensity * Mathf.Sin(sineTime)), broadcasterTr.localPosition.z);
     
                 if (transform.GetChild(0).localPosition.y < 0.05f && !hasPlayedFootstep)
                 {
-                    footstepSound.Post(gameObject);
+                    AudioManager.root.PlaySound(AudioEvent.playFootsteps, gameObject);
+                    onFootstep.Invoke();
                     hasPlayedFootstep = true;
                 }
                 else if (transform.GetChild(0).localPosition.y > 0.05f)
@@ -57,23 +62,34 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript
                     hasPlayedFootstep = false;
                 }
             }
-            else
-            {
-                moveInput = 0f;
-                broadcasterTr.localPosition = Vector3.Lerp(broadcasterTr.localPosition, new Vector3(broadcasterTr.localPosition.x, -0.38f, broadcasterTr.localPosition.z), Time.deltaTime * 4f);
-            }
+        }
+        else
+        {
+            moveInput = 0f;
         }
     }
-
-    void OnCollisionEnter(Collision other)
+    bool OnSlope()
     {
-        if(other.collider.name.Contains("Ramp"))
+        if(Physics.Raycast(transform.position, -transform.up, out RaycastHit groundHit, 4))
         {
-            moveSpeed = baseMoveSpeed * 2f;
+            if(groundHit.normal != Vector3.up)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        else if(moveSpeed != baseMoveSpeed)
+        return false;
+    }
+    void FootstepBeatSync(float duration)
+    {
+        if (moveInput > 0.95f && MusicManager.root.currentSong.grid % 1 == 0.25f)
         {
-            moveSpeed = baseMoveSpeed;
+            sineTime = 0;
+            AudioManager.root.PlaySound(AudioEvent.playFootsteps, gameObject);
+            hasPlayedFootstep = true;
         }
     }
 }

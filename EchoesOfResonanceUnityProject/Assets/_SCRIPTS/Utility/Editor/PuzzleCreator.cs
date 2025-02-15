@@ -1,19 +1,16 @@
 using System.Linq;
-using NUnit.Framework.Internal;
 using UnityEditor;
 using UnityEngine;
 public class PuzzleCreator : MonoBehaviour
 {
+    private static Transform plate;
+    private static PuzzleData data;
     [MenuItem("Utilities/Generate New Puzzle")]
     static void CreateNewPuzzle()
     {
+        plate = null;
 
-        Transform plate = null;
-
-        Selection.transforms.ToList().ForEach(tr =>
-        {
-            if (tr.GetComponent<PuzzlePlate>() != null) plate = tr;
-        });
+        plate = GetPlate();
 
         if (plate == null)
         {
@@ -22,14 +19,76 @@ public class PuzzleCreator : MonoBehaviour
         }
 
         PuzzleData newPuzzle = ScriptableObject.CreateInstance<PuzzleData>();
-        string assetPath = AssetDatabase.GenerateUniqueAssetPath($"Assets/Resources/Objects/NewPuzzleData.asset");
+        string assetPath = AssetDatabase.GenerateUniqueAssetPath($"Assets/Resources/Objects/{plate.name}.asset");
         AssetDatabase.CreateAsset(newPuzzle, assetPath);
 
         plate.GetComponent<PuzzlePlate>().linkedData = newPuzzle;
     }
 
-    [MenuItem("Utilities/Update Existing Puzzle")]
-    static void UpdateExistingPuzzle()
+    [MenuItem("Utilities/Update Immoveable Puzzle")]
+    static void UpdateImmoveableExistingPuzzle()
+    {
+        plate = null;
+        data = null;
+
+        plate = GetPlate();
+
+        if (plate == null)
+        {
+            Debug.LogError("Puzzle Plate not selected!");
+            return;
+        }
+
+        data = GetData();
+
+        if (data == null)
+        {
+            Debug.LogError("Puzzle Scriptable Object not selected!");
+            return;
+        }
+
+        SetGems(plate);
+        SetInteractables();
+
+        UnpackPrefab(plate.gameObject);
+
+        Debug.Log("Puzzle updated successfully!");
+    }
+    [MenuItem("Utilities/Update Moveable Puzzle")]
+    static void UpdateMoveableExistingPuzzle()
+    {
+        plate = null;
+        data = null;
+
+        plate = GetPlate();
+
+        if (plate == null)
+        {
+            Debug.LogError("Puzzle Plate not selected!");
+            return;
+        }
+
+        data = GetData();
+
+        if (data == null)
+        {
+            Debug.LogError("Puzzle Scriptable Object not selected!");
+            return;
+        }
+
+        Selection.transforms.ToList().ForEach(tr =>
+        {
+            if (tr.GetComponentsInChildren<Gem>().Length > 0) SetGems(tr);
+        });
+
+        SetInteractables();
+
+        UnpackPrefab(plate.gameObject);
+        
+        Debug.Log("Puzzle updated successfully!");
+    }
+
+    static Transform GetPlate()
     {
         Transform plate = null;
 
@@ -38,24 +97,20 @@ public class PuzzleCreator : MonoBehaviour
             if (tr.GetComponent<PuzzlePlate>() != null) plate = tr;
         });
 
-        if (plate == null)
-        {
-            Debug.LogError("Puzzle Plate not selected!");
-            return;
-        }
+        return plate;
+    }
 
+    static PuzzleData GetData()
+    {
         PuzzleData data = null;
         Selection.objects.ToList().ForEach(obj => { if (obj is PuzzleData puzzle) data = puzzle; });
-
-        if (data == null)
-        {
-            Debug.LogError("Puzzle Scriptable Object not selected!");
-            return;
-        }
-
         plate.GetComponent<PuzzlePlate>().linkedData = data;
+        return data;
+    }
 
-        var gems = plate.GetComponentsInChildren<Gem>();
+    static void SetGems(Transform gemParent)
+    {
+        var gems = gemParent.GetComponentsInChildren<Gem>();
 
         if (gems == null || gems.Length != data.solutions.Length)
         {
@@ -76,30 +131,30 @@ public class PuzzleCreator : MonoBehaviour
 
             if (PrefabUtility.IsPartOfAnyPrefab(gems[i].gameObject))
                 PrefabUtility.UnpackPrefabInstance(gems[i].gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
+
+            gems[i].gameObject.name = $"Gem{data.solutions[i]}_{i}";
         }
 
         plate.GetComponent<PuzzlePlate>().gems = gems;
+    }
+    static void SetInteractables()
+    {
+        var interactables = plate.GetComponentsInChildren<BasicInteractable>();
 
-        var puzzles = plate.GetComponentsInChildren<BasicPuzzle>();
-
-        if (puzzles != null)
+        if (interactables != null)
         {
-            plate.GetComponent<PuzzlePlate>().linkedPuzzles = puzzles;
-
-            foreach (var p in puzzles)
+            foreach (var i in interactables)
             {
-                p.linkedData = data;
+                if (i.IsLinkedWithPuzzle) i.LinkedData = data;
+                UnpackPrefab(i.gameObject);
 
-                if (PrefabUtility.IsPartOfAnyPrefab(p.gameObject))
-                    PrefabUtility.UnpackPrefabInstance(p.gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
-
-                switch (p)
+                switch (i)
                 {
-                    case DoorManager door:
+                    case MoveableObject door:
 
                         break;
 
-                    case TorchManager torch:
+                    case Torch torch:
 
                         torch.flameParticle = torch.transform.GetChild(0).GetComponent<ParticleSystem>();
                         torch.glowParticle = torch.transform.GetChild(1).GetComponent<ParticleSystem>();
@@ -111,10 +166,10 @@ public class PuzzleCreator : MonoBehaviour
                 }
             }
         }
-
-        if (PrefabUtility.IsPartOfAnyPrefab(plate.gameObject))
-            PrefabUtility.UnpackPrefabInstance(plate.gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
-
-        Debug.Log("Puzzle updated successfully!");
+    }
+    static void UnpackPrefab(GameObject obj)
+    {
+        if (PrefabUtility.IsPartOfAnyPrefab(obj))
+            PrefabUtility.UnpackPrefabInstance(obj.gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
     }
 }

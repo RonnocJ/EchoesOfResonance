@@ -7,15 +7,10 @@ public class TitleSequence : MonoBehaviour, IInputScript
     [SerializeField] private float textSpeed, buttonSpeed;
     [TextArea(5, 5)]
     [SerializeField] private string openingCreditText, titleScreenText;
-    [SerializeField] private Animator broadcasterAnim;
-    [SerializeField] private GameObject broadcasterInfo, musicManager;
-    [SerializeField] private PuzzleData finalPuzzle;
-    [SerializeField] private GameHints hintManager;
-    [SerializeField] private TempleManager templeManager;
-    [SerializeField] private AK.Wwise.Event beep, bloop, plunk, playMainMusic, stopMainMusic;
+    [SerializeField] private BrSettings bSettings;
+    [SerializeField] private GameObject broadcasterInfo;
     private TextMeshProUGUI titleCreditTextManager, titleScreenTextManager;
     private Image beginButton;
-    private Coroutine titleRoutine;
 
     void Awake()
     {
@@ -29,7 +24,9 @@ public class TitleSequence : MonoBehaviour, IInputScript
         broadcasterInfo.SetActive(false);
 
         if (DH.Get<TestOverrides>().skipIntro && DH.Get<TestOverrides>().ignoreMidi)
+        {
             ToGameplay(13);
+        }
     }
 
     public void AddInputs()
@@ -39,7 +36,7 @@ public class TitleSequence : MonoBehaviour, IInputScript
 
     public IEnumerator PlayTitleCredits()
     {
-        templeManager.StartAmbiences();
+        AudioManager.root.PlaySound(AudioEvent.playIntroAmbience);
         string displayedText = "";
         yield return new WaitForSeconds(1.25f);
         GameManager.root.currentState = GameState.Title;
@@ -52,7 +49,7 @@ public class TitleSequence : MonoBehaviour, IInputScript
             if (openingCreditText[displayedText.Length - 1].ToString() != " ")
             {
                 yield return new WaitForSeconds(textSpeed);
-                beep.Post(broadcasterAnim.gameObject);
+                AudioManager.root.PlaySound(AudioEvent.playBroadcasterBeep);
             }
             else
             {
@@ -62,7 +59,7 @@ public class TitleSequence : MonoBehaviour, IInputScript
 
         yield return new WaitForSeconds(2f);
 
-        plunk.Post(gameObject);
+        AudioManager.root.PlaySound(AudioEvent.playBroadcasterPlunk);
         titleCreditTextManager.text = "";
         CRManager.root.Begin(PlayTitleScreen(), "PlayTitleScreen", this);
     }
@@ -70,7 +67,7 @@ public class TitleSequence : MonoBehaviour, IInputScript
     {
         yield return new WaitForSeconds(1f);
         titleScreenTextManager.text = titleScreenText;
-        bloop.Post(gameObject);
+        AudioManager.root.PlaySound(AudioEvent.playBroadcasterBloop);
 
         while (GameManager.root.currentState == GameState.Title)
         {
@@ -82,18 +79,9 @@ public class TitleSequence : MonoBehaviour, IInputScript
     public void ToGameplay(float newNote)
     {
         CRManager.root.Stop("PlayTitleScreen", this);
-        broadcasterAnim.SetTrigger("toGameplay");
-
-        musicManager.SetActive(true);
 
         broadcasterInfo.SetActive(true);
         gameObject.SetActive(false);
-        GameManager.root.currentState = GameState.Roaming;
-
-        if (!DH.Get<TestOverrides>().skipIntro)
-        {
-
-            CRManager.root.Begin(hintManager.ShowHints(), "ShowHints", hintManager);
-        }
+        bSettings.OpenSettings(0);
     }
 }

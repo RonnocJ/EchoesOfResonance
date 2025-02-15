@@ -4,6 +4,13 @@
 		<WorkUnit Name="Ambiences" ID="{BE4F72B6-C9FB-4A19-A490-5BE385AFA45F}" OwnerID="{F1BF8B69-C7B3-4076-A3DB-BBE0CC0D91BF}" PersistMode="Nested">
 			<ChildrenList>
 				<BlendContainer Name="IntroAmbience" ID="{D3FE6AD7-D3D5-4285-AD1B-73AD007DFDD7}" ShortID="802724247">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
@@ -463,6 +470,781 @@
 							</Reference>
 						</ObjectList>
 					</ObjectLists>
+				</BlendContainer>
+				<BlendContainer Name="IntroBridgeChoir" ID="{EC4F36BB-53C1-4BFE-9E35-972663724643}" ShortID="50577109">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>4</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="C" ID="{7E3769C0-68D6-4EFF-86E6-0C2FAD262A21}" ShortID="667560430">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="EOR_IntroBridge_SustainC" ID="{C6220A2A-38F2-4736-83A1-03F55C0A012C}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="1"/>
+										<Property Name="LoopBegin" Type="Real64" Value="4"/>
+										<Property Name="LoopEnd" Type="Real64" Value="13.5755531411422"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>EOR_IntroBridge_SustainC.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="781168124"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{A3DE12F9-26B3-4D48-AE34-8032D6514E88}" ShortID="948655188">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Pitch"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{6559ACD8-55FD-44F5-B188-E6452423C154}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>100</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="EOR_IntroBridge_SustainC" ID="{C6220A2A-38F2-4736-83A1-03F55C0A012C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Bb" ID="{C6157635-3B1E-4CB0-A791-3A5FE84F959A}" ShortID="322657329">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-200</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="EOR_IntroBridge_SustainC" ID="{D6307BD0-7286-4FD1-AC1C-ACCE77896C0B}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="1"/>
+										<Property Name="LoopBegin" Type="Real64" Value="4"/>
+										<Property Name="LoopEnd" Type="Real64" Value="9"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>EOR_IntroBridge_SustainC.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="196389406"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{03F8C215-502B-4971-9EFA-57F16C9DBE33}" ShortID="626565077">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_FadeIn" ID="{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{22EF0574-9534-49BF-8F7A-668034173491}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>2</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Exp1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>3</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{D7CBFFAB-16A0-45EE-B60C-6337F8500DFE}" ShortID="183041137">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Pitch"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{DF08054E-8263-4E86-A68B-0F74C6663D49}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>100</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="EOR_IntroBridge_SustainC" ID="{D6307BD0-7286-4FD1-AC1C-ACCE77896C0B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="D" ID="{CE14EBC1-DDF2-4708-A3DD-2ED79DB21C9F}" ShortID="70606602">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>200</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="EOR_IntroBridge_SustainC" ID="{194018C7-4F68-4677-BA6B-FCB9DBF3E69C}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="1"/>
+										<Property Name="LoopBegin" Type="Real64" Value="4"/>
+										<Property Name="LoopEnd" Type="Real64" Value="9"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>EOR_IntroBridge_SustainC.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="196389406"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{52507FAC-41B9-4B81-8A02-D626713C26D7}" ShortID="738915827">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_FadeIn" ID="{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{03643860-7F50-42EE-8B25-5EA0270C4D79}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>2</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Exp1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>3</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{184F624B-674C-4D93-B861-859A019E5597}" ShortID="718493849">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Pitch"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{1F615D89-2B1D-485C-B2C5-3CC39E70A682}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>200</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="EOR_IntroBridge_SustainC" ID="{194018C7-4F68-4677-BA6B-FCB9DBF3E69C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="F" ID="{D66177FD-AAE0-47BA-A0B9-0F8F414311A4}" ShortID="415152696">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>500</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="EOR_IntroBridge_SustainC" ID="{1906C96F-00ED-4680-B1E2-10C0DA3462BB}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="1"/>
+										<Property Name="LoopBegin" Type="Real64" Value="4"/>
+										<Property Name="LoopEnd" Type="Real64" Value="9"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>EOR_IntroBridge_SustainC.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="196389406"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{F098E8FD-7A55-4C79-9881-7AE0C2076602}" ShortID="409839247">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_FadeIn" ID="{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{9D026CEF-E45A-41B7-A840-ACF7E31E3F2E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Exp1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>2</XPos>
+																		<YPos>0</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>3</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{A8B14C6B-637C-4C76-B42F-9CBD9FD0B2BA}" ShortID="704259919">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Pitch"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{AD7DE56F-803D-44D0-BE75-71B8B2363B39}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>100</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="EOR_IntroBridge_SustainC" ID="{1906C96F-00ED-4680-B1E2-10C0DA3462BB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="G" ID="{1F20991D-8E36-4893-A265-757D8CA00C1A}" ShortID="40331053">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-500</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="EOR_IntroBridge_SustainC" ID="{8D35AFE8-7E85-4D4E-8DD5-A3EADD334D40}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="5000"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="1"/>
+										<Property Name="LoopBegin" Type="Real64" Value="4"/>
+										<Property Name="LoopEnd" Type="Real64" Value="9"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>EOR_IntroBridge_SustainC.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="196389406"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{85AFB7D2-FDFB-4D2F-9FE3-1B835902F36F}" ShortID="349562744">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_FadeIn" ID="{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{47AFBAF4-FB42-44D8-8EC9-6A8A6BBA1AE3}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Exp1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>0</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>3</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{46CB1493-6729-4430-9555-68922A1FF963}" ShortID="307692148">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Pitch"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{3E927AB4-19DA-476E-8B34-945CB0A26046}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>100</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="EOR_IntroBridge_SustainC" ID="{8D35AFE8-7E85-4D4E-8DD5-A3EADD334D40}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{8BDBA455-EFB7-4E18-8356-D6625BFC2921}" ShortID="679056606">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
+												<ObjectRef Name="Special_Effect_1" ID="{83317D8A-9D4C-438E-BE8C-BC7D27CAD1B0}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{B755A9F0-BF01-4147-BFCF-797ABE84D3E6}" ShortID="168886700">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+												<ObjectRef Name="High_Pass_60Hz" ID="{F9627628-0B10-4272-BC30-D4C20423CB38}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{741CFE7D-B8FB-4148-80B6-79FCF64B98B2}" ShortID="583124531">
+										<ReferenceList>
+											<Reference Name="Effect" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+												<ObjectRef Name="Big_Garage1" ID="{172402A8-22F4-40FC-BE1D-5269594CB633}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{830FA0A4-C69D-4E8C-AD65-9CA0FBE004C9}" ShortID="356627515">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="introBridge_StepDuck" ID="{2845BBAD-8494-4ECC-B651-50A8A6E730EC}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{EE828BBA-7CC7-4EE0-8F1B-9791E099A7AA}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-48</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>-24</XPos>
+																<YPos>-200</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{4E70E974-CD4C-4579-918A-C50147F2D9BF}" ShortID="724948465">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{DE705A7D-3C5D-4B20-9C79-25A411F778FB}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+																<SegmentShape>Exp2</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>50</XPos>
+																<YPos>0</YPos>
+																<Flags>0</Flags>
+																<SegmentShape>Exp2</SegmentShape>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>-200</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{917C4D58-26F8-45FD-84D7-A93D6CE9072C}" ShortID="790791580">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Pitch"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="introBridge_StepDuck" ID="{2845BBAD-8494-4ECC-B651-50A8A6E730EC}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{EB175A6A-321F-4A91-B417-30495B2BCA87}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="65537"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>-48</XPos>
+																<YPos>0</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-100</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+					<BlendTrackList>
+						<BlendTrack Name="New Blend Track" ID="{21FCF7FC-03E0-4D51-83A1-B11BB398F0F1}" ShortID="533782890">
+							<ReferenceList>
+								<Reference Name="LayerCrossFadeControlInput">
+									<ObjectRef Name="introBridge_FadeIn" ID="{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+								</Reference>
+							</ReferenceList>
+							<BlendTrackAssocList>
+								<BlendTrackAssoc>
+									<ItemRef Name="C" ID="{7E3769C0-68D6-4EFF-86E6-0C2FAD262A21}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>0</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>0.35591537552521</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="G" ID="{1F20991D-8E36-4893-A265-757D8CA00C1A}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>0.224671875</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>0.44971875</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="F" ID="{D66177FD-AAE0-47BA-A0B9-0F8F414311A4}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>1.425046875</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>2.26906640625</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="Bb" ID="{C6157635-3B1E-4CB0-A791-3A5FE84F959A}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>2.25</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>2.999625</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="D" ID="{CE14EBC1-DDF2-4708-A3DD-2ED79DB21C9F}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>2.26906640625</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>3</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+							</BlendTrackAssocList>
+						</BlendTrack>
+					</BlendTrackList>
 				</BlendContainer>
 			</ChildrenList>
 		</WorkUnit>

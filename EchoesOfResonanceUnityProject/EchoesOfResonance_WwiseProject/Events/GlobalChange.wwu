@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{77B96795-AD03-47FD-AC6E-04AF7D8F3116}" SchemaVersion="123" RootDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" ParentDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}">
+	<Events>
+		<WorkUnit Name="GlobalChange" ID="{77B96795-AD03-47FD-AC6E-04AF7D8F3116}" OwnerID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="resumeAll" ID="{F4C87799-835B-44D7-B0E0-5F2B8240798C}">
+					<ChildrenList>
+						<Action Name="" ID="{859F981A-C20C-4E9C-94D8-DE817C9BB34E}" ShortID="984299728">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="10"/>
+								<Property Name="MasterResume" Type="bool" Value="True"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="pauseAll" ID="{441FB284-2C47-46E4-A2E0-0FFD6BF59C37}">
+					<ChildrenList>
+						<Action Name="" ID="{C43D2F41-612E-4A44-A911-8DD5B6D2D4B7}" ShortID="390542943">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="8"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList/>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections.Generic;
 using System;
 
@@ -6,7 +7,7 @@ public static class DH
 {
     private static readonly Dictionary<Type, ScriptableObject> _registry = new Dictionary<Type, ScriptableObject>();
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad), MenuItem("Utilities/Register Global Objects")]
     private static void RegisterAllAtStartup()
     {
         GlobalData[] allData = Resources.LoadAll<GlobalData>("");

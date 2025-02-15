@@ -18,6 +18,8 @@ Copyright (c) 2024 Audiokinetic Inc.
 #if !(UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.
 using System;
 using System.Linq;
+using System.Reflection;
+
 #if UNITY_EDITOR
 using System.IO;
 using UnityEditor;
@@ -171,7 +173,6 @@ public partial class AkUtilities
 	// that is configured in the UnityWwise integration.
 	public static void GenerateSoundbanks(System.Collections.Generic.List<string> platforms = null)
 	{
-
 #if AK_WWISE_ADDRESSABLES && UNITY_ADDRESSABLES
 		AkWwiseEditorSettings.Instance.CheckGeneratedBanksPath();
 #endif
@@ -218,10 +219,12 @@ public partial class AkUtilities
 		var output = ExecuteCommandLine(command, arguments);
 		if (output.Contains("Process completed successfully."))
 		{
+			AudioEnumGenerator.GenerateEnum();
 			UnityEngine.Debug.LogFormat("WwiseUnity: SoundBanks generation successful:\n{0}", output);
 		}
 		else if (output.Contains("Process completed with warning"))
 		{
+			AudioEnumGenerator.GenerateEnum();
 			UnityEngine.Debug.LogWarningFormat("WwiseUnity: SoundBanks generation has warning(s):\n{0}", output);
 		}
 		else

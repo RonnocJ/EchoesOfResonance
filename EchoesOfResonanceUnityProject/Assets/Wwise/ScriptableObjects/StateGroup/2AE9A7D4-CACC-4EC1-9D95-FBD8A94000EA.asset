@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcec56d902bb4195ace827258efbb5f, type: 3}
   m_Name: 2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA
   m_EditorClassIdentifier: 
-  objectName: EntranceHall_States
-  id: 1786189059
+  objectName: EntranceHall
+  id: 270858878
   guid: 2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA

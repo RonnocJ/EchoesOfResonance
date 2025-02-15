@@ -72,7 +72,7 @@
 										</PropertyList>
 										<ReferenceList>
 											<Reference Name="ControlInput">
-												<ObjectRef Name="volumeSFX" ID="{B8871244-2A55-425F-91CE-140A28D3407D}" WorkUnitID="{833261EF-16E9-41F7-A490-BC3B685E41FC}"/>
+												<ObjectRef Name="sfx_Volume" ID="{B8871244-2A55-425F-91CE-140A28D3407D}" WorkUnitID="{3B1D04E3-F8A2-453D-8806-15692EFC84CF}"/>
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
@@ -123,7 +123,7 @@
 										</PropertyList>
 										<ReferenceList>
 											<Reference Name="ControlInput">
-												<ObjectRef Name="volumeMusic" ID="{E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92}" WorkUnitID="{833261EF-16E9-41F7-A490-BC3B685E41FC}"/>
+												<ObjectRef Name="music_Volume" ID="{E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92}" WorkUnitID="{3B1D04E3-F8A2-453D-8806-15692EFC84CF}"/>
 											</Reference>
 											<Reference Name="Curve">
 												<Custom>
@@ -157,6 +157,13 @@
 							</Reference>
 						</ObjectList>
 					</ObjectLists>
+				</Bus>
+				<Bus Name="ListenerBus" ID="{A03EEDA4-894D-4B0B-BEBF-22975CA1A442}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="No Output" CompanyID="0" PluginID="181" PluginType="7">
+							<ObjectRef Name="No_Output" ID="{E7727216-6F9A-4112-BAFC-1F440724627F}" WorkUnitID="{F16791FD-E48A-45A2-9A96-1825336EF2AB}"/>
+						</Reference>
+					</ReferenceList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

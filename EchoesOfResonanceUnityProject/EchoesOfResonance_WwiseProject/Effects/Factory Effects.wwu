@@ -586,10 +586,49 @@
 								<Effect Name="High_Pass_60Hz" ID="{F9627628-0B10-4272-BC30-D4C20423CB38}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 									<PropertyList>
 										<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
-										<Property Name="FrequencyBand1" Type="Real32" Value="60"/>
+										<Property Name="FrequencyBand1" Type="Real32" Value="20"/>
 										<Property Name="OnOffBand2" Type="bool" Value="False"/>
 										<Property Name="OnOffBand3" Type="bool" Value="False"/>
 									</PropertyList>
+									<ObjectLists>
+										<ObjectList Name="RTPC">
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{784F7CE8-54CE-448F-B9D0-02F35C444376}" ShortID="183309294">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="FrequencyBand1"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{538DD20C-3001-495F-892B-AD5917E9AEDA}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="5"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>20</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>1250</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</Effect>
 							</ChildrenList>
 						</Folder>
@@ -688,11 +727,89 @@
 						</Effect>
 						<Effect Name="Big_Garage1" ID="{172402A8-22F4-40FC-BE1D-5269594CB633}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
 							<PropertyList>
-								<Property Name="HFRatio" Type="Real32" Value="3"/>
+								<Property Name="DryLevel" Type="Real32" Value="-40"/>
+								<Property Name="HFRatio" Type="Real32" Value="2.5"/>
 								<Property Name="NumberOfDelays" Type="int32" Value="12"/>
-								<Property Name="ReverbTime" Type="Real32" Value="2"/>
-								<Property Name="WetLevel" Type="Real32" Value="-30"/>
+								<Property Name="PreDelay" Type="Real32" Value="0.15"/>
+								<Property Name="ReverbTime" Type="Real32" Value="5"/>
+								<Property Name="WetLevel" Type="Real32" Value="-20"/>
 							</PropertyList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{8DB37DDC-8908-4D1F-B412-5269EDED9A9E}" ShortID="360152237">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="DryLevel"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{65EA4385-EF1E-46C8-B531-1F4787E3C48A}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>96.3</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Exp3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{1C50FFBF-CC20-43DC-A5A3-12DED745A438}" ShortID="56488347">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="WetLevel"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{925F2E33-D0CC-4FBF-A0D0-D68899AB3192}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-96.3000030517578</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</Effect>
 						<Effect Name="Large_Bright_Chamber1" ID="{0BFA2291-5716-4759-AC24-F59D29E8F2E4}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
 							<PropertyList>
@@ -1355,7 +1472,7 @@
 								</Effect>
 								<Effect Name="Medium" ID="{AEB3F175-958B-45F2-A4C2-3FBD4F456568}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<PropertyList>
-										<Property Name="DecayTime" Type="Real32" Value="5.8"/>
+										<Property Name="DecayTime" Type="Real32" Value="5"/>
 										<Property Name="Density" Type="Real32" Value="70"/>
 										<Property Name="ERLevel" Type="Real32" Value="-28"/>
 										<Property Name="ERPattern" Type="int32" Value="9"/>
@@ -1366,7 +1483,7 @@
 										<Property Name="Filter3Freq" Type="Real32" Value="11000"/>
 										<Property Name="Filter3Gain" Type="Real32" Value="-4.5"/>
 										<Property Name="HFDamping" Type="Real32" Value="5.7"/>
-										<Property Name="PreDelay" Type="Real32" Value="120"/>
+										<Property Name="PreDelay" Type="Real32" Value="5"/>
 										<Property Name="Quality" Type="int32" Value="14"/>
 										<Property Name="ReverbLevel" Type="Real32" Value="-22"/>
 										<Property Name="RoomSize" Type="Real32" Value="100"/>
@@ -1610,12 +1727,54 @@
 						</Effect>
 						<Effect Name="Special_Effect_1" ID="{83317D8A-9D4C-438E-BE8C-BC7D27CAD1B0}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
 							<PropertyList>
-								<Property Name="DelayTime" Type="Real32" Value="10"/>
-								<Property Name="DryLevel" Type="Real32" Value="0"/>
-								<Property Name="ModDepth" Type="Real32" Value="80"/>
-								<Property Name="ModFrequency" Type="Real32" Value="2"/>
+								<Property Name="FeedBackLevel" Type="Real32" Value="-0.25"/>
+								<Property Name="FeedForwardLevel" Type="Real32" Value="0.8"/>
+								<Property Name="ModDepth" Type="Real32" Value="30"/>
+								<Property Name="ModFrequency" Type="Real32" Value="20"/>
 								<Property Name="ModPWM" Type="Real32" Value="0"/>
+								<Property Name="ModWaveform" Type="int32" Value="1"/>
+								<Property Name="WetDryMix" Type="Real32" Value="0"/>
 							</PropertyList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{AAE2B9C5-DB7E-4A77-95D4-7A17240D5A7B}" ShortID="361061675">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="WetDryMix"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{0767C48E-CD8F-4A25-ADB2-67FF1E528BCE}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-100</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>100</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</Effect>
 						<Folder Name="Static Comb Filtering" ID="{6044FF31-2237-4EC5-B94F-9C0C25CFAC44}" ShortID="504290141">
 							<ChildrenList>
@@ -1627,8 +1786,10 @@
 								</Effect>
 								<Effect Name="Many_Odd_Harm_Notches" ID="{773FA234-F683-4788-B7C1-4D272A8CDE69}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
 									<PropertyList>
-										<Property Name="DelayTime" Type="Real32" Value="2.5"/>
 										<Property Name="EnableLFO" Type="bool" Value="False"/>
+										<Property Name="FeedBackLevel" Type="Real32" Value="0.5"/>
+										<Property Name="FeedForwardLevel" Type="Real32" Value="-0.25"/>
+										<Property Name="WetDryMix" Type="Real32" Value="0"/>
 									</PropertyList>
 								</Effect>
 								<Effect Name="Few_Odd_Harm_Peaks" ID="{08C13A59-4200-4E97-8B9B-72CE1926B0A7}" PluginName="Wwise Flanger" CompanyID="0" PluginID="125" PluginType="3">
@@ -1985,6 +2146,21 @@
 								</Effect>
 							</ChildrenList>
 						</Folder>
+						<Effect Name="StepDown" ID="{2265073C-D111-45AF-8B88-F9FB77CA2932}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+							<PropertyList>
+								<Property Name="Pitch" Type="Real32" Value="-200"/>
+							</PropertyList>
+						</Effect>
+						<Effect Name="StepUp" ID="{80B1061A-39B6-4BD9-9F05-59C0CEB352B8}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+							<PropertyList>
+								<Property Name="Pitch" Type="Real32" Value="200"/>
+							</PropertyList>
+						</Effect>
+						<Effect Name="FourthUp" ID="{921FAA7D-0DA7-4AA1-BE01-B6AF3F47D903}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+							<PropertyList>
+								<Property Name="Pitch" Type="Real32" Value="500"/>
+							</PropertyList>
+						</Effect>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{67CF2ED5-CD4B-4C89-B2E4-624EC6DB47CF}" SchemaVersion="123" RootDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" ParentDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}">
+	<Events>
+		<WorkUnit Name="GlobalMusic" ID="{67CF2ED5-CD4B-4C89-B2E4-624EC6DB47CF}" OwnerID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" PersistMode="Nested"/>
+	</Events>
+</WwiseDocument>

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51b68ebd71be494494692a42b822884, type: 3}
   m_Name: 796D6E2C-BDB4-4528-999B-D307F0302A65
   m_EditorClassIdentifier: 
-  objectName: midiPitch
-  id: 1795621276
+  objectName: midi_Pitch
+  id: 831692701
   guid: 796D6E2C-BDB4-4528-999B-D307F0302A65

@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4b40b42d1684c0cbcfc1a3be85478d, type: 3}
+  m_Name: FirstElevator
+  m_EditorClassIdentifier: 
+  puzzleType: 0
+  solutions:
+  - C2
+  - A#1
+  - C#2
+  - G1
+  - C2
+  - A#1
+  - C#2
+  - G1
+  - C2
+  - B1
+  - D2
+  - F2
+  - F2
+  - D#2
+  - F#2
+  - A#1
+  - C#2
+  - F1
+  - G#1
+  - C1
+  - D#1
+  - D1
+  - D1
+  - E1
+  - C#1
+  - A1
+  - F#1
+  - D2
+  - B1
+  - G2
+  - E2
+  - A#2
+  - G1
+  - D#1
+  - G#1
+  - C#2
+  - A#1
+  checkpoints: 040000000c0000001600000020000000
+  _solved: 32
+  _reset: 0
+  audioEffects:
+  - executeOnSolved: 0
+    executeEarly: 5
+    audioTypes: 16
+    audioEvents: 
+    audioStates: 785d0c05
+    audioSwitches: 785d0c05
+    audioTriggers: 
+    audioRTPCs:
+    - parameter: 1867101979
+      value: 1
+  - executeOnSolved: 0
+    executeEarly: 8
+    audioTypes: 16
+    audioEvents: 
+    audioStates: 785d0c05
+    audioSwitches: 785d0c05
+    audioTriggers: 5dcc6c40
+    audioRTPCs:
+    - parameter: 1867101979
+      value: 2
+  - executeOnSolved: 0
+    executeEarly: 12
+    audioTypes: 16
+    audioEvents: 
+    audioStates: 785d0c05
+    audioSwitches: 785d0c05
+    audioTriggers: 5dcc6c40
+    audioRTPCs:
+    - parameter: 1867101979
+      value: 3
+  - executeOnSolved: 0
+    executeEarly: 22
+    audioTypes: 16
+    audioEvents: 
+    audioStates: 785d0c05
+    audioSwitches: 785d0c05
+    audioTriggers: 5dcc6c40
+    audioRTPCs:
+    - parameter: 1867101979
+      value: 4
+  - executeOnSolved: 0
+    executeEarly: 32
+    audioTypes: 16
+    audioEvents: 
+    audioStates: 785d0c05
+    audioSwitches: 785d0c05
+    audioTriggers: 5dcc6c40
+    audioRTPCs:
+    - parameter: 1867101979
+      value: 5
+  - executeOnSolved: 1
+    executeEarly: 32
+    audioTypes: 16
+    audioEvents: 
+    audioStates: 785d0c05
+    audioSwitches: 785d0c05
+    audioTriggers: 5dcc6c40
+    audioRTPCs:
+    - parameter: 1867101979
+      value: 6

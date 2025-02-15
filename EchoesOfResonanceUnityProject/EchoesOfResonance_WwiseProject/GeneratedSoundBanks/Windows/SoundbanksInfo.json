@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{28AC6214-2908-1712-793A-52DE934CB4BA}",
+    "Hash": "{1A973EBA-1333-DAC4-F099-2A02F9F57F6D}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -61,6 +61,12 @@
      ]
     },
     "Busses": [
+     {
+      "Id": "572671253",
+      "Name": "ListenerBus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\ListenerBus",
+      "GUID": "{A03EEDA4-894D-4B0B-BEBF-22975CA1A442}"
+     },
      {
       "Id": "2886307548",
       "Name": "MusicBus",
@@ -117,48 +123,110 @@
     ],
     "GameParameters": [
      {
-      "Id": "399092848",
-      "Name": "volumeSFX",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\volumeSFX",
-      "GUID": "{B8871244-2A55-425F-91CE-140A28D3407D}"
-     },
-     {
-      "Id": "1795621276",
-      "Name": "midiPitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\midiPitch",
+      "Id": "831692701",
+      "Name": "midi_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\midi_Pitch",
       "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
      },
      {
-      "Id": "3923584592",
-      "Name": "volumeMusic",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\volumeMusic",
+      "Id": "1006694123",
+      "Name": "music_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\music_Volume",
       "GUID": "{E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92}"
+     },
+     {
+      "Id": "1325667752",
+      "Name": "introBridge_StepDuck",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_StepDuck",
+      "GUID": "{2845BBAD-8494-4ECC-B651-50A8A6E730EC}"
+     },
+     {
+      "Id": "1564184899",
+      "Name": "sfx_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\sfx_Volume",
+      "GUID": "{B8871244-2A55-425F-91CE-140A28D3407D}"
+     },
+     {
+      "Id": "2726482464",
+      "Name": "introBridge_CrossBridge",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_CrossBridge",
+      "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
+     },
+     {
+      "Id": "3217007934",
+      "Name": "introBridge_FadeIn",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_FadeIn",
+      "GUID": "{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}"
      }
     ],
     "StateGroups": [
      {
       "Id": "1786189059",
       "Name": "EntranceHall_States",
-      "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall_States",
       "GUID": "{2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA}",
       "States": [
        {
         "Id": "748895195",
         "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States\\None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall_States\\None",
         "GUID": "{0EC2ED20-3789-40AE-8777-A852B301E348}"
        },
        {
         "Id": "1291433366",
         "Name": "Base",
-        "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States\\Base",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall_States\\Base",
         "GUID": "{CF315996-1AF3-442E-9FE4-2D48B67C6864}"
+       },
+       {
+        "Id": "3267866961",
+        "Name": "Puzzle04",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall_States\\Puzzle04",
+        "GUID": "{806F89E5-3D79-4240-A224-8606E9E49004}"
        },
        {
         "Id": "3267866964",
         "Name": "Puzzle01",
-        "ObjectPath": "\\States\\Default Work Unit\\EntranceHall_States\\Puzzle01",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall_States\\Puzzle01",
         "GUID": "{71162D71-7CBB-4EF9-8D04-0F14EDF54A4F}"
+       },
+       {
+        "Id": "3267866966",
+        "Name": "Puzzle03",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall_States\\Puzzle03",
+        "GUID": "{63F3BE9F-80EF-473F-A53B-FBE807E0DCE9}"
+       },
+       {
+        "Id": "3267866967",
+        "Name": "Puzzle02",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall_States\\Puzzle02",
+        "GUID": "{1F8E012D-F98E-49A2-954D-99FEE5421A18}"
+       }
+      ]
+     },
+     {
+      "Id": "2274111243",
+      "Name": "Level01Master_States",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master_States",
+      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "States": [
+       {
+        "Id": "270858878",
+        "Name": "EntranceHall",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master_States\\EntranceHall",
+        "GUID": "{62AFD801-9CE1-4265-84EA-24A0AC8F53DE}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master_States\\None",
+        "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
+       },
+       {
+        "Id": "1125500713",
+        "Name": "Intro",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master_States\\Intro",
+        "GUID": "{9897F57F-7F24-4F01-B3AB-3491F3E94C16}"
        }
       ]
      }
@@ -169,7 +237,7 @@
     "Type": "User",
     "GUID": "{11F8CFB0-AE41-4B88-8087-4ADA5710DCBC}",
     "Language": "SFX",
-    "Hash": "{6FB995F9-74DE-AD1C-DC09-415C6B44F77C}",
+    "Hash": "{FAFEB95C-8949-158E-F8BE-1D83356B9591}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -197,6 +265,14 @@
       "Location": "Memory",
       "ShortName": "EOR_EntranceHall_Layer01.wav",
       "CachePath": "14/{14FABA60-6AAA-2EE2-7B51-383C9BBF84A2}.wem"
+     },
+     {
+      "Id": "25037528",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Layer03.wav",
+      "CachePath": "8F/{8F7277F0-87FE-F6F4-5D8A-AE6C5D5BAFD1}.wem"
      },
      {
       "Id": "25129230",
@@ -255,6 +331,14 @@
       "CachePath": "DF/{DF231077-3C3A-2158-60D0-527DE3714902}.wem"
      },
      {
+      "Id": "142077885",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Layer02.wav",
+      "CachePath": "0D/{0D20CEB3-89E5-0BC6-1A87-2942A2283D11}.wem"
+     },
+     {
       "Id": "161362372",
       "Language": "SFX",
       "Streaming": "false",
@@ -277,6 +361,14 @@
       "Location": "Memory",
       "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 3.wav",
       "CachePath": "3B/{3B49B3DB-BCEA-9242-F79D-C90168ED118B}.wem"
+     },
+     {
+      "Id": "196389406",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_IntroBridge_SustainC.wav",
+      "CachePath": "76/{769D8515-5888-080F-68BA-00BFA0F25A5F}.wem"
      },
      {
       "Id": "198980918",
@@ -319,14 +411,6 @@
       "CachePath": "D6/{D62C199D-AE4C-ED50-53CF-86881AC43517}.wem"
      },
      {
-      "Id": "262085091",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "SFCMWT25_GameLoop_v3.wav",
-      "CachePath": "AE/{AE8DEA08-E070-D9DF-9503-5BF1A821A29D}.wem"
-     },
-     {
       "Id": "267754359",
       "Language": "SFX",
       "Streaming": "false",
@@ -357,6 +441,14 @@
       "Location": "Memory",
       "ShortName": "FluteSampleE1.wav",
       "CachePath": "54/{54387047-4A87-3959-9BFB-26C026429305}.wem"
+     },
+     {
+      "Id": "331363883",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Base.wav",
+      "CachePath": "5B/{5BDE3A11-D5D0-CB66-B8BD-153FCC866AA0}.wem"
      },
      {
       "Id": "353202809",
@@ -391,28 +483,12 @@
       "CachePath": "2F/{2F5A3EE5-EBE2-F428-32CD-1A9CF3B28608}.wem"
      },
      {
-      "Id": "422257837",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_EntranceHallBase.wav",
-      "CachePath": "17/{178A44C3-9D36-BE7D-032D-167A0C40F529}.wem"
-     },
-     {
       "Id": "429472023",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_EntranceHall_Stinger03.wav",
       "CachePath": "5E/{5E545609-BB7E-3BF7-62AF-24B11F8BDA42}.wem"
-     },
-     {
-      "Id": "456898177",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "MusicBaseLoop.wav",
-      "CachePath": "E8/{E8A6B778-A814-1B47-9AA4-BACBC306D4EF}.wem"
      },
      {
       "Id": "466692679",
@@ -461,6 +537,14 @@
       "Location": "Memory",
       "ShortName": "FluteSampleF#2.wav",
       "CachePath": "0E/{0EF5F926-B69A-7E9A-0C0B-F6DC686B45FE}.wem"
+     },
+     {
+      "Id": "571242012",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_EntranceHall_Layer04.wav",
+      "CachePath": "40/{407C892E-4A1E-00F2-9B23-5D692F9FA38D}.wem"
      },
      {
       "Id": "576603569",
@@ -661,7 +745,7 @@
       {
        "Id": "458506814",
        "Name": "Parametric EQ (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\PlayerSounds\\Footsteps\\[Effect Slot [1]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\PlayerSounds\\Footsteps\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
        "GUID": "{33A7BDB9-C17B-4EEF-8DFA-4A22F240AFFC}",
        "LibName": "Wwise Parametric EQ",
        "LibId": "6881283"
@@ -669,12 +753,28 @@
      ],
      "ShareSets": [
       {
+       "Id": "521572872",
+       "Name": "stepDucking",
+       "ObjectPath": "\\Effects\\Default Work Unit\\Metering\\stepDucking",
+       "GUID": "{6313E9B1-0F33-48B1-9A18-2073282269AD}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      },
+      {
        "Id": "1259256166",
        "Name": "New_RoomVerb",
        "ObjectPath": "\\Effects\\Default Work Unit\\New_RoomVerb",
        "GUID": "{2E1541F7-7DD1-4AC9-B615-8C72877EC969}",
        "LibName": "Wwise RoomVerb",
        "LibId": "7733251"
+      },
+      {
+       "Id": "2805769450",
+       "Name": "Special_Effect_1",
+       "ObjectPath": "\\Effects\\Factory Effects\\Flanger\\Special_Effect_1",
+       "GUID": "{83317D8A-9D4C-438E-BE8C-BC7D27CAD1B0}",
+       "LibName": "Wwise Flanger",
+       "LibId": "8192003"
       },
       {
        "Id": "3164629247",
@@ -691,14 +791,40 @@
        "GUID": "{50286348-176A-4235-9E4C-CA5F73D87818}",
        "LibName": "Wwise RoomVerb",
        "LibId": "7733251"
+      },
+      {
+       "Id": "3546444380",
+       "Name": "Big_Garage1",
+       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Big_Garage1",
+       "GUID": "{172402A8-22F4-40FC-BE1D-5269594CB633}",
+       "LibName": "Wwise Matrix Reverb",
+       "LibId": "7536643"
+      },
+      {
+       "Id": "3604890626",
+       "Name": "High_Pass_60Hz",
+       "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\High Pass Filters\\High_Pass_60Hz",
+       "GUID": "{F9627628-0B10-4272-BC30-D4C20423CB38}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
       }
      ]
     },
     "Events": [
      {
+      "Id": "3348497029",
+      "Name": "activateStepDucking",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\activateStepDucking",
+      "GUID": "{C7F2A49A-A839-48EC-B3E3-253440272D35}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
       "Id": "4091047182",
       "Name": "pauseAll",
-      "ObjectPath": "\\Events\\Default Work Unit\\pauseAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\pauseAll",
       "GUID": "{441FB284-2C47-46E4-A2E0-0FFD6BF59C37}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -708,7 +834,7 @@
      {
       "Id": "2409822221",
       "Name": "playBroadcasterBeep",
-      "ObjectPath": "\\Events\\Default Work Unit\\playBroadcasterBeep",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playBroadcasterBeep",
       "GUID": "{88730A47-1065-4B88-B47A-5ED23D69E404}",
       "MaxAttenuation": "5",
       "DurationType": "OneShot",
@@ -731,7 +857,7 @@
      {
       "Id": "893306899",
       "Name": "playBroadcasterBloop",
-      "ObjectPath": "\\Events\\Default Work Unit\\playBroadcasterBloop",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playBroadcasterBloop",
       "GUID": "{357543FE-2B83-476F-802A-4C447C5034BD}",
       "MaxAttenuation": "5",
       "DurationType": "OneShot",
@@ -754,7 +880,7 @@
      {
       "Id": "879710867",
       "Name": "playBroadcasterPlunk",
-      "ObjectPath": "\\Events\\Default Work Unit\\playBroadcasterPlunk",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playBroadcasterPlunk",
       "GUID": "{CD4B6372-76BB-4643-A192-6E3C351889B1}",
       "MaxAttenuation": "5",
       "DurationType": "OneShot",
@@ -777,7 +903,7 @@
      {
       "Id": "3639922799",
       "Name": "playDoorOpen",
-      "ObjectPath": "\\Events\\Default Work Unit\\playDoorOpen",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playDoorOpen",
       "GUID": "{E44E47B7-6CC6-47E9-B928-1BE9DEB6A11E}",
       "DurationType": "OneShot",
       "DurationMin": "9",
@@ -799,7 +925,7 @@
      {
       "Id": "3310685126",
       "Name": "playEndCutscene",
-      "ObjectPath": "\\Events\\Default Work Unit\\playEndCutscene",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playEndCutscene",
       "GUID": "{2489020F-8DDD-4051-8A5D-DD239076BD5E}",
       "DurationType": "OneShot",
       "DurationMin": "10",
@@ -820,7 +946,7 @@
      {
       "Id": "1088348632",
       "Name": "playFootsteps",
-      "ObjectPath": "\\Events\\Default Work Unit\\playFootsteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playFootsteps",
       "GUID": "{BAC21353-5E5C-4757-81AA-87E99F990987}",
       "DurationType": "OneShot",
       "DurationMin": "0.2921773",
@@ -856,6 +982,11 @@
         {
          "Id": "458506814"
         }
+       ],
+       "ShareSets": [
+        {
+         "Id": "521572872"
+        }
        ]
       },
       "AuxBusRefs": [
@@ -870,7 +1001,7 @@
      {
       "Id": "540628674",
       "Name": "playInstrumentFX",
-      "ObjectPath": "\\Events\\Default Work Unit\\playInstrumentFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playInstrumentFX",
       "GUID": "{118A0E2C-2E48-448E-8E26-C3C763765575}",
       "MaxAttenuation": "3",
       "DurationType": "Infinite",
@@ -897,7 +1028,7 @@
      {
       "Id": "3384925243",
       "Name": "playIntroAmbience",
-      "ObjectPath": "\\Events\\Default Work Unit\\playIntroAmbience",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playIntroAmbience",
       "GUID": "{E4525825-2DFF-4F86-80D2-33097BE61493}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -935,21 +1066,9 @@
       }
      },
      {
-      "Id": "1148261388",
-      "Name": "playLevelMusic",
-      "ObjectPath": "\\Events\\Default Work Unit\\playLevelMusic",
-      "GUID": "{F6EF071F-AA2E-465E-B34B-D6A2BFC50A1F}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "262085091"
-       }
-      ]
-     },
-     {
       "Id": "1900847084",
       "Name": "playShutoff",
-      "ObjectPath": "\\Events\\Default Work Unit\\playShutoff",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playShutoff",
       "GUID": "{6ED2BAAC-99C6-4670-88B2-28D0E8189633}",
       "MaxAttenuation": "5",
       "DurationType": "OneShot",
@@ -973,21 +1092,9 @@
       ]
      },
      {
-      "Id": "1583710417",
-      "Name": "playTestMusicTrack",
-      "ObjectPath": "\\Events\\Default Work Unit\\playTestMusicTrack",
-      "GUID": "{3A921E23-A32E-454E-BDCF-ADE41524FF67}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "456898177"
-       }
-      ]
-     },
-     {
       "Id": "279424403",
       "Name": "playTone",
-      "ObjectPath": "\\Events\\Default Work Unit\\playTone",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playTone",
       "GUID": "{FB197FA8-CDE4-48AB-9A13-E0431669CD86}",
       "MaxAttenuation": "3",
       "DurationType": "Infinite",
@@ -1080,7 +1187,7 @@
      {
       "Id": "3679901891",
       "Name": "playTorchExtinguish",
-      "ObjectPath": "\\Events\\Default Work Unit\\playTorchExtinguish",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playTorchExtinguish",
       "GUID": "{83ACF214-CA95-4378-9188-8E8781937BD2}",
       "MaxAttenuation": "50",
       "DurationType": "OneShot",
@@ -1103,7 +1210,7 @@
      {
       "Id": "1562608897",
       "Name": "playTorchIgnite",
-      "ObjectPath": "\\Events\\Default Work Unit\\playTorchIgnite",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playTorchIgnite",
       "GUID": "{70B32188-EEC9-4A1E-85C7-261ABF5C9EF1}",
       "MaxAttenuation": "50",
       "DurationType": "OneShot",
@@ -1126,7 +1233,7 @@
      {
       "Id": "3240900869",
       "Name": "resumeAll",
-      "ObjectPath": "\\Events\\Default Work Unit\\resumeAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\resumeAll",
       "GUID": "{F4C87799-835B-44D7-B0E0-5F2B8240798C}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -1136,7 +1243,7 @@
      {
       "Id": "4015453144",
       "Name": "startEntranceHall",
-      "ObjectPath": "\\Events\\Default Work Unit\\startEntranceHall",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startEntranceHall",
       "GUID": "{5819F8E6-A8FF-4D09-87A3-121EB1A40402}",
       "DurationType": "Infinite",
       "MediaRefs": [
@@ -1144,16 +1251,25 @@
         "Id": "23966850"
        },
        {
+        "Id": "25037528"
+       },
+       {
         "Id": "102335938"
+       },
+       {
+        "Id": "142077885"
        },
        {
         "Id": "297333489"
        },
        {
-        "Id": "422257837"
+        "Id": "331363883"
        },
        {
         "Id": "429472023"
+       },
+       {
+        "Id": "571242012"
        },
        {
         "Id": "664330545"
@@ -1161,9 +1277,34 @@
       ]
      },
      {
+      "Id": "1116304881",
+      "Name": "startIntroBridgeChoir",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startIntroBridgeChoir",
+      "GUID": "{6F1750EB-9758-4814-B5A0-10205A568061}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "196389406"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2805769450"
+        },
+        {
+         "Id": "3546444380"
+        },
+        {
+         "Id": "3604890626"
+        }
+       ]
+      }
+     },
+     {
       "Id": "3820804860",
       "Name": "stopInstrumentFX",
-      "ObjectPath": "\\Events\\Default Work Unit\\stopInstrumentFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\stopInstrumentFX",
       "GUID": "{145634F5-58BA-4EC8-A642-2F59A6D133A2}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -1173,18 +1314,8 @@
      {
       "Id": "941857173",
       "Name": "stopIntroAmbience",
-      "ObjectPath": "\\Events\\Default Work Unit\\stopIntroAmbience",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\stopIntroAmbience",
       "GUID": "{94E3D522-D3EA-45E7-8DE2-1E0926B8912E}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
-     },
-     {
-      "Id": "1307992046",
-      "Name": "stopLevelMusic",
-      "ObjectPath": "\\Events\\Default Work Unit\\stopLevelMusic",
-      "GUID": "{2D34C91F-5F3B-4214-A441-7865D5F609C0}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
@@ -1193,7 +1324,7 @@
      {
       "Id": "2019189489",
       "Name": "stopTone",
-      "ObjectPath": "\\Events\\Default Work Unit\\stopTone",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\stopTone",
       "GUID": "{34313151-BEBD-4197-ABC3-8F6D821386E6}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -1203,10 +1334,28 @@
     ],
     "GameParameters": [
      {
-      "Id": "1795621276",
-      "Name": "midiPitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\midiPitch",
+      "Id": "831692701",
+      "Name": "midi_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\midi_Pitch",
       "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
+     },
+     {
+      "Id": "1325667752",
+      "Name": "introBridge_StepDuck",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_StepDuck",
+      "GUID": "{2845BBAD-8494-4ECC-B651-50A8A6E730EC}"
+     },
+     {
+      "Id": "2726482464",
+      "Name": "introBridge_CrossBridge",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_CrossBridge",
+      "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
+     },
+     {
+      "Id": "3217007934",
+      "Name": "introBridge_FadeIn",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_FadeIn",
+      "GUID": "{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}"
      }
     ],
     "Triggers": [
@@ -1237,6 +1386,6 @@
     ]
    }
   ],
-  "FileHash": "{11E3E12C-B766-9562-3A49-F39F0068E491}"
+  "FileHash": "{AC6DBD3C-0E4E-E2E9-432C-DDDA812D5827}"
  }
 }

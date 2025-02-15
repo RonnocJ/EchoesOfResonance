@@ -3,21 +3,7 @@
 	<States>
 		<WorkUnit Name="Default Work Unit" ID="{1A0BE0B0-91C7-4552-8F2B-ACB892DCE628}" PersistMode="Standalone">
 			<ChildrenList>
-				<StateGroup Name="EntranceHall_States" ID="{2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA}">
-					<ChildrenList>
-						<State Name="None" ID="{0EC2ED20-3789-40AE-8777-A852B301E348}"/>
-						<State Name="Base" ID="{CF315996-1AF3-442E-9FE4-2D48B67C6864}"/>
-						<State Name="Puzzle01" ID="{71162D71-7CBB-4EF9-8D04-0F14EDF54A4F}"/>
-					</ChildrenList>
-					<TransitionList>
-						<Transition>
-							<StartState Name="Base" ID="{CF315996-1AF3-442E-9FE4-2D48B67C6864}"/>
-							<EndState Name="Puzzle01" ID="{71162D71-7CBB-4EF9-8D04-0F14EDF54A4F}"/>
-							<Time>1</Time>
-							<IsShared>false</IsShared>
-						</Transition>
-					</TransitionList>
-				</StateGroup>
+				<WorkUnit Name="Level01" ID="{17DD5028-2CA0-4F1C-A380-6F4777258544}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

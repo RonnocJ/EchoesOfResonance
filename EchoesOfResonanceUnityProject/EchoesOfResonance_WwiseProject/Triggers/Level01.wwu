@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6B5323F9-469B-4BF4-AD7A-17B26BC0E375}" SchemaVersion="123" RootDocumentID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}" ParentDocumentID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}">
+	<Triggers>
+		<WorkUnit Name="Level01" ID="{6B5323F9-469B-4BF4-AD7A-17B26BC0E375}" OwnerID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}" PersistMode="Nested">
+			<ChildrenList>
+				<WorkUnit Name="IntroBridge" ID="{CB235CCA-98A1-41EF-9D62-E1B852266103}" PersistMode="Reference"/>
+				<WorkUnit Name="FirstElevator" ID="{EE126CE0-1DB4-4FA4-A18F-6C44D0B6ACB4}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Triggers>
+</WwiseDocument>

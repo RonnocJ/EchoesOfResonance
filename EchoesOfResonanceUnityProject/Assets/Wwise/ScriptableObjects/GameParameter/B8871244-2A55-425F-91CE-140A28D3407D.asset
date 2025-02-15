@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51b68ebd71be494494692a42b822884, type: 3}
   m_Name: B8871244-2A55-425F-91CE-140A28D3407D
   m_EditorClassIdentifier: 
-  objectName: volumeSFX
-  id: 399092848
+  objectName: sfx_Volume
+  id: 1564184899
   guid: B8871244-2A55-425F-91CE-140A28D3407D

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E92FC1C8-ED0D-47B3-900C-49211DDB045E}" SchemaVersion="123" RootDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" ParentDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}">
+	<Events>
+		<WorkUnit Name="GlobalSFX" ID="{E92FC1C8-ED0D-47B3-900C-49211DDB045E}" OwnerID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="stopTone" ID="{34313151-BEBD-4197-ABC3-8F6D821386E6}">
+					<ChildrenList>
+						<Action Name="" ID="{03909429-6080-4889-B474-A597EC128181}" ShortID="1002712817">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.05"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="FluteSound" ID="{0692D521-F744-4934-BB0A-80EC06EB2841}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playDoorOpen" ID="{E44E47B7-6CC6-47E9-B928-1BE9DEB6A11E}">
+					<ChildrenList>
+						<Action Name="" ID="{150E52CA-C294-4B96-8B09-9B136B3F829F}" ShortID="812222284">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Open" ID="{537CA94E-043B-4A2A-A2BB-164D59B14589}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playIntroAmbience" ID="{E4525825-2DFF-4F86-80D2-33097BE61493}">
+					<ChildrenList>
+						<Action Name="" ID="{C48126D4-D5AE-4B14-ACA1-409E31004E77}" ShortID="278024526">
+							<PropertyList>
+								<Property Name="FadeTime" Type="Real64" Value="10"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="IntroAmbience" ID="{D3FE6AD7-D3D5-4285-AD1B-73AD007DFDD7}" WorkUnitID="{BE4F72B6-C9FB-4A19-A490-5BE385AFA45F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playFootsteps" ID="{BAC21353-5E5C-4757-81AA-87E99F990987}">
+					<ChildrenList>
+						<Action Name="" ID="{03ECA89E-03AA-4590-A332-BA2DE28D4E67}" ShortID="384493034">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Footsteps" ID="{DCF639AC-8B7E-4B6C-B0B6-0BAEECF59349}" WorkUnitID="{31862B47-912C-4D00-9781-BDB77EE73C4F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playTorchExtinguish" ID="{83ACF214-CA95-4378-9188-8E8781937BD2}">
+					<ChildrenList>
+						<Action Name="" ID="{1E5F719D-2B27-48C5-81C1-B8E13CF3E0D0}" ShortID="591083660">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Extinguish" ID="{08F8AF56-F9E3-4D4D-88ED-B307A296C6D6}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playTorchIgnite" ID="{70B32188-EEC9-4A1E-85C7-261ABF5C9EF1}">
+					<ChildrenList>
+						<Action Name="" ID="{0118B3E5-70F9-422D-B04E-1E44CA8289E9}" ShortID="405247576">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Ignite" ID="{894BDBAD-767D-41A6-A4AF-8C13E6613826}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playEndCutscene" ID="{2489020F-8DDD-4051-8A5D-DD239076BD5E}">
+					<ChildrenList>
+						<Action Name="" ID="{A24A28D2-7BA5-4666-BC86-9B0B8677BBCE}" ShortID="738962089">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="EndCutsceneRiser" ID="{C0497E06-C002-422E-BA99-DF01061B1204}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="stopIntroAmbience" ID="{94E3D522-D3EA-45E7-8DE2-1E0926B8912E}">
+					<ChildrenList>
+						<Action Name="" ID="{3C68965B-8D13-42B0-B720-BF798306323C}" ShortID="402519624">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeTime" Type="Real64" Value="4"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="IntroAmbience" ID="{D3FE6AD7-D3D5-4285-AD1B-73AD007DFDD7}" WorkUnitID="{BE4F72B6-C9FB-4A19-A490-5BE385AFA45F}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<WorkUnit Name="Broadcaster" ID="{7C90D7DC-62C5-4372-856A-B1F081D33FB2}" PersistMode="Reference"/>
+				<WorkUnit Name="Puzzles" ID="{A47EB3FB-3C54-422C-B2A5-F3311B8E7BCB}" PersistMode="Reference"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

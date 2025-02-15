@@ -1,16 +1,19 @@
 {
     "name": "AK.Wwise.Unity.API",
-    "references": [ 
-        "AK.Wwise.Unity.ProjectDatabase"
+    "rootNamespace": "",
+    "references": [
+        "AK.Wwise.Unity.ProjectDatabase",
+        "Unity.Burst"
     ],
-    "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [ "!UNITY_SERVER" ],
+    "defineConstraints": [
+        "!UNITY_SERVER"
+    ],
     "versionDefines": [
         {
             "name": "com.unity.addressables",
@@ -22,5 +25,6 @@
             "expression": "1.0.0",
             "define": "AK_WWISE_ADDRESSABLES"
         }
-    ]
+    ],
+    "noEngineReferences": false
 }

@@ -14,6 +14,76 @@
 						<Property Name="RoomSize" Type="Real32" Value="100"/>
 					</PropertyList>
 				</Effect>
+				<Effect Name="FourthDown" ID="{713C2069-996F-4DC8-9636-85D0DC705CEA}" PluginName="Wwise Pitch Shifter" CompanyID="0" PluginID="136" PluginType="3">
+					<PropertyList>
+						<Property Name="Pitch" Type="Real32" Value="-500"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="choirDistortion" ID="{18D1BF3C-02ED-4971-A538-614E52284EC3}" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+					<PropertyList>
+						<Property Name="PostEQBand2Enable" Type="bool" Value="True"/>
+						<Property Name="PostEQBand2FilterType" Type="int32" Value="1"/>
+						<Property Name="PostEQBand2Frequency" Type="Real32" Value="5000"/>
+						<Property Name="PostEQBand2Gain" Type="Real32" Value="-2.5"/>
+						<Property Name="PostEQBand2QFactor" Type="Real32" Value="2"/>
+						<Property Name="PreEQBand2Enable" Type="bool" Value="True"/>
+						<Property Name="PreEQBand2FilterType" Type="int32" Value="1"/>
+						<Property Name="PreEQBand2Frequency" Type="Real32" Value="2500"/>
+						<Property Name="PreEQBand2Gain" Type="Real32" Value="15"/>
+						<Property Name="PreEQBand2QFactor" Type="Real32" Value="2"/>
+					</PropertyList>
+				</Effect>
+				<Folder Name="Metering" ID="{C0ADE326-C6F9-411E-BDB5-61483CB38159}" ShortID="265267657">
+					<ChildrenList>
+						<Effect Name="stepDucking" ID="{6313E9B1-0F33-48B1-9A18-2073282269AD}" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+							<PropertyList>
+								<Property Name="Max" Type="Real32" Value="-24"/>
+							</PropertyList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{42FA3415-D6AD-416C-9EBD-C2950EF1084D}" ShortID="515330713">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Max"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="introBridge_CrossBridge" ID="{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{FD7E0855-557A-4278-B91C-699D1D51101E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="1"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-12</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<PluginData>
+	<GameParameter Name="introBridge_StepDuck" ID="{2845BBAD-8494-4ECC-B651-50A8A6E730EC}"/>
+</PluginData>
+						</Effect>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

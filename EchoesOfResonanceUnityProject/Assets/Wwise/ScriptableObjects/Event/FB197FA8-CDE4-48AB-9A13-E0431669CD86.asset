@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770b764e21c9d427fa090115069493ee, type: 3}
   m_Name: FB197FA8-CDE4-48AB-9A13-E0431669CD86
   m_EditorClassIdentifier: 
-  objectName: playTone
-  id: 279424403
+  objectName: playBroadcasterNote
+  id: 3594363913
   guid: FB197FA8-CDE4-48AB-9A13-E0431669CD86
   IsInUserDefinedSoundBank: 1
   IsAutoBankLoaded: 0

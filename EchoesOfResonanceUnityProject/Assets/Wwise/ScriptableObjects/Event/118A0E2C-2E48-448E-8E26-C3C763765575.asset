@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770b764e21c9d427fa090115069493ee, type: 3}
   m_Name: 118A0E2C-2E48-448E-8E26-C3C763765575
   m_EditorClassIdentifier: 
-  objectName: playInstrumentFX
-  id: 540628674
+  objectName: playBroadcasterFX
+  id: 1668433167
   guid: 118A0E2C-2E48-448E-8E26-C3C763765575
   IsInUserDefinedSoundBank: 1
   IsAutoBankLoaded: 0

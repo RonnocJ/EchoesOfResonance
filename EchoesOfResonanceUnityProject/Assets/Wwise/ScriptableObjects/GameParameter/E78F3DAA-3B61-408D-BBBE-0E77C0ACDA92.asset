@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c51b68ebd71be494494692a42b822884, type: 3}
   m_Name: E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92
   m_EditorClassIdentifier: 
-  objectName: volumeMusic
-  id: 3923584592
+  objectName: music_Volume
+  id: 1006694123
   guid: E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92

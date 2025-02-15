@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{EE126CE0-1DB4-4FA4-A18F-6C44D0B6ACB4}" SchemaVersion="123" RootDocumentID="{6FF4C0BF-2BFC-49A5-BC80-2FF6FE293CFD}" ParentDocumentID="{6B5323F9-469B-4BF4-AD7A-17B26BC0E375}">
+	<Triggers>
+		<WorkUnit Name="FirstElevator" ID="{EE126CE0-1DB4-4FA4-A18F-6C44D0B6ACB4}" OwnerID="{6B5323F9-469B-4BF4-AD7A-17B26BC0E375}" PersistMode="Nested">
+			<ChildrenList>
+				<Trigger Name="HintDelay" ID="{325E5FCD-930E-4693-BF65-4E53A604AEDD}"/>
+				<Trigger Name="ToG" ID="{99E60451-590A-4EBA-93E9-39A40326DD42}"/>
+				<Trigger Name="ToBb" ID="{33D99227-3E4D-4EA5-94FA-12979F6F895B}"/>
+			</ChildrenList>
+		</WorkUnit>
+	</Triggers>
+</WwiseDocument>

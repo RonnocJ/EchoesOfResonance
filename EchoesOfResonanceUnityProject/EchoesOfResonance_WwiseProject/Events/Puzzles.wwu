@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A47EB3FB-3C54-422C-B2A5-F3311B8E7BCB}" SchemaVersion="123" RootDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" ParentDocumentID="{E92FC1C8-ED0D-47B3-900C-49211DDB045E}">
+	<Events>
+		<WorkUnit Name="Puzzles" ID="{A47EB3FB-3C54-422C-B2A5-F3311B8E7BCB}" OwnerID="{E92FC1C8-ED0D-47B3-900C-49211DDB045E}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playCheckpointReached" ID="{203155CC-D29A-433D-B5D5-D0FBD3E2F62E}">
+					<ChildrenList>
+						<Action Name="" ID="{B6987455-C658-441A-85E3-199A7F3D55C0}" ShortID="308078294">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CheckpointReached" ID="{A06B4EB1-C114-4BBF-BF6A-0A9744C66CB7}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

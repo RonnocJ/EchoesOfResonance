@@ -1,0 +1,131 @@
+Event	ID	Name			Wwise Object Path	Notes
+	879710867	playBroadcasterPlunk			\Default Work Unit\GlobalSFX\Broadcaster\ScreenFX\playBroadcasterPlunk	
+	893306899	playBroadcasterBloop			\Default Work Unit\GlobalSFX\Broadcaster\ScreenFX\playBroadcasterBloop	
+	941857173	stopIntroAmbience			\Default Work Unit\GlobalSFX\stopIntroAmbience	
+	1088348632	playFootsteps			\Default Work Unit\GlobalSFX\playFootsteps	
+	1116304881	startIntroBridgeChoir			\Default Work Unit\Level01Music\startIntroBridgeChoir	
+	1481495309	playCheckpointReached			\Default Work Unit\GlobalSFX\Puzzles\playCheckpointReached	
+	1562608897	playTorchIgnite			\Default Work Unit\GlobalSFX\playTorchIgnite	
+	1668433167	playBroadcasterFX			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\playBroadcasterFX	
+	1900847084	playShutoff			\Default Work Unit\GlobalSFX\Broadcaster\DeviceFX\playShutoff	
+	2019189489	stopTone			\Default Work Unit\GlobalSFX\stopTone	
+	2261249677	stopBroadcasterFX			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\stopBroadcasterFX	
+	2373524099	stopIntroBridgeChoir			\Default Work Unit\Level01Music\stopIntroBridgeChoir	
+	2409822221	playBroadcasterBeep			\Default Work Unit\GlobalSFX\Broadcaster\ScreenFX\playBroadcasterBeep	
+	3240900869	resumeAll			\Default Work Unit\GlobalChange\resumeAll	
+	3253062429	playElevatorHints			\Default Work Unit\Level01Music\playElevatorHints	
+	3310685126	playEndCutscene			\Default Work Unit\GlobalSFX\playEndCutscene	
+	3348497029	activateStepDucking			\Default Work Unit\Level01Music\activateStepDucking	
+	3352024112	startMetronome01			\Default Work Unit\Level01Music\startMetronome01	
+	3384925243	playIntroAmbience			\Default Work Unit\GlobalSFX\playIntroAmbience	
+	3518514029	startMusic01			\Default Work Unit\Level01Music\startMusic01	
+	3594363913	playBroadcasterNote			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\playBroadcasterNote	
+	3639922799	playDoorOpen			\Default Work Unit\GlobalSFX\playDoorOpen	
+	3679901891	playTorchExtinguish			\Default Work Unit\GlobalSFX\playTorchExtinguish	
+	4091047182	pauseAll			\Default Work Unit\GlobalChange\pauseAll	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3800814886	Level01Master			\Default Work Unit\Level01\Level01Master	
+
+State	ID	Name	State Group			Notes
+	270858878	EntranceHall	Level01Master			
+	748895195	None	Level01Master			
+	1125500713	Intro	Level01Master			
+	1149990767	CliffsEdge	Level01Master			
+	1318468365	ElevatorShaft	Level01Master			
+	1379644315	ElevatorHallway	Level01Master			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	831692701	midi_Pitch			\Default Work Unit\Global\midi_Pitch	
+	1325667752	introBridge_StepDuck			\Default Work Unit\Level01\introBridge_StepDuck	
+	1867101979	firstElevator_Height			\Default Work Unit\Level01\firstElevator_Height	
+	2726482464	introBridge_CrossBridge			\Default Work Unit\Level01\introBridge_CrossBridge	
+	3217007934	introBridge_FadeIn			\Default Work Unit\Level01\introBridge_FadeIn	
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	1080872029	ToG			\Default Work Unit\Level01\FirstElevator\ToG	
+	1580584756	BridgeCrossing02			\Default Work Unit\Level01\IntroBridge\BridgeCrossing02	
+	1580584759	BridgeCrossing01			\Default Work Unit\Level01\IntroBridge\BridgeCrossing01	
+	2526236795	HintDelay			\Default Work Unit\Level01\FirstElevator\HintDelay	
+	3276123882	ToBb			\Default Work Unit\Level01\FirstElevator\ToBb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	458506814	Parametric EQ (Custom)	Wwise Parametric EQ			
+	521572872	stepDucking	Wwise Meter			
+	1259256166	New_RoomVerb	Wwise RoomVerb			
+	2805769450	Special_Effect_1	Wwise Flanger			
+	3164629247	Holy	Wwise RoomVerb			
+	3451596814	Hall_Medium	Wwise RoomVerb			
+	3546444380	Big_Garage1	Wwise Matrix Reverb			
+	3604890626	High_Pass_60Hz	Wwise Parametric EQ			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	18982989	ScratchyDrone	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\88\{8866802E-F3CB-97D8-FE7F-17EC588A8FFD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\ScratchyDrone		28800144
+	19683821	Footstep3	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E8\{E8E0C876-D79A-9AAF-2DC6-42DB1E684013}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep3		26134
+	25129230	Noise3	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\FE\{FE0B117C-F6F3-F95E-88EF-6D6416602FE6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise3		1255240
+	26016208	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\71\{719EC6CD-D052-43C8-8BD3-BFDA4FE9D270}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger01\StingerRandomizer		1704032
+	28849163	Note08	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\1E\{1EF9C32F-4FF2-C296-5127-4BDEEEC009D2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note08		829448
+	43338354	ElevatorSynthLoopG01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\CD\{CD1D85C1-BE1D-23DE-600E-A6850687A75B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopG01		3407968
+	75156276	ElevatorPercLoop01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\5E\{5E498888-66BB-516F-57D4-3FF0243F6BBA}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorPercLoop01		3145824
+	92908706	Note23	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\3D\{3D572830-6872-D07F-8039-1CE51D2E2F12}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note23		829448
+	95539274	Bloop	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F0\{F069E3EA-BCC9-2670-5E0E-06DFC5318C53}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Bloop		48096
+	126475547	EndCutsceneRiser	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\DF\{DF231077-3C3A-2158-60D0-527DE3714902}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\EndCutsceneRiser		1764096
+	126542386	Note09	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\75\{75FA0D30-2859-F1BA-09E6-CD8A9656C2BC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note09		829448
+	141280526	Note05	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D1\{D1802476-121E-B172-554E-405C3D362F75}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note05		829448
+	187965447	Footstep4	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F9\{F9B6F895-21E8-6919-E801-5C6E16B2E93F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep4		35666
+	196389406	D	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A1\{A1C58D45-EA1D-C8A9-30F4-9AD3964B7911}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroBridgeChoir\D		6807600
+	197571160	ElevatorPercLoop02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\09\{09F2DC1A-8655-F25F-4CF2-92AAF71273D8}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorPercLoop02		3145824
+	198980918	Noise2	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D8\{D8B98698-BCB9-47AF-466C-20C78CCA2203}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise2		4431956
+	212778501	Note06	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D7\{D761B878-357C-BEF4-8417-098EBCA4573A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note06		829448
+	221963859	Extinguish	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\13\{1345CF97-A3CA-0D90-B3B5-99697D9B3464}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Torches\Extinguish		152124
+	231050069	Footstep1	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\3A\{3A98EB36-5429-8354-1935-6D671CC7D773}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep1		18270
+	235771073	Noise4	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\B9\{B9A6A8AC-5962-708E-91F1-68EF2CB59ED8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise4		716276
+	267754359	Open	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\6A\{6AAE1727-5E49-2A0A-B445-A894C1706760}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Doors\Open		864096
+	306185428	Note14	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\43\{437CA90A-D981-6186-E7A0-190A64645D5A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note14		829448
+	324329059	EOR_Level01_FirstElevatorHint02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E8\{E88457AE-6322-9575-DD92-5FA838CA6560}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint02\EOR_Level01_FirstElevatorHint02		3014752
+	330997474	BridgePerc	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\0F\{0F9DD149-B357-7CCE-7B77-7A07F53D3FD4}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BaseLoop\BridgePerc		3145824
+	338837726	Note16	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\EB\{EB2ACC8D-2E34-D029-860C-40A9F7F4168A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note16		829448
+	369672728	Note03	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F7\{F74F9284-B695-28D2-D8E9-F219FDF9DA9B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note03		829448
+	380351332	Note19	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\85\{8527E6C2-EC78-9450-2871-D4EF6FDD937F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note19		829448
+	392609066	Sizzle	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\5A\{5A771D6D-7A01-4F6E-5200-0D8C86A493E9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Shutoff\Sizzle		498664
+	395212504	Note01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\12\{1253581F-1481-7F45-4B1F-E617554AEAC1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note01		829448
+	401359229	Note13	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\C3\{C361C575-F7D9-C813-B72A-90A7F7602351}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note13		829448
+	405064483	Note25	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\84\{8409DC0B-C57B-A3BD-B401-7CF4B3147415}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note25		829448
+	443159251	Note07	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A0\{A0AEA2E0-AC2C-8DC2-336E-F0EC95CC7EB3}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note07		829448
+	490563688	Plunk	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\64\{64D76168-E609-8E2E-03F5-8B7A9BFBC042}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Plunk		48096
+	523749856	CheckpointReached	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\66\{66A48FE3-237B-5EEE-8B61-141D9F721D6A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Gems\CheckpointReached		192096
+	579110475	Ignite	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F0\{F0AFFA4B-C378-732A-54DD-286D536D3FE5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Torches\Ignite		99548
+	601852565	ElevatorSynthLoopBb01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D0\{D04A2C97-DDA8-0412-0352-DCF6A44A16C8}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopBb01		3407968
+	604184880	Note21	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D6\{D665DBF5-8E04-220F-AB4E-4B0B4A135A9F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note21		829448
+	607143823	Ostinato	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\4D\{4D6BFC04-C607-A7CD-36A0-0EE17B265927}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\CliffsEdge\EdgeLoop\Ostinato		3670112
+	620721570	DarkDrone	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\50\{50777B60-1FBE-2338-5F12-8C86C9CB60CC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\DarkDrone		34230236
+	646799141	Note04	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\DC\{DC2458B2-171A-C13F-16BD-BCC23D43DC0C}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note04		829448
+	648973999	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\CE\{CE4BD7C2-D3DB-A173-E027-1AAD06EFEF72}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger01\StingerRandomizer		1704032
+	677392716	ElevatorSynthLoopG02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\CF\{CF7CB839-7706-48F6-101E-0FD0D0DDEE7A}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopG02		4194400
+	694118584	Note17	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\8D\{8D9D682F-9D6A-1CC4-4B23-DA17B8A4B800}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note17		829448
+	696632212	Note12	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\1C\{1C7D3C4D-9FFC-4F66-D516-655DB6D39C7A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note12		829448
+	702534327	Note24	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\1F\{1F165461-F253-9959-4A35-9799924704BC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note24		829448
+	713251495	BroadcasterStaticLoop	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\DC\{DCF6609E-A5A8-3434-FAF4-EAE499787961}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FX\BroadcasterStaticLoop		768144
+	714574361	Wind	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\AA\{AA344128-660F-E3AD-04BE-068CDA6661CE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Wind		22564576
+	738239400	Note02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\16\{16E00346-359A-AC28-30BF-06BA6740EDED}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note02		829448
+	759231515	BridgeSynth	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\4F\{4FC135B3-CE83-2CB1-172F-788374759BC7}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BaseLoop\BridgeSynth		3670112
+	763669523	Note11	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\9F\{9F5D2DAF-DD28-1DC6-9E84-BC1D53F31B35}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note11		829448
+	766368147	Note20	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\89\{89AD20BD-FB1D-FBD2-AA79-C0C8A8AEA095}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note20		829448
+	770221763	Noise1	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\19\{199070F2-8F52-12FE-B0DA-770A20D9CBD2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise1		1650552
+	781168124	C	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\40\{40BA2557-F474-E576-E1F2-AABF5E83DEF6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroBridgeChoir\C		6807600
+	852775546	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\11\{115A1CDB-0EB4-F0C7-1A29-D9D3C77C7E05}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger02\StingerRandomizer		1704032
+	859428089	Note18	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\6D\{6DB3B207-6F98-54A9-AA25-2F43A2618F87}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note18		829448
+	875006138	EOR_Level01_FirstElevatorHint01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A8\{A8F1C233-BBA5-05EF-72D4-AAF07BA0A7D7}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint01\EOR_Level01_FirstElevatorHint01		3014752
+	893327983	Beep	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\BA\{BA552F9E-A570-BF36-CB5A-D9F7891D9182}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Beep		48096
+	894203654	BroadcasterOn	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\97\{97996CAF-55DE-51F0-052C-1B38B015CD03}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FX\BroadcasterOn		48096
+	899365782	BroadcasterOff	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\FF\{FF6D871E-2DCA-7C84-83A1-FC2BF3F2C218}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FX\BroadcasterOff		48096
+	903983521	ElevatorSynthLoopBb02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E3\{E3F28784-3953-2545-9B73-2D12869E4068}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopBb02		4194400
+	964753850	Note15	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\7B\{7B470C10-86F7-AE9C-80C2-17C0F01C285B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note15		829448
+	1021142576	Note10	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\35\{35FEBC82-2B96-66C3-2FE7-8DC31713E03B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note10		829448
+	1022251565	Impact	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D0\{D0A83ED7-C8C2-9611-81D6-978AB1A67692}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Shutoff\Impact		525076
+	1023833783	EOR_Level01_FirstElevatorHint03	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D7\{D7BF5F0A-DE11-E680-7184-308746040888}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint03\EOR_Level01_FirstElevatorHint03		3014752
+	1029141824	Footstep2	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\BD\{BDFAE6EE-DAEB-021D-EC7E-163C0A7222C7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep2		22670
+	1032266012	EOR_Level01_FirstElevatorHint04	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\67\{67FE5A56-3B63-F849-F81A-077EA2A1D154}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint04\EOR_Level01_FirstElevatorHint04		3014752
+	1053004603	Note22	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A0\{A0848694-28E0-A80F-CF7D-4FA22916BAEC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note22		829448
+	1073016302	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\EE\{EE4099AB-DF03-E8E3-93D5-63C994F34B30}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger02\StingerRandomizer		1704032
+

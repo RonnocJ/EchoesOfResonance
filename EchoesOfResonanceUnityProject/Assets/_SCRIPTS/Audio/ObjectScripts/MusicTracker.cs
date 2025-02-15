@@ -1,60 +1,58 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Objects/Audio/MusicTracker", order = 1)]
 public class MusicTracker : ScriptableObject
 {
-    public AK.Wwise.Event musicEvent;
-    public UnityEvent playMusic;
-    [Serializable]
-    public class MusicState
-    {
-        public AK.Wwise.State musicState;
-        public Event setState;
-    }
-    public MusicState[] states;
-    public int beat;
-    public int bar;
-    public int grid;
+    public float grid;
     public int length;
-    public Action OnEveryBeat, OnEveryBar, OnEveryGrid, OnEveryLoop;
-    public void StartMusic(GameObject obj)
+    public Dictionary<float, Action<float>> callbackFrequency = new();
+    private AkMusicSyncCallbackInfo musicInfo;
+    public void SetTracker()
     {
-        beat = 0;
-        bar = 0;
-
-        OnEveryBeat = new Action(() => { });
-        OnEveryBar = new Action(() => { });
-        OnEveryGrid = new Action(() => { });
-        OnEveryLoop = new Action(() => { });
-
-        musicEvent.Post(obj, (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition), MusicCallbackFunction);
+        grid = 0;
+        length = 0;
     }
+    public void AddBeatListener(float duration, Action<float> action)
+    {
+        if(!callbackFrequency.ContainsKey(duration))
+        {
+            callbackFrequency[duration] = new Action<float> (_ => { });
+        }
 
-    void MusicCallbackFunction(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
+        callbackFrequency[duration] += action;
+    }
+    public void RemoveBeatListener(float duration, Action<float> action)
+    {
+        callbackFrequency[duration] -= action;
+    }
+    public void MusicCallbackFunction(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
     {
         if (in_info is AkMusicSyncCallbackInfo _musicInfo)
         {
-            if (length == 0)
-                length = Mathf.RoundToInt(_musicInfo.segmentInfo_iActiveDuration / _musicInfo.segmentInfo_fBarDuration);
+            musicInfo = _musicInfo;
 
-            switch (_musicInfo.musicSyncType)
+            if (length == 0)
+                length = Mathf.FloorToInt(musicInfo.segmentInfo_iActiveDuration / (musicInfo.segmentInfo_fBeatDuration * 1000));
+
+            if (in_type == AkCallbackType.AK_MusicSyncGrid)
             {
-                case AkCallbackType.AK_MusicSyncBeat:
-                    beat = (beat % 4) + 1;
-                    OnEveryBeat.Invoke();
-                    break;
-                case AkCallbackType.AK_MusicSyncBar:
-                    bar = (bar % length) + 1;
-                    OnEveryBar.Invoke();
-                    break;
-                case AkCallbackType.AK_MusicSyncGrid:
-                    OnEveryGrid.Invoke();
-                    break;
-                case AkCallbackType.AK_MusicSyncExit:
-                    OnEveryLoop.Invoke();
-                    break;
+                grid = (grid + 0.25f) % length;
+
+                foreach(float duration in callbackFrequency.Keys)
+                {
+                    if(grid % duration == 0)
+                    {
+                        callbackFrequency[duration].Invoke(duration);
+                    }
+                }
             }
         }
+    }
+
+    public float GetBeatInSeconds()
+    {
+        return musicInfo.segmentInfo_fBeatDuration;
     }
 }
