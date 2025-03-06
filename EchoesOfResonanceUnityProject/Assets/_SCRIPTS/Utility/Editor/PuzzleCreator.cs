@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+
 public class PuzzleCreator : MonoBehaviour
 {
     private static Transform plate;
@@ -84,7 +85,7 @@ public class PuzzleCreator : MonoBehaviour
         SetInteractables();
 
         UnpackPrefab(plate.gameObject);
-        
+
         Debug.Log("Puzzle updated successfully!");
     }
 
@@ -120,14 +121,25 @@ public class PuzzleCreator : MonoBehaviour
 
         for (int i = 0; i < gems.Length; i++)
         {
-            float newNoteFloat = PuzzleUtilities.root.GetNoteNumber(data.solutions[i]);
+            float newNoteFloat = PuzzleUtilities.root.GetNoteNumber(data.solutions[i].noteName);
             gems[i].transform.GetChild(0).GetComponent<MeshFilter>().mesh = DH.Get<GlobalGemData>().gemMeshes[((int)newNoteFloat - 1) % 5];
 
             var gemMat = new Material(gems[i].transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial);
             gems[i].transform.GetChild(0).GetComponent<MeshRenderer>().material = gemMat;
 
-            gemMat.SetColor("_gemColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)]);
+            gemMat.SetColor("_gemColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)].mainColor);
+            gemMat.SetColor("_bottomColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)].bottomColor);
+            gemMat.SetColor("_topColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)].topColor);
             gems[i].gemMat = gemMat;
+
+            var gemParticles = gems[i].transform.GetComponentsInChildren<ParticleSystemRenderer>();
+
+            foreach (var particle in gemParticles)
+            {
+                var particleMat = new Material(particle.sharedMaterial);
+                particleMat.SetColor("_EmissionColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)].mainColor * 200f);
+                particle.material = particleMat;
+            }
 
             if (PrefabUtility.IsPartOfAnyPrefab(gems[i].gameObject))
                 PrefabUtility.UnpackPrefabInstance(gems[i].gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
@@ -137,6 +149,7 @@ public class PuzzleCreator : MonoBehaviour
 
         plate.GetComponent<PuzzlePlate>().gems = gems;
     }
+
     static void SetInteractables()
     {
         var interactables = plate.GetComponentsInChildren<BasicInteractable>();

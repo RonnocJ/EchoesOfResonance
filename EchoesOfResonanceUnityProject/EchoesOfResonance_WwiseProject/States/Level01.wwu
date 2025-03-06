@@ -10,7 +10,6 @@
 					<ChildrenList>
 						<State Name="None" ID="{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"/>
 						<State Name="Intro" ID="{9897F57F-7F24-4F01-B3AB-3491F3E94C16}"/>
-						<State Name="EntranceHall" ID="{62AFD801-9CE1-4265-84EA-24A0AC8F53DE}"/>
 						<State Name="ElevatorHallway" ID="{5E75A11B-B0F3-4816-966F-6E15ADAA4183}"/>
 						<State Name="ElevatorShaft" ID="{C782FCFA-CDC2-454A-B861-5ACC204E5E4E}"/>
 						<State Name="CliffsEdge" ID="{4C7B3281-C461-4348-BD8E-F3F429F5F919}"/>

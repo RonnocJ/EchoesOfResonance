@@ -81,6 +81,7 @@ public class ConfigureKeyboard : Singleton<ConfigureKeyboard>, IInputScript, ISa
     [AllowedStates(GameState.Config)]
     void SetMiddleC(float newMiddle)
     {
+        Debug.Log(newMiddle);
         if (middleKey == -1)
         {
             if (newMiddle == tempMiddleKey)

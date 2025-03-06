@@ -19,8 +19,18 @@ MonoBehaviour:
   - {fileID: 4228556506607390173, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
   - {fileID: 4348124009803173057, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
   gemColors:
-  - {r: 0.3137255, g: 0, b: 0, a: 0}
-  - {r: 0.3137255, g: 0.3137255, b: 0, a: 0}
-  - {r: 0, g: 0.3137255, b: 0, a: 0}
-  - {r: 0, g: 0.15686275, b: 0.3529412, a: 0}
-  - {r: 0.29411766, g: 0, b: 0.37254903, a: 0}
+  - mainColor: {r: 0.15, g: 0, b: 0, a: 1}
+    bottomColor: {r: 0.1, g: 0.05, b: 0, a: 1}
+    topColor: {r: 0.1, g: 0, b: 0.05, a: 1}
+  - mainColor: {r: 0.1, g: 0, b: 0.15, a: 1}
+    bottomColor: {r: 0.125, g: 0, b: 0.025, a: 1}
+    topColor: {r: 0.025, g: 0, b: 0.125, a: 1}
+  - mainColor: {r: 0, g: 0.125, b: 0.125, a: 1}
+    bottomColor: {r: 0, g: 0, b: 0.125, a: 1}
+    topColor: {r: 0, g: 0.075, b: 0.025, a: 1}
+  - mainColor: {r: 0.025, g: 0.1, b: 0, a: 1}
+    bottomColor: {r: 0, g: 0.1, b: 0.1, a: 1}
+    topColor: {r: 0.075, g: 0.1, b: 0, a: 1}
+  - mainColor: {r: 0.075, g: 0.075, b: 0, a: 1}
+    bottomColor: {r: 0.05, g: 0.1, b: 0, a: 1}
+    topColor: {r: 0.1, g: 0.05, b: 0, a: 1}

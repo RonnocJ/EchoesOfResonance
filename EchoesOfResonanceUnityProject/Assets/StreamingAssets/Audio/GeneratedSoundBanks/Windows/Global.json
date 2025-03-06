@@ -1,0 +1,820 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1465331116",
+    "Type": "User",
+    "GUID": "{11F8CFB0-AE41-4B88-8087-4ADA5710DCBC}",
+    "Language": "SFX",
+    "Hash": "{4A1F3C77-2A30-3527-2CFC-5B07B495A82E}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
+    "ShortName": "Global",
+    "Path": "Global.bnk",
+    "Media": [
+     {
+      "Id": "18982989",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Ambience, Designed, Abstract, Noisy, Drone, Dark, Noisy, Interference SND56675.wav",
+      "CachePath": "88/{8866802E-F3CB-97D8-FE7F-17EC588A8FFD}.wem"
+     },
+     {
+      "Id": "19683821",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 2.wav",
+      "CachePath": "E8/{E8E0C876-D79A-9AAF-2DC6-42DB1E684013}.wem"
+     },
+     {
+      "Id": "25129230",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Geothermal, Geyser, Eruption, Blow Out, Designed, Iceland 01 SND118385 1.wav",
+      "CachePath": "FE/{FE0B117C-F6F3-F95E-88EF-6D6416602FE6}.wem"
+     },
+     {
+      "Id": "28849163",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_FluteInstrument_Note08.wav",
+      "CachePath": "1E/{1EF9C32F-4FF2-C296-5127-4BDEEEC009D2}.wem"
+     },
+     {
+      "Id": "92908706",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_FluteInstrument_Note23.wav",
+      "CachePath": "3D/{3D572830-6872-D07F-8039-1CE51D2E2F12}.wem"
+     },
+     {
+      "Id": "95539274",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BroadcasterBloop.wav",
+      "CachePath": "F0/{F069E3EA-BCC9-2670-5E0E-06DFC5318C53}.wem"
+     },
+     {
+      "Id": "126475547",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EndCutsceneRiser.wav",
+      "CachePath": "DF/{DF231077-3C3A-2158-60D0-527DE3714902}.wem"
+     },
+     {
+      "Id": "187965447",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 3.wav",
+      "CachePath": "F9/{F9B6F895-21E8-6919-E801-5C6E16B2E93F}.wem"
+     },
+     {
+      "Id": "198980918",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Bells, Large, Church Bells, Distant 01 SND79387.wav",
+      "CachePath": "D8/{D8B98698-BCB9-47AF-466C-20C78CCA2203}.wem"
+     },
+     {
+      "Id": "221963859",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Air, Hiss, Steam, Mist, Smoke, Gas, Release, Very Close SND44703.wav",
+      "CachePath": "13/{1345CF97-A3CA-0D90-B3B5-99697D9B3464}.wem"
+     },
+     {
+      "Id": "231050069",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513.wav",
+      "CachePath": "3A/{3A98EB36-5429-8354-1935-6D671CC7D773}.wem"
+     },
+     {
+      "Id": "235771073",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Natural Disaster, Earthquake, Impact, Small Crack 01 SND13421.wav",
+      "CachePath": "B9/{B9A6A8AC-5962-708E-91F1-68EF2CB59ED8}.wem"
+     },
+     {
+      "Id": "267754359",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "DoorOpen-003.wav",
+      "CachePath": "6A/{6AAE1727-5E49-2A0A-B445-A894C1706760}.wem"
+     },
+     {
+      "Id": "354894646",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_PitchFinder_Note13.wav",
+      "CachePath": "FA/{FA0D6536-4EF4-CA20-EC99-24A3496D8715}.wem"
+     },
+     {
+      "Id": "369672728",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_FluteInstrument_Note03.wav",
+      "CachePath": "F7/{F74F9284-B695-28D2-D8E9-F219FDF9DA9B}.wem"
+     },
+     {
+      "Id": "392609066",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Electricity, Sparks, Designed, Electric, Digitalized, Sweetener 01 SND121324.wav",
+      "CachePath": "5A/{5A771D6D-7A01-4F6E-5200-0D8C86A493E9}.wem"
+     },
+     {
+      "Id": "401359229",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_FluteInstrument_Note13.wav",
+      "CachePath": "C3/{C361C575-F7D9-C813-B72A-90A7F7602351}.wem"
+     },
+     {
+      "Id": "490563688",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BroadcasterPlunk.wav",
+      "CachePath": "64/{64D76168-E609-8E2E-03F5-8B7A9BFBC042}.wem"
+     },
+     {
+      "Id": "523749856",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_CheckpointReached.wav",
+      "CachePath": "66/{66A48FE3-237B-5EEE-8B61-141D9F721D6A}.wem"
+     },
+     {
+      "Id": "579110475",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Swooshes, Whoosh, Short, Stove, Dry 01 SND55488.wav",
+      "CachePath": "F0/{F0AFFA4B-C378-732A-54DD-286D536D3FE5}.wem"
+     },
+     {
+      "Id": "620721570",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Ambience, Designed, Abandoned City Soundscape, Wind, Drone In C 01 SND65645.wav",
+      "CachePath": "50/{50777B60-1FBE-2338-5F12-8C86C9CB60CC}.wem"
+     },
+     {
+      "Id": "713251495",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_BroadcasterStaticLoop.wav",
+      "CachePath": "DC/{DCF6609E-A5A8-3434-FAF4-EAE499787961}.wem"
+     },
+     {
+      "Id": "714574361",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Wind, Gust, Strong Wind, Howling, Desert, Moon Valley Atacama, Chile SND81312.wav",
+      "CachePath": "AA/{AA344128-660F-E3AD-04BE-068CDA6661CE}.wem"
+     },
+     {
+      "Id": "770221763",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Chains, Movement, Around Metal Fence, Rattle SND28167.wav",
+      "CachePath": "19/{199070F2-8F52-12FE-B0DA-770A20D9CBD2}.wem"
+     },
+     {
+      "Id": "808061415",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Natural Disaster, Earthquake, Impact, Crack 01 SND13431.wav",
+      "CachePath": "E9/{E9408096-5710-92AE-2D12-6BDD81DE5C36}.wem"
+     },
+     {
+      "Id": "859428089",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_FluteInstrument_Note18.wav",
+      "CachePath": "6D/{6DB3B207-6F98-54A9-AA25-2F43A2618F87}.wem"
+     },
+     {
+      "Id": "893327983",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "BroadcasterBeep.wav",
+      "CachePath": "BA/{BA552F9E-A570-BF36-CB5A-D9F7891D9182}.wem"
+     },
+     {
+      "Id": "894203654",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_BroadcasterOn.wav",
+      "CachePath": "97/{97996CAF-55DE-51F0-052C-1B38B015CD03}.wem"
+     },
+     {
+      "Id": "899365782",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_BroadcasterOff.wav",
+      "CachePath": "FF/{FF6D871E-2DCA-7C84-83A1-FC2BF3F2C218}.wem"
+     },
+     {
+      "Id": "1022251565",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Electricity, Sparks, Electric Chair, Sparkles, On, Off SND122496.wav",
+      "CachePath": "D0/{D0A83ED7-C8C2-9611-81D6-978AB1A67692}.wem"
+     },
+     {
+      "Id": "1029141824",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 1.wav",
+      "CachePath": "BD/{BDFAE6EE-DAEB-021D-EC7E-163C0A7222C7}.wem"
+     },
+     {
+      "Id": "1046733139",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_GemTestTrack.wav",
+      "CachePath": "44/{44E4531B-2557-DA0A-F983-0A41BFCD8CBF}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "458506814",
+       "Name": "Parametric EQ (Custom)",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\PlayerSounds\\Footsteps\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
+       "GUID": "{33A7BDB9-C17B-4EEF-8DFA-4A22F240AFFC}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "521572872",
+       "Name": "stepDucking",
+       "ObjectPath": "\\Effects\\Default Work Unit\\Metering\\stepDucking",
+       "GUID": "{6313E9B1-0F33-48B1-9A18-2073282269AD}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      },
+      {
+       "Id": "1259256166",
+       "Name": "New_RoomVerb",
+       "ObjectPath": "\\Effects\\Default Work Unit\\New_RoomVerb",
+       "GUID": "{2E1541F7-7DD1-4AC9-B615-8C72877EC969}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      },
+      {
+       "Id": "3164629247",
+       "Name": "Holy",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Cathedrals\\Holy",
+       "GUID": "{CC7B8638-C670-4AD5-B3FB-331EA81037F6}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      },
+      {
+       "Id": "3451596814",
+       "Name": "Hall_Medium",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Halls\\Hall_Medium",
+       "GUID": "{50286348-176A-4235-9E4C-CA5F73D87818}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "4091047182",
+      "Name": "pauseAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalChange\\pauseAll",
+      "GUID": "{441FB284-2C47-46E4-A2E0-0FFD6BF59C37}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "2409822221",
+      "Name": "playBroadcasterBeep",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\ScreenFX\\playBroadcasterBeep",
+      "GUID": "{88730A47-1065-4B88-B47A-5ED23D69E404}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "0.47193712",
+      "DurationMax": "0.5297316",
+      "MediaRefs": [
+       {
+        "Id": "893327983"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "893306899",
+      "Name": "playBroadcasterBloop",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\ScreenFX\\playBroadcasterBloop",
+      "GUID": "{357543FE-2B83-476F-802A-4C447C5034BD}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5",
+      "DurationMax": "0.5",
+      "MediaRefs": [
+       {
+        "Id": "95539274"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "3950326117",
+      "Name": "playBroadcasterFinder",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\playBroadcasterFinder",
+      "GUID": "{CB460841-8C98-45EB-A6D2-04B9D173A1CC}",
+      "MaxAttenuation": "3",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "354894646"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "1668433167",
+      "Name": "playBroadcasterFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\playBroadcasterFX",
+      "GUID": "{118A0E2C-2E48-448E-8E26-C3C763765575}",
+      "MaxAttenuation": "3",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "713251495"
+       },
+       {
+        "Id": "894203654"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "3594363913",
+      "Name": "playBroadcasterNote",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\playBroadcasterNote",
+      "GUID": "{FB197FA8-CDE4-48AB-9A13-E0431669CD86}",
+      "MaxAttenuation": "3",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "28849163"
+       },
+       {
+        "Id": "92908706"
+       },
+       {
+        "Id": "369672728"
+       },
+       {
+        "Id": "401359229"
+       },
+       {
+        "Id": "859428089"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "879710867",
+      "Name": "playBroadcasterPlunk",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\ScreenFX\\playBroadcasterPlunk",
+      "GUID": "{CD4B6372-76BB-4643-A192-6E3C351889B1}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5",
+      "DurationMax": "0.5",
+      "MediaRefs": [
+       {
+        "Id": "490563688"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "1481495309",
+      "Name": "playCheckpointReached",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Puzzles\\playCheckpointReached",
+      "GUID": "{203155CC-D29A-433D-B5D5-D0FBD3E2F62E}",
+      "MaxAttenuation": "50",
+      "DurationType": "OneShot",
+      "DurationMin": "1.9152067",
+      "DurationMax": "2.0885475",
+      "MediaRefs": [
+       {
+        "Id": "523749856"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2413215442",
+        "Name": "PuzzleVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
+        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+       }
+      ]
+     },
+     {
+      "Id": "3639922799",
+      "Name": "playDoorOpen",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playDoorOpen",
+      "GUID": "{E44E47B7-6CC6-47E9-B928-1BE9DEB6A11E}",
+      "DurationType": "OneShot",
+      "DurationMin": "9",
+      "DurationMax": "9",
+      "MediaRefs": [
+       {
+        "Id": "267754359"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2413215442",
+        "Name": "PuzzleVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
+        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+       }
+      ]
+     },
+     {
+      "Id": "3310685126",
+      "Name": "playEndCutscene",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playEndCutscene",
+      "GUID": "{2489020F-8DDD-4051-8A5D-DD239076BD5E}",
+      "DurationType": "OneShot",
+      "DurationMin": "10",
+      "DurationMax": "10",
+      "MediaRefs": [
+       {
+        "Id": "126475547"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "1259256166"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "1088348632",
+      "Name": "playFootsteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playFootsteps",
+      "GUID": "{BAC21353-5E5C-4757-81AA-87E99F990987}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.28393936",
+      "DurationMax": "0.48137537",
+      "MediaRefs": [
+       {
+        "Id": "19683821"
+       },
+       {
+        "Id": "187965447"
+       },
+       {
+        "Id": "231050069"
+       },
+       {
+        "Id": "1029141824"
+       }
+      ],
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "458506814"
+        }
+       ],
+       "ShareSets": [
+        {
+         "Id": "521572872"
+        }
+       ]
+      },
+      "AuxBusRefs": [
+       {
+        "Id": "3736295661",
+        "Name": "PlayerVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PlayerVerb",
+        "GUID": "{81A2AD3F-732C-44FC-A513-8F42D9967F63}"
+       }
+      ]
+     },
+     {
+      "Id": "538017021",
+      "Name": "playGemTestTrack",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalMusic\\playGemTestTrack",
+      "GUID": "{ACDC04E1-DF3A-4256-91B5-35AADEB06366}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1046733139"
+       }
+      ]
+     },
+     {
+      "Id": "3384925243",
+      "Name": "playIntroAmbience",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playIntroAmbience",
+      "GUID": "{E4525825-2DFF-4F86-80D2-33097BE61493}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "18982989"
+       },
+       {
+        "Id": "25129230"
+       },
+       {
+        "Id": "198980918"
+       },
+       {
+        "Id": "235771073"
+       },
+       {
+        "Id": "620721570"
+       },
+       {
+        "Id": "714574361"
+       },
+       {
+        "Id": "770221763"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "3164629247"
+        },
+        {
+         "Id": "3451596814"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "1900847084",
+      "Name": "playShutoff",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\DeviceFX\\playShutoff",
+      "GUID": "{6ED2BAAC-99C6-4670-88B2-28D0E8189633}",
+      "MaxAttenuation": "5",
+      "DurationType": "OneShot",
+      "DurationMin": "2.734278",
+      "DurationMax": "2.734278",
+      "MediaRefs": [
+       {
+        "Id": "392609066"
+       },
+       {
+        "Id": "1022251565"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "68937622",
+      "Name": "playStoneCrumble",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Puzzles\\playStoneCrumble",
+      "GUID": "{D28448EE-CB91-4F64-B56B-404BF6631979}",
+      "MaxAttenuation": "50",
+      "DurationType": "OneShot",
+      "DurationMin": "2.2746446",
+      "DurationMax": "2.4805174",
+      "MediaRefs": [
+       {
+        "Id": "808061415"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2413215442",
+        "Name": "PuzzleVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
+        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+       }
+      ]
+     },
+     {
+      "Id": "2757017905",
+      "Name": "playTestMetronome",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalMusic\\NestedTest\\playTestMetronome",
+      "GUID": "{4FD33BB5-5C62-4DC0-98FE-3A39CB230954}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "3679901891",
+      "Name": "playTorchExtinguish",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playTorchExtinguish",
+      "GUID": "{83ACF214-CA95-4378-9188-8E8781937BD2}",
+      "MaxAttenuation": "50",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5836359",
+      "DurationMax": "1.5836359",
+      "MediaRefs": [
+       {
+        "Id": "221963859"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2413215442",
+        "Name": "PuzzleVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
+        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+       }
+      ]
+     },
+     {
+      "Id": "1562608897",
+      "Name": "playTorchIgnite",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playTorchIgnite",
+      "GUID": "{70B32188-EEC9-4A1E-85C7-261ABF5C9EF1}",
+      "MaxAttenuation": "50",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5179825",
+      "DurationMax": "0.5179825",
+      "MediaRefs": [
+       {
+        "Id": "579110475"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2413215442",
+        "Name": "PuzzleVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
+        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+       }
+      ]
+     },
+     {
+      "Id": "3240900869",
+      "Name": "resumeAll",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalChange\\resumeAll",
+      "GUID": "{F4C87799-835B-44D7-B0E0-5F2B8240798C}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "2261249677",
+      "Name": "stopBroadcasterFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\stopBroadcasterFX",
+      "GUID": "{1D076EA8-796B-4D74-B668-6C997FE9340A}",
+      "MaxAttenuation": "3",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5",
+      "DurationMax": "0.5",
+      "MediaRefs": [
+       {
+        "Id": "899365782"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1198315964",
+        "Name": "BroadcasterVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
+        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+       }
+      ]
+     },
+     {
+      "Id": "941857173",
+      "Name": "stopIntroAmbience",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\stopIntroAmbience",
+      "GUID": "{94E3D522-D3EA-45E7-8DE2-1E0926B8912E}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "2019189489",
+      "Name": "stopTone",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\stopTone",
+      "GUID": "{34313151-BEBD-4197-ABC3-8F6D821386E6}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1152538158",
+      "Name": "finder_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\finder_Pitch",
+      "GUID": "{EF8C3766-7A4D-4EFC-A30F-4388AC0916AC}"
+     },
+     {
+      "Id": "2726482464",
+      "Name": "introBridge_CrossBridge",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_CrossBridge",
+      "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
+     },
+     {
+      "Id": "3409173110",
+      "Name": "flute_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\flute_Pitch",
+      "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{ADA581E7-8228-5650-BCE9-B7B333CAD1B9}"
+ }
+}

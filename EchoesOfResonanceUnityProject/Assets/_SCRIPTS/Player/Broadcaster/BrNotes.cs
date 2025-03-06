@@ -41,7 +41,7 @@ public class BrNotes : MonoBehaviour, IInputScript
         }
 
         AudioManager.root.PlaySound(AudioEvent.playBroadcasterNote, gameObject, newNote);
-        AudioManager.root.SetRTPC(AudioRTPC.midi_Pitch, newNote, false, AudioEvent.playBroadcasterNote, gameObject, newNote);
+        AudioManager.root.SetRTPC(AudioRTPC.flute_Pitch, newNote, false, AudioEvent.playBroadcasterNote, gameObject, newNote);
 
         BrBattery.root.notesHeld++;
         lastNotePlayed = newNote;
@@ -64,6 +64,7 @@ public class BrNotes : MonoBehaviour, IInputScript
             BrBattery.root.noteInfoText.text = "";
             CRManager.root.Stop("DrainBatteryNote", this);
             AudioManager.root.PlaySound(AudioEvent.stopBroadcasterFX, gameObject);
+            AudioManager.root.StopSound(AudioEvent.playBroadcasterFX, gameObject);
         }
     }
     public void AllNotesOff()

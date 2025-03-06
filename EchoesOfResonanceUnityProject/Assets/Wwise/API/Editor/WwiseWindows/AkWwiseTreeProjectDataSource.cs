@@ -135,6 +135,23 @@ public class AkWwiseTreeProjectDataSource : AkWwiseTreeDataSource
 		}
 		return rootFolder;
 	}
+	private AkWwiseTreeViewItem BuildTree(string name, List<AkWwiseProjectData.AkParameterWorkUnit> workUnits)
+	{
+		var rootFolder = new AkWwiseTreeViewItem(name, 1, GenerateUniqueID(), System.Guid.NewGuid(), WwiseObjectType.PhysicalFolder);
+
+		foreach (var wwu in workUnits)
+		{
+			var wwuElement = AddTreeItem(rootFolder, wwu.PathAndIcons);
+			if (wwu.List.Count > 0)
+			{
+				foreach (var akInfo in wwu.List)
+				{
+					AddTreeItem(wwuElement, akInfo.PathAndIcons);
+				}
+			}
+		}
+		return rootFolder;
+	}
 
 	private AkWwiseTreeViewItem BuildTree(string name, List<AkWwiseProjectData.AkInfoWorkUnit> workUnits)
 	{

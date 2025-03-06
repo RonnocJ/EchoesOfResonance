@@ -611,8 +611,13 @@
 																		<PointList>
 																			<Point>
 																				<XPos>0</XPos>
-																				<YPos>20</YPos>
+																				<YPos>20.84437</YPos>
 																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>1</XPos>
+																				<YPos>20.84437</YPos>
+																				<Flags>0</Flags>
 																			</Point>
 																			<Point>
 																				<XPos>100</XPos>
@@ -727,12 +732,12 @@
 						</Effect>
 						<Effect Name="Big_Garage1" ID="{172402A8-22F4-40FC-BE1D-5269594CB633}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
 							<PropertyList>
-								<Property Name="DryLevel" Type="Real32" Value="-40"/>
+								<Property Name="DryLevel" Type="Real32" Value="-96"/>
 								<Property Name="HFRatio" Type="Real32" Value="2.5"/>
 								<Property Name="NumberOfDelays" Type="int32" Value="12"/>
 								<Property Name="PreDelay" Type="Real32" Value="0.15"/>
 								<Property Name="ReverbTime" Type="Real32" Value="5"/>
-								<Property Name="WetLevel" Type="Real32" Value="-20"/>
+								<Property Name="WetLevel" Type="Real32" Value="-30"/>
 							</PropertyList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
@@ -750,13 +755,19 @@
 														<Custom>
 															<Curve Name="" ID="{65EA4385-EF1E-46C8-B531-1F4787E3C48A}">
 																<PropertyList>
-																	<Property Name="Flags" Type="int32" Value="3"/>
+																	<Property Name="Flags" Type="int32" Value="1"/>
 																</PropertyList>
 																<PointList>
 																	<Point>
 																		<XPos>0</XPos>
 																		<YPos>96.3</YPos>
 																		<Flags>5</Flags>
+																		<SegmentShape>Exp3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>40</XPos>
+																		<YPos>96.3</YPos>
+																		<Flags>0</Flags>
 																		<SegmentShape>Exp3</SegmentShape>
 																	</Point>
 																	<Point>
@@ -791,9 +802,14 @@
 																<PointList>
 																	<Point>
 																		<XPos>0</XPos>
-																		<YPos>-96.3000030517578</YPos>
+																		<YPos>-30.54027</YPos>
 																		<Flags>5</Flags>
 																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-30.54027</YPos>
+																		<Flags>0</Flags>
 																	</Point>
 																	<Point>
 																		<XPos>100</XPos>
@@ -879,6 +895,13 @@
 								<Property Name="PreDelay" Type="Real32" Value="0.02"/>
 								<Property Name="ReverbTime" Type="Real32" Value="4.5"/>
 								<Property Name="WetLevel" Type="Real32" Value="-30"/>
+							</PropertyList>
+						</Effect>
+						<Effect Name="ShutdownVerb" ID="{B937E51A-3286-4BFC-B27D-388B67B8C5DA}" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+							<PropertyList>
+								<Property Name="HFRatio" Type="Real32" Value="3"/>
+								<Property Name="ReverbTime" Type="Real32" Value="2.5"/>
+								<Property Name="WetLevel" Type="Real32" Value="-20"/>
 							</PropertyList>
 						</Effect>
 					</ChildrenList>
@@ -1492,9 +1515,10 @@
 								</Effect>
 								<Effect Name="Church_Small_Wood" ID="{940CCB47-F031-4C6A-B0E6-726CAC418C02}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<PropertyList>
-										<Property Name="DecayTime" Type="Real32" Value="1.3"/>
-										<Property Name="Density" Type="Real32" Value="27"/>
-										<Property Name="ERLevel" Type="Real32" Value="-24"/>
+										<Property Name="DecayTime" Type="Real32" Value="3"/>
+										<Property Name="Density" Type="Real32" Value="100"/>
+										<Property Name="DryLevel" Type="Real32" Value="-0.3"/>
+										<Property Name="ERLevel" Type="Real32" Value="0"/>
 										<Property Name="ERPattern" Type="int32" Value="6"/>
 										<Property Name="Filter1Freq" Type="Real32" Value="490"/>
 										<Property Name="Filter1Gain" Type="Real32" Value="-5.5"/>
@@ -1502,12 +1526,86 @@
 										<Property Name="Filter2InsertPos" Type="int32" Value="0"/>
 										<Property Name="Filter3Freq" Type="Real32" Value="11000"/>
 										<Property Name="Filter3Gain" Type="Real32" Value="-7"/>
-										<Property Name="HFDamping" Type="Real32" Value="3.7"/>
-										<Property Name="PreDelay" Type="Real32" Value="18"/>
+										<Property Name="HFDamping" Type="Real32" Value="5"/>
+										<Property Name="PreDelay" Type="Real32" Value="0"/>
 										<Property Name="Quality" Type="int32" Value="12"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-23"/>
-										<Property Name="RoomSize" Type="Real32" Value="20"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-8"/>
+										<Property Name="RoomSize" Type="Real32" Value="50"/>
 									</PropertyList>
+									<ObjectLists>
+										<ObjectList Name="RTPC">
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{D2F6A4F3-12FF-444E-9936-97BBC9BEC47F}" ShortID="20188152">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="DryLevel"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="broadcaster_Shutdown" ID="{BB7E510A-0B5A-4455-B69F-E8B2B57D0079}" WorkUnitID="{3B1D04E3-F8A2-453D-8806-15692EFC84CF}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{451D3227-0EFB-4519-B127-28AA6DE67594}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>96.3</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{B5346CD5-0CC7-4EF5-8316-BB85AD527E6B}" ShortID="473150205">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="ReverbLevel"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="broadcaster_Shutdown" ID="{BB7E510A-0B5A-4455-B69F-E8B2B57D0079}" WorkUnitID="{3B1D04E3-F8A2-453D-8806-15692EFC84CF}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{4B2849F7-50D2-4E9B-8944-93430A635D20}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-96.3000030517578</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>-15</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</Effect>
 							</ChildrenList>
 						</Folder>
@@ -1578,11 +1676,11 @@
 								</Effect>
 								<Effect Name="Space_Dreaming" ID="{4FF7C4B2-37B0-4DFF-8E8A-1420102AE2DD}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<PropertyList>
-										<Property Name="DecayTime" Type="Real32" Value="5.8"/>
-										<Property Name="Density" Type="Real32" Value="100"/>
-										<Property Name="Diffusion" Type="Real32" Value="53"/>
-										<Property Name="DryLevel" Type="Real32" Value="-96"/>
-										<Property Name="ERLevel" Type="Real32" Value="-6"/>
+										<Property Name="DecayTime" Type="Real32" Value="5"/>
+										<Property Name="Density" Type="Real32" Value="50"/>
+										<Property Name="Diffusion" Type="Real32" Value="50"/>
+										<Property Name="DryLevel" Type="Real32" Value="0"/>
+										<Property Name="ERLevel" Type="Real32" Value="-96"/>
 										<Property Name="ERPattern" Type="int32" Value="29"/>
 										<Property Name="Filter1Freq" Type="Real32" Value="490"/>
 										<Property Name="Filter1Gain" Type="Real32" Value="-11"/>
@@ -1591,14 +1689,89 @@
 										<Property Name="Filter2Q" Type="Real32" Value="0.1"/>
 										<Property Name="Filter3Freq" Type="Real32" Value="10620"/>
 										<Property Name="Filter3Gain" Type="Real32" Value="-17.5"/>
-										<Property Name="HFDamping" Type="Real32" Value="7.05"/>
-										<Property Name="PreDelay" Type="Real32" Value="200"/>
+										<Property Name="HFDamping" Type="Real32" Value="5"/>
+										<Property Name="PreDelay" Type="Real32" Value="0"/>
 										<Property Name="Quality" Type="int32" Value="6"/>
-										<Property Name="ReverbLevel" Type="Real32" Value="-19"/>
+										<Property Name="ReverbLevel" Type="Real32" Value="-15"/>
 										<Property Name="RoomShape" Type="Real32" Value="81"/>
 										<Property Name="RoomSize" Type="Real32" Value="100"/>
-										<Property Name="StereoWidth" Type="Real32" Value="120"/>
 									</PropertyList>
+									<ObjectLists>
+										<ObjectList Name="RTPC">
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{842035FF-DEF1-4747-BCDA-D0C32EE643BD}" ShortID="580791422">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="DryLevel"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="broadcaster_Shutdown" ID="{BB7E510A-0B5A-4455-B69F-E8B2B57D0079}" WorkUnitID="{3B1D04E3-F8A2-453D-8806-15692EFC84CF}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{7878A486-6E74-40BC-A665-635B815D646D}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>96.3</YPos>
+																				<Flags>5</Flags>
+																				<SegmentShape>Exp2</SegmentShape>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{A0E3B497-AD74-41B3-B48C-F637FEEA317F}" ShortID="702650756">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="ReverbLevel"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="broadcaster_Shutdown" ID="{BB7E510A-0B5A-4455-B69F-E8B2B57D0079}" WorkUnitID="{3B1D04E3-F8A2-453D-8806-15692EFC84CF}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{DEA79BAA-BE20-49F5-BF8B-F082F03A2010}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-96.3000030517578</YPos>
+																				<Flags>5</Flags>
+																				<SegmentShape>Exp1</SegmentShape>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>-7.5</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
 								</Effect>
 								<Effect Name="Space_Garage" ID="{1AF92D84-49DD-4BBC-8F29-6C6D10082B6E}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 									<PropertyList>
@@ -1756,9 +1929,14 @@
 																<PointList>
 																	<Point>
 																		<XPos>0</XPos>
-																		<YPos>-100</YPos>
+																		<YPos>-94.05981</YPos>
 																		<Flags>5</Flags>
 																		<SegmentShape>Log3</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-94.05981</YPos>
+																		<Flags>0</Flags>
 																	</Point>
 																	<Point>
 																		<XPos>100</XPos>

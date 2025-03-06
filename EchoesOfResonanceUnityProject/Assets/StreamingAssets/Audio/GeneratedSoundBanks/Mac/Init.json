@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{79B722B2-11EA-8145-D503-0C11486F5322}",
+    "Hash": "{D9FB71C3-F79E-BBA4-14F5-29CF50A153E4}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -29,6 +29,14 @@
        "Name": "Medium",
        "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Cathedrals\\Medium",
        "GUID": "{AEB3F175-958B-45F2-A4C2-3FBD4F456568}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      },
+      {
+       "Id": "3216246379",
+       "Name": "Space_Dreaming",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Huge Spaces\\Space_Dreaming",
+       "GUID": "{4FF7C4B2-37B0-4DFF-8E8A-1420102AE2DD}",
        "LibName": "Wwise RoomVerb",
        "LibId": "7733251"
       }
@@ -63,7 +71,14 @@
       "Id": "2886307548",
       "Name": "MusicBus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\MusicBus",
-      "GUID": "{EC62AEBE-2FED-4166-9D40-D71B991A8894}"
+      "GUID": "{EC62AEBE-2FED-4166-9D40-D71B991A8894}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "3216246379"
+        }
+       ]
+      }
      },
      {
       "Id": "3803850708",
@@ -115,16 +130,22 @@
     ],
     "GameParameters": [
      {
-      "Id": "831692701",
-      "Name": "midi_Pitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\midi_Pitch",
-      "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
+      "Id": "653430204",
+      "Name": "broadcaster_Shutdown",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\broadcaster_Shutdown",
+      "GUID": "{BB7E510A-0B5A-4455-B69F-E8B2B57D0079}"
      },
      {
       "Id": "1006694123",
       "Name": "music_Volume",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\music_Volume",
       "GUID": "{E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92}"
+     },
+     {
+      "Id": "1152538158",
+      "Name": "finder_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\finder_Pitch",
+      "GUID": "{EF8C3766-7A4D-4EFC-A30F-4388AC0916AC}"
      },
      {
       "Id": "1325667752",
@@ -151,10 +172,22 @@
       "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
      },
      {
+      "Id": "2969596720",
+      "Name": "cliffsEdge_Fade",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\cliffsEdge_Fade",
+      "GUID": "{74BE150D-AC23-4B5B-A301-4A8E10801D21}"
+     },
+     {
       "Id": "3217007934",
       "Name": "introBridge_FadeIn",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_FadeIn",
       "GUID": "{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}"
+     },
+     {
+      "Id": "3409173110",
+      "Name": "flute_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\flute_Pitch",
+      "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
      }
     ],
     "StateGroups": [
@@ -209,12 +242,6 @@
       "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
       "States": [
        {
-        "Id": "270858878",
-        "Name": "EntranceHall",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\EntranceHall",
-        "GUID": "{62AFD801-9CE1-4265-84EA-24A0AC8F53DE}"
-       },
-       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\None",
@@ -249,6 +276,6 @@
     ]
    }
   ],
-  "FileHash": "{88BCC439-F11A-C3C4-8359-3F51C01C3B61}"
+  "FileHash": "{4DF3A0CA-7D88-63EA-095A-20B77E5ADD8F}"
  }
 }

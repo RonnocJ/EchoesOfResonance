@@ -12,7 +12,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+							<ObjectRef Name="MusicBus" ID="{EC62AEBE-2FED-4166-9D40-D71B991A8894}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
 						</Reference>
 						<Reference Name="TransitionRoot">
 							<Custom>
@@ -239,10 +239,6 @@
 												</StateGroupList>
 												<CustomStateList>
 													<CustomState>
-														<StateRef Name="EntranceHall" ID="{62AFD801-9CE1-4265-84EA-24A0AC8F53DE}"/>
-														<CustomState Name="" ID="{B52EB337-365C-4165-81AB-AA9ACBFACADC}" ShortID="113330227"/>
-													</CustomState>
-													<CustomState>
 														<StateRef Name="CliffsEdge" ID="{4C7B3281-C461-4348-BD8E-F3F429F5F919}"/>
 														<CustomState Name="" ID="{2F61B31F-1BC3-4023-92E1-C0F62E399B30}" ShortID="702812225"/>
 													</CustomState>
@@ -289,9 +285,14 @@
 																				<PointList>
 																					<Point>
 																						<XPos>0</XPos>
-																						<YPos>-200</YPos>
+																						<YPos>-24.61129</YPos>
 																						<Flags>5</Flags>
 																						<SegmentShape>Log3</SegmentShape>
+																					</Point>
+																					<Point>
+																						<XPos>1</XPos>
+																						<YPos>-24.61129</YPos>
+																						<Flags>0</Flags>
 																					</Point>
 																					<Point>
 																						<XPos>50</XPos>
@@ -374,10 +375,6 @@
 													</StateGroupInfo>
 												</StateGroupList>
 												<CustomStateList>
-													<CustomState>
-														<StateRef Name="EntranceHall" ID="{62AFD801-9CE1-4265-84EA-24A0AC8F53DE}"/>
-														<CustomState Name="" ID="{B67643C3-D9B5-45C4-83DA-E1EC879664DD}" ShortID="251265372"/>
-													</CustomState>
 													<CustomState>
 														<StateRef Name="CliffsEdge" ID="{4C7B3281-C461-4348-BD8E-F3F429F5F919}"/>
 														<CustomState Name="" ID="{3035EE43-3934-4967-BB8D-4BA10A4FEF99}" ShortID="629317323"/>
@@ -589,8 +586,13 @@
 																		<PointList>
 																			<Point>
 																				<XPos>0</XPos>
-																				<YPos>-16</YPos>
+																				<YPos>-15.55064</YPos>
 																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>1</XPos>
+																				<YPos>-15.55064</YPos>
+																				<Flags>0</Flags>
 																			</Point>
 																			<Point>
 																				<XPos>100</XPos>
@@ -749,8 +751,13 @@
 																		<PointList>
 																			<Point>
 																				<XPos>0</XPos>
-																				<YPos>-16</YPos>
+																				<YPos>-15.55064</YPos>
 																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>1</XPos>
+																				<YPos>-15.55064</YPos>
+																				<Flags>0</Flags>
 																			</Point>
 																			<Point>
 																				<XPos>100</XPos>
@@ -2674,7 +2681,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicTrack Name="Ostinato" ID="{7BEB0711-C1BA-4A30-9D7B-20CE288DD0C9}" ShortID="387296100">
+										<MusicTrack Name="CliffsEdgeOstinato" ID="{2D99B6AA-767D-4A9F-A29C-7E61BEBF3C78}" ShortID="426663881">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
@@ -2684,7 +2691,7 @@
 												</Reference>
 												<Reference Name="TransitionRoot">
 													<Custom>
-														<MusicTransition Name="Root" ID="{7BBD48EA-0301-49E7-8E7C-85AB0CEF9544}">
+														<MusicTransition Name="Root" ID="{08BD8F54-EC10-4DD0-A6A8-71FABDE79224}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -2694,7 +2701,7 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="EOR_Level01_CliffsEdgeOstinato" ID="{985E8CEC-86B4-44CE-A3D3-77EF198A5B76}">
+												<AudioFileSource Name="EOR_Level01_CliffsEdgeOstinato" ID="{B8E9C819-5ADF-4A1A-A292-C5BD308579CE}">
 													<Language>SFX</Language>
 													<AudioFile>EOR_Level01_CliffsEdgeOstinato.wav</AudioFile>
 													<MediaIDList>
@@ -2703,108 +2710,24 @@
 												</AudioFileSource>
 											</ChildrenList>
 											<ObjectLists>
-												<ObjectList Name="RTPC">
-													<Reference>
-														<Local>
-															<RTPC Name="" ID="{5B252B80-E2DC-4774-94C2-E3E44674496F}" ShortID="771930821">
-																<PropertyList>
-																	<Property Name="PropertyName" Type="string" Value="Volume"/>
-																</PropertyList>
-																<ReferenceList>
-																	<Reference Name="ControlInput">
-																		<ObjectRef Name="firstElevator_Height" ID="{3C290F12-76FB-408F-8F8E-A5BB1E3FB9CD}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
-																	</Reference>
-																	<Reference Name="Curve">
-																		<Custom>
-																			<Curve Name="" ID="{B7EAFAE7-3BD1-42DC-90F4-21B67E2991CC}">
-																				<PropertyList>
-																					<Property Name="Flags" Type="int32" Value="3"/>
-																				</PropertyList>
-																				<PointList>
-																					<Point>
-																						<XPos>0</XPos>
-																						<YPos>-200</YPos>
-																						<Flags>5</Flags>
-																					</Point>
-																					<Point>
-																						<XPos>5</XPos>
-																						<YPos>-200</YPos>
-																						<Flags>0</Flags>
-																						<SegmentShape>Log2</SegmentShape>
-																					</Point>
-																					<Point>
-																						<XPos>6</XPos>
-																						<YPos>0</YPos>
-																						<Flags>37</Flags>
-																					</Point>
-																				</PointList>
-																			</Curve>
-																		</Custom>
-																	</Reference>
-																</ReferenceList>
-															</RTPC>
-														</Local>
-													</Reference>
-													<Reference>
-														<Local>
-															<RTPC Name="" ID="{C3E4AF9D-6E61-44E0-82FF-56DECDF00678}" ShortID="484157997">
-																<PropertyList>
-																	<Property Name="PropertyName" Type="string" Value="Lowpass"/>
-																</PropertyList>
-																<ReferenceList>
-																	<Reference Name="ControlInput">
-																		<ObjectRef Name="firstElevator_Height" ID="{3C290F12-76FB-408F-8F8E-A5BB1E3FB9CD}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
-																	</Reference>
-																	<Reference Name="Curve">
-																		<Custom>
-																			<Curve Name="" ID="{CFDF6244-D448-43B4-9A31-C37804047AA1}">
-																				<PropertyList>
-																					<Property Name="Flags" Type="int32" Value="65537"/>
-																				</PropertyList>
-																				<PointList>
-																					<Point>
-																						<XPos>0</XPos>
-																						<YPos>100</YPos>
-																						<Flags>5</Flags>
-																					</Point>
-																					<Point>
-																						<XPos>5</XPos>
-																						<YPos>100</YPos>
-																						<Flags>0</Flags>
-																						<SegmentShape>Log2</SegmentShape>
-																					</Point>
-																					<Point>
-																						<XPos>6</XPos>
-																						<YPos>0</YPos>
-																						<Flags>37</Flags>
-																					</Point>
-																				</PointList>
-																			</Curve>
-																		</Custom>
-																	</Reference>
-																</ReferenceList>
-															</RTPC>
-														</Local>
-													</Reference>
-												</ObjectList>
 												<ObjectList Name="Sequences">
 													<Reference>
 														<Local>
-															<MusicTrackSequence Name="" ID="{58A9E50A-D1D4-4207-8B5D-6E59D9784CFF}">
+															<MusicTrackSequence Name="" ID="{EC3ED22B-BB88-4B02-B4FF-827879010CD8}">
 																<ObjectLists>
 																	<ObjectList Name="Clips">
 																		<Reference>
 																			<Local>
-																				<MusicClip Name="EOR_Level01_CliffsEdgeOstinato" ID="{281FC4CA-8D98-4F43-A971-FF41AEB962A6}">
+																				<MusicClip Name="EOR_Level01_CliffsEdgeOstinato" ID="{9ED80EEC-CB14-4A55-AF61-E9C8043042EC}">
 																					<PropertyList>
 																						<Property Name="EndTrimOffset" Type="Real64" Value="20805.0793650794"/>
 																						<Property Name="FadeInMode" Type="int16" Value="0"/>
 																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																					</PropertyList>
-																					<AudioSourceRef Name="EOR_Level01_CliffsEdgeOstinato" ID="{985E8CEC-86B4-44CE-A3D3-77EF198A5B76}"/>
+																					<AudioSourceRef Name="EOR_Level01_CliffsEdgeOstinato" ID="{B8E9C819-5ADF-4A1A-A292-C5BD308579CE}"/>
 																					<PropertyCurveList>
 																						<PropertyCurve PropertyName="Highpass">
-																							<Curve Name="" ID="{56B59195-1066-4E61-841E-6EECC38B72A8}">
+																							<Curve Name="" ID="{A7164229-EED0-4F5D-AA51-5599C3878ACB}">
 																								<PropertyList>
 																									<Property Name="Flags" Type="int32" Value="1"/>
 																								</PropertyList>
@@ -2823,7 +2746,7 @@
 																							</Curve>
 																						</PropertyCurve>
 																						<PropertyCurve PropertyName="Lowpass">
-																							<Curve Name="" ID="{06391B58-ED7F-46CC-8CE5-63819F26B014}">
+																							<Curve Name="" ID="{348751BE-33C7-4A5E-970C-6670793AD150}">
 																								<PropertyList>
 																									<Property Name="Flags" Type="int32" Value="1"/>
 																								</PropertyList>
@@ -2842,7 +2765,7 @@
 																							</Curve>
 																						</PropertyCurve>
 																						<PropertyCurve PropertyName="Volume">
-																							<Curve Name="" ID="{919458AD-6F09-4D21-9819-27A39CF0BFB2}">
+																							<Curve Name="" ID="{B53BC8E4-E7BE-4079-8D03-8477D4BB76B7}">
 																								<PropertyList>
 																									<Property Name="Flags" Type="int32" Value="3"/>
 																								</PropertyList>
@@ -2894,6 +2817,45 @@
 									</ObjectLists>
 								</MusicSegment>
 							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{F0F7FEAB-D240-4028-A5EA-301D1F0A4DA0}" ShortID="968969315">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="cliffsEdge_Fade" ID="{74BE150D-AC23-4B5B-A301-4A8E10801D21}" WorkUnitID="{BB17E200-58FA-4E00-9C07-8BB4A1D43C77}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{2397BAC3-B1F5-42E3-9F49-46894707AA34}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>3</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</MusicPlaylistContainer>
 					</ChildrenList>
 					<ObjectLists>
@@ -2915,24 +2877,6 @@
 											<ObjectList Name="EntryPath">
 												<Reference>
 													<ObjectRef Name="Intro" ID="{9897F57F-7F24-4F01-B3AB-3491F3E94C16}" WorkUnitID="{17DD5028-2CA0-4F1C-A380-6F4777258544}"/>
-												</Reference>
-											</ObjectList>
-										</ObjectLists>
-									</MultiSwitchEntry>
-								</Local>
-							</Reference>
-							<Reference>
-								<Local>
-									<MultiSwitchEntry Name="" ID="{CFD7C7D4-7675-436C-B668-A099C8F96486}">
-										<ReferenceList>
-											<Reference Name="AudioNode">
-												<ObjectRef Name="TutorialLoop" ID="{5F9E0148-A3A8-40F1-9591-25C6C928F778}" WorkUnitID="{785C6354-A82C-442C-AB8E-A5578B67FDB1}"/>
-											</Reference>
-										</ReferenceList>
-										<ObjectLists>
-											<ObjectList Name="EntryPath">
-												<Reference>
-													<ObjectRef Name="EntranceHall" ID="{62AFD801-9CE1-4265-84EA-24A0AC8F53DE}" WorkUnitID="{17DD5028-2CA0-4F1C-A380-6F4777258544}"/>
 												</Reference>
 											</ObjectList>
 										</ObjectLists>
@@ -2969,6 +2913,24 @@
 											<ObjectList Name="EntryPath">
 												<Reference>
 													<ObjectRef Name="CliffsEdge" ID="{4C7B3281-C461-4348-BD8E-F3F429F5F919}" WorkUnitID="{17DD5028-2CA0-4F1C-A380-6F4777258544}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{CBBCACBC-FD76-4C06-B394-81FA4BBD7EF3}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="TutorialLoop" ID="{5F9E0148-A3A8-40F1-9591-25C6C928F778}" WorkUnitID="{785C6354-A82C-442C-AB8E-A5578B67FDB1}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="ElevatorHallway" ID="{5E75A11B-B0F3-4816-966F-6E15ADAA4183}" WorkUnitID="{17DD5028-2CA0-4F1C-A380-6F4777258544}"/>
 												</Reference>
 											</ObjectList>
 										</ObjectLists>

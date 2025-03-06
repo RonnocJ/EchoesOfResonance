@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 
 using System.Collections.Generic;
+using System.Diagnostics;
 /*******************************************************************************
 The content of this file includes portions of the proprietary AUDIOKINETIC Wwise
 Technology released in source code form as part of the game integration package.
@@ -48,7 +49,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 			InitializeWwiseProjectData();
 		}
 	}
-	
+
 	static AkWwiseWWUBuilder()
 	{
 		UnityEditor.EditorApplication.playModeStateChanged += (UnityEditor.PlayModeStateChange playMode) =>
@@ -183,7 +184,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 		string in_parentPath = "")
 	{
 		m_WwuToProcess.Remove(in_workUnit.FullName);
-		var wwuIndex = -1;
+		int wwuIndex;
 		try
 		{
 			//Progress bar stuff
@@ -295,7 +296,6 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 					}
 					else if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name.Equals(in_type.XmlElementName))
 					{
-						// Add the element to the list
 						AddElementToList(in_currentPathInProj, reader, in_type, in_pathAndIcons, wwu.PhysicalPath, wwuIndex);
 					}
 					else
@@ -344,7 +344,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 			return;
 		}
 		UnityEditor.EditorApplication.update -= Tick;
-		isTicking = false; 
+		isTicking = false;
 	}
 
 	private static void RestartWWUWatcher()
@@ -429,7 +429,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 			_WwiseObjectsToRemove.Add(type, new Dictionary<System.Guid, AkWwiseProjectData.AkBaseInformation>());
 		}
 
-		if(!_WwiseObjectsToRemove[type].ContainsKey(info.Guid))
+		if (!_WwiseObjectsToRemove[type].ContainsKey(info.Guid))
 		{
 			_WwiseObjectsToRemove[type].Add(info.Guid, info);
 		}
@@ -640,6 +640,13 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 		}
 	}
 
+	private static void UpdateWwiseObjectReference(WwiseObjectType type, List<AkWwiseProjectData.AkParameterWorkUnit> infoWwus)
+	{
+		foreach (var infoWwu in infoWwus)
+			foreach (var info in infoWwu.List)
+				WwiseObjectReference.UpdateWwiseObjectDataMap(type, info.Name, info.Guid);
+	}
+
 	private static void SortWwu(AssetType in_type, int in_wwuIndex)
 	{
 		switch (in_type.Type)
@@ -705,10 +712,13 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 
 			case WwiseObjectType.AuxBus:
 			case WwiseObjectType.Soundbank:
-			case WwiseObjectType.GameParameter:
 			case WwiseObjectType.Trigger:
 			case WwiseObjectType.AcousticTexture:
 				out_wwu = new AkWwiseProjectData.AkInfoWorkUnit();
+				break;
+
+			case WwiseObjectType.GameParameter:
+				out_wwu = new AkWwiseProjectData.AkParameterWorkUnit();
 				break;
 		}
 
@@ -724,7 +734,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 	}
 
 	private static void AddElementToList(string in_currentPathInProj, System.Xml.XmlReader in_reader, AssetType in_type,
-		LinkedList<AkWwiseProjectData.PathElement> in_pathAndIcons,string in_wwuPath, int in_wwuIndex, WwiseObjectType in_LeafType = WwiseObjectType.None)
+		LinkedList<AkWwiseProjectData.PathElement> in_pathAndIcons, string in_wwuPath, int in_wwuIndex, WwiseObjectType in_LeafType = WwiseObjectType.None)
 	{
 		switch (in_type.Type)
 		{
@@ -733,7 +743,6 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 			case WwiseObjectType.AuxBus:
 			case WwiseObjectType.Event:
 			case WwiseObjectType.Soundbank:
-			case WwiseObjectType.GameParameter:
 			case WwiseObjectType.Trigger:
 			case WwiseObjectType.AcousticTexture:
 				{
@@ -765,6 +774,65 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 
 				in_reader.Read();
 				break;
+			case WwiseObjectType.GameParameter:
+				{
+					var name = in_reader.GetAttribute("Name");
+					var valueToAdd = new AkWwiseProjectData.Parameter();
+					valueToAdd.Name = name;
+					valueToAdd.Guid = new System.Guid(in_reader.GetAttribute("ID"));
+					valueToAdd.PathAndIcons = new List<AkWwiseProjectData.PathElement>(in_pathAndIcons);
+
+					double min = 0, max = 100;
+					int gameParameterDepth = in_reader.Depth;
+					bool hasProperties = false;
+
+					while (in_reader.Read())
+					{
+						if (in_reader.Depth <= gameParameterDepth)
+							break;
+
+						if (in_reader.NodeType == System.Xml.XmlNodeType.Element && in_reader.Name == "PropertyList")
+						{
+							hasProperties = true;
+							int propertyListDepth = in_reader.Depth;
+
+							while (in_reader.Read())
+							{
+								if (in_reader.Depth <= propertyListDepth)
+									break;
+
+								if (in_reader.NodeType == System.Xml.XmlNodeType.Element && in_reader.Name == "Property")
+								{
+									string propertyName = in_reader.GetAttribute("Name");
+									string propertyValue = in_reader.GetAttribute("Value");
+
+									if (propertyName == "Min")
+										min = double.Parse(propertyValue);
+									if (propertyName == "Max")
+										max = double.Parse(propertyValue);
+								}
+							}
+						}
+					}
+
+					if (!hasProperties)
+					{
+						break;
+					}
+
+					valueToAdd.Min = min;
+					valueToAdd.Max = max;
+
+					FlagForInsertion(valueToAdd, in_type.Type);
+
+					valueToAdd.Path = System.IO.Path.Combine(in_currentPathInProj, name);
+					valueToAdd.PathAndIcons.Add(new AkWwiseProjectData.PathElement(name, in_type.Type, valueToAdd.Guid));
+
+					AddWwiseObjectToProjectData(in_type, in_wwuIndex, valueToAdd, in_wwuPath);
+				}
+				break;
+
+
 
 			case WwiseObjectType.StateGroup:
 			case WwiseObjectType.SwitchGroup:
@@ -857,7 +925,7 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 				break;
 
 			case WwiseObjectType.GameParameter:
-				AkWwiseProjectInfo.GetData().RtpcWwu[in_wwuIndex].List.Add(valueToAdd);
+				AkWwiseProjectInfo.GetData().RtpcWwu[in_wwuIndex].List.Add(valueToAdd as AkWwiseProjectData.Parameter);
 				break;
 
 			case WwiseObjectType.Trigger:
@@ -977,11 +1045,11 @@ public class AkWwiseWWUBuilder : UnityEditor.AssetPostprocessor
 
 		//Add physical folders to the hierarchy if the work unit isn't in the root folder
 		var physicalPath = in_relativePath.Split(System.IO.Path.DirectorySeparatorChar);
-		for (var i = 0; i < physicalPath.Length -1; i++)
+		for (var i = 0; i < physicalPath.Length - 1; i++)
 		{
 			PathAndIcons.AddLast(
 				new AkWwiseProjectData.PathElement(physicalPath[i], WwiseObjectType.PhysicalFolder, System.Guid.Empty));
-			currentPathInProj = System.IO.Path.Combine(currentPathInProj,physicalPath[i]);
+			currentPathInProj = System.IO.Path.Combine(currentPathInProj, physicalPath[i]);
 		}
 
 		//Parse the work unit file

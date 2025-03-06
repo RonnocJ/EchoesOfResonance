@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{32ECB0F9-884D-4751-8A93-D43F19ACBFA1}" SchemaVersion="123" RootDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" ParentDocumentID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}">
 	<Events>
-		<WorkUnit Name="Level01SFX" ID="{32ECB0F9-884D-4751-8A93-D43F19ACBFA1}" OwnerID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" PersistMode="Nested"/>
+		<WorkUnit Name="Level01SFX" ID="{32ECB0F9-884D-4751-8A93-D43F19ACBFA1}" OwnerID="{8B0E7605-DE89-4936-ADDE-474E0D5001D7}" PersistMode="Nested">
+			<ChildrenList>
+				<Event Name="playBoulderChime1" ID="{CF077C51-165F-4C94-AA3C-066BEA3310E1}">
+					<ChildrenList>
+						<Action Name="" ID="{A137D1B6-35CA-4A6D-A319-B7DD1E830312}" ShortID="570084137">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BoulderChime" ID="{026ABD24-5B80-4A41-AF5E-B21C91383C37}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playBoulderChime2" ID="{7D11826D-2BCA-43E1-AF94-B3725BA943C9}">
+					<ChildrenList>
+						<Action Name="" ID="{474E5E67-90A1-445B-8C72-42A0E5E073D1}" ShortID="513416844">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BoulderChime" ID="{026ABD24-5B80-4A41-AF5E-B21C91383C37}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playBoulderChime3" ID="{353CD24D-0799-4BA3-B984-12CC9CF3C0A2}">
+					<ChildrenList>
+						<Action Name="" ID="{C8423ACB-A5AA-4C6C-9EE4-DD9CAAD9CE44}" ShortID="844230018">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BoulderChime" ID="{026ABD24-5B80-4A41-AF5E-B21C91383C37}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="playRingMoveTick" ID="{5B8D58D0-1DFA-45D8-B6A6-51F8A2E68D10}">
+					<ChildrenList>
+						<Action Name="" ID="{2AB0BF7A-047A-407F-A4A8-C2C30970E875}" ShortID="164436053">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="RingMoveTick" ID="{2ECF0D62-92B6-4E09-8169-1DDD87BDDCBF}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

@@ -17,13 +17,15 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
     {
         lastNotePlayed = 13;
         gemLaser.positionCount = laserResolution;
+
+        BrBattery.root.OnBatteryEmpty += DisableFinder;
     }
     public void AddInputs()
-    {    
+    {
         InputManager.root.AddListener<float>(ActionTypes.ModwheelChange, AdjustModValue);
         InputManager.root.AddListener<float>(ActionTypes.PitchbendChange, UpdateGemFinder);
     }
-     [AllowedStates(GameState.InPuzzle, GameState.Roaming)]
+    [AllowedStates(GameState.InPuzzle, GameState.Roaming)]
     public void AdjustModValue(float modWheelAmount)
     {
         if (modWheelAmount > 0.2f && GameManager.root.currentState == GameState.InPuzzle)
@@ -51,11 +53,14 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
                 gemLaser.enabled = true;
                 gemLaserParticle.Play();
 
-                if (gemNoteName != GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()])
+                if (gemNoteName != GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()].noteName)
                 {
-                    gemNoteName = GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()];
+                    gemNoteName = GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()].noteName;
                     gemNoteNumber = PuzzleUtilities.root.GetNoteNumber(gemNoteName);
-                    CRManager.root.Restart(FindGemRoutine(), "FindGem", this);
+
+                    AudioManager.root.PlaySound(AudioEvent.playBroadcasterFinder, gameObject);
+
+                    CRManager.root.Begin(FindGemRoutine(), "FindGem", this);
                     CRManager.root.Begin(BrBattery.root.DrainBatteryRoutine(modInput * 0.5f), "DrainBatteryFinder", this);
                 }
                 else if (BrBattery.root.notesHeld > 0 && BrBattery.root.noteInfoText.text != PuzzleUtilities.root.GetNoteName(lastNotePlayed))
@@ -77,7 +82,7 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
     }
     void DisableFinder()
     {
-        BrBattery.root.noteInfoText.text = (BrBattery.root.notesHeld > 0)? PuzzleUtilities.root.GetNoteName(lastNotePlayed) : "";
+        BrBattery.root.noteInfoText.text = (BrBattery.root.notesHeld > 0) ? PuzzleUtilities.root.GetNoteName(lastNotePlayed) : "";
 
         Vector3[] positions = Enumerable.Repeat(Vector3.zero, laserResolution).ToArray();
         gemLaser.SetPositions(positions);
@@ -85,6 +90,8 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
         gemLaserParticle.Stop();
 
         gemTarget = null;
+
+        if(AudioManager.root.StopSound(AudioEvent.playBroadcasterFinder, gameObject)) Debug.Log("Stopped finder");
 
         CRManager.root.Stop("FindGem", this);
         CRManager.root.Stop("DrainBatteryFinder", this);
@@ -96,21 +103,19 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
     {
         while (modInput > 0.2f)
         {
-            if (modInput == 1)
-            {
-                BrBattery.root.noteInfoText.text = gemNoteName;
-                yield return new WaitForSeconds(gemFinderMinSpeed);
-            }
-            else
-            {
-                float fakeNoteNumber = Mathf.Round(Random.Range(
-                    gemNoteNumber - (4 * Mathf.Abs(1 - modInput)),
-                    gemNoteNumber + (4 * Mathf.Abs(1 - modInput))
-                ));
-                fakeNoteNumber = Mathf.Clamp(fakeNoteNumber, 1, 25);
-                BrBattery.root.noteInfoText.text = PuzzleUtilities.root.GetNoteName(fakeNoteNumber);
-                yield return new WaitForSeconds(gemFinderMinSpeed + (Mathf.Abs(1 - modInput) * gemFinderSpeedScale));
-            }
+            float finderLevel = Mathf.Round(((modInput * 1.25f) - 0.2f) / 0.25f);
+
+            float fakeNoteNumber = Mathf.Round(Random.Range(
+                gemNoteNumber - 1.5f * (4 - finderLevel),
+                gemNoteNumber + 1.5f * (4 - finderLevel)
+            ));
+
+            fakeNoteNumber = Mathf.Clamp(fakeNoteNumber, 1, 25);
+            
+            BrBattery.root.noteInfoText.text = PuzzleUtilities.root.GetNoteName(fakeNoteNumber);
+            AudioManager.root.SetRTPC(AudioRTPC.finder_Pitch, fakeNoteNumber);
+
+            yield return new WaitForSeconds(gemFinderMinSpeed + ((4 - finderLevel) * gemFinderSpeedScale));
         }
     }
     void Update()

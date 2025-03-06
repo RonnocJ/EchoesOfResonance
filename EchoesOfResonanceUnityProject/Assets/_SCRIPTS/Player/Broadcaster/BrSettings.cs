@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class BrSettings : MonoBehaviour, IInputScript
 {
-    [SerializeField] private TrData handTr, faceTr;
     private GameState oldState;
     void Start()
     {
@@ -17,14 +16,6 @@ public class BrSettings : MonoBehaviour, IInputScript
     [AllowedStates(GameState.Settings, GameState.InPuzzle, GameState.Roaming, GameState.Shutdown)]
     public void OpenSettings(float newPauseAmount)
     {   
-        TrData newPos = new TrData(
-            Vector3.Lerp(handTr.position, faceTr.position, Mathf.Pow(newPauseAmount, 2)),
-            Quaternion.Lerp(Quaternion.Euler(handTr.rotation), Quaternion.Euler(faceTr.rotation), Mathf.Pow(newPauseAmount, 2)),
-            Vector3.Lerp(handTr.scale, faceTr.scale, Mathf.Pow(newPauseAmount, 2))
-            );
-
-        CRManager.root.Restart(newPos.ApplyToOverTime(transform, 0.25f), "MoveBroadcaster", this);
-
         if (newPauseAmount < 0.5f && oldState != GameState.Settings)
         {
             GameManager.root.currentState = oldState;

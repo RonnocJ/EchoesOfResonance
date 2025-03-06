@@ -7,7 +7,7 @@ public class TitleSequence : MonoBehaviour, IInputScript
     [SerializeField] private float textSpeed, buttonSpeed;
     [TextArea(5, 5)]
     [SerializeField] private string openingCreditText, titleScreenText;
-    [SerializeField] private BrSettings bSettings;
+    [SerializeField] private ArmMover aMover;
     [SerializeField] private GameObject broadcasterInfo;
     private TextMeshProUGUI titleCreditTextManager, titleScreenTextManager;
     private Image beginButton;
@@ -82,6 +82,8 @@ public class TitleSequence : MonoBehaviour, IInputScript
 
         broadcasterInfo.SetActive(true);
         gameObject.SetActive(false);
-        bSettings.OpenSettings(0);
+        aMover.UpdateArmPos(0);
+
+        GameManager.root.currentState = GameState.Roaming;
     }
 }

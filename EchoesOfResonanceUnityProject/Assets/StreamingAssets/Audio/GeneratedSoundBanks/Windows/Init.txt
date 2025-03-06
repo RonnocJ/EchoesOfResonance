@@ -9,13 +9,14 @@ State	ID	Name	State Group			Notes
 	3267866964	Puzzle01	EntranceHall			
 	3267866966	Puzzle03	EntranceHall			
 	3267866967	Puzzle02	EntranceHall			
-	270858878	EntranceHall	Level01Master			
 	748895195	None	Level01Master			
 	1125500713	Intro	Level01Master			
+	1149990767	CliffsEdge	Level01Master			
 	1318468365	ElevatorShaft	Level01Master			
 	1379644315	ElevatorHallway	Level01Master			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
+	653430204	broadcaster_Shutdown			\Default Work Unit\Global\broadcaster_Shutdown	
 	1006694123	music_Volume			\Default Work Unit\Global\music_Volume	
 	1564184899	sfx_Volume			\Default Work Unit\Global\sfx_Volume	
 
@@ -32,6 +33,7 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 Effect plug-ins	ID	Name	Type				Notes
 	702543456	Tunnel1	Wwise Matrix Reverb			
 	2849147824	Medium	Wwise RoomVerb			
+	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

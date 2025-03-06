@@ -14,6 +14,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="playStoneCrumble" ID="{D28448EE-CB91-4F64-B56B-404BF6631979}">
+					<ChildrenList>
+						<Action Name="" ID="{AD02B0BC-C104-4D58-B51D-1215A5BACAC3}" ShortID="304418816">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="StoneCrumble" ID="{067032DD-668B-4F70-894C-6AAA5078A725}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

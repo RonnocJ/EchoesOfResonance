@@ -128,13 +128,21 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _alpha: 0.45
+    - _bottomLine: 0.375
     - _emmision: 0
+    - _metallic: 1
+    - _smoothness: 0.5
+    - _topLine: 0.375
     m_Colors:
     - _BaseColor: {r: 0.27450982, g: 0, b: 0, a: 1}
     - _Color: {r: 0.2745098, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GemColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _gemColor: {r: 0.4245283, g: 0, b: 0, a: 0}
+    - _bottomColor: {r: 2.2183743, g: 2.2183743, b: 0, a: 1}
+    - _gemColor: {r: 301.17648, g: 0, b: 0, a: 1}
+    - _glowColor: {r: 0.776431, g: 0.3882155, b: 0.3882155, a: 1}
+    - _topColor: {r: 4.2370954, g: 0, b: 4.2370954, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

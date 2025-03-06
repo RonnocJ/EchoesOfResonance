@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Test Overrides
   m_EditorClassIdentifier: 
   skipIntro: 1
-  ignoreMidi: 0
-  uiSpeed: 0.1
+  ignoreMidi: 1
+  uiSpeed: 1

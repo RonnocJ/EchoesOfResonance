@@ -19,6 +19,9 @@ Copyright (c) 2024 Audiokinetic Inc.
 using System;
 using System.Linq;
 using System.Reflection;
+using Unity.Burst.Intrinsics;
+//using UpgradedWwise;
+
 
 #if UNITY_EDITOR
 using System.IO;
@@ -138,7 +141,7 @@ public partial class AkUtilities
 		return output;
 	}
 
-	private static string GetWwiseConsole()
+	public static string GetWwiseConsole()
 	{
 		string result = null;
 
@@ -219,12 +222,10 @@ public partial class AkUtilities
 		var output = ExecuteCommandLine(command, arguments);
 		if (output.Contains("Process completed successfully."))
 		{
-			AudioEnumGenerator.GenerateEnum();
 			UnityEngine.Debug.LogFormat("WwiseUnity: SoundBanks generation successful:\n{0}", output);
 		}
 		else if (output.Contains("Process completed with warning"))
 		{
-			AudioEnumGenerator.GenerateEnum();
 			UnityEngine.Debug.LogWarningFormat("WwiseUnity: SoundBanks generation has warning(s):\n{0}", output);
 		}
 		else

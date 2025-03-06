@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerManager : Singleton<PlayerManager>, IInputScript, IBeatListener
+public class PlayerManager : Singleton<PlayerManager>, IInputScript
 {
     [SerializeField] private float moveSpeed, lookSpeed, bobIntensity, bobSpeed;
     public UnityEvent onFootstep;
@@ -20,10 +20,7 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript, IBeatListen
         InputManager.root.AddListener<float>(ActionTypes.ModwheelChange, UpdateMoveInput);
         InputManager.root.AddListener<float>(ActionTypes.PitchbendChange, UpdateLookInput);
     }
-    public void SubscribeToMusic()
-    {
-        MusicManager.root.currentSong.AddBeatListener(0.25f, FootstepBeatSync);
-    }
+
 
     [AllowedStates(GameState.Roaming, GameState.Shutdown)]
     void UpdateMoveInput(float modInput)
@@ -82,14 +79,5 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript, IBeatListen
             }
         }
         return false;
-    }
-    void FootstepBeatSync(float duration)
-    {
-        if (moveInput > 0.95f && MusicManager.root.currentSong.grid % 1 == 0.25f)
-        {
-            sineTime = 0;
-            AudioManager.root.PlaySound(AudioEvent.playFootsteps, gameObject);
-            hasPlayedFootstep = true;
-        }
     }
 }

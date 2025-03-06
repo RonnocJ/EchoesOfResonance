@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75d713fbce50462cbe2f1c807221a8f, type: 3}
   m_Name: 11F8CFB0-AE41-4B88-8087-4ADA5710DCBC
   m_EditorClassIdentifier: 
-  objectName: Main
-  id: 3161908922
+  objectName: Global
+  id: 1465331116
   guid: 11F8CFB0-AE41-4B88-8087-4ADA5710DCBC

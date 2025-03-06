@@ -31,11 +31,16 @@ public class SaveDataManager : Singleton<SaveDataManager>
         var allBehaviours = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
 
         foreach (var b in allBehaviours)
-        {    
-            if (b.TryGetComponent(out ISaveData saveData) && data[b.gameObject.name] is Newtonsoft.Json.Linq.JObject jObject)
+        {
+            if (b.TryGetComponent(out ISaveData saveData))
             {
-               saveData.ReadSaveData(jObject.ToObject<Dictionary<string, object>>());
-            }       
+                if (data.ContainsKey(b.gameObject.name) && data[b.gameObject.name] is Newtonsoft.Json.Linq.JObject jObject)
+                    saveData.ReadSaveData(jObject.ToObject<Dictionary<string, object>>());
+                else
+                {
+                    saveData.ReadSaveData(new Dictionary<string, object>());
+                }
+            }
         }
     }
     void WriteAllData()

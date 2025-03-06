@@ -5,16 +5,11 @@ public class AudioManager : Singleton<AudioManager>
 {
     private Dictionary<(AudioEvent, GameObject, float), uint> postedSoundEvents = new();
 
-    public bool PlaySound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1)
+    public bool PlaySound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1, bool overrideInstanceLock = false)
     {
         if (soundType != AudioEvent.None)
         {
             GameObject sourceObj = soundSource != null ? soundSource : gameObject;
-
-            if (postedSoundEvents.ContainsKey((soundType, sourceObj, instanceNumber)))
-            {
-                return false;
-            }
 
             AkCallbackManager.EventCallback callback = (object inCookie, AkCallbackType type, AkCallbackInfo info) =>
             {
@@ -24,7 +19,11 @@ public class AudioManager : Singleton<AudioManager>
                 }
             };
 
-            if (!postedSoundEvents.ContainsKey((soundType, sourceObj, instanceNumber)))
+            if (postedSoundEvents.ContainsKey((soundType, sourceObj, instanceNumber)) && !overrideInstanceLock)
+            {
+                return false;
+            }
+            else
             {
                 uint eventId = AkUnitySoundEngine.PostEvent(soundType.ToString(), sourceObj, (uint)AkCallbackType.AK_EndOfEvent, callback, null);
                 postedSoundEvents[(soundType, sourceObj, instanceNumber)] = eventId;
@@ -66,7 +65,7 @@ public class AudioManager : Singleton<AudioManager>
         if (rtpcType != AudioRTPC.None)
         {
             GameObject sourceObj = sourceObject != null ? sourceObject : gameObject;
-    
+
             if (isGlobal)
             {
                 AkUnitySoundEngine.SetRTPCValue(rtpcType.ToString(), value);

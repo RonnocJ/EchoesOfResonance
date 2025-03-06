@@ -9,4 +9,5 @@ public class AllowedStatesAttribute : Attribute
     {
         States = states;
     }
+    
 }

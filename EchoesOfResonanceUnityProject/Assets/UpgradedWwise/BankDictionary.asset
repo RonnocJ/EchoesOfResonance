@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 521c1dfc571b14b4f90b26b551aa99a7, type: 3}
+  m_Name: BankDictionary
+  m_EditorClassIdentifier: 
+  serializedEvents:
+  - eventName: pauseAll
+    bankName: Global
+    eventId: 4091047182
+  - eventName: playBroadcasterBeep
+    bankName: Global
+    eventId: 2409822221
+  - eventName: playBroadcasterBloop
+    bankName: Global
+    eventId: 893306899
+  - eventName: playBroadcasterFinder
+    bankName: Global
+    eventId: 3950326117
+  - eventName: playBroadcasterFX
+    bankName: Global
+    eventId: 1668433167
+  - eventName: playBroadcasterNote
+    bankName: Global
+    eventId: 3594363913
+  - eventName: playBroadcasterPlunk
+    bankName: Global
+    eventId: 879710867
+  - eventName: playCheckpointReached
+    bankName: Global
+    eventId: 1481495309
+  - eventName: playDoorOpen
+    bankName: Global
+    eventId: 3639922799
+  - eventName: playEndCutscene
+    bankName: Global
+    eventId: 3310685126
+  - eventName: playFootsteps
+    bankName: Global
+    eventId: 1088348632
+  - eventName: playGemTestTrack
+    bankName: Global
+    eventId: 538017021
+  - eventName: playIntroAmbience
+    bankName: Global
+    eventId: 3384925243
+  - eventName: playShutoff
+    bankName: Global
+    eventId: 1900847084
+  - eventName: playStoneCrumble
+    bankName: Global
+    eventId: 68937622
+  - eventName: playTestMetronome
+    bankName: Global
+    eventId: 2757017905
+  - eventName: playTorchExtinguish
+    bankName: Global
+    eventId: 3679901891
+  - eventName: playTorchIgnite
+    bankName: Global
+    eventId: 1562608897
+  - eventName: resumeAll
+    bankName: Global
+    eventId: 3240900869
+  - eventName: stopBroadcasterFX
+    bankName: Global
+    eventId: 2261249677
+  - eventName: stopIntroAmbience
+    bankName: Global
+    eventId: 941857173
+  - eventName: stopTone
+    bankName: Global
+    eventId: 2019189489
+  - eventName: activateStepDucking
+    bankName: Level01
+    eventId: 3348497029
+  - eventName: playBoulderChime1
+    bankName: Level01
+    eventId: 2019948791
+  - eventName: playBoulderChime2
+    bankName: Level01
+    eventId: 2019948788
+  - eventName: playBoulderChime3
+    bankName: Level01
+    eventId: 2019948789
+  - eventName: playElevatorHints
+    bankName: Level01
+    eventId: 3253062429
+  - eventName: playRingMoveTick
+    bankName: Level01
+    eventId: 1201866565
+  - eventName: startIntroBridgeChoir
+    bankName: Level01
+    eventId: 1116304881
+  - eventName: startMetronome01
+    bankName: Level01
+    eventId: 3352024112
+  - eventName: startMusic01
+    bankName: Level01
+    eventId: 3518514029
+  - eventName: stopIntroBridgeChoir
+    bankName: Level01
+    eventId: 2373524099
+  serializedRTPCs:
+  - Name: broadcaster_Shutdown
+    Min: 0
+    Max: 100
+  - Name: finder_Pitch
+    Min: 1
+    Max: 25
+  - Name: flute_Pitch
+    Min: 1
+    Max: 25
+  - Name: cliffsEdge_Fade
+    Min: 0
+    Max: 3
+  - Name: firstElevator_Height
+    Min: 0
+    Max: 6
+  - Name: introBridge_CrossBridge
+    Min: 0
+    Max: 100
+  - Name: introBridge_FadeIn
+    Min: 0
+    Max: 3
+  - Name: introBridge_StepDuck
+    Min: -48
+    Max: 0

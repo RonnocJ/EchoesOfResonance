@@ -114,20 +114,16 @@ public class InputManager : Singleton<InputManager>
     {
         midiController.onWillNoteOn += (note, velocity) =>
         {
-            if (GetNote(note.noteNumber) is > 0 and < 26)
-            {
-                notesDown.Add((int)GetNote(note.noteNumber));
-                CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyDown), "NoteDownCheck", this);
-            }
+            notesDown.Add((int)GetNote(note.noteNumber));
+            CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyDown), "NoteDownCheck", this);
 
         };
         midiController.onWillNoteOff += note =>
         {
-            if (GetNote(note.noteNumber) is > 0 and < 26)
-            {
-                notesUp.Add((int)GetNote(note.noteNumber));
-                CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyUp), "NoteUpCheck", this);
-            }
+
+            notesUp.Add((int)GetNote(note.noteNumber));
+            CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyUp), "NoteUpCheck", this);
+
         };
 
         midiController.onWillControlChange += (wheel, amount) =>
@@ -266,7 +262,7 @@ public class InputManager : Singleton<InputManager>
     float GetNote(float noteCheck)
     {
         return ConfigureKeyboard.root.middleKey != -1
-            ? noteCheck - ConfigureKeyboard.root.middleKey + 13
+            ? Mathf.Clamp(noteCheck - ConfigureKeyboard.root.middleKey + 13, 1, 25)
             : noteCheck;
     }
 
@@ -301,7 +297,7 @@ public class InputManager : Singleton<InputManager>
             lastKey = Key.None;
         };
 
-        map.FindAction("ArrowVertical").started += amount => verticalArrowSpeed = amount.ReadValue<float>() * 0.01f;
+        map.FindAction("ArrowVertical").started += amount => verticalArrowSpeed = amount.ReadValue<float>() * 0.0325f;
         map.FindAction("ArrowVertical").canceled += _ => verticalArrowSpeed = 0;
 
         map.FindAction("ArrowHorizontal").performed += amount => actionDict[ActionTypes.PitchbendChange].actionEvent.Invoke(amount.ReadValue<float>());
@@ -428,7 +424,7 @@ public class InputManager : Singleton<InputManager>
 
     void OnDisable()
     {
-        if(midiPitchController != null)
+        if (midiPitchController != null)
             midiPitchController.StopEventsListening();
     }
 }

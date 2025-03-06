@@ -17,4 +17,37 @@ MonoBehaviour:
   - C2
   - C2
   - C2
+  checkpoints: 
   _solved: 1
+  _reset: 0
+  audioEffects:
+  - executeOnSolved: 0
+    executeEarly: 1
+    audioTypes: 17
+    audioEvents: f7f86578
+    audioStates: 
+    audioSwitches: 
+    audioTriggers: 
+    audioRTPCs:
+    - parameter: -1325370576
+      value: 1
+  - executeOnSolved: 0
+    executeEarly: 2
+    audioTypes: 17
+    audioEvents: f4f86578
+    audioStates: 
+    audioSwitches: 
+    audioTriggers: 
+    audioRTPCs:
+    - parameter: -1325370576
+      value: 2
+  - executeOnSolved: 0
+    executeEarly: 3
+    audioTypes: 17
+    audioEvents: f5f86578
+    audioStates: 
+    audioSwitches: 
+    audioTriggers: 
+    audioRTPCs:
+    - parameter: -1325370576
+      value: 3

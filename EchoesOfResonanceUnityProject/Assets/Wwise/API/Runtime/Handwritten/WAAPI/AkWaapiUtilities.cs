@@ -864,7 +864,7 @@ public class AkWaapiUtilities
 	/// <returns>True if playable</returns>
 	public static bool IsPlayable(WwiseObjectType type)
 	{
-		return (type == WwiseObjectType.Event);
+		return type == WwiseObjectType.Event;
 	}
 
 	/// <summary>

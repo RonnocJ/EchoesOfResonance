@@ -72,19 +72,22 @@ public Camera cam;
     IEnumerator ShutdownRoutine()
     {
         GameManager.root.currentState = GameState.Shutdown;
-        yield return new WaitForSeconds(0.075f);
         OnBatteryEmpty?.Invoke();
         
         batteryMeter.fillAmount = 0;
-        AudioManager.root.PlaySound(AudioEvent.stopBroadcasterFX, gameObject);
+
+        AudioManager.root.StopSound(AudioEvent.playBroadcasterFX, gameObject);
         AudioManager.root.PlaySound(AudioEvent.playShutoff, gameObject);
+        AudioManager.root.SetRTPC(AudioRTPC.broadcaster_Shutdown, 100);
 
         CRManager.root.Stop("Regen", this);
         CRManager.root.Stop("DrainBatteryNote", this);
 
         infoScreen.color = Color.black;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(7.5f);
+
+        AudioManager.root.SetRTPC(AudioRTPC.broadcaster_Shutdown, 0);
 
         batteryLevel = 1f;
         infoScreen.color = new Color(0.3f, 0.45f, 0.225f, 1);

@@ -12,7 +12,8 @@ public class MusicManager : Singleton<MusicManager>
     public MusicTracker currentSong;
     private readonly Dictionary<AudioEvent, AudioEvent> musicMetronomeRef = new()
     {
-        {AudioEvent.startMusic01, AudioEvent.startMetronome01}, 
+        {AudioEvent.startMusic01, AudioEvent.startMetronome01},
+        {AudioEvent.playGemTestTrack, AudioEvent.playTestMetronome} 
     };
     private Dictionary<AudioEvent, uint> playingMusicIds = new();
     public void PlaySong(AudioEvent songType, MusicTracker newSong)
@@ -20,11 +21,8 @@ public class MusicManager : Singleton<MusicManager>
         if (!playingMusicIds.ContainsKey(songType) && musicMetronomeRef.TryGetValue(songType, out AudioEvent metronome) && songType != AudioEvent.None)
         {
             currentSong = newSong;
-            currentSong.SetTracker();
             playingMusicIds[songType] = AkUnitySoundEngine.PostEvent(songType.ToString(), gameObject);
-            playingMusicIds[metronome] = AkUnitySoundEngine.PostEvent(metronome.ToString(), gameObject, (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition), newSong.MusicCallbackFunction, null);
-
-            
+            playingMusicIds[metronome] = AkUnitySoundEngine.PostEvent(metronome.ToString(), gameObject, (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition), newSong.MusicCallbackFunction, null);            
         }
     }
 

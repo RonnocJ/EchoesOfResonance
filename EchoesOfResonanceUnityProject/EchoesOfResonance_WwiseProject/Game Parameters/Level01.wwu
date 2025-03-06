@@ -35,6 +35,15 @@
 						<Property Name="SlewRateUp" Type="Real64" Value="0.2"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="cliffsEdge_Fade" ID="{74BE150D-AC23-4B5B-A301-4A8E10801D21}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="3"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="4"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="4"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

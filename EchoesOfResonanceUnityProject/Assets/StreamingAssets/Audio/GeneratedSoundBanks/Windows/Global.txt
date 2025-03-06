@@ -1,0 +1,70 @@
+Event	ID	Name			Wwise Object Path	Notes
+	68937622	playStoneCrumble			\Default Work Unit\GlobalSFX\Puzzles\playStoneCrumble	
+	538017021	playGemTestTrack			\Default Work Unit\GlobalMusic\playGemTestTrack	
+	879710867	playBroadcasterPlunk			\Default Work Unit\GlobalSFX\Broadcaster\ScreenFX\playBroadcasterPlunk	
+	893306899	playBroadcasterBloop			\Default Work Unit\GlobalSFX\Broadcaster\ScreenFX\playBroadcasterBloop	
+	941857173	stopIntroAmbience			\Default Work Unit\GlobalSFX\stopIntroAmbience	
+	1088348632	playFootsteps			\Default Work Unit\GlobalSFX\playFootsteps	
+	1481495309	playCheckpointReached			\Default Work Unit\GlobalSFX\Puzzles\playCheckpointReached	
+	1562608897	playTorchIgnite			\Default Work Unit\GlobalSFX\playTorchIgnite	
+	1668433167	playBroadcasterFX			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\playBroadcasterFX	
+	1900847084	playShutoff			\Default Work Unit\GlobalSFX\Broadcaster\DeviceFX\playShutoff	
+	2019189489	stopTone			\Default Work Unit\GlobalSFX\stopTone	
+	2261249677	stopBroadcasterFX			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\stopBroadcasterFX	
+	2409822221	playBroadcasterBeep			\Default Work Unit\GlobalSFX\Broadcaster\ScreenFX\playBroadcasterBeep	
+	2757017905	playTestMetronome			\Default Work Unit\GlobalMusic\NestedTest\playTestMetronome	
+	3240900869	resumeAll			\Default Work Unit\GlobalChange\resumeAll	
+	3310685126	playEndCutscene			\Default Work Unit\GlobalSFX\playEndCutscene	
+	3384925243	playIntroAmbience			\Default Work Unit\GlobalSFX\playIntroAmbience	
+	3594363913	playBroadcasterNote			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\playBroadcasterNote	
+	3639922799	playDoorOpen			\Default Work Unit\GlobalSFX\playDoorOpen	
+	3679901891	playTorchExtinguish			\Default Work Unit\GlobalSFX\playTorchExtinguish	
+	3950326117	playBroadcasterFinder			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\playBroadcasterFinder	
+	4091047182	pauseAll			\Default Work Unit\GlobalChange\pauseAll	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1152538158	finder_Pitch			\Default Work Unit\Global\finder_Pitch	
+	2726482464	introBridge_CrossBridge			\Default Work Unit\Level01\introBridge_CrossBridge	
+	3409173110	flute_Pitch			\Default Work Unit\Global\flute_Pitch	
+
+Effect plug-ins	ID	Name	Type				Notes
+	458506814	Parametric EQ (Custom)	Wwise Parametric EQ			
+	521572872	stepDucking	Wwise Meter			
+	1259256166	New_RoomVerb	Wwise RoomVerb			
+	3164629247	Holy	Wwise RoomVerb			
+	3451596814	Hall_Medium	Wwise RoomVerb			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	18982989	ScratchyDrone	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\88\{8866802E-F3CB-97D8-FE7F-17EC588A8FFD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\ScratchyDrone		28800144
+	19683821	Footstep3	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E8\{E8E0C876-D79A-9AAF-2DC6-42DB1E684013}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep3		26134
+	25129230	Noise3	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\FE\{FE0B117C-F6F3-F95E-88EF-6D6416602FE6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise3		1255240
+	28849163	Note08	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\1E\{1EF9C32F-4FF2-C296-5127-4BDEEEC009D2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note08		829448
+	92908706	Note23	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\3D\{3D572830-6872-D07F-8039-1CE51D2E2F12}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note23		829448
+	95539274	Bloop	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F0\{F069E3EA-BCC9-2670-5E0E-06DFC5318C53}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Bloop		48096
+	126475547	EndCutsceneRiser	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\DF\{DF231077-3C3A-2158-60D0-527DE3714902}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\EndCutsceneRiser		1764096
+	187965447	Footstep4	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F9\{F9B6F895-21E8-6919-E801-5C6E16B2E93F}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep4		35666
+	198980918	Noise2	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D8\{D8B98698-BCB9-47AF-466C-20C78CCA2203}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise2		4431956
+	221963859	Extinguish	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\13\{1345CF97-A3CA-0D90-B3B5-99697D9B3464}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Torches\Extinguish		152124
+	231050069	Footstep1	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\3A\{3A98EB36-5429-8354-1935-6D671CC7D773}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep1		18270
+	235771073	Noise4	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\B9\{B9A6A8AC-5962-708E-91F1-68EF2CB59ED8}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise4		716276
+	267754359	Open	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\6A\{6AAE1727-5E49-2A0A-B445-A894C1706760}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Doors\Open		864096
+	354894646	Note13	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\FA\{FA0D6536-4EF4-CA20-EC99-24A3496D8715}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\PitchFinderSound\Note13		786576
+	369672728	Note03	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F7\{F74F9284-B695-28D2-D8E9-F219FDF9DA9B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note03		829448
+	392609066	Sizzle	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\5A\{5A771D6D-7A01-4F6E-5200-0D8C86A493E9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Shutoff\Sizzle		498664
+	401359229	Note13	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\C3\{C361C575-F7D9-C813-B72A-90A7F7602351}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note13		829448
+	490563688	Plunk	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\64\{64D76168-E609-8E2E-03F5-8B7A9BFBC042}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Plunk		48096
+	523749856	CheckpointReached	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\66\{66A48FE3-237B-5EEE-8B61-141D9F721D6A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Gems\CheckpointReached		192096
+	579110475	Ignite	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F0\{F0AFFA4B-C378-732A-54DD-286D536D3FE5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\Torches\Ignite		99548
+	620721570	DarkDrone	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\50\{50777B60-1FBE-2338-5F12-8C86C9CB60CC}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\DarkDrone		34230236
+	713251495	BroadcasterStaticLoop	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\DC\{DCF6609E-A5A8-3434-FAF4-EAE499787961}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FX\BroadcasterStaticLoop		768144
+	714574361	Wind	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\AA\{AA344128-660F-E3AD-04BE-068CDA6661CE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Wind		22564576
+	770221763	Noise1	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\19\{199070F2-8F52-12FE-B0DA-770A20D9CBD2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroAmbience\Noises\Noise1		1650552
+	808061415	StoneCrumble	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E9\{E9408096-5710-92AE-2D12-6BDD81DE5C36}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\MoveableStone\StoneCrumble		456160
+	859428089	Note18	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\6D\{6DB3B207-6F98-54A9-AA25-2F43A2618F87}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FluteSound\Note18		829448
+	893327983	Beep	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\BA\{BA552F9E-A570-BF36-CB5A-D9F7891D9182}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Beep		48096
+	894203654	BroadcasterOn	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\97\{97996CAF-55DE-51F0-052C-1B38B015CD03}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FX\BroadcasterOn		48096
+	899365782	BroadcasterOff	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\FF\{FF6D871E-2DCA-7C84-83A1-FC2BF3F2C218}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\Instrument\FX\BroadcasterOff		48096
+	1022251565	Impact	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D0\{D0A83ED7-C8C2-9611-81D6-978AB1A67692}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\Broadcaster\FX\Shutoff\Impact		525076
+	1029141824	Footstep2	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\BD\{BDFAE6EE-DAEB-021D-EC7E-163C0A7222C7}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player\PlayerSounds\Footsteps\Footstep2		22670
+	1046733139	EOR_GemTestTrack	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\44\{44E4531B-2557-DA0A-F983-0A41BFCD8CBF}.wem		\Interactive Music Hierarchy\Default Work Unit\GemTestTrack\EOR_GemTestTrack\EOR_GemTestTrack		2359392
+

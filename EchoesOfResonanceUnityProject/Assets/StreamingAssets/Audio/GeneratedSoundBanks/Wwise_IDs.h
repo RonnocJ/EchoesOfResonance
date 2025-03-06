@@ -15,8 +15,12 @@ namespace AK
     {
         static const AkUniqueID ACTIVATESTEPDUCKING = 3348497029U;
         static const AkUniqueID PAUSEALL = 4091047182U;
+        static const AkUniqueID PLAYBOULDERCHIME1 = 2019948791U;
+        static const AkUniqueID PLAYBOULDERCHIME2 = 2019948788U;
+        static const AkUniqueID PLAYBOULDERCHIME3 = 2019948789U;
         static const AkUniqueID PLAYBROADCASTERBEEP = 2409822221U;
         static const AkUniqueID PLAYBROADCASTERBLOOP = 893306899U;
+        static const AkUniqueID PLAYBROADCASTERFINDER = 3950326117U;
         static const AkUniqueID PLAYBROADCASTERFX = 1668433167U;
         static const AkUniqueID PLAYBROADCASTERNOTE = 3594363913U;
         static const AkUniqueID PLAYBROADCASTERPLUNK = 879710867U;
@@ -25,8 +29,12 @@ namespace AK
         static const AkUniqueID PLAYELEVATORHINTS = 3253062429U;
         static const AkUniqueID PLAYENDCUTSCENE = 3310685126U;
         static const AkUniqueID PLAYFOOTSTEPS = 1088348632U;
+        static const AkUniqueID PLAYGEMTESTTRACK = 538017021U;
         static const AkUniqueID PLAYINTROAMBIENCE = 3384925243U;
+        static const AkUniqueID PLAYRINGMOVETICK = 1201866565U;
         static const AkUniqueID PLAYSHUTOFF = 1900847084U;
+        static const AkUniqueID PLAYSTONECRUMBLE = 68937622U;
+        static const AkUniqueID PLAYTESTMETRONOME = 2757017905U;
         static const AkUniqueID PLAYTORCHEXTINGUISH = 3679901891U;
         static const AkUniqueID PLAYTORCHIGNITE = 1562608897U;
         static const AkUniqueID RESUMEALL = 3240900869U;
@@ -65,7 +73,6 @@ namespace AK
                 static const AkUniqueID CLIFFSEDGE = 1149990767U;
                 static const AkUniqueID ELEVATORHALLWAY = 1379644315U;
                 static const AkUniqueID ELEVATORSHAFT = 1318468365U;
-                static const AkUniqueID ENTRANCEHALL = 270858878U;
                 static const AkUniqueID INTRO = 1125500713U;
                 static const AkUniqueID NONE = 748895195U;
             } // namespace STATE
@@ -75,11 +82,14 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID BROADCASTER_SHUTDOWN = 653430204U;
+        static const AkUniqueID CLIFFSEDGE_FADE = 2969596720U;
+        static const AkUniqueID FINDER_PITCH = 1152538158U;
         static const AkUniqueID FIRSTELEVATOR_HEIGHT = 1867101979U;
+        static const AkUniqueID FLUTE_PITCH = 3409173110U;
         static const AkUniqueID INTROBRIDGE_CROSSBRIDGE = 2726482464U;
         static const AkUniqueID INTROBRIDGE_FADEIN = 3217007934U;
         static const AkUniqueID INTROBRIDGE_STEPDUCK = 1325667752U;
-        static const AkUniqueID MIDI_PITCH = 831692701U;
         static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID SFX_VOLUME = 1564184899U;
     } // namespace GAME_PARAMETERS
@@ -100,7 +110,8 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
-        static const AkUniqueID MAIN = 3161908922U;
+        static const AkUniqueID GLOBAL = 1465331116U;
+        static const AkUniqueID LEVEL01 = 3152323980U;
     } // namespace BANKS
 
     namespace BUSSES

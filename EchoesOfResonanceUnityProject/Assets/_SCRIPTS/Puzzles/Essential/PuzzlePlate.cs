@@ -10,7 +10,6 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
     public Gem[] gems;
     [SerializeField] private UnityEvent executeWithPuzzle;
     private bool active;
-    public int chpIndex;
     private Transform targetTr;
     private Material plateMat;
     void Awake()
@@ -26,7 +25,6 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
         linkedData.reset = 0;
         active = false;
 
-        chpIndex = -1;
     }
     public void AddInputs()
     {
@@ -34,38 +32,45 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
     }
     void OnTriggerEnter(Collider col)
     {
-        if (targetTr == null && linkedData.solved < linkedData.solutions.Length)
+        if (col.CompareTag("Player") && GameManager.root.currentState == GameState.Roaming && linkedData.solved < linkedData.solutions.Length)
         {
-            if (col.CompareTag("Player") && GameManager.root.currentState == GameState.Roaming)
+            GameManager.root.currentState = GameState.InPuzzle;
+            GameManager.root.currentPuzzle = linkedData;
+            GameManager.root.currentPlate = this;
+
+            int firstCheckpointIndex = FindNextCheckpointIndex(0);
+
+            BrPitchFinder.root.SetGemList(gems.ToList().Skip(0).Take(firstCheckpointIndex).ToList());
+
+            plateMat.SetColor("_EmissionColor", DH.Get<GlobalPlateData>().activeColor * 5);
+
+            if (executeWithPuzzle != null)
             {
-                GameManager.root.currentState = GameState.InPuzzle;
-                GameManager.root.currentPuzzle = linkedData;
-                GameManager.root.currentPlate = this;
+                executeWithPuzzle.Invoke();
+            }
 
-                BrPitchFinder.root.SetGemList(gems.ToList().Skip(0).Take((linkedData.checkpoints.Length > 0)? linkedData.checkpoints[0] : linkedData.solutions.Length).ToList());
-
-                plateMat.SetColor("_EmissionColor", DH.Get<GlobalPlateData>().activeColor * 5);
-
-                if (executeWithPuzzle != null)
+            foreach (var gem in gems)
+            {
+                if (gem.TryGetComponent(out FlashingGem specialGem))
                 {
-                    executeWithPuzzle.Invoke();
+                    //specialGem.LinkToMusic();
                 }
-
-                targetTr = col.GetComponent<Transform>();
-                targetTr.SetParent(transform, true);
-
-                var targetTrData = new TrData(Vector3.up * 4.125f, Quaternion.Euler(alignRotation), transform.localScale);
-                CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed), $"AlignPlayerTo{gameObject.name}", this);
-                active = true;
             }
-            else if (col.CompareTag("Boulder"))
-            {
-                targetTr = col.GetComponent<Transform>();
-                targetTr.SetParent(transform, true);
 
-                var targetTrData = new TrData(Vector3.up * (targetTr.localScale.y / 2f), Quaternion.identity, Vector3.zero);
-                CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed * 0.5f), $"AlignBoulderTo{gameObject.name}", this);
-            }
+            targetTr = col.GetComponent<Transform>();
+            targetTr.SetParent(transform, true);
+
+            var targetTrData = new TrData(Vector3.up * 4.125f, Quaternion.Euler(alignRotation), transform.localScale);
+            CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed), $"AlignPlayerTo{gameObject.name}", this);
+            active = true;
+        }
+        else if (col.CompareTag("Boulder"))
+        {
+            targetTr = col.GetComponent<Transform>();
+            targetTr.SetParent(transform, true);
+
+            var targetTrData = new TrData(Vector3.up * (targetTr.localScale.y / 2f), Quaternion.identity, Vector3.zero);
+            CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed * 0.5f), $"AlignBoulderTo{gameObject.name}", this);
         }
     }
     [AllowedStates(GameState.InPuzzle)]
@@ -73,7 +78,7 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
     {
         if (targetTr != null && active)
         {
-            float note = PuzzleUtilities.root.GetNoteNumber(linkedData.solutions[linkedData.solved]);
+            float note = PuzzleUtilities.root.GetNoteNumber(linkedData.solutions[linkedData.solved].noteName);
 
             if (noteInput == 13)
             {
@@ -88,32 +93,49 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
             {
                 linkedData.solved++;
 
-                if (linkedData.checkpoints.Length > 0 && chpIndex + 1 < linkedData.checkpoints.Length && linkedData.solved == linkedData.checkpoints[chpIndex + 1])
+                if (linkedData.solutions[linkedData.solved].checkpoint)
                 {
-                    chpIndex++;
+                    int startIdx = linkedData.solved;
+                    int endIdx = FindNextCheckpointIndex(linkedData.solved);
 
-                    
-
-                    int startIdx = linkedData.checkpoints[chpIndex];
-                    int endIdx = (chpIndex + 1 < linkedData.checkpoints.Length) ? linkedData.checkpoints[chpIndex + 1] : linkedData.solutions.Length;
-
-                    AudioManager.root.PlaySound(AudioEvent.playCheckpointReached, gems[startIdx - 1].gameObject);
+                    //AudioManager.root.PlaySound(AudioEvent.playCheckpointReached, gems[startIdx - 1].gameObject);
                     BrPitchFinder.root.SetGemList(gems.ToList().Skip(startIdx).Take(endIdx - startIdx).ToList());
+
+                    foreach (var gem in gems)
+                    {
+                        if (gem.gemLit) gem.CheckpointReached();
+                    }
                 }
             }
             else
             {
-                if (linkedData.checkpoints.Length > 0)
-                {
-                    linkedData.solved = (chpIndex >= 0) ? linkedData.checkpoints[chpIndex] : 0;
-                }
-                else
-                {
-                    linkedData.solved = 0;
-                }
+                int previousCheckpointIndex = FindPreviousCheckpointIndex(linkedData.solved);
+                linkedData.solved = previousCheckpointIndex;
             }
-
         }
+    }
+    private int FindNextCheckpointIndex(int startIndex)
+    {
+        for (int i = startIndex + 1; i < linkedData.solutions.Length; i++)
+        {
+            if (linkedData.solutions[i].checkpoint)
+            {
+                return i;
+            }
+        }
+        return linkedData.solutions.Length;
+    }
+
+    private int FindPreviousCheckpointIndex(int currentIndex)
+    {
+        for (int i = currentIndex - 1; i >= 0; i--)
+        {
+            if (linkedData.solutions[i].checkpoint)
+            {
+                return i;
+            }
+        }
+        return 0;
     }
     public void UpdateGem(int solved)
     {
@@ -152,16 +174,20 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
     }
     void PlateCompleted()
     {
+        GameManager.root.currentState = GameState.Roaming;
         targetTr.parent = null;
         targetTr = null;
         active = false;
-        GameManager.root.currentState = GameState.Roaming;
+
+        foreach (var gem in gems)
+        {
+            if (gem.gemLit) gem.CheckpointReached();
+        }
 
         plateMat.SetColor("_EmissionColor", DH.Get<GlobalPlateData>().completedColor * 5);
     }
     void OnDisable()
     {
-        Destroy(plateMat);
         linkedData.OnSolvedChanged -= solved => UpdateGem(solved);
         linkedData.OnPuzzleCompleted -= () => PlateCompleted();
     }

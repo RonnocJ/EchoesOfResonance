@@ -1,12 +1,17 @@
 using System;
-using AK.Wwise;
+using UnityEditor;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Objects/Puzzles/PuzzleData", order = 0)]
 public class PuzzleData : ScriptableObject
 {
-    public PuzzleType puzzleType;
-    public string[] solutions;
-    public int[] checkpoints;
+    [Serializable]
+    public class Notes
+    {
+        public string noteName;
+        public NoteValue noteDuration;
+        public bool checkpoint;
+    }
+    public Notes[] solutions;
     [SerializeField] private int _solved;
     public int solved
     {
@@ -92,3 +97,112 @@ public class PuzzleData : ScriptableObject
 
     }
 }
+
+[CustomPropertyDrawer(typeof(PuzzleData.Notes))]
+public class NotesPropertyDrawer : PropertyDrawer
+{
+    static public bool Checkpoint;
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        EditorGUI.BeginProperty(position, label, property);
+
+        SerializedProperty solutionsArray = property.serializedObject.FindProperty("solutions");
+
+        int index = GetArrayIndex(property, solutionsArray);
+
+        SerializedProperty noteNameProp = property.FindPropertyRelative("noteName");
+        SerializedProperty noteDurationProp = property.FindPropertyRelative("noteDuration");
+        SerializedProperty checkpointProp = property.FindPropertyRelative("checkpoint");
+
+        Rect indexRect = new Rect(position.x, position.y, 25f, 20f);
+        EditorGUI.LabelField(indexRect, $"{index}:");
+
+        Rect noteRect = new Rect(position.x + 25f, position.y + 1f, 40f, 20f);
+        Rect durationRect = new Rect(noteRect.x - 75, position.y, 250f, 30f);
+        Rect checkpointRect = new Rect(durationRect.x + 275, position.y, 25f, 25f);
+
+        EditorGUI.PropertyField(noteRect, noteNameProp, GUIContent.none);
+        EditorGUI.PropertyField(durationRect, noteDurationProp, GUIContent.none);
+        EditorGUI.PropertyField(checkpointRect, checkpointProp, new GUIContent("Checkpoint:"));
+
+        EditorGUI.EndProperty();
+    }
+
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        SerializedProperty solutionsArray = property.serializedObject.FindProperty("solutions");
+
+        int index = GetArrayIndex(property, solutionsArray);
+
+        float extraHeight = 6f;
+
+        if(index < solutionsArray.arraySize && solutionsArray.GetArrayElementAtIndex(index).FindPropertyRelative("checkpoint").boolValue)
+        {
+            extraHeight = 35f;
+        }
+
+        return EditorGUIUtility.singleLineHeight + extraHeight;
+    }
+
+    private int GetArrayIndex(SerializedProperty property, SerializedProperty array)
+    {
+        for (int i = 0; i < array.arraySize; i++)
+        {
+            if (property.propertyPath == $"{array.propertyPath}.Array.data[{i}]")
+            {
+                return i + 1;
+            }
+        }
+        return -1;
+    }
+}
+
+/*[CustomEditor(typeof(PuzzleData))]
+public class PuzzleDataEditor : Editor
+{
+    private SerializedProperty solutionsProp;
+    private SerializedProperty checkpointsProp;
+    private Vector2 scrollPos; // For scrolling when lists get too long
+
+    private void OnEnable()
+    {
+        solutionsProp = serializedObject.FindProperty("solutions");
+        checkpointsProp = serializedObject.FindProperty("checkpoints");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        serializedObject.Update();
+
+        EditorGUILayout.LabelField("Puzzle Data", EditorStyles.boldLabel);
+        EditorGUILayout.Space(5);
+
+        EditorGUILayout.BeginHorizontal();
+
+        EditorGUILayout.PropertyField(solutionsProp, new GUIContent("Solutions:"));
+        EditorGUILayout.Space(10);
+
+        EditorGUILayout.PropertyField(checkpointsProp, new GUIContent("Checkpoints:"), GUILayout.Width(EditorGUIUtility.currentViewWidth * 0.4f));
+        EditorGUILayout.Space(10);
+
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.Space(10);
+
+        SerializedProperty property = serializedObject.GetIterator();
+        property.NextVisible(true);
+
+        while (property.NextVisible(false))
+        {
+            if (property.name is "solutions" or "checkpoints")
+            {
+                continue;
+            }
+
+            EditorGUILayout.PropertyField(property, true);
+        }
+
+        serializedObject.ApplyModifiedProperties();
+    }
+}
+*/

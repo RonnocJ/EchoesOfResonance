@@ -60,8 +60,13 @@
 																<PointList>
 																	<Point>
 																		<XPos>0</XPos>
-																		<YPos>-12</YPos>
+																		<YPos>-11.88</YPos>
 																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>-11.88</YPos>
+																		<Flags>0</Flags>
 																	</Point>
 																	<Point>
 																		<XPos>100</XPos>

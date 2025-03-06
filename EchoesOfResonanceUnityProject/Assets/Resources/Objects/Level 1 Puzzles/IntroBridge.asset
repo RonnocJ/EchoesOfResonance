@@ -12,60 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4b40b42d1684c0cbcfc1a3be85478d, type: 3}
   m_Name: IntroBridge
   m_EditorClassIdentifier: 
-  puzzleType: 0
   solutions:
-  - C2
-  - G1
-  - C2
-  - G1
-  - C2
-  - F2
-  - D1
-  - G1
-  - C2
-  - F2
-  - A#2
-  checkpoints: 010000000300000006000000
-  _solved: 11
+  - noteName: C2
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  - noteName: G1
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 1
+  - noteName: C2
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  - noteName: G1
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 1
+  - noteName: C2
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  - noteName: F2
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  - noteName: D1
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 1
+  - noteName: G1
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  - noteName: C2
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  - noteName: F2
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  - noteName: A#2
+    noteDuration:
+      CurrentValue: 1
+    checkpoint: 0
+  _solved: 6
   _reset: 0
-  audioEffects:
-  - executeOnSolved: 0
-    executeEarly: 1
-    audioTypes: 16
-    audioEvents: 
-    audioStates: 
-    audioSwitches: 
-    audioRTPCs:
-    - parameter: -1077959362
-      value: 1
-  - executeOnSolved: 0
-    executeEarly: 3
-    audioTypes: 16
-    audioEvents: 
-    audioStates: 
-    audioSwitches: 
-    audioRTPCs:
-    - parameter: -1077959362
-      value: 2
-  - executeOnSolved: 0
-    executeEarly: 6
-    audioTypes: 16
-    audioEvents: 
-    audioStates: 
-    audioSwitches: 
-    audioRTPCs:
-    - parameter: -1077959362
-      value: 3
-    - parameter: 0
-      value: 3
-  - executeOnSolved: 0
-    executeEarly: 6
-    audioTypes: 1
-    audioEvents: 850296c7
-    audioStates: 
-    audioSwitches: 
-    audioRTPCs:
-    - parameter: -1077959362
-      value: 3
-    - parameter: 0
-      value: 3
+  audioEffects: []

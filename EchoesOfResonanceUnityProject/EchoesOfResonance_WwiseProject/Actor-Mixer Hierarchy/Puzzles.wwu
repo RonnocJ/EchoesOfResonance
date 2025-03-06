@@ -290,6 +290,271 @@
 						</Sound>
 					</ChildrenList>
 				</ActorMixer>
+				<ActorMixer Name="MoveableStone" ID="{811BE789-2E11-4AA5-BF65-3D84B42D3354}" ShortID="763581885">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="UserAuxSendVolume0" Type="Real64">
+							<ValueList>
+								<Value>-12</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="DoorAttenuation" ID="{E67D2A5E-DB39-48DA-82CE-988643AE506F}" WorkUnitID="{EE90F20C-018E-4D69-A70B-EF9965F55566}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+						<Reference Name="UserAuxSend0">
+							<ObjectRef Name="PuzzleVerb" ID="{41C84D67-A304-401A-B6BE-DA620AA79A87}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="StoneCrumble" ID="{067032DD-668B-4F70-894C-6AAA5078A725}" ShortID="7618886">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{ED577F79-1FF4-49E3-8E4E-3594798D2EDE}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="75"/>
+													<Property Name="Min" Type="Real64" Value="-75"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Soundly:ActiveChannels" Type="string" Value="[]"/>
+								<Property Name="Soundly:FileID" Type="string" Value="SND13431"/>
+								<Property Name="Soundly:FileName" Type="string" Value="/var/folders/c0/13bg9n2s65vcn5wrd176215c0000gn/T/tmpbdj5fidy/afcache/1426367345Ff4sxqvM_wkFwGSND13431sfy.sfy"/>
+								<Property Name="Soundly:HandleStartTime" Type="string" Value="0"/>
+								<Property Name="Soundly:HandleStopTime" Type="string" Value="5.84"/>
+								<Property Name="Soundly:LibraryID" Type="string" Value="1426367345Ff4sxqvM_wkFwG"/>
+								<Property Name="Soundly:LibraryLocation" Type="string" Value="Cloud"/>
+								<Property Name="Soundly:PlaybackSpeed" Type="string" Value="1.0"/>
+								<Property Name="Soundly:ProcessList" Type="string" Value="[]"/>
+								<Property Name="Soundly:RenderedFileBitRate" Type="string" Value="3"/>
+								<Property Name="Soundly:RenderedFilePath" Type="string" Value="/Users/chj/Documents/Soundly Audio/Natural Disaster, Earthquake, Impact, Crack 01 SND13431.wav"/>
+								<Property Name="Soundly:RenderedFileSampleRate" Type="string" Value="96000"/>
+								<Property Name="Soundly:SelectionStartTime" Type="string" Value="0.01220703125"/>
+								<Property Name="Soundly:SelectionStopTime" Type="string" Value="0.4189453125"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Natural Disaster, Earthquake, Impact, Crack 01 SND13431" ID="{E06A7F80-460B-4D05-9A3D-69B6533DD537}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0451400977977808"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.78303386301234"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="Soundly:FileIDForAudioSource" Type="string" Value="SND13431"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0712890625"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.446640625"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Soundly Audio\Natural Disaster, Earthquake, Impact, Crack 01 SND13431.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="808061415"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Natural Disaster, Earthquake, Impact, Crack 01 SND13431" ID="{E06A7F80-460B-4D05-9A3D-69B6533DD537}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<RandomSequenceContainer Name="RingMoveTick" ID="{2ECF0D62-92B6-4E09-8169-1DDD87BDDCBF}" ShortID="355591716">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{9560230E-E627-48A3-8E9D-16D6B81FBF1A}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="75"/>
+													<Property Name="Min" Type="Real64" Value="-75"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="RingTick01" ID="{9AA55352-E11F-4F8B-9B92-E48549EA9DE2}" ShortID="951361620">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_SFX_RingTick01" ID="{F50147C1-81E8-444D-8D1F-ADA6654B52DE}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="0.200966183574879"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>EOR_SFX_RingTick01.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="454213422"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EOR_SFX_RingTick01" ID="{F50147C1-81E8-444D-8D1F-ADA6654B52DE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="RingTick02" ID="{AAAF9D69-BD01-490F-B933-DD38E39B112B}" ShortID="142228548">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_SFX_RingTick02" ID="{615C0DCA-4005-462F-81AC-34C2CBE365EA}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="0.201932367149758"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>EOR_SFX_RingTick02.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="212656553"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EOR_SFX_RingTick02" ID="{615C0DCA-4005-462F-81AC-34C2CBE365EA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="RingTick03" ID="{86A236B0-971C-48D4-AA62-296A50BC5D38}" ShortID="422486665">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_SFX_RingTick03" ID="{93252F21-4981-49EF-BF2F-F88E6A065343}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="0.200966183574879"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>EOR_SFX_RingTick03.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="495460665"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EOR_SFX_RingTick03" ID="{93252F21-4981-49EF-BF2F-F88E6A065343}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="RingTick04" ID="{FB6524BF-6B68-4830-9C23-F34BF2A3398A}" ShortID="466560051">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="EOR_SFX_RingTick04" ID="{F59549FE-4901-4E96-9200-4338D30D6CFD}">
+											<PropertyList>
+												<Property Name="LoopEnd" Type="Real64" Value="0.200966183574879"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>EOR_SFX_RingTick04.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1049912042"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="EOR_SFX_RingTick04" ID="{F59549FE-4901-4E96-9200-4338D30D6CFD}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Playlist">
+									<Reference>
+										<ObjectRef Name="RingTick01" ID="{9AA55352-E11F-4F8B-9B92-E48549EA9DE2}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="RingTick02" ID="{AAAF9D69-BD01-490F-B933-DD38E39B112B}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="RingTick03" ID="{86A236B0-971C-48D4-AA62-296A50BC5D38}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+									</Reference>
+									<Reference>
+										<ObjectRef Name="RingTick04" ID="{FB6524BF-6B68-4830-9C23-F34BF2A3398A}" WorkUnitID="{D0748E86-15D7-4512-A10C-E4F01965A492}"/>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</ActorMixer>
+				<Sound Name="BoulderChime" ID="{026ABD24-5B80-4A41-AF5E-B21C91383C37}" ShortID="738233946">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D6E43A90-6F08-4BB0-ADD6-8E57EF031A3E}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFXBus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{6208CEF0-4E29-4ED7-A8FE-B85ABB8C6979}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="EOR_Level01_BoulderChime" ID="{04F30346-CB3E-4FD4-8067-1554BBDEB9E6}">
+							<Language>SFX</Language>
+							<AudioFile>EOR_Level01_BoulderChime.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="196761745"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="EOR_Level01_BoulderChime" ID="{04F30346-CB3E-4FD4-8067-1554BBDEB9E6}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

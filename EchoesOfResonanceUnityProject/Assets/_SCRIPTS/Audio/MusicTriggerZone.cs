@@ -28,7 +28,9 @@ public class MusicTriggerZone : MonoBehaviour
         if (inTrigger && !played)
         {
             MusicManager.root.PlaySong(musicEvent, musicTracker);
-            MusicManager.root.SetState(musicState);
+            
+            if(musicState != AudioState.None)
+                MusicManager.root.SetState(musicState);
 
             List<IBeatListener> listeners = new();
 

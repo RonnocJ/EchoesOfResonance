@@ -31,8 +31,8 @@ public class AkWwiseProjectData : UnityEngine.ScriptableObject
 	public System.Collections.Generic.List<EventWorkUnit> EventWwu =
 		new System.Collections.Generic.List<EventWorkUnit>();
 
-	public System.Collections.Generic.List<AkInfoWorkUnit> RtpcWwu =
-		new System.Collections.Generic.List<AkInfoWorkUnit>();
+	public System.Collections.Generic.List<AkParameterWorkUnit> RtpcWwu =
+		new System.Collections.Generic.List<AkParameterWorkUnit>();
 
 	public System.Collections.Generic.List<GroupValWorkUnit> StateWwu =
 		new System.Collections.Generic.List<GroupValWorkUnit>();
@@ -104,7 +104,7 @@ public class AkWwiseProjectData : UnityEngine.ScriptableObject
 		SwitchWwu = new System.Collections.Generic.List<GroupValWorkUnit>();
 		BankWwu = new System.Collections.Generic.List<AkInfoWorkUnit>();
 		AuxBusWwu = new System.Collections.Generic.List<AkInfoWorkUnit>();
-		RtpcWwu = new System.Collections.Generic.List<AkInfoWorkUnit>();
+		RtpcWwu = new System.Collections.Generic.List<AkParameterWorkUnit>();
 		TriggerWwu = new System.Collections.Generic.List<AkInfoWorkUnit>();
 		AcousticTextureWwu = new System.Collections.Generic.List<AkInfoWorkUnit>();
 	}
@@ -238,7 +238,12 @@ public class AkWwiseProjectData : UnityEngine.ScriptableObject
 	{
 		public string Path;
 	}
-
+	[System.Serializable]
+	public class Parameter : AkInformation
+	{
+		public double Min;
+		public double Max;
+	}
 	[System.Serializable]
 	public class GroupValue : AkInformation
 	{
@@ -371,6 +376,8 @@ public class AkWwiseProjectData : UnityEngine.ScriptableObject
 
 	[System.Serializable]
 	public class AkInfoWorkUnit : GenericWorkUnit<AkInformation> { }
+	[System.Serializable]
+	public class AkParameterWorkUnit : GenericWorkUnit<Parameter> { }
 
 	[System.Serializable]
 	public class EventWorkUnit : GenericWorkUnit<Event> { }
