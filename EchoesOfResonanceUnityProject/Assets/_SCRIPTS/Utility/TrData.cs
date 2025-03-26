@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEditor;
+using Unity.VisualScripting;
 
 [Serializable]
 public struct TrData
@@ -93,6 +94,29 @@ public struct TrData
         if ((EffectedProperties & IncludeInMove.Scale) != 0 && tr.localScale != scale)
             return false;
         return true;
+    }
+}
+[Serializable]
+public struct SaveStruct
+{
+    public float[] position;
+    public float[] rotation;
+    public float[] scale;
+
+    public SaveStruct(TrData trData)
+    {
+        position = new float[] { trData.position.x, trData.position.y, trData.position.z };
+        rotation = new float[] { trData.rotation.x, trData.rotation.y, trData.rotation.z };
+        scale = new float[] {trData.scale.x, trData.scale.y, trData.scale.z};
+    }
+
+    public TrData LoadData()
+    {
+        return new TrData (
+            new Vector3(position[0], position[1], position[2]), 
+            Quaternion.Euler(new Vector3(rotation[0], rotation[1], rotation[2])), 
+            new Vector3(scale[0], scale[1], scale[2])
+        );
     }
 }
 

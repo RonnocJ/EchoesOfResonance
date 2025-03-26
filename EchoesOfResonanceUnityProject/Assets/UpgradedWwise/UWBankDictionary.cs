@@ -14,7 +14,7 @@ public class UWBankDictionaries : ScriptableObject
     {
         get
         {
-            if (eventBankDict.Count == 0) // Lazy loading after reload
+            if (eventBankDict.Count == 0) 
             {
                 foreach (var entry in serializedEvents)
                 {
@@ -31,7 +31,7 @@ public class UWBankDictionaries : ScriptableObject
     {
         get
         {
-            if (rtpcBankDict.Count == 0) // Lazy loading after reload
+            if (rtpcBankDict.Count == 0)
             {
                 foreach (var entry in serializedRTPCs)
                 {

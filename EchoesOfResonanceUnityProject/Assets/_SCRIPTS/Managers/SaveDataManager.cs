@@ -5,8 +5,8 @@ using Newtonsoft.Json;
 using UnityEngine;
 public class SaveDataManager : Singleton<SaveDataManager>
 {
-    public Dictionary<string, object> data = new();
-    [SerializeField] private string fileName;
+    public Dictionary<string, object> Data = new();
+    public string FileName;
     protected override void Awake()
     {
         base.Awake();
@@ -14,13 +14,14 @@ public class SaveDataManager : Singleton<SaveDataManager>
     }
     void ReadAllData()
     {
-        string fullPath = Path.Combine(Application.persistentDataPath, fileName);
+        string fullPath = Path.Combine(Application.persistentDataPath, FileName);
+
         if (File.Exists(fullPath))
         {
             try
             {
                 string loadedData = File.ReadAllText(fullPath);
-                data = JsonConvert.DeserializeObject<Dictionary<string, object>>(loadedData);
+                Data = JsonConvert.DeserializeObject<Dictionary<string, object>>(loadedData);
             }
             catch (Exception e)
             {
@@ -34,7 +35,7 @@ public class SaveDataManager : Singleton<SaveDataManager>
         {
             if (b.TryGetComponent(out ISaveData saveData))
             {
-                if (data.ContainsKey(b.gameObject.name) && data[b.gameObject.name] is Newtonsoft.Json.Linq.JObject jObject)
+                if (Data.ContainsKey(b.gameObject.name) && Data[b.gameObject.name] is Newtonsoft.Json.Linq.JObject jObject)
                     saveData.ReadSaveData(jObject.ToObject<Dictionary<string, object>>());
                 else
                 {
@@ -52,17 +53,21 @@ public class SaveDataManager : Singleton<SaveDataManager>
             if (b.TryGetComponent(out ISaveData saveData))
             {
                 string objectKey = b.gameObject.name;
-                data[objectKey] = saveData.AddSaveData();
+                Data[objectKey] = saveData.AddSaveData();
             }
         }
 
-        string fullPath = Path.Combine(Application.persistentDataPath, fileName);
+        string fullPath = Path.Combine(Application.persistentDataPath, FileName);
 
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
 
-            string dataToStore = JsonConvert.SerializeObject(data, Formatting.Indented);
+            string dataToStore = JsonConvert.SerializeObject(Data, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
 
             using (FileStream stream = new FileStream(fullPath, FileMode.Create))
             {

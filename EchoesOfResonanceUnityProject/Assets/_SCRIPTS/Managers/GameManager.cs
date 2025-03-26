@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 public enum GameState
 {
@@ -10,17 +11,40 @@ public enum GameState
     Shutdown,
     Final
 }
-public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager>, ISaveData
 {
     public GameState currentState;
     public PuzzleData currentPuzzle;
     public PuzzlePlate currentPlate;
-
-    void Start()
+    public Dictionary<string, object> AddSaveData()
     {
-        if(DH.Get<TestOverrides>().skipIntro && DH.Get<TestOverrides>().ignoreMidi)
+        if (currentState != GameState.InPuzzle)
         {
-            currentState = GameState.Roaming;
+            return new()
+        {
+            {"savedState", currentState}
+        };
+        }
+        else
+        {
+            return new()
+        {
+            {"savedState", GameState.Roaming}
+        };
+        }
+
+    }
+
+    public void ReadSaveData(Dictionary<string, object> savedData)
+    {
+        if (savedData.TryGetValue("savedState", out object oldSavedState))
+        {
+            Enum.TryParse(Convert.ToString(oldSavedState), out GameState oldSavedStateEnum);
+            currentState = oldSavedStateEnum;
+        }
+        else
+        {
+            currentState = GameState.Config;
         }
     }
 }

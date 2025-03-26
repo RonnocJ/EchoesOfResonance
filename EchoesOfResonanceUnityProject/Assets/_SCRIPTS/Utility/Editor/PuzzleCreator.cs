@@ -122,10 +122,29 @@ public class PuzzleCreator : MonoBehaviour
         for (int i = 0; i < gems.Length; i++)
         {
             float newNoteFloat = PuzzleUtilities.root.GetNoteNumber(data.solutions[i].noteName);
-            gems[i].transform.GetChild(0).GetComponent<MeshFilter>().mesh = DH.Get<GlobalGemData>().gemMeshes[((int)newNoteFloat - 1) % 5];
+            int noteMod = Mathf.FloorToInt(newNoteFloat % 5);
 
-            var gemMat = new Material(gems[i].transform.GetChild(0).GetComponent<MeshRenderer>().sharedMaterial);
-            gems[i].transform.GetChild(0).GetComponent<MeshRenderer>().material = gemMat;
+            // Map mod value to blendshape index (assuming order is 1, 2, 4, 5)
+            int blendShapeIndex = -1;
+            switch (noteMod)
+            {
+                case 1: blendShapeIndex = 0; break;
+                case 2: blendShapeIndex = 1; break;
+                case 3: blendShapeIndex = -1; break;
+                case 4: blendShapeIndex = 2; break; 
+                case 0: blendShapeIndex = 3; break;
+            }
+
+            var gemMesh = gems[i].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+
+
+            for (int j = 0; j < gemMesh.sharedMesh.blendShapeCount; j++)
+            {
+                gemMesh.SetBlendShapeWeight(j, (j == blendShapeIndex) ? 100f : 0f);
+            }
+
+            var gemMat = new Material(gems[i].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial);
+            gems[i].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material = gemMat;
 
             gemMat.SetColor("_gemColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)].mainColor);
             gemMat.SetColor("_bottomColor", DH.Get<GlobalGemData>().gemColors[Mathf.FloorToInt((newNoteFloat - 1) / 5f)].bottomColor);
@@ -144,7 +163,7 @@ public class PuzzleCreator : MonoBehaviour
             if (PrefabUtility.IsPartOfAnyPrefab(gems[i].gameObject))
                 PrefabUtility.UnpackPrefabInstance(gems[i].gameObject, PrefabUnpackMode.Completely, InteractionMode.UserAction);
 
-            gems[i].gameObject.name = $"Gem{data.solutions[i]}_{i}";
+            gems[i].gameObject.name = $"Gem{data.solutions[i].noteName}_{i}";
         }
 
         plate.GetComponent<PuzzlePlate>().gems = gems;

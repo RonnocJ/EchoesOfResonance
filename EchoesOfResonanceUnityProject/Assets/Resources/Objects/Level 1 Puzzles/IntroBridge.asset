@@ -57,6 +57,6 @@ MonoBehaviour:
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  _solved: 6
+  _solved: 2
   _reset: 0
   audioEffects: []

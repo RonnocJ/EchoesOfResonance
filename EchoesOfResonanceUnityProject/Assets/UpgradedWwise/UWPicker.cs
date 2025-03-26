@@ -10,7 +10,7 @@ public class UWPicker : EditorWindow
 {
     private uint queuedEventId, playingEventId;
     private double unloadTime;
-    private string playingEventName, loadedBank, bankToUnload, queuedStateName, rtpcName;
+    private string queuedEventName, playingEventName, loadedBank, bankToUnload, rtpcName;
     public TreeView eventView, stateView, switchView, triggerView, rtpcView;
     private Label playingEvent, currentState, currentSwitch, lastTrigger, selectedRTPC, rtpcMin, rtpcMax;
     private Slider rtpcSlider;
@@ -169,17 +169,17 @@ public class UWPicker : EditorWindow
 
             if (_bankObj.EventBankDict.TryGetValue(eventName, out var eventInstance))
             {
-                AkUnitySoundEngine.LoadBank(eventInstance.bankName, out uint bankId);
+                AkBankManager.LoadBank(eventInstance.bankName, false, false);
 
-                if (loadedBank != eventInstance.bankName && loadedBank != "")
+                if (loadedBank != eventInstance.bankName && !string.IsNullOrEmpty(loadedBank))
                 {
                     bankToUnload = loadedBank;
                     unloadTime = EditorApplication.timeSinceStartup + 5.0f;
-                    loadedBank = eventInstance.bankName;
                 }
 
+                loadedBank = eventInstance.bankName;
                 queuedEventId = eventInstance.id;
-                playingEventName = eventName;
+                queuedEventName = eventName;
             }
         }
     }
@@ -188,7 +188,7 @@ public class UWPicker : EditorWindow
         if (playingEventId != 0)
         {
             AkUnitySoundEngine.StopPlayingID(playingEventId);
-            playingEvent.text = "Now playing: \n None";
+            playingEvent.text = "Now Playing: \n None";
             playingEventId = 0;
 
             if (playingEventName == eventView.selectedItem.ToString())
@@ -200,16 +200,14 @@ public class UWPicker : EditorWindow
         if (queuedEventId != 0)
         {
             playingEventId = AkUnitySoundEngine.PostEvent(queuedEventId, cam.gameObject);
-            string eventText = playingEventName;
-            eventText = eventText.Replace("play", string.Empty);
-            eventText = eventText.Replace("start", string.Empty);
-            playingEvent.text = $"Now Playing: \n {eventText}";
+            playingEventName = queuedEventName;
+            playingEvent.text = $"Now Playing: \n {playingEventName.Replace("start", string.Empty).Replace("play", string.Empty)}";
         }
     }
     private void UnloadBank(string bankToUnload)
     {
         if (loadedBank != bankToUnload)
-            AkUnitySoundEngine.UnloadBank(bankToUnload, IntPtr.Zero);
+            AkBankManager.UnloadBank(bankToUnload);
     }
     private void Update()
     {

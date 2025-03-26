@@ -13,6 +13,7 @@
 						<State Name="ElevatorHallway" ID="{5E75A11B-B0F3-4816-966F-6E15ADAA4183}"/>
 						<State Name="ElevatorShaft" ID="{C782FCFA-CDC2-454A-B861-5ACC204E5E4E}"/>
 						<State Name="CliffsEdge" ID="{4C7B3281-C461-4348-BD8E-F3F429F5F919}"/>
+						<State Name="RingPuzzle" ID="{ABA170ED-017A-4F19-A7EE-80CEF3E222DF}"/>
 					</ChildrenList>
 					<TransitionList>
 						<Transition>

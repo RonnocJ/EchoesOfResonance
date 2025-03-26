@@ -75,6 +75,7 @@ namespace AK
                 static const AkUniqueID ELEVATORSHAFT = 1318468365U;
                 static const AkUniqueID INTRO = 1125500713U;
                 static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID RINGPUZZLE = 2715723947U;
             } // namespace STATE
         } // namespace LEVEL01MASTER
 
@@ -116,7 +117,6 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID LISTENERBUS = 572671253U;
         static const AkUniqueID MUSICBUS = 2886307548U;
         static const AkUniqueID SFXBUS = 3803850708U;
     } // namespace BUSSES

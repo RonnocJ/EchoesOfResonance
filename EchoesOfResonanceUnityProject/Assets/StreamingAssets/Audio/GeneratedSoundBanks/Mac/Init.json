@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{D9FB71C3-F79E-BBA4-14F5-29CF50A153E4}",
+    "Hash": "{9712DDD2-4B2C-E69A-AC69-D8CD9C2FF39C}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -61,12 +61,6 @@
      ]
     },
     "Busses": [
-     {
-      "Id": "572671253",
-      "Name": "ListenerBus",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\ListenerBus",
-      "GUID": "{A03EEDA4-894D-4B0B-BEBF-22975CA1A442}"
-     },
      {
       "Id": "2886307548",
       "Name": "MusicBus",
@@ -270,12 +264,18 @@
         "Name": "ElevatorHallway",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\ElevatorHallway",
         "GUID": "{5E75A11B-B0F3-4816-966F-6E15ADAA4183}"
+       },
+       {
+        "Id": "2715723947",
+        "Name": "RingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\RingPuzzle",
+        "GUID": "{ABA170ED-017A-4F19-A7EE-80CEF3E222DF}"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{4DF3A0CA-7D88-63EA-095A-20B77E5ADD8F}"
+  "FileHash": "{A463359F-B7C6-27E8-C96A-25089AC5E8EE}"
  }
 }

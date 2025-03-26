@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Multimedia;
-using MidiDevice = Minis.MidiDevice;
-using InputDevice = UnityEngine.InputSystem.InputDevice;
 using System.Collections;
+using Melanchall.DryWetMidi.Common;
+using PimDeWitte.UnityMainThreadDispatcher;
 
 public enum ActionTypes
 {
@@ -25,12 +25,13 @@ public class ActionData
     }
 }
 
-public class InputManager : Singleton<InputManager>
+public class InputManager : Singleton<InputManager>, ISaveData
 {
-    public bool usingMidiKeyboard { get; private set; }
+    public bool UsingMidiKeyboard { get; private set; }
 
     [SerializeField] private InputActionAsset keyInputs;
-    private bool checkingKeys, keyToggle;
+    [SerializeField] private GameObject _configScreen;
+    private bool configFade, checkingKeys, keyToggle;
     private float verticalArrowSpeed, heldNote;
     private Key lastKey = Key.None, lastNum = Key.None;
 
@@ -38,11 +39,7 @@ public class InputManager : Singleton<InputManager>
     private readonly List<int> notesUp = new();
     private readonly List<IInputScript> inputs = new();
     private readonly Dictionary<ActionTypes, ActionData> actionDict = new();
-
-    private float chordTimeWindow = 0.05f;
-
-    private MidiDevice midiController;
-    private IInputDevice midiPitchController;
+    private IInputDevice _midiController;
 
     private readonly Dictionary<Key, int> numOctMapping = new()
     {
@@ -53,54 +50,58 @@ public class InputManager : Singleton<InputManager>
     {
         { Key.A, 1 }, { Key.S, 2 }, { Key.D, 3 }, { Key.F, 4 }, { Key.G, 5 }
     };
-
-    void Start()
+    public Dictionary<string, object> AddSaveData()
     {
-        if (!DH.Get<TestOverrides>().ignoreMidi)
+        return new Dictionary<string, object>
         {
-            usingMidiKeyboard = false;
-            InputSystem.onDeviceChange += OnMidiDeviceChange;
+            {"usingMIDI", UsingMidiKeyboard}
+        };
+    }
+
+    public void ReadSaveData(Dictionary<string, object> savedData)
+    {
+        InitializeGlobalActions();
+
+        if (savedData.TryGetValue("usingMIDI", out object usingMidi))
+        {
+            configFade = false;
+            UIFade.root.SetAlpha(0, new() { _configScreen });
+
+            UsingMidiKeyboard = Convert.ToBoolean(usingMidi);
+
+            if (UsingMidiKeyboard && DH.Get<TestOverrides>().inputOverride != InputOverride.CPU)
+            {
+                InputSystem.onDeviceChange += OnMidiDeviceChange;
+            }
+            else
+            {
+                UseKeyboard();
+            }
         }
         else
         {
-            UseKeyboard();
+            configFade = true;
+            UIFade.root.SetAlpha(1, new() { _configScreen });
+
+            InputSystem.onDeviceChange += (device, change) =>
+            {
+                OnMidiDeviceChange(device, change);
+            };
+
+            Keyboard.current.onTextInput += _ =>
+            {
+                UseKeyboard();
+                CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new() { _configScreen }), "FadeOutConfig", this);
+                GameManager.root.currentState = GameState.Roaming;
+            };
         }
     }
-
-    void OnMidiDeviceChange(InputDevice device, InputDeviceChange change)
-    {
-        if (change != InputDeviceChange.Added) return;
-
-        midiController = device as MidiDevice;
-        midiPitchController = Melanchall.DryWetMidi.Multimedia.InputDevice.GetByIndex(0);
-        midiPitchController.StartEventsListening();
-
-        usingMidiKeyboard = midiController != null;
-
-        if (usingMidiKeyboard)
-        {
-            InitializeGlobalActions();
-            InitializeMidiActions();
-            ConfigureInputs();
-        }
-    }
-
-    void UseKeyboard()
-    {
-        usingMidiKeyboard = false;
-        InitializeGlobalActions();
-        InitializeCPUActions();
-        ConfigureInputs();
-    }
-
     void InitializeGlobalActions()
     {
         if (actionDict.Count == 0)
         {
             foreach (ActionTypes type in Enum.GetValues(typeof(ActionTypes)))
                 actionDict[type] = new ActionData(_ => { });
-
-            actionDict[ActionTypes.Settings].floatInput = DH.Get<TestOverrides>().ignoreMidi ? 0 : 1;
         }
 
         keyInputs.FindActionMap("KeyboardMapping").FindAction("Settings").performed += _ =>
@@ -110,57 +111,108 @@ public class InputManager : Singleton<InputManager>
         };
     }
 
+    void OnMidiDeviceChange(UnityEngine.InputSystem.InputDevice device, InputDeviceChange change)
+    {
+        if (change != InputDeviceChange.Added) return;
+
+        _midiController = Melanchall.DryWetMidi.Multimedia.InputDevice.GetByIndex(0);
+        _midiController.StartEventsListening();
+
+        UsingMidiKeyboard = _midiController != null;
+
+        if (UsingMidiKeyboard)
+        {
+            keyInputs.FindActionMap("KeyboardMapping").Disable();
+            keyInputs.FindActionMap("KeyboardMapping").FindAction("Settings").Enable();
+            Keyboard.current.onTextInput -= _ => UseKeyboard();
+
+            if (configFade)
+            {
+                CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new() { _configScreen }), "FadeOutConfig", this);
+                GameManager.root.currentState = GameState.Roaming;
+            }
+
+            InitializeMidiActions();
+            ConfigureInputs();
+        }
+    }
+
+    void UseKeyboard()
+    {
+        if (!UsingMidiKeyboard || DH.Get<TestOverrides>().inputOverride == InputOverride.CPU)
+        {
+            InputSystem.onDeviceChange -= OnMidiDeviceChange;
+            keyInputs.FindActionMap("KeyboardMapping").Enable();
+    
+            InitializeCPUActions();
+            ConfigureInputs();
+        }
+    }
+
     void InitializeMidiActions()
     {
-        midiController.onWillNoteOn += (note, velocity) =>
+        _midiController.EventReceived += (_, message) =>
         {
-            notesDown.Add((int)GetNote(note.noteNumber));
-            CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyDown), "NoteDownCheck", this);
-
-        };
-        midiController.onWillNoteOff += note =>
-        {
-
-            notesUp.Add((int)GetNote(note.noteNumber));
-            CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyUp), "NoteUpCheck", this);
-
-        };
-
-        midiController.onWillControlChange += (wheel, amount) =>
-        {
-            if (wheel.controlNumber == 1)
+            UnityMainThreadDispatcher.Instance().Enqueue(() =>
             {
-                actionDict[ActionTypes.ModwheelChange].actionEvent.Invoke(amount);
-            }
-            else
-            {
-                var root = ConfigureKeyboard.root;
-                if (root.settingsCC == wheel.controlNumber)
+                switch (message.Event)
                 {
-                    actionDict[ActionTypes.Settings].actionEvent.Invoke(amount);
-                }
-                else if (root.tempSettingsCC == wheel.controlNumber)
-                {
-                    root.settingsCC = wheel.controlNumber;
-                    actionDict[ActionTypes.Settings].actionEvent.Invoke(amount);
-                }
-                else if (root.tempSettingsCC == -1 || root.tempSettingsCC != wheel.controlNumber)
-                {
-                    root.tempSettingsCC = wheel.controlNumber;
-                    actionDict[ActionTypes.Settings].actionEvent.Invoke(amount);
-                }
-            }
-        };
+                    case NoteOnEvent n:
 
-        midiPitchController.EventReceived += (_, message) =>
-        {
-            if (message.Event is PitchBendEvent p)
-                actionDict[ActionTypes.PitchbendChange].actionEvent.Invoke((p.PitchValue - 8192f) / 8192f);
+                        notesDown.Add((int)GetNote((byte)n.NoteNumber));
+                        CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyDown), "NoteDownCheck", this);
+
+                        break;
+
+                    case NoteOffEvent f:
+
+                        notesUp.Add((int)GetNote((byte)f.NoteNumber));
+                        CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyUp), "NoteUpCheck", this);
+
+                        break;
+
+                    case ControlChangeEvent c:
+
+                        float controlInput = (byte)c.ControlValue / 127f;
+
+                        if (c.ControlNumber == 1)
+                        {
+                            actionDict[ActionTypes.ModwheelChange].actionEvent.Invoke(controlInput);
+                        }
+                        else
+                        {
+                            var root = BrSettings.root;
+                            if (root.settingsCC == c.ControlNumber)
+                            {
+                                actionDict[ActionTypes.Settings].actionEvent.Invoke(controlInput);
+                            }
+                            else if (root.tempSettingsCC == c.ControlNumber)
+                            {
+                                root.settingsCC = c.ControlNumber;
+                                actionDict[ActionTypes.Settings].actionEvent.Invoke(controlInput);
+                            }
+                            else if (root.tempSettingsCC == -1 || root.tempSettingsCC != c.ControlNumber)
+                            {
+                                root.tempSettingsCC = c.ControlNumber;
+                                actionDict[ActionTypes.Settings].actionEvent.Invoke(controlInput);
+                            }
+                        }
+
+                        break;
+
+                    case PitchBendEvent p:
+
+                        actionDict[ActionTypes.PitchbendChange].actionEvent.Invoke((p.PitchValue - 8192f) / 8192f);
+
+                        break;
+                }
+            });
         };
     }
+
     IEnumerator DelayedNoteCheck(ActionTypes type)
     {
-        yield return new WaitForSeconds(chordTimeWindow);
+        yield return new WaitForSeconds(0.05f);
 
         if (type == ActionTypes.KeyDown)
         {
@@ -261,8 +313,8 @@ public class InputManager : Singleton<InputManager>
     }
     float GetNote(float noteCheck)
     {
-        return ConfigureKeyboard.root.middleKey != -1
-            ? Mathf.Clamp(noteCheck - ConfigureKeyboard.root.middleKey + 13, 1, 25)
+        return BrSettings.root.middleKey != -1
+            ? Mathf.Clamp(noteCheck - BrSettings.root.middleKey + 13, 1, 25)
             : noteCheck;
     }
 
@@ -306,7 +358,7 @@ public class InputManager : Singleton<InputManager>
 
     void Update()
     {
-        if (checkingKeys) ProcessKeyInput();
+        if ((!UsingMidiKeyboard || DH.Get<TestOverrides>().inputOverride == InputOverride.CPU) && checkingKeys) ProcessKeyInput();
 
         if (verticalArrowSpeed != 0)
         {
@@ -424,7 +476,13 @@ public class InputManager : Singleton<InputManager>
 
     void OnDisable()
     {
-        if (midiPitchController != null)
-            midiPitchController.StopEventsListening();
+        if (_midiController != null)
+            _midiController.StopEventsListening();
+
+        Keyboard.current.onTextInput -= _ =>
+        {
+            UseKeyboard();
+            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new() { _configScreen }), "FadeOutConfig", this);
+        };
     }
 }

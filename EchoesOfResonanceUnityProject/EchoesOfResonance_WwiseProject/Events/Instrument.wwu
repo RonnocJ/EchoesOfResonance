@@ -47,6 +47,17 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{3B0F83C4-2FE5-4748-8BAD-1A93A4C2B877}" ShortID="36706396">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="BroadcasterStaticLoop" ID="{796AC703-82EA-4D8E-99D6-6293208D070C}" WorkUnitID="{8EEDD58C-5586-45A3-B776-41F592289DF0}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="playBroadcasterFinder" ID="{CB460841-8C98-45EB-A6D2-04B9D173A1CC}">

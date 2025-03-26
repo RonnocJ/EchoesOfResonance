@@ -7,7 +7,6 @@ public class BrNotes : MonoBehaviour, IInputScript
     public int sineResolution;
     [SerializeField] private float notePlayDrainAmount, noteSustainDrainAmount;
     [SerializeField] private LineRenderer sineWave;
-    [SerializeField] private List<(int, int, int)> chords = new();
     private float frequency, speed, lastNotePlayed;
     private Vector3[] sinePoints;
     public void AddInputs()
@@ -63,8 +62,6 @@ public class BrNotes : MonoBehaviour, IInputScript
         {
             BrBattery.root.noteInfoText.text = "";
             CRManager.root.Stop("DrainBatteryNote", this);
-            AudioManager.root.PlaySound(AudioEvent.stopBroadcasterFX, gameObject);
-            AudioManager.root.StopSound(AudioEvent.playBroadcasterFX, gameObject);
         }
     }
     public void AllNotesOff()

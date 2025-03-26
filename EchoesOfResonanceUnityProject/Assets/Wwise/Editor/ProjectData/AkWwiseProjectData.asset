@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy/Default Work Unit
     guid: f0ce0862294ed74ea8feb85abb8c6979
     GuidInternal: 
-    m_lastTime: -8584619929875394879
+    m_lastTime: -8584602776862985287
     List:
     - name: BroadcasterVerb
       guid: 6595b1014f6c1743b55b4f70427bd694
@@ -57,20 +57,6 @@ MonoBehaviour:
         ObjectType: 1
         guid: 6595b1014f6c1743b55b4f70427bd694
       Path: Master-Mixer Hierarchy/Default Work Unit/SFXBus/BroadcasterVerb
-    - name: ListenerBus
-      guid: a4ed3ea04d890b4bbebf22975ca1a442
-      id: 572671253
-      PathAndIcons:
-      - ElementName: Master-Mixer Hierarchy
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: f0ce0862294ed74ea8feb85abb8c6979
-      - ElementName: ListenerBus
-        ObjectType: 2
-        guid: a4ed3ea04d890b4bbebf22975ca1a442
-      Path: Master-Mixer Hierarchy/Default Work Unit/ListenerBus
     - name: MusicBus
       guid: beae62eced2f66419d40d71b991a8894
       id: 2886307548
@@ -544,7 +530,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Broadcaster/Instrument
     guid: ce0e10e72f680b41a0491598e9c0d23e
     GuidInternal: 
-    m_lastTime: -8584615240681631476
+    m_lastTime: -8584588108952529488
     List:
     - name: playBroadcasterFinder
       guid: 410846cb988ceb45a6d204b9d173a1cc
@@ -879,7 +865,7 @@ MonoBehaviour:
         ObjectType: 3
         guid: d0588d5bfa1dd845b6a651f8a2e68d10
       Path: Events/Default Work Unit/Level01SFX/playRingMoveTick
-      maxAttenuation: 50
+      maxAttenuation: 0
       maxDuration: 1.0442737
       minDuration: 0.95760334
   - PhysicalPath: Events/NestedTest.wwu
@@ -1315,7 +1301,7 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit/Level01
     guid: 2850dd17a02c1c4fa3806f4777258544
     GuidInternal: 
-    m_lastTime: -8584614821251071267
+    m_lastTime: -8584598548557206271
     List:
     - name: EntranceHall
       guid: d4a7e92acccac14e9d95fbd8a94000ea
@@ -1565,6 +1551,25 @@ MonoBehaviour:
         - ElementName: None
           ObjectType: 8
           guid: 06e259152d58c44f87adcd9ff9ecfd04
+      - name: RingPuzzle
+        guid: ed70a1ab7a01194fa7ee80cef3e222df
+        id: 2715723947
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: b0e00b1ac79152458f2bacb892dce628
+        - ElementName: Level01
+          ObjectType: 12
+          guid: 2850dd17a02c1c4fa3806f4777258544
+        - ElementName: Level01Master
+          ObjectType: 9
+          guid: 75138e5436b0374da58ee884a4336135
+        - ElementName: RingPuzzle
+          ObjectType: 8
+          guid: ed70a1ab7a01194fa7ee80cef3e222df
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []

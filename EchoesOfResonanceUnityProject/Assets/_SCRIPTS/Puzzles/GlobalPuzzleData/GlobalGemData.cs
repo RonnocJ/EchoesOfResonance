@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "Objects/Puzzles/Global/GlobalGemData", order = 0)]
 public class GlobalGemData : GlobalData
@@ -15,4 +16,6 @@ public class GlobalGemData : GlobalData
     }
     public Mesh[] gemMeshes;
     public GemColors[] gemColors;
+    public readonly Dictionary<int, int> gemMeshIndicies = new()
+    { {1, 0}, {2, 1}, {3, -1}, {4, 2}, {5, 3} };
 }

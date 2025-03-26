@@ -7,6 +7,7 @@ public class MusicTracker : ScriptableObject
 {
     public class CallbackEntry
     {
+        public bool Playing = false;
         public float TimeToNextBeat;
         public Queue<(Action nextAction, float beatDelay)> CallbackQueue;
 
@@ -16,6 +17,7 @@ public class MusicTracker : ScriptableObject
             TimeToNextBeat = 0f;
         }
     }
+    public float Grid, Length;
     public Dictionary<string, CallbackEntry> LoopingCallback = new();
     public Dictionary<string, CallbackEntry> QueuedCallback = new();
     private AkMusicSyncCallbackInfo _musicInfo;
@@ -49,6 +51,7 @@ public class MusicTracker : ScriptableObject
         if (in_info is AkMusicSyncCallbackInfo __musicInfo)
         {
             _musicInfo = __musicInfo;
+            Length = Mathf.FloorToInt(_musicInfo.segmentInfo_iActiveDuration / (_musicInfo.segmentInfo_fBeatDuration * 1000));
 
             if (in_type == AkCallbackType.AK_MusicSyncGrid)
             {
@@ -61,6 +64,7 @@ public class MusicTracker : ScriptableObject
 
                     ProcessCallbacks(QueuedCallback, (entry, action, delay) => { });
                 }
+                Grid = (Grid + 0.25f) % Length;
             }
         }
     }
@@ -77,8 +81,9 @@ public class MusicTracker : ScriptableObject
 
             entry.TimeToNextBeat += 0.25f;
 
-            if (entry.TimeToNextBeat >= entry.CallbackQueue.Peek().beatDelay)
+            if (((!entry.Playing && Grid % 1 == 0f) || entry.Playing) && entry.TimeToNextBeat >= entry.CallbackQueue.Peek().beatDelay)
             {
+                entry.Playing = true;
                 entry.TimeToNextBeat = 0f;
                 var (action, delay) = entry.CallbackQueue.Dequeue();
                 action?.Invoke();

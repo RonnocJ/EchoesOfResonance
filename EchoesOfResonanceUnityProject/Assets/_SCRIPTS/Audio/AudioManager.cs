@@ -1,10 +1,28 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    private Dictionary<(AudioEvent, GameObject, float), uint> postedSoundEvents = new();
+    private Dictionary<(AudioEvent, GameObject, float), Queue<uint>> postedSoundEvents = new();
+    private UWBankDictionaries _bankObj;
+    void Start()
+    {
+        if (_bankObj == null)
+        {
+            string[] guids = AssetDatabase.FindAssets($"t:{nameof(UWBankDictionaries)}");
 
+            if (guids.Length > 0)
+            {
+                _bankObj = AssetDatabase.LoadAssetAtPath<UWBankDictionaries>(AssetDatabase.GUIDToAssetPath(guids[0]));
+            }
+            else
+            {
+                Debug.LogError("Please create a EventBankDictionary Scriptable Object!");
+                return;
+            }
+        }
+    }
     public bool PlaySound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1, bool overrideInstanceLock = false)
     {
         if (soundType != AudioEvent.None)
@@ -15,7 +33,15 @@ public class AudioManager : Singleton<AudioManager>
             {
                 if (type == AkCallbackType.AK_EndOfEvent)
                 {
-                    postedSoundEvents.Remove((soundType, sourceObj, instanceNumber));
+                    var key = (soundType, sourceObj, instanceNumber);
+
+                    if (postedSoundEvents.ContainsKey(key))
+                    {
+                        postedSoundEvents[key].Dequeue();
+
+                        if (postedSoundEvents[key].Count == 0)
+                            postedSoundEvents.Remove(key);
+                    }
                 }
             };
 
@@ -26,7 +52,12 @@ public class AudioManager : Singleton<AudioManager>
             else
             {
                 uint eventId = AkUnitySoundEngine.PostEvent(soundType.ToString(), sourceObj, (uint)AkCallbackType.AK_EndOfEvent, callback, null);
-                postedSoundEvents[(soundType, sourceObj, instanceNumber)] = eventId;
+
+                var key = (soundType, sourceObj, instanceNumber);
+                if (!postedSoundEvents.ContainsKey(key))
+                    postedSoundEvents[key] = new Queue<uint>();
+
+                postedSoundEvents[key].Enqueue(eventId);
 
                 return true;
             }
@@ -41,9 +72,15 @@ public class AudioManager : Singleton<AudioManager>
         {
             GameObject sourceObj = soundSource != null ? soundSource : gameObject;
 
-            if (postedSoundEvents.TryGetValue((soundType, sourceObj, instanceNumber), out uint eventId))
+            if (postedSoundEvents.TryGetValue((soundType, sourceObj, instanceNumber), out var eventIdQueue))
             {
-                AkUnitySoundEngine.StopPlayingID(eventId);
+                foreach (uint eventId in eventIdQueue)
+                {
+                    AkUnitySoundEngine.StopPlayingID(eventId);
+                }
+                eventIdQueue.Clear();
+                postedSoundEvents.Remove((soundType, soundSource, instanceNumber));
+
                 return true;
             }
         }
@@ -51,6 +88,14 @@ public class AudioManager : Singleton<AudioManager>
         return false;
     }
 
+    public bool IsPlaying(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1)
+    {
+        if (postedSoundEvents.ContainsKey((soundType, soundSource != null ? soundSource : gameObject, instanceNumber)))
+        {
+            return true;
+        }
+        return false;
+    }
     public void SetSwitch(AudioSwitch switchType, GameObject sourceObject = null)
     {
         if (switchType != AudioSwitch.None)
@@ -65,6 +110,9 @@ public class AudioManager : Singleton<AudioManager>
         if (rtpcType != AudioRTPC.None)
         {
             GameObject sourceObj = sourceObject != null ? sourceObject : gameObject;
+            var rtpc = _bankObj.RTPCBankDict[rtpcType.ToString()];
+            
+            value = Mathf.Clamp(value, rtpc.min, rtpc.max);
 
             if (isGlobal)
             {
@@ -72,11 +120,21 @@ public class AudioManager : Singleton<AudioManager>
             }
             else
             {
-                if (postedSoundEvents.TryGetValue((localEvent, sourceObj, instanceNumber), out uint eventId))
+                if (postedSoundEvents.TryGetValue((localEvent, sourceObj, instanceNumber), out var eventIdQueue))
                 {
-                    AkUnitySoundEngine.SetRTPCValueByPlayingID(rtpcType.ToString(), value, eventId);
+                    foreach (var eventId in eventIdQueue)
+                    {
+                        AkUnitySoundEngine.SetRTPCValueByPlayingID(rtpcType.ToString(), value, eventId);
+                    }
                 }
             }
         }
+    }
+    public float GetRTPC(AudioRTPC rtpcType, GameObject sourceObj = null)
+    {
+        int type = 1;
+
+        AkUnitySoundEngine.GetRTPCValue(rtpcType.ToString(), (sourceObj != null) ? sourceObj : gameObject, 0, out var returnValue, ref type);
+        return returnValue;
     }
 }

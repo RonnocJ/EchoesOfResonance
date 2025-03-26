@@ -276,13 +276,6 @@
 						</ObjectList>
 					</ObjectLists>
 				</Bus>
-				<Bus Name="ListenerBus" ID="{A03EEDA4-894D-4B0B-BEBF-22975CA1A442}">
-					<ReferenceList>
-						<Reference Name="AudioDevice" PluginName="No Output" CompanyID="0" PluginID="181" PluginType="7">
-							<ObjectRef Name="No_Output" ID="{E7727216-6F9A-4112-BAFC-1F440724627F}" WorkUnitID="{F16791FD-E48A-45A2-9A96-1825336EF2AB}"/>
-						</Reference>
-					</ReferenceList>
-				</Bus>
 			</ChildrenList>
 		</WorkUnit>
 	</Busses>

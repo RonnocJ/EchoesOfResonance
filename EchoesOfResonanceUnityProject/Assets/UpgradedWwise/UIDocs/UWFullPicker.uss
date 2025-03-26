@@ -13,11 +13,12 @@
     align-content: flex-start;
     overflow: hidden;
     flex-shrink: 1;
-    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/arial.ttf?fileID=12800000&guid=3b7277e94a4c541b28a7b0b9cad075d4&type=3#arial");
     letter-spacing: -1px;
     -unity-text-outline-color: rgba(255, 255, 255, 0.88);
     -unity-text-outline-width: 0.5px;
     word-spacing: -1px;
+    position: absolute;
+    top: 2px;
 }
 
 .Divider {

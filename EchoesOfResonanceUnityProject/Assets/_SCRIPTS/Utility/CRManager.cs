@@ -15,6 +15,7 @@ public class CRManager : Singleton<CRManager>
         }
     }
 
+
     public void Restart(IEnumerator routine, string key, MonoBehaviour root)
     {
         if (routineDict.TryGetValue(key, out Coroutine existingRoutine))
@@ -44,9 +45,9 @@ public class CRManager : Singleton<CRManager>
     private IEnumerator ManagedCoroutine(IEnumerator routine, string key)
     {
         yield return routine;
-
         routineDict.Remove(key);
     }
+
     public bool IsRunning(string key)
     {
         return routineDict.ContainsKey(key);

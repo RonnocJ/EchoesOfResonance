@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{C4C63780-EA50-4C35-AB42-C9D15211B72A}",
     "Language": "SFX",
-    "Hash": "{3FA784A5-0411-E4C5-20D1-6C698208C0DD}",
+    "Hash": "{2E0B8CB0-3AFE-478C-906E-59F95D408CAA}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level01",
     "ShortName": "Level01",
     "Path": "Level01.bnk",
@@ -38,6 +38,14 @@
       "Location": "Memory",
       "ShortName": "EOR_Level01_FirstElevatorPercLoop.wav",
       "CachePath": "5E/{5E498888-66BB-516F-57D4-3FF0243F6BBA}.wem"
+     },
+     {
+      "Id": "192266941",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01Ring.wav",
+      "CachePath": "92/{92E83996-9614-7D41-E5A9-AD1466112999}.wem"
      },
      {
       "Id": "196389406",
@@ -315,7 +323,6 @@
       "Name": "playRingMoveTick",
       "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playRingMoveTick",
       "GUID": "{5B8D58D0-1DFA-45D8-B6A6-51F8A2E68D10}",
-      "MaxAttenuation": "50",
       "DurationType": "OneShot",
       "DurationMin": "0.95760334",
       "DurationMax": "1.0442737",
@@ -516,6 +523,19 @@
           "Id": "1073016302"
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3800814886",
+         "Id": "2715723947",
+         "GUID": "{ABA170ED-017A-4F19-A7EE-80CEF3E222DF}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "192266941"
+         }
+        ]
        }
       ]
      },
@@ -598,6 +618,12 @@
         "Name": "ElevatorHallway",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\ElevatorHallway",
         "GUID": "{5E75A11B-B0F3-4816-966F-6E15ADAA4183}"
+       },
+       {
+        "Id": "2715723947",
+        "Name": "RingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\RingPuzzle",
+        "GUID": "{ABA170ED-017A-4F19-A7EE-80CEF3E222DF}"
        }
       ]
      }
@@ -636,6 +662,6 @@
     ]
    }
   ],
-  "FileHash": "{8B00A104-7571-1763-442F-F5B11717DF0C}"
+  "FileHash": "{489802D2-57E7-F2F0-FBB2-DC8378FDE732}"
  }
 }

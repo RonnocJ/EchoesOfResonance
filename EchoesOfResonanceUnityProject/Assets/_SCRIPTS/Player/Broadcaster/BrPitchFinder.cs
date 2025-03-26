@@ -9,7 +9,7 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
     [SerializeField] private float gemFinderSpeedScale, gemFinderMinSpeed;
     [SerializeField] private LineRenderer gemLaser;
     [SerializeField] private ParticleSystem gemLaserParticle;
-    private float lastNotePlayed, modInput, gemNoteNumber;
+    private float lastNotePlayed, modInput, finderLevel, gemNoteNumber;
     private string gemNoteName;
     public Transform gemTarget;
     private List<Gem> currentGems;
@@ -91,7 +91,7 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
 
         gemTarget = null;
 
-        if(AudioManager.root.StopSound(AudioEvent.playBroadcasterFinder, gameObject)) Debug.Log("Stopped finder");
+        AudioManager.root.StopSound(AudioEvent.playBroadcasterFinder, gameObject);
 
         CRManager.root.Stop("FindGem", this);
         CRManager.root.Stop("DrainBatteryFinder", this);
@@ -103,15 +103,13 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
     {
         while (modInput > 0.2f)
         {
-            float finderLevel = Mathf.Round(((modInput * 1.25f) - 0.2f) / 0.25f);
-
             float fakeNoteNumber = Mathf.Round(Random.Range(
                 gemNoteNumber - 1.5f * (4 - finderLevel),
                 gemNoteNumber + 1.5f * (4 - finderLevel)
             ));
 
             fakeNoteNumber = Mathf.Clamp(fakeNoteNumber, 1, 25);
-            
+
             BrBattery.root.noteInfoText.text = PuzzleUtilities.root.GetNoteName(fakeNoteNumber);
             AudioManager.root.SetRTPC(AudioRTPC.finder_Pitch, fakeNoteNumber);
 
@@ -122,6 +120,8 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
     {
         if (gemLaser.enabled)
         {
+            finderLevel = Mathf.Round(((modInput * 1.25f) - 0.2f) / 0.25f);
+
             for (int i = 0; i < laserResolution; i++)
             {
                 Vector3 pos = Vector3.Lerp(gemLaser.transform.position, gemTarget.position, (float)i / laserResolution);

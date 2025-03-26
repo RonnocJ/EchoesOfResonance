@@ -385,6 +385,13 @@
 						</Sound>
 						<RandomSequenceContainer Name="RingMoveTick" ID="{2ECF0D62-92B6-4E09-8169-1DDD87BDDCBF}" ShortID="355591716">
 							<PropertyList>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>50</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ModifierList>
 										<ModifierInfo>

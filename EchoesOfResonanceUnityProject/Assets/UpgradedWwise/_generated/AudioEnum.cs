@@ -55,6 +55,7 @@ public enum AudioState {
     Level01Master_BREAK_CliffsEdge = 1149990767,
     Level01Master_BREAK_ElevatorShaft = 1318468365,
     Level01Master_BREAK_ElevatorHallway = 1379644315,
+    Level01Master_BREAK_RingPuzzle = -1579243349,
 }
 
 /// <summary>
