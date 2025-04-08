@@ -1,7 +1,10 @@
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public class PlayerManager : Singleton<PlayerManager>, IInputScript, ISaveData
 {
@@ -22,7 +25,7 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript, ISaveData
     }
     public Dictionary<string, object> AddSaveData()
     {
-        if (GameManager.root.currentState != GameState.InPuzzle)
+        if (!(GameManager.root.currentState is GameState.Cutscene or GameState.InPuzzle))
         {
             return new()
             {
@@ -39,7 +42,7 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript, ISaveData
     }
     public void ReadSaveData(Dictionary<string, object> savedData)
     {
-        if(DH.Get<TestOverrides>().overrideSpawn)
+        if (DH.Get<TestOverrides>().overrideSpawn)
         {
             TrData overridePosition = new TrData(DH.Get<TestOverrides>().playerSpawnPosition);
             overridePosition.ApplyTo(transform);
@@ -60,22 +63,22 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript, ISaveData
     }
 
 
-    [AllowedStates(GameState.Roaming, GameState.Shutdown)]
+    [AllowedStates(GameState.Intro, GameState.Roaming, GameState.Shutdown)]
     void UpdateMoveInput(float modInput)
     {
         moveInput = modInput;
     }
-    [AllowedStates(GameState.InPuzzle, GameState.Roaming, GameState.Shutdown)]
+    [AllowedStates(GameState.Intro, GameState.InPuzzle, GameState.Roaming, GameState.Shutdown)]
     void UpdateLookInput(float pitchInput)
     {
         lookInput = pitchInput;
     }
     void Update()
     {
-        if (lookInput != 0)
-            transform.localEulerAngles += Vector3.up * lookInput * (InputManager.root.UsingMidiKeyboard ? lookSpeed : lookSpeed / 2f) * Time.deltaTime;
+        if (lookInput != 0 && !(GameManager.root.currentState is GameState.Config or GameState.Cutscene or GameState.Settings))
+            transform.localEulerAngles += Vector3.up * lookInput * lookSpeed * Time.deltaTime;
 
-        if (GameManager.root.currentState is GameState.Roaming or GameState.Shutdown && moveInput > 0.2f)
+        if (GameManager.root.currentState is GameState.Roaming or GameState.Shutdown or GameState.Intro && moveInput > 0.2f)
         {
             isGrounded = Physics.CheckSphere(transform.position - transform.up * 4, 1.5f);
 
@@ -118,4 +121,14 @@ public class PlayerManager : Singleton<PlayerManager>, IInputScript, ISaveData
         }
         return false;
     }
+
+
+    void OnCollisionStay(Collision col)
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            col.contacts.ToList().ForEach(c => Debug.Log($"{c.point} {c.otherCollider.name}"));
+        }
+    }
+
 }

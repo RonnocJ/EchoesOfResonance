@@ -7,7 +7,7 @@ public static class DH
 {
     private static readonly Dictionary<Type, ScriptableObject> _registry = new Dictionary<Type, ScriptableObject>();
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad), MenuItem("Utilities/Register Global Objects")]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void RegisterAllAtStartup()
     {
         GlobalData[] allData = Resources.LoadAll<GlobalData>("");

@@ -10,51 +10,11 @@
     "Type": "User",
     "GUID": "{C4C63780-EA50-4C35-AB42-C9D15211B72A}",
     "Language": "SFX",
-    "Hash": "{2E0B8CB0-3AFE-478C-906E-59F95D408CAA}",
+    "Hash": "{20DEBD05-1412-2E0B-131C-050136800431}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level01",
     "ShortName": "Level01",
     "Path": "Level01.bnk",
     "Media": [
-     {
-      "Id": "26016208",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_BridgeCrossingStinger03.wav",
-      "CachePath": "71/{719EC6CD-D052-43C8-8BD3-BFDA4FE9D270}.wem"
-     },
-     {
-      "Id": "43338354",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorSynthLoopG01.wav",
-      "CachePath": "CD/{CD1D85C1-BE1D-23DE-600E-A6850687A75B}.wem"
-     },
-     {
-      "Id": "75156276",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorPercLoop.wav",
-      "CachePath": "5E/{5E498888-66BB-516F-57D4-3FF0243F6BBA}.wem"
-     },
-     {
-      "Id": "192266941",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_Puzzle01Ring.wav",
-      "CachePath": "92/{92E83996-9614-7D41-E5A9-AD1466112999}.wem"
-     },
-     {
-      "Id": "196389406",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_IntroBridge_SustainC.wav",
-      "CachePath": "A1/{A1C58D45-EA1D-C8A9-30F4-9AD3964B7911}.wem"
-     },
      {
       "Id": "196761745",
       "Language": "SFX",
@@ -62,14 +22,6 @@
       "Location": "Memory",
       "ShortName": "EOR_Level01_BoulderChime.wav",
       "CachePath": "27/{271417E9-5346-D530-C09F-33742591DBFB}.wem"
-     },
-     {
-      "Id": "197571160",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorPercLoop02.wav",
-      "CachePath": "09/{09F2DC1A-8655-F25F-4CF2-92AAF71273D8}.wem"
      },
      {
       "Id": "212656553",
@@ -80,20 +32,12 @@
       "CachePath": "F1/{F1CD0239-157B-FF47-F8B3-0AC6C26F4F58}.wem"
      },
      {
-      "Id": "324329059",
+      "Id": "310615760",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorHint02.wav",
-      "CachePath": "E8/{E88457AE-6322-9575-DD92-5FA838CA6560}.wem"
-     },
-     {
-      "Id": "330997474",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_BridgeCrossingPercLoop.wav",
-      "CachePath": "0F/{0F9DD149-B357-7CCE-7B77-7A07F53D3FD4}.wem"
+      "ShortName": "EOR_Level01_OpeningBaseLoop.wav",
+      "CachePath": "9D/{9DDC5477-75DC-603E-C910-583231EE34B0}.wem"
      },
      {
       "Id": "454213422",
@@ -112,92 +56,68 @@
       "CachePath": "9C/{9CA79E5B-2778-2A65-FCD7-6268975CFC3E}.wem"
      },
      {
-      "Id": "601852565",
+      "Id": "598525220",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorSynthLoopBb01.wav",
-      "CachePath": "D0/{D04A2C97-DDA8-0412-0352-DCF6A44A16C8}.wem"
+      "ShortName": "EOR_Level01_EntranceHallCue.wav",
+      "CachePath": "37/{374E16D2-F0B6-B7CA-17A3-D5CF82AC126B}.wem"
      },
      {
-      "Id": "607143823",
+      "Id": "646732023",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_CliffsEdgeOstinato.wav",
-      "CachePath": "4D/{4D6BFC04-C607-A7CD-36A0-0EE17B265927}.wem"
+      "ShortName": "EOR_Level01_GetBroadcasterCue.wav",
+      "CachePath": "37/{377C7F96-730B-8610-C3BC-69C34B8D7DFB}.wem"
      },
      {
-      "Id": "648973999",
+      "Id": "678171862",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_BridgeCrossingStinger01.wav",
-      "CachePath": "CE/{CE4BD7C2-D3DB-A173-E027-1AAD06EFEF72}.wem"
+      "ShortName": "EOR_Level01_ToGameplayTransition.wav",
+      "CachePath": "BC/{BC108BBF-7848-8BAC-0629-365819313F8A}.wem"
      },
      {
-      "Id": "677392716",
+      "Id": "711210221",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorSynthLoopG02.wav",
-      "CachePath": "CF/{CF7CB839-7706-48F6-101E-0FD0D0DDEE7A}.wem"
+      "ShortName": "EOR_Level01_OpeningRiff02.wav",
+      "CachePath": "E4/{E4C9E0EB-5AA0-9B3D-9718-F4D13FE62E50}.wem"
      },
      {
-      "Id": "759231515",
+      "Id": "802790787",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_BridgeCrossingSynthLoop.wav",
-      "CachePath": "4F/{4FC135B3-CE83-2CB1-172F-788374759BC7}.wem"
+      "ShortName": "EOR_Level01_OpeningRiff03.wav",
+      "CachePath": "5F/{5F5E0FF5-59DB-B0A5-3901-1DC06537122E}.wem"
      },
      {
-      "Id": "781168124",
+      "Id": "866702254",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_IntroBridge_SustainC.wav",
-      "CachePath": "40/{40BA2557-F474-E576-E1F2-AABF5E83DEF6}.wem"
+      "ShortName": "EOR_Level01_OpeningRiff01.wav",
+      "CachePath": "1F/{1FA730D1-1200-64FC-001A-C2D9EEC0C15B}.wem"
      },
      {
-      "Id": "852775546",
+      "Id": "925508350",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_BridgeCrossingStinger04.wav",
-      "CachePath": "11/{115A1CDB-0EB4-F0C7-1A29-D9D3C77C7E05}.wem"
+      "ShortName": "EOR_Level01_EntranceHallLoop.wav",
+      "CachePath": "A8/{A8E4B38D-87AF-5A12-A6BB-BCA1203D2136}.wem"
      },
      {
-      "Id": "875006138",
+      "Id": "926822806",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorHint01.wav",
-      "CachePath": "A8/{A8F1C233-BBA5-05EF-72D4-AAF07BA0A7D7}.wem"
-     },
-     {
-      "Id": "903983521",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorSynthLoopBb02.wav",
-      "CachePath": "E3/{E3F28784-3953-2545-9B73-2D12869E4068}.wem"
-     },
-     {
-      "Id": "1023833783",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorHint03.wav",
-      "CachePath": "D7/{D7BF5F0A-DE11-E680-7184-308746040888}.wem"
-     },
-     {
-      "Id": "1032266012",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_FirstElevatorHint04.wav",
-      "CachePath": "67/{67FE5A56-3B63-F849-F81A-077EA2A1D154}.wem"
+      "ShortName": "EOR_Level01_OpeningRiff04.wav",
+      "CachePath": "37/{37F07362-63D2-AC5A-C70C-6FB8FC99789B}.wem"
      },
      {
       "Id": "1049912042",
@@ -206,55 +126,9 @@
       "Location": "Memory",
       "ShortName": "EOR_SFX_RingTick04.wav",
       "CachePath": "07/{07583339-140C-8103-ED27-778AEB023854}.wem"
-     },
-     {
-      "Id": "1073016302",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_BridgeCrossingStinger02.wav",
-      "CachePath": "EE/{EE4099AB-DF03-E8E3-93D5-63C994F34B30}.wem"
      }
     ],
-    "Plugins": {
-     "ShareSets": [
-      {
-       "Id": "2805769450",
-       "Name": "Special_Effect_1",
-       "ObjectPath": "\\Effects\\Factory Effects\\Flanger\\Special_Effect_1",
-       "GUID": "{83317D8A-9D4C-438E-BE8C-BC7D27CAD1B0}",
-       "LibName": "Wwise Flanger",
-       "LibId": "8192003"
-      },
-      {
-       "Id": "3546444380",
-       "Name": "Big_Garage1",
-       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Big_Garage1",
-       "GUID": "{172402A8-22F4-40FC-BE1D-5269594CB633}",
-       "LibName": "Wwise Matrix Reverb",
-       "LibId": "7536643"
-      },
-      {
-       "Id": "3604890626",
-       "Name": "High_Pass_60Hz",
-       "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\High Pass Filters\\High_Pass_60Hz",
-       "GUID": "{F9627628-0B10-4272-BC30-D4C20423CB38}",
-       "LibName": "Wwise Parametric EQ",
-       "LibId": "6881283"
-      }
-     ]
-    },
     "Events": [
-     {
-      "Id": "3348497029",
-      "Name": "activateStepDucking",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\activateStepDucking",
-      "GUID": "{C7F2A49A-A839-48EC-B3E3-253440272D35}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
-     },
      {
       "Id": "2019948791",
       "Name": "playBoulderChime1",
@@ -298,27 +172,6 @@
       ]
      },
      {
-      "Id": "3253062429",
-      "Name": "playElevatorHints",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\playElevatorHints",
-      "GUID": "{63F349FF-F46A-479D-9890-7F0D28712BC9}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "324329059"
-       },
-       {
-        "Id": "875006138"
-       },
-       {
-        "Id": "1023833783"
-       },
-       {
-        "Id": "1032266012"
-       }
-      ]
-     },
-     {
       "Id": "1201866565",
       "Name": "playRingMoveTick",
       "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playRingMoveTick",
@@ -350,38 +203,24 @@
       ]
      },
      {
-      "Id": "1116304881",
-      "Name": "startIntroBridgeChoir",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startIntroBridgeChoir",
-      "GUID": "{6A778BEF-BE2C-4C30-9F9B-8DA93179356C}",
-      "DurationType": "Infinite",
+      "Id": "2182868672",
+      "Name": "playToGameplayTransition01",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\playToGameplayTransition01",
+      "GUID": "{B491EA55-985C-40E3-9EC6-AC5926289AC4}",
+      "DurationType": "OneShot",
+      "DurationMin": "16.346848",
+      "DurationMax": "16.346848",
       "MediaRefs": [
        {
-        "Id": "196389406"
-       },
-       {
-        "Id": "781168124"
+        "Id": "678171862"
        }
-      ],
-      "PluginRefs": {
-       "ShareSets": [
-        {
-         "Id": "2805769450"
-        },
-        {
-         "Id": "3546444380"
-        },
-        {
-         "Id": "3604890626"
-        }
-       ]
-      }
+      ]
      },
      {
       "Id": "3352024112",
       "Name": "startMetronome01",
       "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMetronome01",
-      "GUID": "{10CB0292-C0E4-41E0-AF67-6C101917B906}",
+      "GUID": "{D37E6E52-6B7A-4B65-AC5C-361561FC81AE}",
       "DurationType": "Infinite"
      },
      {
@@ -395,42 +234,24 @@
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "3800814886",
-         "Id": "1125500713",
-         "GUID": "{9897F57F-7F24-4F01-B3AB-3491F3E94C16}"
+         "Id": "1831982039",
+         "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
         },
         "MediaRefs": [
          {
-          "Id": "26016208"
+          "Id": "310615760"
          },
          {
-          "Id": "75156276"
+          "Id": "711210221"
          },
          {
-          "Id": "324329059"
+          "Id": "802790787"
          },
          {
-          "Id": "330997474"
+          "Id": "866702254"
          },
          {
-          "Id": "648973999"
-         },
-         {
-          "Id": "759231515"
-         },
-         {
-          "Id": "852775546"
-         },
-         {
-          "Id": "875006138"
-         },
-         {
-          "Id": "1023833783"
-         },
-         {
-          "Id": "1032266012"
-         },
-         {
-          "Id": "1073016302"
+          "Id": "926822806"
          }
         ]
        },
@@ -438,33 +259,12 @@
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "3800814886",
-         "Id": "1318468365",
-         "GUID": "{C782FCFA-CDC2-454A-B861-5ACC204E5E4E}"
+         "Id": "3020279701",
+         "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
         },
         "MediaRefs": [
          {
-          "Id": "43338354"
-         },
-         {
-          "Id": "75156276"
-         },
-         {
-          "Id": "197571160"
-         },
-         {
-          "Id": "330997474"
-         },
-         {
-          "Id": "601852565"
-         },
-         {
-          "Id": "607143823"
-         },
-         {
-          "Id": "677392716"
-         },
-         {
-          "Id": "903983521"
+          "Id": "646732023"
          }
         ]
        },
@@ -472,114 +272,19 @@
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "3800814886",
-         "Id": "1149990767",
-         "GUID": "{4C7B3281-C461-4348-BD8E-F3F429F5F919}"
+         "Id": "270858878",
+         "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
         },
         "MediaRefs": [
          {
-          "Id": "607143823"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "3800814886",
-         "Id": "1379644315",
-         "GUID": "{5E75A11B-B0F3-4816-966F-6E15ADAA4183}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "26016208"
+          "Id": "598525220"
          },
          {
-          "Id": "75156276"
-         },
-         {
-          "Id": "324329059"
-         },
-         {
-          "Id": "330997474"
-         },
-         {
-          "Id": "648973999"
-         },
-         {
-          "Id": "759231515"
-         },
-         {
-          "Id": "852775546"
-         },
-         {
-          "Id": "875006138"
-         },
-         {
-          "Id": "1023833783"
-         },
-         {
-          "Id": "1032266012"
-         },
-         {
-          "Id": "1073016302"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "3800814886",
-         "Id": "2715723947",
-         "GUID": "{ABA170ED-017A-4F19-A7EE-80CEF3E222DF}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "192266941"
+          "Id": "925508350"
          }
         ]
        }
       ]
-     },
-     {
-      "Id": "2373524099",
-      "Name": "stopIntroBridgeChoir",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\stopIntroBridgeChoir",
-      "GUID": "{810B9774-18BE-4BBD-88E3-79CDAF93950D}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
-     }
-    ],
-    "GameParameters": [
-     {
-      "Id": "1325667752",
-      "Name": "introBridge_StepDuck",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_StepDuck",
-      "GUID": "{2845BBAD-8494-4ECC-B651-50A8A6E730EC}"
-     },
-     {
-      "Id": "1867101979",
-      "Name": "firstElevator_Height",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\firstElevator_Height",
-      "GUID": "{3C290F12-76FB-408F-8F8E-A5BB1E3FB9CD}"
-     },
-     {
-      "Id": "2726482464",
-      "Name": "introBridge_CrossBridge",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_CrossBridge",
-      "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
-     },
-     {
-      "Id": "2969596720",
-      "Name": "cliffsEdge_Fade",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\cliffsEdge_Fade",
-      "GUID": "{74BE150D-AC23-4B5B-A301-4A8E10801D21}"
-     },
-     {
-      "Id": "3217007934",
-      "Name": "introBridge_FadeIn",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_FadeIn",
-      "GUID": "{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}"
      }
     ],
     "StateGroups": [
@@ -590,78 +295,42 @@
       "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
       "States": [
        {
+        "Id": "270858878",
+        "Name": "EntranceHall",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\EntranceHall",
+        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\None",
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
        },
        {
-        "Id": "1125500713",
-        "Name": "Intro",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\Intro",
-        "GUID": "{9897F57F-7F24-4F01-B3AB-3491F3E94C16}"
+        "Id": "1831982039",
+        "Name": "Opening",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\Opening",
+        "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
        },
        {
-        "Id": "1149990767",
-        "Name": "CliffsEdge",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\CliffsEdge",
-        "GUID": "{4C7B3281-C461-4348-BD8E-F3F429F5F919}"
-       },
-       {
-        "Id": "1318468365",
-        "Name": "ElevatorShaft",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\ElevatorShaft",
-        "GUID": "{C782FCFA-CDC2-454A-B861-5ACC204E5E4E}"
-       },
-       {
-        "Id": "1379644315",
-        "Name": "ElevatorHallway",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\ElevatorHallway",
-        "GUID": "{5E75A11B-B0F3-4816-966F-6E15ADAA4183}"
-       },
-       {
-        "Id": "2715723947",
-        "Name": "RingPuzzle",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\RingPuzzle",
-        "GUID": "{ABA170ED-017A-4F19-A7EE-80CEF3E222DF}"
+        "Id": "3020279701",
+        "Name": "GetBroadcaster",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\GetBroadcaster",
+        "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
        }
       ]
      }
     ],
     "Triggers": [
      {
-      "Id": "1080872029",
-      "Name": "ToG",
-      "ObjectPath": "\\Triggers\\Default Work Unit\\Level01\\FirstElevator\\ToG",
-      "GUID": "{99E60451-590A-4EBA-93E9-39A40326DD42}"
-     },
-     {
-      "Id": "1580584756",
-      "Name": "BridgeCrossing02",
-      "ObjectPath": "\\Triggers\\Default Work Unit\\Level01\\IntroBridge\\BridgeCrossing02",
-      "GUID": "{C1A74C5A-33E1-4AA9-9CD8-FB3469F00FCA}"
-     },
-     {
-      "Id": "1580584759",
-      "Name": "BridgeCrossing01",
-      "ObjectPath": "\\Triggers\\Default Work Unit\\Level01\\IntroBridge\\BridgeCrossing01",
-      "GUID": "{A11DA1BA-004B-4193-92E5-5AFC9CFE9CE9}"
-     },
-     {
       "Id": "2526236795",
       "Name": "HintDelay",
       "ObjectPath": "\\Triggers\\Default Work Unit\\Level01\\FirstElevator\\HintDelay",
       "GUID": "{325E5FCD-930E-4693-BF65-4E53A604AEDD}"
-     },
-     {
-      "Id": "3276123882",
-      "Name": "ToBb",
-      "ObjectPath": "\\Triggers\\Default Work Unit\\Level01\\FirstElevator\\ToBb",
-      "GUID": "{33D99227-3E4D-4EA5-94FA-12979F6F895B}"
      }
     ]
    }
   ],
-  "FileHash": "{489802D2-57E7-F2F0-FBB2-DC8378FDE732}"
+  "FileHash": "{E3DBD844-D582-5FF2-B745-EC45686D3FA2}"
  }
 }

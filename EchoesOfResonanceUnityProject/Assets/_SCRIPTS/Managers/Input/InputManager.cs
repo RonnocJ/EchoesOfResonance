@@ -5,8 +5,7 @@ using UnityEngine.InputSystem;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Multimedia;
 using System.Collections;
-using Melanchall.DryWetMidi.Common;
-using PimDeWitte.UnityMainThreadDispatcher;
+using System.Linq;
 
 public enum ActionTypes
 {
@@ -25,16 +24,14 @@ public class ActionData
     }
 }
 
-public class InputManager : Singleton<InputManager>, ISaveData
+public class InputManager : Singleton<InputManager>
 {
-    public bool UsingMidiKeyboard { get; private set; }
-
     [SerializeField] private InputActionAsset keyInputs;
     [SerializeField] private GameObject _configScreen;
-    private bool configFade, checkingKeys, keyToggle;
+    private bool checkingKeys, keyToggle;
     private float verticalArrowSpeed, heldNote;
     private Key lastKey = Key.None, lastNum = Key.None;
-
+    private Action<char> _subscribeCPU;
     private readonly List<int> notesDown = new();
     private readonly List<int> notesUp = new();
     private readonly List<IInputScript> inputs = new();
@@ -50,52 +47,27 @@ public class InputManager : Singleton<InputManager>, ISaveData
     {
         { Key.A, 1 }, { Key.S, 2 }, { Key.D, 3 }, { Key.F, 4 }, { Key.G, 5 }
     };
-    public Dictionary<string, object> AddSaveData()
+    protected override void Awake()
     {
-        return new Dictionary<string, object>
-        {
-            {"usingMIDI", UsingMidiKeyboard}
-        };
-    }
-
-    public void ReadSaveData(Dictionary<string, object> savedData)
-    {
+        base.Awake();
         InitializeGlobalActions();
 
-        if (savedData.TryGetValue("usingMIDI", out object usingMidi))
+        UIFade.root.SetAlpha(1, new() { _configScreen });
+
+        _midiController = Melanchall.DryWetMidi.Multimedia.InputDevice.GetAll().FirstOrDefault();
+        _midiController.EventReceived += UseMIDI;
+        _midiController.StartEventsListening();
+
+        _subscribeCPU += _ =>
         {
-            configFade = false;
-            UIFade.root.SetAlpha(0, new() { _configScreen });
+            UseKeyboard();
+            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
+            MusicManager.root.MusicToGameplay();
+        };
 
-            UsingMidiKeyboard = Convert.ToBoolean(usingMidi);
-
-            if (UsingMidiKeyboard && DH.Get<TestOverrides>().inputOverride != InputOverride.CPU)
-            {
-                InputSystem.onDeviceChange += OnMidiDeviceChange;
-            }
-            else
-            {
-                UseKeyboard();
-            }
-        }
-        else
-        {
-            configFade = true;
-            UIFade.root.SetAlpha(1, new() { _configScreen });
-
-            InputSystem.onDeviceChange += (device, change) =>
-            {
-                OnMidiDeviceChange(device, change);
-            };
-
-            Keyboard.current.onTextInput += _ =>
-            {
-                UseKeyboard();
-                CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new() { _configScreen }), "FadeOutConfig", this);
-                GameManager.root.currentState = GameState.Roaming;
-            };
-        }
+        Keyboard.current.onTextInput += _subscribeCPU;
     }
+
     void InitializeGlobalActions()
     {
         if (actionDict.Count == 0)
@@ -111,49 +83,43 @@ public class InputManager : Singleton<InputManager>, ISaveData
         };
     }
 
-    void OnMidiDeviceChange(UnityEngine.InputSystem.InputDevice device, InputDeviceChange change)
+    void UseMIDI(object sender, MidiEventReceivedEventArgs e)
     {
-        if (change != InputDeviceChange.Added) return;
+        if (!(e.Event is NoteOnEvent or NoteOffEvent or ControlChangeEvent or PitchBendEvent)) return;
 
-        _midiController = Melanchall.DryWetMidi.Multimedia.InputDevice.GetByIndex(0);
-        _midiController.StartEventsListening();
-
-        UsingMidiKeyboard = _midiController != null;
-
-        if (UsingMidiKeyboard)
+        UnityMainThread.wkr.AddJob(() =>
         {
+            _midiController.EventReceived -= UseMIDI;
+            Keyboard.current.onTextInput -= _subscribeCPU;
+
             keyInputs.FindActionMap("KeyboardMapping").Disable();
             keyInputs.FindActionMap("KeyboardMapping").FindAction("Settings").Enable();
             Keyboard.current.onTextInput -= _ => UseKeyboard();
 
-            if (configFade)
-            {
-                CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new() { _configScreen }), "FadeOutConfig", this);
-                GameManager.root.currentState = GameState.Roaming;
-            }
+            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
+            MusicManager.root.MusicToGameplay();
 
             InitializeMidiActions();
             ConfigureInputs();
-        }
+        });
     }
 
     void UseKeyboard()
     {
-        if (!UsingMidiKeyboard || DH.Get<TestOverrides>().inputOverride == InputOverride.CPU)
-        {
-            InputSystem.onDeviceChange -= OnMidiDeviceChange;
-            keyInputs.FindActionMap("KeyboardMapping").Enable();
-    
-            InitializeCPUActions();
-            ConfigureInputs();
-        }
+        _midiController.EventReceived -= UseMIDI;
+        Keyboard.current.onTextInput -= _subscribeCPU;
+
+        keyInputs.FindActionMap("KeyboardMapping").Enable();
+
+        InitializeCPUActions();
+        ConfigureInputs();
     }
 
     void InitializeMidiActions()
     {
         _midiController.EventReceived += (_, message) =>
         {
-            UnityMainThreadDispatcher.Instance().Enqueue(() =>
+            UnityMainThread.wkr.AddJob(() =>
             {
                 switch (message.Event)
                 {
@@ -181,21 +147,7 @@ public class InputManager : Singleton<InputManager>, ISaveData
                         }
                         else
                         {
-                            var root = BrSettings.root;
-                            if (root.settingsCC == c.ControlNumber)
-                            {
-                                actionDict[ActionTypes.Settings].actionEvent.Invoke(controlInput);
-                            }
-                            else if (root.tempSettingsCC == c.ControlNumber)
-                            {
-                                root.settingsCC = c.ControlNumber;
-                                actionDict[ActionTypes.Settings].actionEvent.Invoke(controlInput);
-                            }
-                            else if (root.tempSettingsCC == -1 || root.tempSettingsCC != c.ControlNumber)
-                            {
-                                root.tempSettingsCC = c.ControlNumber;
-                                actionDict[ActionTypes.Settings].actionEvent.Invoke(controlInput);
-                            }
+                            actionDict[ActionTypes.Settings].actionEvent.Invoke(controlInput);
                         }
 
                         break;
@@ -358,7 +310,7 @@ public class InputManager : Singleton<InputManager>, ISaveData
 
     void Update()
     {
-        if ((!UsingMidiKeyboard || DH.Get<TestOverrides>().inputOverride == InputOverride.CPU) && checkingKeys) ProcessKeyInput();
+        if (checkingKeys) ProcessKeyInput();
 
         if (verticalArrowSpeed != 0)
         {
@@ -482,7 +434,7 @@ public class InputManager : Singleton<InputManager>, ISaveData
         Keyboard.current.onTextInput -= _ =>
         {
             UseKeyboard();
-            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new() { _configScreen }), "FadeOutConfig", this);
+            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
         };
     }
 }

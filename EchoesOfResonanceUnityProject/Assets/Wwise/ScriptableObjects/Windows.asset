@@ -15,7 +15,6 @@ MonoBehaviour:
   IgnorePropertyNameList: []
   GlobalPropertyNameList:
   - UserSettings.m_BasePath
-  - UserSettings.m_StartupLanguage
   - UserSettings.m_EngineLogging
   - UserSettings.m_DefaultScalingFactor
   - UserSettings.m_MaximumNumberOfPositioningPaths
@@ -76,7 +75,7 @@ MonoBehaviour:
   - AdvancedSettings.m_MemoryDebugLevel
   UserSettings:
     m_BasePath: Audio/GeneratedSoundBanks
-    m_StartupLanguage: English(US)
+    m_StartupLanguage: 
     m_EngineLogging: 1
     m_IsDecodedBankEnabled: 0
     m_IsAutoBankEnabled: 1

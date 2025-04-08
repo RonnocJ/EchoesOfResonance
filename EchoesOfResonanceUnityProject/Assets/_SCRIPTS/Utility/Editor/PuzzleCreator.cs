@@ -122,25 +122,11 @@ public class PuzzleCreator : MonoBehaviour
         for (int i = 0; i < gems.Length; i++)
         {
             float newNoteFloat = PuzzleUtilities.root.GetNoteNumber(data.solutions[i].noteName);
-            int noteMod = Mathf.FloorToInt(newNoteFloat % 5);
-
-            // Map mod value to blendshape index (assuming order is 1, 2, 4, 5)
-            int blendShapeIndex = -1;
-            switch (noteMod)
-            {
-                case 1: blendShapeIndex = 0; break;
-                case 2: blendShapeIndex = 1; break;
-                case 3: blendShapeIndex = -1; break;
-                case 4: blendShapeIndex = 2; break; 
-                case 0: blendShapeIndex = 3; break;
-            }
-
             var gemMesh = gems[i].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
-
 
             for (int j = 0; j < gemMesh.sharedMesh.blendShapeCount; j++)
             {
-                gemMesh.SetBlendShapeWeight(j, (j == blendShapeIndex) ? 100f : 0f);
+                gemMesh.SetBlendShapeWeight(j, (j == DH.Get<GlobalGemData>().gemMeshIndicies[(int)newNoteFloat % 5]) ? 100f : 0f);
             }
 
             var gemMat = new Material(gems[i].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().sharedMaterial);

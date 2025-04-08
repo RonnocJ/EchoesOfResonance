@@ -6,6 +6,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System;
+#if UNITY_EDITOR
 public class UWPicker : EditorWindow
 {
     private uint queuedEventId, playingEventId;
@@ -609,3 +610,4 @@ public class UWRTPCPicker : UWPopupPicker
         treeView.selectionChanged += _ => SetItem<AudioRTPC>();
     }
 }
+#endif

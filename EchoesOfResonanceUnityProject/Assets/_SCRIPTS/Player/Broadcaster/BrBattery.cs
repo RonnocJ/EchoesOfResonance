@@ -8,7 +8,6 @@ public class BrBattery : Singleton<BrBattery>
 {
     private float _batteryLevel = 1f;
     public event Action OnBatteryEmpty, OnBatteryUpdate;
-
     public float batteryLevel
     {
         get => _batteryLevel;
@@ -35,8 +34,21 @@ public class BrBattery : Singleton<BrBattery>
             }
         }
     }
+    private int _notesHeld;
+    public event Action<int> OnNotesHeldChange;
     [HideInInspector]
-    public int notesHeld;
+    public int notesHeld
+    {
+        get => _notesHeld;
+        set
+        {
+            if(_notesHeld != value)
+            {
+                _notesHeld = value;
+                OnNotesHeldChange.Invoke(_notesHeld);
+            }
+        }
+    }
 
 public Image batteryMeter;
 public Image infoScreen;

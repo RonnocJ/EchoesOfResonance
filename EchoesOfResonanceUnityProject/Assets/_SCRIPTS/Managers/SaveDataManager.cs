@@ -7,9 +7,8 @@ public class SaveDataManager : Singleton<SaveDataManager>
 {
     public Dictionary<string, object> Data = new();
     public string FileName;
-    protected override void Awake()
+    void Start()
     {
-        base.Awake();
         ReadAllData();
     }
     void ReadAllData()
@@ -85,6 +84,7 @@ public class SaveDataManager : Singleton<SaveDataManager>
 
     void OnApplicationQuit()
     {
-        WriteAllData();
+        if (DH.Get<TestOverrides>().saveProgress)
+            WriteAllData();
     }
 }

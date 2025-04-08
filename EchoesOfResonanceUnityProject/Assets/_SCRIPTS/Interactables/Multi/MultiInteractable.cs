@@ -2,9 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using UnityEditor;
-using UnityEditor.Rendering;
 [Serializable]
 public abstract class MultiInteractableStep
 {
@@ -89,7 +87,7 @@ public abstract class MultiInteractable : MonoBehaviour
         };
     }
 }
-
+#if UNITY_EDITOR 
 [CustomEditor(typeof(MultiInteractableStep), true)]
 public class MultiInteractableStepEditor : Editor
 {
@@ -130,7 +128,6 @@ public class MultiInteractableStepEditor : Editor
         Repaint();
     }
 }
-
 
 [CustomEditor(typeof(MultiInteractable), true)]
 public class MultiInteractableEditor : Editor
@@ -207,3 +204,4 @@ public class MultiInteractableEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

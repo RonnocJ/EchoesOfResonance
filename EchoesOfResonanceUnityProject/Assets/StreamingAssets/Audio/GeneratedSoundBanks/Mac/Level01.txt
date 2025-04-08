@@ -1,12 +1,9 @@
 Event	ID	Name			Wwise Object Path	Notes
-	1116304881	startIntroBridgeChoir			\Default Work Unit\Level01Music\startIntroBridgeChoir	
 	1201866565	playRingMoveTick			\Default Work Unit\Level01SFX\playRingMoveTick	
 	2019948788	playBoulderChime2			\Default Work Unit\Level01SFX\playBoulderChime2	
 	2019948789	playBoulderChime3			\Default Work Unit\Level01SFX\playBoulderChime3	
 	2019948791	playBoulderChime1			\Default Work Unit\Level01SFX\playBoulderChime1	
-	2373524099	stopIntroBridgeChoir			\Default Work Unit\Level01Music\stopIntroBridgeChoir	
-	3253062429	playElevatorHints			\Default Work Unit\Level01Music\playElevatorHints	
-	3348497029	activateStepDucking			\Default Work Unit\Level01Music\activateStepDucking	
+	2182868672	playToGameplayTransition01			\Default Work Unit\Level01Music\playToGameplayTransition01	
 	3352024112	startMetronome01			\Default Work Unit\Level01Music\startMetronome01	
 	3518514029	startMusic01			\Default Work Unit\Level01Music\startMusic01	
 
@@ -14,56 +11,27 @@ State Group	ID	Name			Wwise Object Path	Notes
 	3800814886	Level01Master			\Default Work Unit\Level01\Level01Master	
 
 State	ID	Name	State Group			Notes
+	270858878	EntranceHall	Level01Master			
 	748895195	None	Level01Master			
-	1125500713	Intro	Level01Master			
-	1149990767	CliffsEdge	Level01Master			
-	1318468365	ElevatorShaft	Level01Master			
-	1379644315	ElevatorHallway	Level01Master			
-	2715723947	RingPuzzle	Level01Master			
-
-Game Parameter	ID	Name			Wwise Object Path	Notes
-	1325667752	introBridge_StepDuck			\Default Work Unit\Level01\introBridge_StepDuck	
-	1867101979	firstElevator_Height			\Default Work Unit\Level01\firstElevator_Height	
-	2726482464	introBridge_CrossBridge			\Default Work Unit\Level01\introBridge_CrossBridge	
-	2969596720	cliffsEdge_Fade			\Default Work Unit\Level01\cliffsEdge_Fade	
-	3217007934	introBridge_FadeIn			\Default Work Unit\Level01\introBridge_FadeIn	
+	1831982039	Opening	Level01Master			
+	3020279701	GetBroadcaster	Level01Master			
 
 Trigger	ID	Name			Wwise Object Path	Notes
-	1080872029	ToG			\Default Work Unit\Level01\FirstElevator\ToG	
-	1580584756	BridgeCrossing02			\Default Work Unit\Level01\IntroBridge\BridgeCrossing02	
-	1580584759	BridgeCrossing01			\Default Work Unit\Level01\IntroBridge\BridgeCrossing01	
 	2526236795	HintDelay			\Default Work Unit\Level01\FirstElevator\HintDelay	
-	3276123882	ToBb			\Default Work Unit\Level01\FirstElevator\ToBb	
-
-Effect plug-ins	ID	Name	Type				Notes
-	2805769450	Special_Effect_1	Wwise Flanger			
-	3546444380	Big_Garage1	Wwise Matrix Reverb			
-	3604890626	High_Pass_60Hz	Wwise Parametric EQ			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	26016208	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\71\{719EC6CD-D052-43C8-8BD3-BFDA4FE9D270}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger01\StingerRandomizer		1704032
-	43338354	ElevatorSynthLoopG01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\CD\{CD1D85C1-BE1D-23DE-600E-A6850687A75B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopG01		3407968
-	75156276	ElevatorPercLoop01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\5E\{5E498888-66BB-516F-57D4-3FF0243F6BBA}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorPercLoop01		3145824
-	192266941	EOR_Level01_Puzzle01Ring	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\92\{92E83996-9614-7D41-E5A9-AD1466112999}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\RingLoop\EOR_Level01_Puzzle01Ring\EOR_Level01_Puzzle01Ring		8125152
-	196389406	D	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A1\{A1C58D45-EA1D-C8A9-30F4-9AD3964B7911}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroBridgeChoir\D		6807600
 	196761745	BoulderChime	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\27\{271417E9-5346-D530-C09F-33742591DBFB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\BoulderChime		1835104
-	197571160	ElevatorPercLoop02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\09\{09F2DC1A-8655-F25F-4CF2-92AAF71273D8}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorPercLoop02		3145824
 	212656553	RingTick02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\F1\{F1CD0239-157B-FF47-F8B3-0AC6C26F4F58}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\MoveableStone\RingMoveTick\RingTick02		96144
-	324329059	EOR_Level01_FirstElevatorHint02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E8\{E88457AE-6322-9575-DD92-5FA838CA6560}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint02\EOR_Level01_FirstElevatorHint02		3014752
-	330997474	BridgePerc	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\0F\{0F9DD149-B357-7CCE-7B77-7A07F53D3FD4}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BaseLoop\BridgePerc		3145824
+	310615760	BaseLoop	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\9D\{9DDC5477-75DC-603E-C910-583231EE34B0}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\OpeningLoop\EOR_Level01_OpeningBaseLoop\BaseLoop		7863360
 	454213422	RingTick01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A2\{A23BCFCC-5B79-A82E-9BD2-2A3103ED300B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\MoveableStone\RingMoveTick\RingTick01		96144
 	495460665	RingTick03	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\9C\{9CA79E5B-2778-2A65-FCD7-6268975CFC3E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\MoveableStone\RingMoveTick\RingTick03		96144
-	601852565	ElevatorSynthLoopBb01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D0\{D04A2C97-DDA8-0412-0352-DCF6A44A16C8}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopBb01		3407968
-	607143823	CliffsEdgeOstinato	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\4D\{4D6BFC04-C607-A7CD-36A0-0EE17B265927}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\CliffsEdge\EdgeLoop\CliffsEdgeOstinato		3670112
-	648973999	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\CE\{CE4BD7C2-D3DB-A173-E027-1AAD06EFEF72}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger01\StingerRandomizer		1704032
-	677392716	ElevatorSynthLoopG02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\CF\{CF7CB839-7706-48F6-101E-0FD0D0DDEE7A}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopG02		4194400
-	759231515	BridgeSynth	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\4F\{4FC135B3-CE83-2CB1-172F-788374759BC7}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BaseLoop\BridgeSynth		3670112
-	781168124	C	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\40\{40BA2557-F474-E576-E1F2-AABF5E83DEF6}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambiences\IntroBridgeChoir\C		6807600
-	852775546	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\11\{115A1CDB-0EB4-F0C7-1A29-D9D3C77C7E05}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger02\StingerRandomizer		1704032
-	875006138	EOR_Level01_FirstElevatorHint01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A8\{A8F1C233-BBA5-05EF-72D4-AAF07BA0A7D7}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint01\EOR_Level01_FirstElevatorHint01		3014752
-	903983521	ElevatorSynthLoopBb02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E3\{E3F28784-3953-2545-9B73-2D12869E4068}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorLoop\BaseLoop\ElevatorSynthLoopBb02		4194400
-	1023833783	EOR_Level01_FirstElevatorHint03	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\D7\{D7BF5F0A-DE11-E680-7184-308746040888}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint03\EOR_Level01_FirstElevatorHint03		3014752
-	1032266012	EOR_Level01_FirstElevatorHint04	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\67\{67FE5A56-3B63-F849-F81A-077EA2A1D154}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\ElevatorHintsLoop\Hint04\EOR_Level01_FirstElevatorHint04		3014752
+	598525220	EOR_Level01_EntranceHallCue	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\37\{374E16D2-F0B6-B7CA-17A3-D5CF82AC126B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\EntranceHallLoop\Cue\EOR_Level01_EntranceHallCue		6290496
+	646732023	EOR_Level01_GetBroadcasterCue	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\37\{377C7F96-730B-8610-C3BC-69C34B8D7DFB}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\GetBroadcasterCue\EOR_Level01_GetBroadcasterCue		4979776
+	678171862	EOR_Level01_ToGameplayTransition	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\BC\{BC108BBF-7848-8BAC-0629-365819313F8A}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01_ToGameplay\EOR_Level01_ToGameplayTransition		2883680
+	711210221	Riff01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\E4\{E4C9E0EB-5AA0-9B3D-9718-F4D13FE62E50}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\OpeningLoop\EOR_Level01_OpeningBaseLoop\Riff01		2358336
+	802790787	Riff02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\5F\{5F5E0FF5-59DB-B0A5-3901-1DC06537122E}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\OpeningLoop\EOR_Level01_OpeningBaseLoop\Riff02		2358336
+	866702254	Riff01	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\1F\{1FA730D1-1200-64FC-001A-C2D9EEC0C15B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\OpeningLoop\EOR_Level01_OpeningBaseLoop\Riff01		2358336
+	925508350	EOR_Level01_EntranceHallLoop	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\A8\{A8E4B38D-87AF-5A12-A6BB-BCA1203D2136}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\EntranceHallLoop\Loop\EOR_Level01_EntranceHallLoop		2620480
+	926822806	Riff02	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\37\{37F07362-63D2-AC5A-C70C-6FB8FC99789B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\OpeningLoop\EOR_Level01_OpeningBaseLoop\Riff02		2358336
 	1049912042	RingTick04	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\07\{07583339-140C-8103-ED27-778AEB023854}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Puzzles\MoveableStone\RingMoveTick\RingTick04		96144
-	1073016302	StingerRandomizer	Y:\Desktop\GitHub\EchoesOfResonance\EchoesOfResonanceUnityProject\EchoesOfResonance_WwiseProject\.cache\EE\{EE4099AB-DF03-E8E3-93D5-63C994F34B30}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\Level01Switch\TutorialLoop\BridgeCrossingStinger02\StingerRandomizer		1704032
 

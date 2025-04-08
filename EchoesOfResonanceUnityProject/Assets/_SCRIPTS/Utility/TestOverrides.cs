@@ -4,23 +4,19 @@ using System.IO;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-    public enum InputOverride
-    {
-        None,
-        MIDI,
-        CPU
-    }
+#if UNITY_EDITOR
 [CreateAssetMenu(menuName = "Objects/Utility/TestOverrides", order = 0)]
+#endif
 public class TestOverrides : GlobalData
 {
     public bool skipIntro;
-    public InputOverride inputOverride;
+    public bool saveProgress;
     [Range(0.01f, 1)]
     public float uiSpeed;
     public bool overrideSpawn;
     public Vector3 playerSpawnPosition;
 }
-
+#if UNITY_EDITOR 
 [CustomEditor(typeof(TestOverrides))]
 public class TestOverridesEditor : Editor
 {
@@ -53,3 +49,4 @@ public class TestOverridesEditor : Editor
         }
     }
 }
+#endif

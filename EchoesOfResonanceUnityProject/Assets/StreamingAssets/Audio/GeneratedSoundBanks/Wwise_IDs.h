@@ -13,7 +13,6 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID ACTIVATESTEPDUCKING = 3348497029U;
         static const AkUniqueID PAUSEALL = 4091047182U;
         static const AkUniqueID PLAYBOULDERCHIME1 = 2019948791U;
         static const AkUniqueID PLAYBOULDERCHIME2 = 2019948788U;
@@ -26,24 +25,19 @@ namespace AK
         static const AkUniqueID PLAYBROADCASTERPLUNK = 879710867U;
         static const AkUniqueID PLAYCHECKPOINTREACHED = 1481495309U;
         static const AkUniqueID PLAYDOOROPEN = 3639922799U;
-        static const AkUniqueID PLAYELEVATORHINTS = 3253062429U;
-        static const AkUniqueID PLAYENDCUTSCENE = 3310685126U;
         static const AkUniqueID PLAYFOOTSTEPS = 1088348632U;
-        static const AkUniqueID PLAYGEMTESTTRACK = 538017021U;
         static const AkUniqueID PLAYINTROAMBIENCE = 3384925243U;
         static const AkUniqueID PLAYRINGMOVETICK = 1201866565U;
         static const AkUniqueID PLAYSHUTOFF = 1900847084U;
         static const AkUniqueID PLAYSTONECRUMBLE = 68937622U;
-        static const AkUniqueID PLAYTESTMETRONOME = 2757017905U;
+        static const AkUniqueID PLAYTOGAMEPLAYTRANSITION01 = 2182868672U;
         static const AkUniqueID PLAYTORCHEXTINGUISH = 3679901891U;
         static const AkUniqueID PLAYTORCHIGNITE = 1562608897U;
         static const AkUniqueID RESUMEALL = 3240900869U;
-        static const AkUniqueID STARTINTROBRIDGECHOIR = 1116304881U;
         static const AkUniqueID STARTMETRONOME01 = 3352024112U;
         static const AkUniqueID STARTMUSIC01 = 3518514029U;
         static const AkUniqueID STOPBROADCASTERFX = 2261249677U;
         static const AkUniqueID STOPINTROAMBIENCE = 941857173U;
-        static const AkUniqueID STOPINTROBRIDGECHOIR = 2373524099U;
         static const AkUniqueID STOPTONE = 2019189489U;
     } // namespace EVENTS
 
@@ -70,12 +64,10 @@ namespace AK
 
             namespace STATE
             {
-                static const AkUniqueID CLIFFSEDGE = 1149990767U;
-                static const AkUniqueID ELEVATORHALLWAY = 1379644315U;
-                static const AkUniqueID ELEVATORSHAFT = 1318468365U;
-                static const AkUniqueID INTRO = 1125500713U;
+                static const AkUniqueID ENTRANCEHALL = 270858878U;
+                static const AkUniqueID GETBROADCASTER = 3020279701U;
                 static const AkUniqueID NONE = 748895195U;
-                static const AkUniqueID RINGPUZZLE = 2715723947U;
+                static const AkUniqueID OPENING = 1831982039U;
             } // namespace STATE
         } // namespace LEVEL01MASTER
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-
+#if UNITY_EDITOR 
 [CustomEditor(typeof(AudioTriggerZone))]
 public class AudioTriggerZoneEditor : Editor
 {
@@ -50,6 +50,7 @@ public class AudioTriggerZoneEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif
 public class AudioTriggerZone : MonoBehaviour
 {
     [SerializeField] private AudioEffectType effects;

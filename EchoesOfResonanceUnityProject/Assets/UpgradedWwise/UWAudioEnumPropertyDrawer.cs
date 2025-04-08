@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using System;
+#if UNITY_EDITOR 
 public abstract class AudioEnumDrawer<TEnum, TPicker> : PropertyDrawer
     where TEnum : Enum
     where TPicker : UWPopupPicker
@@ -82,3 +83,4 @@ public class RTPCEnumPickerDrawer : AudioEnumDrawer<AudioRTPC, UWRTPCPicker>
 {
     protected override AudioRTPC DefaultEnum => AudioRTPC.None;
 }
+#endif

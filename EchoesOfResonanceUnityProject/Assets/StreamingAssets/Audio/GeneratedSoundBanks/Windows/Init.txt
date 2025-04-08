@@ -10,10 +10,8 @@ State	ID	Name	State Group			Notes
 	3267866966	Puzzle03	EntranceHall			
 	3267866967	Puzzle02	EntranceHall			
 	748895195	None	Level01Master			
-	1125500713	Intro	Level01Master			
-	1149990767	CliffsEdge	Level01Master			
-	1318468365	ElevatorShaft	Level01Master			
-	1379644315	ElevatorHallway	Level01Master			
+	1831982039	Opening	Level01Master			
+	3992841140	GameplayTransition	Level01Master			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	653430204	broadcaster_Shutdown			\Default Work Unit\Global\broadcaster_Shutdown	

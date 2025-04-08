@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{11F8CFB0-AE41-4B88-8087-4ADA5710DCBC}",
     "Language": "SFX",
-    "Hash": "{D9872B12-8739-0E80-CC41-60B069B7657E}",
+    "Hash": "{2FF6DCF6-A3FF-A9E2-CF98-5AA9A4482F12}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
     "ShortName": "Global",
     "Path": "Global.bnk",
@@ -62,14 +62,6 @@
       "Location": "Memory",
       "ShortName": "BroadcasterBloop.wav",
       "CachePath": "F0/{F069E3EA-BCC9-2670-5E0E-06DFC5318C53}.wem"
-     },
-     {
-      "Id": "126475547",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EndCutsceneRiser.wav",
-      "CachePath": "DF/{DF231077-3C3A-2158-60D0-527DE3714902}.wem"
      },
      {
       "Id": "187965447",
@@ -262,14 +254,6 @@
       "Location": "Memory",
       "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 1.wav",
       "CachePath": "BD/{BDFAE6EE-DAEB-021D-EC7E-163C0A7222C7}.wem"
-     },
-     {
-      "Id": "1046733139",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_GemTestTrack.wav",
-      "CachePath": "44/{44E4531B-2557-DA0A-F983-0A41BFCD8CBF}.wem"
      }
     ],
     "Plugins": {
@@ -291,14 +275,6 @@
        "GUID": "{6313E9B1-0F33-48B1-9A18-2073282269AD}",
        "LibName": "Wwise Meter",
        "LibId": "8454147"
-      },
-      {
-       "Id": "1259256166",
-       "Name": "New_RoomVerb",
-       "ObjectPath": "\\Effects\\Default Work Unit\\New_RoomVerb",
-       "GUID": "{2E1541F7-7DD1-4AC9-B615-8C72877EC969}",
-       "LibName": "Wwise RoomVerb",
-       "LibId": "7733251"
       },
       {
        "Id": "3164629247",
@@ -522,27 +498,6 @@
       ]
      },
      {
-      "Id": "3310685126",
-      "Name": "playEndCutscene",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playEndCutscene",
-      "GUID": "{2489020F-8DDD-4051-8A5D-DD239076BD5E}",
-      "DurationType": "OneShot",
-      "DurationMin": "10",
-      "DurationMax": "10",
-      "MediaRefs": [
-       {
-        "Id": "126475547"
-       }
-      ],
-      "PluginRefs": {
-       "ShareSets": [
-        {
-         "Id": "1259256166"
-        }
-       ]
-      }
-     },
-     {
       "Id": "1088348632",
       "Name": "playFootsteps",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playFootsteps",
@@ -582,18 +537,6 @@
         "Name": "PlayerVerb",
         "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PlayerVerb",
         "GUID": "{81A2AD3F-732C-44FC-A513-8F42D9967F63}"
-       }
-      ]
-     },
-     {
-      "Id": "538017021",
-      "Name": "playGemTestTrack",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalMusic\\playGemTestTrack",
-      "GUID": "{ACDC04E1-DF3A-4256-91B5-35AADEB06366}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "1046733139"
        }
       ]
      },
@@ -685,13 +628,6 @@
         "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
        }
       ]
-     },
-     {
-      "Id": "2757017905",
-      "Name": "playTestMetronome",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalMusic\\NestedTest\\playTestMetronome",
-      "GUID": "{4FD33BB5-5C62-4DC0-98FE-3A39CB230954}",
-      "DurationType": "Infinite"
      },
      {
       "Id": "3679901891",
@@ -815,6 +751,6 @@
     ]
    }
   ],
-  "FileHash": "{B2A979FF-1512-764D-248A-92296E0F6842}"
+  "FileHash": "{D822721D-0BFF-715B-438D-1D9FCCAE4972}"
  }
 }

@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR 
 public static class UWAudioEnumGenerator
 {
     public enum EnumCodeSectionType
@@ -352,3 +353,4 @@ public enum Audio" + section.type.ToString() + @" {
         public string Name { get; set; }
     }
 }
+#endif

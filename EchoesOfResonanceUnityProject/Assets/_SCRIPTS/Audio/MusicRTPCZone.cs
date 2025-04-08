@@ -1,6 +1,7 @@
 using AK.Wwise;
 using UnityEngine;
 using UnityEditor;
+#if UNITY_EDITOR 
 [CustomEditor(typeof(MusicRTPCZone))]
 public class SetMinAndMax : Editor
 {
@@ -12,6 +13,7 @@ public class SetMinAndMax : Editor
         Handles.DrawSolidDisc(t.maxPos, Vector3.up, 1f);
     }
 }
+#endif
 public class MusicRTPCZone : MonoBehaviour
 {
     [SerializeField] private AudioRTPC controlRTPC;

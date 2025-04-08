@@ -58,7 +58,7 @@ public abstract class BasicInteractable : MonoBehaviour
         _activated = false;
     }
 }
-
+#if UNITY_EDITOR 
 [CustomEditor(typeof(BasicInteractable), true)]
 public class BasicInteractableEditor : Editor
 {
@@ -114,3 +114,4 @@ public class BasicInteractableEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

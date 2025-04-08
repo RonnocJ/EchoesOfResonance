@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrSettings : Singleton<BrSettings>, IInputScript, ISaveData
 {
     [HideInInspector]
-    public float middleKey, settingsCC, tempMiddleKey, tempSettingsCC;
+    public float middleKey, tempMiddleKey;
     private GameState oldState;
     public void AddInputs()
     {
@@ -16,21 +16,15 @@ public class BrSettings : Singleton<BrSettings>, IInputScript, ISaveData
         return new Dictionary<string, object>
         {
             {"middleKey", middleKey},
-            {"settingsCC", settingsCC}
         };
     }
     public void ReadSaveData(Dictionary<string, object> savedData)
     {
         this.middleKey = -1f;
-        this.settingsCC = -1f;
 
         if (savedData.TryGetValue("middleKey", out object middleKey))
         {
             this.middleKey = Convert.ToSingle(middleKey);
-        }
-        if (savedData.TryGetValue("settingsCC", out object settingsCC))
-        {
-            this.settingsCC = Convert.ToSingle(settingsCC);
         }
     }
     [AllowedStates(GameState.Settings, GameState.InPuzzle, GameState.Roaming, GameState.Shutdown)]
@@ -42,7 +36,7 @@ public class BrSettings : Singleton<BrSettings>, IInputScript, ISaveData
 
             AudioManager.root.PlaySound(AudioEvent.resumeAll);
         }
-        else if (newPauseAmount > 0.5f && !(GameManager.root.currentState is GameState.Settings or GameState.Config or GameState.Title))
+        else if (newPauseAmount > 0.5f && !(GameManager.root.currentState is GameState.Settings or GameState.Config or GameState.Cutscene))
         {
             oldState = GameManager.root.currentState;
             GameManager.root.currentState = GameState.Settings;

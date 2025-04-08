@@ -4,7 +4,8 @@ using UnityEngine;
 public enum GameState
 {
     Config,
-    Title,
+    Intro,
+    Cutscene,
     Settings,
     InPuzzle,
     Roaming,
@@ -21,16 +22,16 @@ public class GameManager : Singleton<GameManager>, ISaveData
         if (currentState != GameState.InPuzzle)
         {
             return new()
-        {
-            {"savedState", currentState}
-        };
+            {
+                {"savedState", currentState}
+            };
         }
         else
         {
             return new()
-        {
-            {"savedState", GameState.Roaming}
-        };
+            {
+                {"savedState", GameState.Roaming}
+            };
         }
 
     }
@@ -40,11 +41,11 @@ public class GameManager : Singleton<GameManager>, ISaveData
         if (savedData.TryGetValue("savedState", out object oldSavedState))
         {
             Enum.TryParse(Convert.ToString(oldSavedState), out GameState oldSavedStateEnum);
-            currentState = oldSavedStateEnum;
+            MusicManager.root.GameStateToSet = oldSavedStateEnum;
         }
         else
         {
-            currentState = GameState.Config;
+            MusicManager.root.GameStateToSet = GameState.Intro;
         }
     }
 }

@@ -33,7 +33,7 @@ public class NoteValue
     };
     public float CurrentValue;
 }
-
+#if UNITY_EDITOR 
 [CustomPropertyDrawer(typeof(NoteValue))]
 public class NoteValueDrawer : PropertyDrawer
 {
@@ -135,3 +135,4 @@ public class NoteValuePopup : EditorWindow
         }
     }
 }
+#endif

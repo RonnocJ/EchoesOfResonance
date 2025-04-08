@@ -25,13 +25,6 @@
     "StaticLib": "AkRoomVerbFX"
    },
    {
-    "LibName": "Wwise Flanger",
-    "LibId": "8192003",
-    "Type": "Effect",
-    "DLL": "AkFlanger",
-    "StaticLib": "AkFlangerFX"
-   },
-   {
     "LibName": "Wwise Meter",
     "LibId": "8454147",
     "Type": "Effect",
@@ -49,6 +42,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{85485D75-0A33-A9BE-55A4-D1364FA21260}"
+  "FileHash": "{7F8B3CFE-4223-6F5B-9320-89951356F14E}"
  }
 }

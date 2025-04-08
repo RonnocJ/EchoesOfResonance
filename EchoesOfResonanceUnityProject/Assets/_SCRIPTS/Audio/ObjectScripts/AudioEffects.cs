@@ -29,7 +29,7 @@ public class AudioEffects
     public AudioTrigger[] audioTriggers;
     public RTPC[] audioRTPCs;
 }
-
+#if UNITY_EDITOR 
 [CustomPropertyDrawer(typeof(AudioEffects))]
 public class AudioEffectsEditor : PropertyDrawer
 {
@@ -105,3 +105,4 @@ public class AudioEffectsEditor : PropertyDrawer
         return EditorGUIUtility.singleLineHeight;
     }
 }
+#endif

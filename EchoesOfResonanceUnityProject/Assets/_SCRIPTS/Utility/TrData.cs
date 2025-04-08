@@ -84,6 +84,27 @@ public struct TrData
         AudioManager.root.StopSound(movingSound, tr.gameObject);
         AudioManager.root.PlaySound(finishSound, tr.gameObject);
     }
+    public IEnumerator ApplyToOverConstant(Transform tr, float speed, AudioEvent startSound = AudioEvent.None, AudioEvent movingSound = AudioEvent.None, AudioEvent finishSound = AudioEvent.None)
+{
+    AudioManager.root.PlaySound(startSound, tr.gameObject);
+    AudioManager.root.PlaySound(movingSound, tr.gameObject);
+
+    while (!IsEqualTo(tr))
+    {
+        if ((EffectedProperties & IncludeInMove.Position) != 0)
+            tr.localPosition = Vector3.MoveTowards(tr.localPosition, position, speed * Time.deltaTime);
+        if ((EffectedProperties & IncludeInMove.Rotation) != 0)
+            tr.localRotation = Quaternion.RotateTowards(tr.localRotation, Quaternion.Euler(rotation), speed * Time.deltaTime);
+        if ((EffectedProperties & IncludeInMove.Scale) != 0)
+            tr.localScale = Vector3.MoveTowards(tr.localScale, scale, speed * Time.deltaTime);
+
+        yield return null;
+    }
+
+    ApplyTo(tr);
+    AudioManager.root.StopSound(movingSound, tr.gameObject);
+    AudioManager.root.PlaySound(finishSound, tr.gameObject);
+}
 
     public bool IsEqualTo(Transform tr)
     {
@@ -119,7 +140,7 @@ public struct SaveStruct
         );
     }
 }
-
+#if UNITY_EDITOR 
 [CustomPropertyDrawer(typeof(TrData))]
 public class TrDataDrawer : PropertyDrawer
 {
@@ -167,3 +188,4 @@ public class TrDataDrawer : PropertyDrawer
         EditorGUI.EndProperty();
     }
 }
+#endif

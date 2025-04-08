@@ -7,19 +7,20 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
 {
     public bool hasBroadcaster;
     [SerializeField] private float _armMoveSpeed;
+    [SerializeField] private GameObject _pedestalBroadcaster;
     private int _setControlHash, _playControlHash, _obtainedBroadcasterHash;
     private Animator _armAnim;
     void Awake()
     {
-       _armAnim = GetComponent<Animator>();
-       _setControlHash = Animator.StringToHash("SetIn");
-       _playControlHash = Animator.StringToHash("Playing");
-       _obtainedBroadcasterHash = Animator.StringToHash("HasBroadcaster");
+        _armAnim = GetComponent<Animator>();
+        _setControlHash = Animator.StringToHash("SetIn");
+        _playControlHash = Animator.StringToHash("Playing");
+        _obtainedBroadcasterHash = Animator.StringToHash("HasBroadcaster");
+
+        BrBattery.root.OnNotesHeldChange += MoveArmPlaying;
     }
     public void AddInputs()
     {
-        InputManager.root.AddListener<float>(ActionTypes.KeyDown, MoveArmPlaying);
-        InputManager.root.AddListener<float>(ActionTypes.KeyUp, MoveArmIdle);
         InputManager.root.AddListener<float>(ActionTypes.Settings, MoveArmSettings);
     }
     public Dictionary<string, object> AddSaveData()
@@ -31,7 +32,7 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
     }
     public void ReadSaveData(Dictionary<string, object> savedData)
     {
-        if(savedData.TryGetValue("hasBroadcaster", out object data))
+        if (savedData.TryGetValue("hasBroadcaster", out object data))
         {
             bool didHaveBroadcaster = Convert.ToBoolean(data);
             hasBroadcaster = didHaveBroadcaster;
@@ -39,20 +40,26 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
             _armAnim.SetBool(_obtainedBroadcasterHash, hasBroadcaster);
         }
     }
+    public void PickUpBroadcaster()
+    {
+        _armAnim.SetTrigger("PickUpBroadcaster");
+    }
     public void ReParentBroadcaster()
     {
-        BrBattery.root.transform.parent = transform.GetChild(1);
+        _pedestalBroadcaster.SetActive(false);
     }
-    [AllowedStates(GameState.InPuzzle, GameState.Roaming)]
-    void MoveArmPlaying(float noteInput)
+    public void EndCutscene()
     {
-        if(BrBattery.root.notesHeld > 0)
-            _armAnim.SetBool(_playControlHash, true);
+        GameManager.root.currentState = GameState.Roaming;
+
+        var resetCamera = new TrData(Vector3.zero, Quaternion.identity);
+        CRManager.root.Begin(resetCamera.ApplyToOverTime(Camera.main.transform, 0.5f), "ResetCameraCutscene", this);
+        
+        hasBroadcaster = true;
     }
-    void MoveArmIdle(float noteInput)
+    void MoveArmPlaying(int notesHeld)
     {
-        if(BrBattery.root.notesHeld == 0)
-            _armAnim.SetBool(_playControlHash, false);
+        _armAnim.SetBool(_playControlHash, notesHeld > 0);
     }
 
     [AllowedStates(GameState.InPuzzle, GameState.Roaming, GameState.Settings)]
@@ -66,9 +73,9 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
     }
     IEnumerator InterpolateAnimation(int param, float beginValue, float endValue)
     {
-        if(beginValue < endValue)
+        if (beginValue < endValue)
         {
-            while(_armAnim.GetFloat(param) < endValue)
+            while (_armAnim.GetFloat(param) < endValue)
             {
                 _armAnim.SetFloat(param, _armAnim.GetFloat(param) + (Time.deltaTime * _armMoveSpeed));
                 yield return null;
@@ -78,7 +85,7 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
         }
         else
         {
-            while(_armAnim.GetFloat(param) > endValue)
+            while (_armAnim.GetFloat(param) > endValue)
             {
                 _armAnim.SetFloat(param, _armAnim.GetFloat(param) - (Time.deltaTime * _armMoveSpeed));
                 yield return null;

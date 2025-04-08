@@ -5,23 +5,11 @@ using UnityEngine;
 public class AudioManager : Singleton<AudioManager>
 {
     private Dictionary<(AudioEvent, GameObject, float), Queue<uint>> postedSoundEvents = new();
-    private UWBankDictionaries _bankObj;
+
     void Start()
     {
-        if (_bankObj == null)
-        {
-            string[] guids = AssetDatabase.FindAssets($"t:{nameof(UWBankDictionaries)}");
-
-            if (guids.Length > 0)
-            {
-                _bankObj = AssetDatabase.LoadAssetAtPath<UWBankDictionaries>(AssetDatabase.GUIDToAssetPath(guids[0]));
-            }
-            else
-            {
-                Debug.LogError("Please create a EventBankDictionary Scriptable Object!");
-                return;
-            }
-        }
+        AkBankManager.LoadBank("Global", false, false);
+        AkBankManager.LoadBank("Level01", false, false);
     }
     public bool PlaySound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1, bool overrideInstanceLock = false)
     {
@@ -110,9 +98,6 @@ public class AudioManager : Singleton<AudioManager>
         if (rtpcType != AudioRTPC.None)
         {
             GameObject sourceObj = sourceObject != null ? sourceObject : gameObject;
-            var rtpc = _bankObj.RTPCBankDict[rtpcType.ToString()];
-            
-            value = Mathf.Clamp(value, rtpc.min, rtpc.max);
 
             if (isGlobal)
             {
@@ -136,5 +121,11 @@ public class AudioManager : Singleton<AudioManager>
 
         AkUnitySoundEngine.GetRTPCValue(rtpcType.ToString(), (sourceObj != null) ? sourceObj : gameObject, 0, out var returnValue, ref type);
         return returnValue;
+    }
+
+    void OnDisable()
+    {
+        AkBankManager.UnloadBank("Global");
+        AkBankManager.UnloadBank("Level01");
     }
 }

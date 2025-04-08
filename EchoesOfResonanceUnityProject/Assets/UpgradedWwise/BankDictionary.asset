@@ -40,15 +40,9 @@ MonoBehaviour:
   - eventName: playDoorOpen
     bankName: Global
     eventId: 3639922799
-  - eventName: playEndCutscene
-    bankName: Global
-    eventId: 3310685126
   - eventName: playFootsteps
     bankName: Global
     eventId: 1088348632
-  - eventName: playGemTestTrack
-    bankName: Global
-    eventId: 538017021
   - eventName: playIntroAmbience
     bankName: Global
     eventId: 3384925243
@@ -58,9 +52,6 @@ MonoBehaviour:
   - eventName: playStoneCrumble
     bankName: Global
     eventId: 68937622
-  - eventName: playTestMetronome
-    bankName: Global
-    eventId: 2757017905
   - eventName: playTorchExtinguish
     bankName: Global
     eventId: 3679901891
@@ -79,9 +70,6 @@ MonoBehaviour:
   - eventName: stopTone
     bankName: Global
     eventId: 2019189489
-  - eventName: activateStepDucking
-    bankName: Level01
-    eventId: 3348497029
   - eventName: playBoulderChime1
     bankName: Level01
     eventId: 2019948791
@@ -91,24 +79,18 @@ MonoBehaviour:
   - eventName: playBoulderChime3
     bankName: Level01
     eventId: 2019948789
-  - eventName: playElevatorHints
-    bankName: Level01
-    eventId: 3253062429
   - eventName: playRingMoveTick
     bankName: Level01
     eventId: 1201866565
-  - eventName: startIntroBridgeChoir
+  - eventName: playToGameplayTransition01
     bankName: Level01
-    eventId: 1116304881
+    eventId: 2182868672
   - eventName: startMetronome01
     bankName: Level01
     eventId: 3352024112
   - eventName: startMusic01
     bankName: Level01
     eventId: 3518514029
-  - eventName: stopIntroBridgeChoir
-    bankName: Level01
-    eventId: 2373524099
   serializedRTPCs:
   - Name: broadcaster_Shutdown
     Min: 0

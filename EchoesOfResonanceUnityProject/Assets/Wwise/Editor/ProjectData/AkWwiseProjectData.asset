@@ -131,10 +131,10 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: 0c2db92ef176ac499cdd0c769c78bc4c
     GuidInternal: 
-    m_lastTime: -8584616805573302320
+    m_lastTime: -8584577944899331632
     List:
     - name: Global
-      guid: b0cff81141ae884b80874ada5710dcbc
+      guid: bf1c55be6396fe46a46add268b0e77ce
       id: 1465331116
       PathAndIcons:
       - ElementName: SoundBanks
@@ -145,10 +145,10 @@ MonoBehaviour:
         guid: 0c2db92ef176ac499cdd0c769c78bc4c
       - ElementName: Global
         ObjectType: 7
-        guid: b0cff81141ae884b80874ada5710dcbc
+        guid: bf1c55be6396fe46a46add268b0e77ce
       Path: SoundBanks/Default Work Unit/Global
     - name: Level01
-      guid: 8037c6c450ea354cab42c9d15211b72a
+      guid: b01a9f8bdb600a47929f399b2fefb141
       id: 3152323980
       PathAndIcons:
       - ElementName: SoundBanks
@@ -159,7 +159,7 @@ MonoBehaviour:
         guid: 0c2db92ef176ac499cdd0c769c78bc4c
       - ElementName: Level01
         ObjectType: 7
-        guid: 8037c6c450ea354cab42c9d15211b72a
+        guid: b01a9f8bdb600a47929f399b2fefb141
       Path: SoundBanks/Default Work Unit/Level01
   EventWwu:
   - PhysicalPath: Events/Broadcaster.wwu
@@ -192,7 +192,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 05760e8b89de3649adde474e0d5001d7
     GuidInternal: 
-    m_lastTime: -8584609985140847064
+    m_lastTime: -8584578856091425048
     List: []
   - PhysicalPath: Events/DeviceFX.wwu
     PathAndIcons:
@@ -312,28 +312,8 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalMusic
     guid: d52ecf674bcd894cb2e4624ec6db47cf
     GuidInternal: 
-    m_lastTime: -8584618295963387159
-    List:
-    - name: playGemTestTrack
-      guid: e104dcac3adf564291b535aadeb06366
-      id: 538017021
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 05760e8b89de3649adde474e0d5001d7
-      - ElementName: GlobalMusic
-        ObjectType: 12
-        guid: d52ecf674bcd894cb2e4624ec6db47cf
-      - ElementName: playGemTestTrack
-        ObjectType: 3
-        guid: e104dcac3adf564291b535aadeb06366
-      Path: Events/Default Work Unit/GlobalMusic/playGemTestTrack
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+    m_lastTime: -8584578864487789578
+    List: []
   - PhysicalPath: Events/GlobalSFX.wwu
     PathAndIcons:
     - ElementName: Events
@@ -348,7 +328,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX
     guid: c8c12fe90dedb347900c49211ddb045e
     GuidInternal: 
-    m_lastTime: -8584614431876973785
+    m_lastTime: -8584577954256300132
     List:
     - name: playDoorOpen
       guid: b7474ee4c66ce947b9281be9deb6a11e
@@ -370,26 +350,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 9
       minDuration: 9
-    - name: playEndCutscene
-      guid: 0f028924dd8d51408a5ddd239076bd5e
-      id: 3310685126
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 05760e8b89de3649adde474e0d5001d7
-      - ElementName: GlobalSFX
-        ObjectType: 12
-        guid: c8c12fe90dedb347900c49211ddb045e
-      - ElementName: playEndCutscene
-        ObjectType: 3
-        guid: 0f028924dd8d51408a5ddd239076bd5e
-      Path: Events/Default Work Unit/GlobalSFX/playEndCutscene
-      maxAttenuation: 0
-      maxDuration: 10
-      minDuration: 10
     - name: playFootsteps
       guid: 5313c2ba5c5e574781aa87e99f990987
       id: 1088348632
@@ -650,11 +610,11 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Level01Music
     guid: 638c28170156a2408ade26f9358e9cf9
     GuidInternal: 
-    m_lastTime: -8584614427863275136
+    m_lastTime: -8584578628512928210
     List:
-    - name: activateStepDucking
-      guid: 9aa4f2c739a8ec48b3e3253440272d35
-      id: 3348497029
+    - name: playToGameplayTransition01
+      guid: 55ea91b45c98e3409ec6ac5926289ac4
+      id: 2182868672
       PathAndIcons:
       - ElementName: Events
         ObjectType: 5
@@ -665,55 +625,15 @@ MonoBehaviour:
       - ElementName: Level01Music
         ObjectType: 12
         guid: 638c28170156a2408ade26f9358e9cf9
-      - ElementName: activateStepDucking
+      - ElementName: playToGameplayTransition01
         ObjectType: 3
-        guid: 9aa4f2c739a8ec48b3e3253440272d35
-      Path: Events/Default Work Unit/Level01Music/activateStepDucking
+        guid: 55ea91b45c98e3409ec6ac5926289ac4
+      Path: Events/Default Work Unit/Level01Music/playToGameplayTransition01
       maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: playElevatorHints
-      guid: ff49f3636af49d4798907f0d28712bc9
-      id: 3253062429
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 05760e8b89de3649adde474e0d5001d7
-      - ElementName: Level01Music
-        ObjectType: 12
-        guid: 638c28170156a2408ade26f9358e9cf9
-      - ElementName: playElevatorHints
-        ObjectType: 3
-        guid: ff49f3636af49d4798907f0d28712bc9
-      Path: Events/Default Work Unit/Level01Music/playElevatorHints
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: startIntroBridgeChoir
-      guid: ef8b776a2cbe304c9f9b8da93179356c
-      id: 1116304881
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 05760e8b89de3649adde474e0d5001d7
-      - ElementName: Level01Music
-        ObjectType: 12
-        guid: 638c28170156a2408ade26f9358e9cf9
-      - ElementName: startIntroBridgeChoir
-        ObjectType: 3
-        guid: ef8b776a2cbe304c9f9b8da93179356c
-      Path: Events/Default Work Unit/Level01Music/startIntroBridgeChoir
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxDuration: 16.346848
+      minDuration: 16.346848
     - name: startMetronome01
-      guid: 9202cb10e4c0e041af676c101917b906
+      guid: 526e7ed37a6b654bac5c361561fc81ae
       id: 3352024112
       PathAndIcons:
       - ElementName: Events
@@ -727,7 +647,7 @@ MonoBehaviour:
         guid: 638c28170156a2408ade26f9358e9cf9
       - ElementName: startMetronome01
         ObjectType: 3
-        guid: 9202cb10e4c0e041af676c101917b906
+        guid: 526e7ed37a6b654bac5c361561fc81ae
       Path: Events/Default Work Unit/Level01Music/startMetronome01
       maxAttenuation: 0
       maxDuration: 0
@@ -749,26 +669,6 @@ MonoBehaviour:
         ObjectType: 3
         guid: d38f188975345b4da9f354be90c44217
       Path: Events/Default Work Unit/Level01Music/startMusic01
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
-    - name: stopIntroBridgeChoir
-      guid: 74970b81be18bd4b88e379cdaf93950d
-      id: 2373524099
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 05760e8b89de3649adde474e0d5001d7
-      - ElementName: Level01Music
-        ObjectType: 12
-        guid: 638c28170156a2408ade26f9358e9cf9
-      - ElementName: stopIntroBridgeChoir
-        ObjectType: 3
-        guid: 74970b81be18bd4b88e379cdaf93950d
-      Path: Events/Default Work Unit/Level01Music/stopIntroBridgeChoir
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -868,48 +768,6 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 1.0442737
       minDuration: 0.95760334
-  - PhysicalPath: Events/NestedTest.wwu
-    PathAndIcons:
-    - ElementName: Events
-      ObjectType: 5
-      guid: 00000000000000000000000000000000
-    - ElementName: Default Work Unit
-      ObjectType: 12
-      guid: 05760e8b89de3649adde474e0d5001d7
-    - ElementName: GlobalMusic
-      ObjectType: 12
-      guid: d52ecf674bcd894cb2e4624ec6db47cf
-    - ElementName: NestedTest
-      ObjectType: 12
-      guid: 297dbbb47edbf24591bd8fe872205baf
-    ParentPath: Events/Default Work Unit/GlobalMusic/NestedTest
-    guid: 297dbbb47edbf24591bd8fe872205baf
-    GuidInternal: 
-    m_lastTime: -8584618295963341520
-    List:
-    - name: playTestMetronome
-      guid: b53bd34f625cc04d98fe3a39cb230954
-      id: 2757017905
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
-        ObjectType: 12
-        guid: 05760e8b89de3649adde474e0d5001d7
-      - ElementName: GlobalMusic
-        ObjectType: 12
-        guid: d52ecf674bcd894cb2e4624ec6db47cf
-      - ElementName: NestedTest
-        ObjectType: 12
-        guid: 297dbbb47edbf24591bd8fe872205baf
-      - ElementName: playTestMetronome
-        ObjectType: 3
-        guid: b53bd34f625cc04d98fe3a39cb230954
-      Path: Events/Default Work Unit/GlobalMusic/NestedTest/playTestMetronome
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
   - PhysicalPath: Events/Puzzles.wwu
     PathAndIcons:
     - ElementName: Events
@@ -1301,7 +1159,7 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit/Level01
     guid: 2850dd17a02c1c4fa3806f4777258544
     GuidInternal: 
-    m_lastTime: -8584598548557206271
+    m_lastTime: -8584578634095582937
     List:
     - name: EntranceHall
       guid: d4a7e92acccac14e9d95fbd8a94000ea
@@ -1456,9 +1314,9 @@ MonoBehaviour:
         guid: 75138e5436b0374da58ee884a4336135
       Path: States/Default Work Unit/Level01/Level01Master
       values:
-      - name: CliffsEdge
-        guid: 81327b4c61c44843bd8ef3f429f5f919
-        id: 1149990767
+      - name: EntranceHall
+        guid: 78435f98e01bbe449dfad1292b06799e
+        id: 270858878
         PathAndIcons:
         - ElementName: States
           ObjectType: 5
@@ -1472,12 +1330,12 @@ MonoBehaviour:
         - ElementName: Level01Master
           ObjectType: 9
           guid: 75138e5436b0374da58ee884a4336135
-        - ElementName: CliffsEdge
+        - ElementName: EntranceHall
           ObjectType: 8
-          guid: 81327b4c61c44843bd8ef3f429f5f919
-      - name: ElevatorHallway
-        guid: 1ba1755ef3b01648966f6e15adaa4183
-        id: 1379644315
+          guid: 78435f98e01bbe449dfad1292b06799e
+      - name: GetBroadcaster
+        guid: 98f7f4ab4ea1dd4c84bfc053446e8d05
+        id: 3020279701
         PathAndIcons:
         - ElementName: States
           ObjectType: 5
@@ -1491,47 +1349,9 @@ MonoBehaviour:
         - ElementName: Level01Master
           ObjectType: 9
           guid: 75138e5436b0374da58ee884a4336135
-        - ElementName: ElevatorHallway
+        - ElementName: GetBroadcaster
           ObjectType: 8
-          guid: 1ba1755ef3b01648966f6e15adaa4183
-      - name: ElevatorShaft
-        guid: fafc82c7c2cd4a45b8615acc204e5e4e
-        id: 1318468365
-        PathAndIcons:
-        - ElementName: States
-          ObjectType: 5
-          guid: 00000000000000000000000000000000
-        - ElementName: Default Work Unit
-          ObjectType: 12
-          guid: b0e00b1ac79152458f2bacb892dce628
-        - ElementName: Level01
-          ObjectType: 12
-          guid: 2850dd17a02c1c4fa3806f4777258544
-        - ElementName: Level01Master
-          ObjectType: 9
-          guid: 75138e5436b0374da58ee884a4336135
-        - ElementName: ElevatorShaft
-          ObjectType: 8
-          guid: fafc82c7c2cd4a45b8615acc204e5e4e
-      - name: Intro
-        guid: 7ff59798247f014fb3ab3491f3e94c16
-        id: 1125500713
-        PathAndIcons:
-        - ElementName: States
-          ObjectType: 5
-          guid: 00000000000000000000000000000000
-        - ElementName: Default Work Unit
-          ObjectType: 12
-          guid: b0e00b1ac79152458f2bacb892dce628
-        - ElementName: Level01
-          ObjectType: 12
-          guid: 2850dd17a02c1c4fa3806f4777258544
-        - ElementName: Level01Master
-          ObjectType: 9
-          guid: 75138e5436b0374da58ee884a4336135
-        - ElementName: Intro
-          ObjectType: 8
-          guid: 7ff59798247f014fb3ab3491f3e94c16
+          guid: 98f7f4ab4ea1dd4c84bfc053446e8d05
       - name: None
         guid: 06e259152d58c44f87adcd9ff9ecfd04
         id: 748895195
@@ -1551,9 +1371,9 @@ MonoBehaviour:
         - ElementName: None
           ObjectType: 8
           guid: 06e259152d58c44f87adcd9ff9ecfd04
-      - name: RingPuzzle
-        guid: ed70a1ab7a01194fa7ee80cef3e222df
-        id: 2715723947
+      - name: Opening
+        guid: 29ea8ec8eb35e04997c575116e51d6ca
+        id: 1831982039
         PathAndIcons:
         - ElementName: States
           ObjectType: 5
@@ -1567,9 +1387,9 @@ MonoBehaviour:
         - ElementName: Level01Master
           ObjectType: 9
           guid: 75138e5436b0374da58ee884a4336135
-        - ElementName: RingPuzzle
+        - ElementName: Opening
           ObjectType: 8
-          guid: ed70a1ab7a01194fa7ee80cef3e222df
+          guid: 29ea8ec8eb35e04997c575116e51d6ca
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
@@ -1812,7 +1632,7 @@ MonoBehaviour:
     m_lastTime: -8584621686010700110
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000a0000000b0000000c00000011000000120000001400000015000000160000001c0000001d0000001e0000001f00000020000000220000002300000026000000270000002800000029000000330000004600000047000000480000005a0000005b0000005c00000096010000
+  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000a0000000b0000000c0000001000000011000000120000001400000015000000160000001c0000001d0000001e0000001f00000020000000220000002300000026000000270000002800000029000000330000004600000047000000480000005a0000005b0000005c00000096010000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
