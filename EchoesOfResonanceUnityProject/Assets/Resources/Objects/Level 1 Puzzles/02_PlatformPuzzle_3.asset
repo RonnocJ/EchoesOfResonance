@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4b40b42d1684c0cbcfc1a3be85478d, type: 3}
   m_Name: 02_PlatformPuzzle_3
   m_EditorClassIdentifier: 
-  puzzleType: 0
+  puzzleType: 1
   solutions:
   - noteName: C2
     noteDuration:

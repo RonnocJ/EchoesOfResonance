@@ -27,7 +27,8 @@ public class MusicTriggerZone : MonoBehaviour
     {
         if (inTrigger && !played)
         {
-            MusicManager.root.PlaySong(musicEvent, musicTracker);
+            MusicManager.root.StopSong();
+            MusicManager.root.PlaySong(musicTracker);
             
             if(musicState != AudioState.None)
                 MusicManager.root.SetState(musicState);

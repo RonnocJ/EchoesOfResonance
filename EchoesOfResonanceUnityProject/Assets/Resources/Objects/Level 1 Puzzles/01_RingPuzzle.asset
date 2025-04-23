@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4b40b42d1684c0cbcfc1a3be85478d, type: 3}
   m_Name: 01_RingPuzzle
   m_EditorClassIdentifier: 
+  puzzleType: 0
   solutions:
   - noteName: C2
     noteDuration:
@@ -57,6 +58,31 @@ MonoBehaviour:
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  _solved: 2
-  _reset: 0
-  audioEffects: []
+  Active: 0
+  _solved: 3
+  _reset: 1
+  audioEffects:
+  - executeOnSolved: 0
+    executeEarly: 1
+    audioTypes: 2
+    audioEvents: 
+    audioStates: 7c12780d
+    audioSwitches: 
+    audioTriggers: 
+    audioRTPCs: []
+  - executeOnSolved: 0
+    executeEarly: 3
+    audioTypes: 2
+    audioEvents: 
+    audioStates: 7f12780d
+    audioSwitches: 
+    audioTriggers: 
+    audioRTPCs: []
+  - executeOnSolved: 0
+    executeEarly: 6
+    audioTypes: 2
+    audioEvents: 
+    audioStates: 7e12780d
+    audioSwitches: 
+    audioTriggers: 
+    audioRTPCs: []

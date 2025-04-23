@@ -4,6 +4,7 @@ using UnityEditor;
 [CustomEditor(typeof(AudioTriggerZone))]
 public class AudioTriggerZoneEditor : Editor
 {
+    SerializedProperty singleTrigger;
     SerializedProperty types;
     SerializedProperty audioEvents;
     SerializedProperty audioStates;
@@ -12,6 +13,7 @@ public class AudioTriggerZoneEditor : Editor
     SerializedProperty audioRTPCs;
     void OnEnable()
     {
+        singleTrigger = serializedObject.FindProperty("singleTrigger");
         types = serializedObject.FindProperty("effects");
         audioEvents = serializedObject.FindProperty("events");
         audioStates = serializedObject.FindProperty("states");
@@ -22,6 +24,8 @@ public class AudioTriggerZoneEditor : Editor
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+
+        singleTrigger.boolValue = EditorGUILayout.Toggle("Single Trigger:", singleTrigger.boolValue);
 
         types.intValue = (int)(AudioEffectType)EditorGUILayout.EnumFlagsField("Audio Effect Type", (AudioEffectType)types.intValue);
         AudioEffectType selectedTypes = (AudioEffectType)types.intValue;
@@ -53,15 +57,17 @@ public class AudioTriggerZoneEditor : Editor
 #endif
 public class AudioTriggerZone : MonoBehaviour
 {
+    [SerializeField] private bool singleTrigger;
     [SerializeField] private AudioEffectType effects;
     [SerializeField] private AudioEvent[] events;
     [SerializeField] private AudioState[] states;
     [SerializeField] private AudioSwitch[] switches;
     [SerializeField] private AudioTrigger[] triggers;
     [SerializeField] private RTPC[] rtpcs;
+    private bool triggered;
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && ((singleTrigger && !triggered) || !singleTrigger))
         {
             foreach (var e in events)
             {
@@ -83,6 +89,8 @@ public class AudioTriggerZone : MonoBehaviour
             {
                 AudioManager.root.SetRTPC(r.parameter, r.value);
             }
+
+            if(singleTrigger) triggered = true;
         }
     }
 }

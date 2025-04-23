@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09103181759ca44c3bf82fec14234453, type: 3}
   m_Name: Test Overrides
   m_EditorClassIdentifier: 
-  skipIntro: 1
-  saveProgress: 0
+  skipIntro: 0
+  saveProgress: 1
   uiSpeed: 1
   overrideSpawn: 0
   playerSpawnPosition: {x: 0, y: 4, z: 138}

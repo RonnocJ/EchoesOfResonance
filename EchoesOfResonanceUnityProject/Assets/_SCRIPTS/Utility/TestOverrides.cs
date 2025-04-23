@@ -46,6 +46,13 @@ public class TestOverridesEditor : Editor
             {
                 Debug.LogError($"Could not reset save data at {fullPath} \n {e}");
             }
+
+            var puzzles = Resources.LoadAll<PuzzleData>("");
+
+            foreach(var p in puzzles)
+            {
+                p.solved = 0;
+            }
         }
     }
 }

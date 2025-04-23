@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082086c3f9136402480b22e4c2300876, type: 3}
+  m_Name: 30BB047E-AD41-411F-A3E2-C4097231178D
+  m_EditorClassIdentifier: 
+  objectName: MediumRoomVerb
+  id: 4091100022
+  guid: 30BB047E-AD41-411F-A3E2-C4097231178D

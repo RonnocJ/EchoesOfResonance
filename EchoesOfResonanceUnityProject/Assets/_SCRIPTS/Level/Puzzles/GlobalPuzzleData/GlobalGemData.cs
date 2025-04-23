@@ -14,8 +14,7 @@ public class GlobalGemData : GlobalData
         [ColorUsage(true, true)]
         public Color topColor;
     }
-    public Mesh[] gemMeshes;
     public GemColors[] gemColors;
     public readonly Dictionary<int, int> gemMeshIndicies = new()
-    { {1, 0}, {2, 1}, {3, -1}, {4, 2}, {5, 3} };
+    { {0, 3}, {1, 0}, {2, 1}, {3, -1}, {4, 2} };
 }

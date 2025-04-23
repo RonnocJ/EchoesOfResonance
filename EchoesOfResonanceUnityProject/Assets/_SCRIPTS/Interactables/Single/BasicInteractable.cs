@@ -34,17 +34,20 @@ public abstract class BasicInteractable : MonoBehaviour
     private bool _activated;
     void Awake()
     {
-        if (executeOnFinish)
+        if (IsLinkedWithPuzzle)
         {
-            linkedData.OnPuzzleCompleted += () => ActivateObject();
-        }
-        else
-        {
-            linkedData.OnSolvedChanged += solved =>
+            if (executeOnFinish)
             {
-                if (solved >= executeEarly && !_activated) ActivateObject();
-                        else if (_activated && solved < executeEarly) ResetObject();
-            };
+                linkedData.OnPuzzleCompleted += () => ActivateObject();
+            }
+            else
+            {
+                linkedData.OnSolvedChanged += solved =>
+                {
+                    if (solved >= executeEarly && !_activated) ActivateObject();
+                            else if (_activated && solved < executeEarly) ResetObject();
+                };
+            }
         }
     }
     public virtual void ActivateObject()

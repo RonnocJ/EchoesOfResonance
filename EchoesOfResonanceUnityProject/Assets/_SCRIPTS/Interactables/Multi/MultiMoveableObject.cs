@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 [Serializable]
 public class ObjectMoveStep
@@ -27,7 +28,7 @@ public class ObjectMoveStep
             }
         }
 
-        CRManager.root.Restart(target.ApplyToOverTime(parent.transform, moveTime), $"{parent.gameObject}ObjMoveStep", parent);
+        CRManager.root.Restart(target.ApplyToOverTime(parent.transform, moveTime, parent.InterpolationCurve), $"{parent.gameObject}ObjMoveStep", parent);
         yield return new WaitForSeconds(moveTime);
     }
 }
@@ -69,13 +70,39 @@ public class MultiMoveStep : MultiInteractableStep
 
     }
 }
-public class MultiMoveableObject : MultiInteractable
+public class MultiMoveableObject : MultiInteractable, ISaveData
 {
+    public AnimationCurve InterpolationCurve;
 #if UNITY_EDITOR
     protected override Type GetStepType() => typeof(MultiMoveStep);
 #endif
     public Queue<ObjectMoveStep> stepQueue = new();
+        public Dictionary<string, object> AddSaveData()
+    {
+        if ((LinkedData == null && Steps[Steps.Count - 1].activated) || (LinkedData != null && LinkedData.Solved))
+        {
+            if (Steps[Steps.Count - 1] is MultiMoveStep rStep)
+            {
+                return new Dictionary<string, object>
+            {
+                {"puzzlePosition", new SaveStruct(rStep.steps[rStep.steps.Length - 1].target)},
+            };
+            }
+        }
 
+        return null;
+    }
+    public void ReadSaveData(Dictionary<string, object> savedData)
+    {
+        if (savedData.TryGetValue("puzzlePosition", out object solvedPositionRaw))
+        {
+            string json = JsonConvert.SerializeObject(solvedPositionRaw);
+            SaveStruct solvedPosition = JsonConvert.DeserializeObject<SaveStruct>(json);
+
+            TrData solvedPos = solvedPosition.LoadData();
+            solvedPos.ApplyTo(transform);
+        }
+    }
     public IEnumerator DepleteMoveQueue()
     {
         while (stepQueue.Count > 0)

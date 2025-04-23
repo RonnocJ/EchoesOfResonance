@@ -49,7 +49,7 @@ public abstract class MultiInteractable : MonoBehaviour
         get => linkedData;
         set => linkedData = value;
     }
-    [SerializeReference] protected List<MultiInteractableStep> steps = new();
+    [SerializeReference] protected List<MultiInteractableStep> Steps = new();
 
 #if UNITY_EDITOR
     protected abstract Type GetStepType();
@@ -57,13 +57,13 @@ public abstract class MultiInteractable : MonoBehaviour
 
     public virtual void Awake()
     {
-        foreach (var step in steps)
+        foreach (var step in Steps)
         {
             step.parent = this;
 
             if (step.ExecuteOnFinish)
             {
-                linkedData.OnPuzzleCompleted += () => step.ActivateObject();
+                linkedData.OnPuzzleCompleted += step.ActivateObject;
             }
             else
             {
@@ -77,11 +77,11 @@ public abstract class MultiInteractable : MonoBehaviour
 
         linkedData.OnSolvedChanged += solved =>
         {
-            for (int i = steps.Count - 1; i >= 0; i--)
+            for (int i = Steps.Count - 1; i >= 0; i--)
             {
-                if (!steps[i].ExecuteOnFinish)
+                if (!Steps[i].ExecuteOnFinish)
                 {
-                    if (solved < steps[i].ExecuteEarly && steps[i].activated) steps[i].ResetObject();
+                    if ((solved < Steps[i].ExecuteEarly && Steps[i].activated) || (Steps[i].ExecuteEarly == solved && solved == 0))  Steps[i].ResetObject();
                 }
             }
         };
@@ -132,12 +132,12 @@ public class MultiInteractableStepEditor : Editor
 [CustomEditor(typeof(MultiInteractable), true)]
 public class MultiInteractableEditor : Editor
 {
-    private SerializedProperty stepsProperty;
+    private SerializedProperty StepsProperty;
     private Type stepType;
 
     private void OnEnable()
     {
-        stepsProperty = serializedObject.FindProperty("steps");
+        StepsProperty = serializedObject.FindProperty("Steps");
 
         if (target is MultiInteractable interactable)
         {
@@ -156,7 +156,7 @@ public class MultiInteractableEditor : Editor
 
         while (property.NextVisible(false))
         {
-            if (property.name == "steps")
+            if (property.name == "Steps")
             {
                 continue;
             }
@@ -173,13 +173,13 @@ public class MultiInteractableEditor : Editor
             return;
         }
 
-        for (int i = 0; i < stepsProperty.arraySize; i++)
+        for (int i = 0; i < StepsProperty.arraySize; i++)
         {
-            SerializedProperty stepElement = stepsProperty.GetArrayElementAtIndex(i);
+            SerializedProperty stepElement = StepsProperty.GetArrayElementAtIndex(i);
 
             if (stepElement.managedReferenceValue == null || stepElement.managedReferenceValue.GetType() != stepType)
             {
-                stepsProperty.DeleteArrayElementAtIndex(i);
+                StepsProperty.DeleteArrayElementAtIndex(i);
                 continue;
             }
 
@@ -188,7 +188,7 @@ public class MultiInteractableEditor : Editor
 
             if (GUILayout.Button("Remove Step"))
             {
-                stepsProperty.DeleteArrayElementAtIndex(i);
+                StepsProperty.DeleteArrayElementAtIndex(i);
             }
 
             EditorGUILayout.EndVertical();
@@ -196,8 +196,8 @@ public class MultiInteractableEditor : Editor
 
         if (GUILayout.Button("Add Step"))
         {
-            stepsProperty.InsertArrayElementAtIndex(stepsProperty.arraySize);
-            SerializedProperty newElement = stepsProperty.GetArrayElementAtIndex(stepsProperty.arraySize - 1);
+            StepsProperty.InsertArrayElementAtIndex(StepsProperty.arraySize);
+            SerializedProperty newElement = StepsProperty.GetArrayElementAtIndex(StepsProperty.arraySize - 1);
             newElement.managedReferenceValue = Activator.CreateInstance(stepType);
         }
 

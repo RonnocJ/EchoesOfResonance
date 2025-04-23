@@ -27,6 +27,7 @@ public class BrBattery : Singleton<BrBattery>
 
                 if (_batteryLevel < clampedValue)
                 {
+                    OnBatteryEmpty?.Invoke();
                     CRManager.root.Begin(ShutdownRoutine(), "Shutdown", this);
                 }
 
@@ -42,19 +43,31 @@ public class BrBattery : Singleton<BrBattery>
         get => _notesHeld;
         set
         {
-            if(_notesHeld != value)
+            if (_notesHeld != value)
             {
                 _notesHeld = value;
                 OnNotesHeldChange.Invoke(_notesHeld);
+
+                CRManager.root.Restart(DrainBatteryRoutine(noteSustainDrainAmount * _notesHeld), "DrainBatteryNote", this);
+
+                if(value > _notesHeld)
+                {
+                    batteryLevel -= notePlayDrainAmount;
+                }
+                else if(value == 0)
+                {
+                    CRManager.root.Stop("DrainBatteryNote", this);
+                }
             }
         }
     }
-
-public Image batteryMeter;
-public Image infoScreen;
-public TextMeshProUGUI noteInfoText;
-public Camera cam;
-
+    [SerializeField] private float notePlayDrainAmount, noteSustainDrainAmount;
+    public Color DefaultBgColor;
+    [SerializeField] private Image batteryMeter;
+    public GameObject BackgroundScreen;
+    public GameObject BackLight;
+    [SerializeField] private TextMeshProUGUI noteInfoText;
+    public Camera cam;
 
     void Start()
     {
@@ -83,44 +96,49 @@ public Camera cam;
     }
     IEnumerator ShutdownRoutine()
     {
-        GameManager.root.currentState = GameState.Shutdown;
-        OnBatteryEmpty?.Invoke();
-        
+        GameManager.root.State = GameState.Shutdown;
+
+        InputManager.root.AllNotesOff();
+
         batteryMeter.fillAmount = 0;
 
-        AudioManager.root.StopSound(AudioEvent.playBroadcasterFX, gameObject);
+        AudioManager.root.StopSound(AudioEvent.playBroadcasterFX, gameObject, 1);
         AudioManager.root.PlaySound(AudioEvent.playShutoff, gameObject);
         AudioManager.root.SetRTPC(AudioRTPC.broadcaster_Shutdown, 100);
 
         CRManager.root.Stop("Regen", this);
         CRManager.root.Stop("DrainBatteryNote", this);
 
-        infoScreen.color = Color.black;
+        CRManager.root.Begin(UIUtil.root.FadeToColor(0.2f, 0, Color.black, new() { BackgroundScreen, BackLight }), "BrScreenToBlack", this);
 
-        yield return new WaitForSeconds(7.5f);
+        yield return new WaitForSeconds(5f);
 
         AudioManager.root.SetRTPC(AudioRTPC.broadcaster_Shutdown, 0);
 
         batteryLevel = 1f;
-        infoScreen.color = new Color(0.3f, 0.45f, 0.225f, 1);
+        
+        CRManager.root.Begin(UIUtil.root.FadeToColor(0.1f, 0, DefaultBgColor, new() { BackgroundScreen, BackLight }), "BrScreenToGreen", this);
 
         for (int i = 0; i < 50; i++)
         {
             batteryMeter.fillAmount += 0.02f;
             yield return null;
         }
+        RaycastHit[] hits = Physics.SphereCastAll(PlrMngr.root.transform.position, 1f, Vector3.down, 4f);
 
-        Ray ray = new Ray(cam.transform.position, Vector3.down);
-
-        if (Physics.Raycast(ray, out RaycastHit hit) && hit.collider.GetComponent<PuzzlePlate>()?.linkedData.solved < hit.collider.GetComponent<PuzzlePlate>()?.linkedData.solutions.Length)
+        foreach (var hit in hits)
         {
-            GameManager.root.currentState = GameState.InPuzzle;
-        }
-        else
-        {
-            GameManager.root.currentState = GameState.Roaming;
+            if (hit.collider.GetComponent<PuzzlePlate>())
+            {
+                GameManager.root.State = GameState.Synced;
+                break;
+            }
         }
 
+        if (GameManager.root.State == GameState.Shutdown)
+        {
+            GameManager.root.State = GameState.Roaming;
+        }
     }
     public void UpdateBatteryLevel()
     {
@@ -129,7 +147,6 @@ public Camera cam;
 
     void OnDisable()
     {
-        OnBatteryUpdate -= () => UpdateBatteryLevel();
-        OnBatteryEmpty -= () => CRManager.root.Begin(ShutdownRoutine(), "Shutdown", this);
+        OnBatteryUpdate -= UpdateBatteryLevel;
     }
 }

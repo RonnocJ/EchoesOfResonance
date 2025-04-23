@@ -13,7 +13,7 @@ public class UWPicker : EditorWindow
     private double unloadTime;
     private string queuedEventName, playingEventName, loadedBank, bankToUnload, rtpcName;
     public TreeView eventView, stateView, switchView, triggerView, rtpcView;
-    private Label playingEvent, currentState, currentSwitch, lastTrigger, selectedRTPC, rtpcMin, rtpcMax;
+    private Label playingEvent, State, currentSwitch, lastTrigger, selectedRTPC, rtpcMin, rtpcMax;
     private Slider rtpcSlider;
     private Button generateSoundbanks;
     private HashSet<string> eventSet = new();
@@ -46,7 +46,7 @@ public class UWPicker : EditorWindow
         rtpcView = rootVisualElement.Q<TreeView>("RTPCView");
 
         playingEvent = rootVisualElement.Q<Label>("PlayingEvent");
-        currentState = rootVisualElement.Q<Label>("CurrentState");
+        State = rootVisualElement.Q<Label>("CurrentState");
         currentSwitch = rootVisualElement.Q<Label>("CurrentSwitch");
         lastTrigger = rootVisualElement.Q<Label>("LastTrigger");
         selectedRTPC = rootVisualElement.Q<Label>("SelectedRTPC");
@@ -223,22 +223,25 @@ public class UWPicker : EditorWindow
         var selectedItems = stateView.GetSelectedItems<string>();
         bool setNewState = false;
 
-        foreach (var selectedItem in selectedItems)
+        if (selectedItems != null)
         {
-            if (selectedItem.children.ToList().Count() == 0)
+            foreach (var selectedItem in selectedItems)
             {
-                int parentId = stateView.GetParentIdForIndex(selectedIndices.First());
-
-                AkUnitySoundEngine.SetState(stateView.GetItemDataForId<string>(parentId), selectedItem.data);
-
-                currentState.text = $"Current State: \n {stateView.GetItemDataForId<string>(parentId)} -> {selectedItem.data}";
-                setNewState = true;
+                if (selectedItem.children.ToList().Count() == 0)
+                {
+                    int parentId = stateView.GetParentIdForIndex(selectedIndices.First());
+    
+                    AkUnitySoundEngine.SetState(stateView.GetItemDataForId<string>(parentId), selectedItem.data);
+    
+                    State.text = $"Current State: \n {stateView.GetItemDataForId<string>(parentId)} -> {selectedItem.data}";
+                    setNewState = true;
+                }
             }
         }
 
         if (!setNewState)
         {
-            currentState.text = "Current State: \n None";
+            State.text = "Current State: \n None";
         }
     }
     private void TrySetSwitch(IEnumerable<int> selectedIndices)
@@ -246,16 +249,19 @@ public class UWPicker : EditorWindow
         var selectedItems = switchView.GetSelectedItems<string>();
         bool setNewSwitch = false;
 
-        foreach (var selectedItem in selectedItems)
+        if (selectedItems != null)
         {
-            if (selectedItem.children.ToList().Count() == 0)
+            foreach (var selectedItem in selectedItems)
             {
-                int parentId = switchView.GetParentIdForIndex(selectedIndices.First());
-
-                AkUnitySoundEngine.SetSwitch(switchView.GetItemDataForId<string>(parentId), selectedItem.data, cam.gameObject);
-
-                currentSwitch.text = $"Current Switch: \n {switchView.GetItemDataForId<string>(parentId)} -> {selectedItem.data}";
-                setNewSwitch = true;
+                if (selectedItem.children.ToList().Count() == 0)
+                {
+                    int parentId = switchView.GetParentIdForIndex(selectedIndices.First());
+    
+                    AkUnitySoundEngine.SetSwitch(switchView.GetItemDataForId<string>(parentId), selectedItem.data, cam.gameObject);
+    
+                    currentSwitch.text = $"Current Switch: \n {switchView.GetItemDataForId<string>(parentId)} -> {selectedItem.data}";
+                    setNewSwitch = true;
+                }
             }
         }
 
@@ -266,19 +272,18 @@ public class UWPicker : EditorWindow
     }
     private void TrySetTrigger()
     {
-        if (Enum.TryParse(triggerView.selectedItem.ToString(), out AudioTrigger triggerToSet))
+        if (triggerView.selectedItem != null && Enum.TryParse(triggerView.selectedItem.ToString(), out AudioTrigger triggerToSet))
         {
             AkUnitySoundEngine.PostTrigger(triggerToSet.ToString(), cam.gameObject);
         }
     }
     private void TrySetRTPC()
     {
-        if (_bankObj.RTPCBankDict.TryGetValue(rtpcView.selectedItem.ToString(), out var rtpcInstance))
+        if (rtpcView.selectedItem != null && _bankObj.RTPCBankDict.TryGetValue(rtpcView.selectedItem.ToString(), out var rtpcInstance))
         {
             selectedRTPC.text = $"Selected RTPC: \n {rtpcView.selectedItem.ToString().Replace("_", " ")}";
             rtpcMin.text = rtpcInstance.min.ToString();
             rtpcMax.text = rtpcInstance.max.ToString();
-            Debug.Log(rtpcInstance.max.ToString());
 
             rtpcName = rtpcView.selectedItem.ToString();
 

@@ -9,18 +9,20 @@ using System.Linq;
 
 public enum ActionTypes
 {
-    KeyDown, KeyUp, ChordDown, ChordUp, ModwheelChange, PitchbendChange, Settings, KeyHoldToggle
+    KeyDown, KeyUp, ChordDown, ModwheelChange, PitchbendChange, Settings, KeyHoldToggle
 }
 
 public class ActionData
 {
     public Action<float> actionEvent;
     public float floatInput;
+    public Action<int, int> actionWithVelocity;
 
-    public ActionData(Action<float> newAction, float initialValue = 0f)
+    public ActionData(Action<float> newAction, float initialValue = 0f, Action<int, int> newVelocityAction = null)
     {
         actionEvent = newAction ?? (_ => { });
         floatInput = initialValue;
+        actionWithVelocity = newVelocityAction ?? null;
     }
 }
 
@@ -32,7 +34,7 @@ public class InputManager : Singleton<InputManager>
     private float verticalArrowSpeed, heldNote;
     private Key lastKey = Key.None, lastNum = Key.None;
     private Action<char> _subscribeCPU;
-    private readonly List<int> notesDown = new();
+    private readonly Dictionary<int, int> notesDown = new();
     private readonly List<int> notesUp = new();
     private readonly List<IInputScript> inputs = new();
     private readonly Dictionary<ActionTypes, ActionData> actionDict = new();
@@ -52,16 +54,20 @@ public class InputManager : Singleton<InputManager>
         base.Awake();
         InitializeGlobalActions();
 
-        UIFade.root.SetAlpha(1, new() { _configScreen });
+        UIUtil.root.SetAlpha(1, new() { _configScreen });
 
         _midiController = Melanchall.DryWetMidi.Multimedia.InputDevice.GetAll().FirstOrDefault();
-        _midiController.EventReceived += UseMIDI;
-        _midiController.StartEventsListening();
+
+        if (_midiController != null)
+        {
+            _midiController.EventReceived += UseMIDI;
+            _midiController.StartEventsListening();
+        }
 
         _subscribeCPU += _ =>
         {
             UseKeyboard();
-            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
+            CRManager.root.Begin(UIUtil.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
             MusicManager.root.MusicToGameplay();
         };
 
@@ -73,7 +79,17 @@ public class InputManager : Singleton<InputManager>
         if (actionDict.Count == 0)
         {
             foreach (ActionTypes type in Enum.GetValues(typeof(ActionTypes)))
-                actionDict[type] = new ActionData(_ => { });
+            {
+                if (type is ActionTypes.KeyDown or ActionTypes.ChordDown)
+                {
+                    actionDict[type] = new ActionData(_ => { }, 0, (_, _) => { });
+                }
+                else
+                {
+                    actionDict[type] = new ActionData(_ => { });
+                }
+            }
+
         }
 
         keyInputs.FindActionMap("KeyboardMapping").FindAction("Settings").performed += _ =>
@@ -85,7 +101,7 @@ public class InputManager : Singleton<InputManager>
 
     void UseMIDI(object sender, MidiEventReceivedEventArgs e)
     {
-        if (!(e.Event is NoteOnEvent or NoteOffEvent or ControlChangeEvent or PitchBendEvent)) return;
+        if (!(e.Event is NoteOnEvent)) return;
 
         UnityMainThread.wkr.AddJob(() =>
         {
@@ -96,7 +112,7 @@ public class InputManager : Singleton<InputManager>
             keyInputs.FindActionMap("KeyboardMapping").FindAction("Settings").Enable();
             Keyboard.current.onTextInput -= _ => UseKeyboard();
 
-            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
+            CRManager.root.Begin(UIUtil.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
             MusicManager.root.MusicToGameplay();
 
             InitializeMidiActions();
@@ -106,7 +122,7 @@ public class InputManager : Singleton<InputManager>
 
     void UseKeyboard()
     {
-        _midiController.EventReceived -= UseMIDI;
+        if (_midiController != null) _midiController.EventReceived -= UseMIDI;
         Keyboard.current.onTextInput -= _subscribeCPU;
 
         keyInputs.FindActionMap("KeyboardMapping").Enable();
@@ -124,17 +140,19 @@ public class InputManager : Singleton<InputManager>
                 switch (message.Event)
                 {
                     case NoteOnEvent n:
-
-                        notesDown.Add((int)GetNote((byte)n.NoteNumber));
-                        CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyDown), "NoteDownCheck", this);
-
+                        if ((int)GetNote((byte)n.NoteNumber) is >= 1 and <= 25)
+                        {
+                            notesDown[(int)GetNote((byte)n.NoteNumber)] = (int)n.Velocity;
+                            CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyDown), "NoteDownCheck", this);
+                        }
                         break;
 
                     case NoteOffEvent f:
-
-                        notesUp.Add((int)GetNote((byte)f.NoteNumber));
-                        CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyUp), "NoteUpCheck", this);
-
+                        if ((int)GetNote((byte)f.NoteNumber) is >= 1 and <= 25)
+                        {
+                            notesUp.Add((int)GetNote((byte)f.NoteNumber));
+                            CRManager.root.Begin(DelayedNoteCheck(ActionTypes.KeyUp), "NoteUpCheck", this);
+                        }
                         break;
 
                     case ControlChangeEvent c:
@@ -171,11 +189,12 @@ public class InputManager : Singleton<InputManager>
             if (notesDown.Count == 4)
             {
                 int encodedChord = 0;
-                notesDown.Sort();
+                int averageVelocity = 0;
 
-                foreach (int note in notesDown)
+                foreach (var n in notesDown)
                 {
-                    encodedChord |= 1 << note;
+                    encodedChord |= 1 << n.Key;
+                    averageVelocity += n.Value;
                 }
 
                 bool invokedChord = false;
@@ -185,12 +204,13 @@ public class InputManager : Singleton<InputManager>
                     int compareChord = 0;
                     foreach (var note in BrChord.root.abilities[i].notes)
                     {
-                        compareChord |= 1 << (int)PuzzleUtilities.root.GetNoteNumber(note);
+                        compareChord |= 1 << (int)PzUtil.GetNoteNumber(note);
                     }
 
                     if (encodedChord == compareChord)
                     {
                         actionDict[ActionTypes.ChordDown].actionEvent.Invoke(i);
+                        actionDict[ActionTypes.ChordDown].actionWithVelocity.Invoke(i, averageVelocity / 4);
                         invokedChord = true;
                         i = BrChord.root.abilities.Length;
                     }
@@ -198,17 +218,19 @@ public class InputManager : Singleton<InputManager>
 
                 if (!invokedChord)
                 {
-                    foreach (float note in notesDown)
+                    foreach (var n in notesDown)
                     {
-                        actionDict[ActionTypes.KeyDown].actionEvent.Invoke(note);
+                        actionDict[ActionTypes.KeyDown].actionEvent.Invoke(n.Key);
+                        actionDict[ActionTypes.KeyDown].actionWithVelocity.Invoke(n.Key, n.Value);
                     }
                 }
             }
             else
             {
-                foreach (float note in notesDown)
+                foreach (var n in notesDown)
                 {
-                    actionDict[ActionTypes.KeyDown].actionEvent.Invoke(note);
+                    actionDict[ActionTypes.KeyDown].actionEvent.Invoke(n.Key);
+                    actionDict[ActionTypes.KeyDown].actionWithVelocity.Invoke(n.Key, n.Value);
                 }
             }
 
@@ -216,48 +238,9 @@ public class InputManager : Singleton<InputManager>
         }
         else if (type == ActionTypes.KeyUp)
         {
-            if (notesUp.Count == 4)
+            foreach (float note in notesUp)
             {
-                int encodedChord = 0;
-                notesUp.Sort();
-
-                foreach (int note in notesUp)
-                {
-                    encodedChord |= 1 << note;
-                }
-
-                bool invokedChord = false;
-
-                for (int i = 0; i < BrChord.root.abilities.Length; i++)
-                {
-                    int compareChord = 0;
-                    foreach (var note in BrChord.root.abilities[i].notes)
-                    {
-                        compareChord |= 1 << (int)PuzzleUtilities.root.GetNoteNumber(note);
-                    }
-
-                    if (encodedChord == compareChord)
-                    {
-                        actionDict[ActionTypes.ChordUp].actionEvent.Invoke(i);
-                        invokedChord = true;
-                        i = BrChord.root.abilities.Length;
-                    }
-                }
-
-                if (!invokedChord)
-                {
-                    foreach (float note in notesUp)
-                    {
-                        actionDict[ActionTypes.KeyUp].actionEvent.Invoke(note);
-                    }
-                }
-            }
-            else
-            {
-                foreach (float note in notesUp)
-                {
-                    actionDict[ActionTypes.KeyUp].actionEvent.Invoke(note);
-                }
+                actionDict[ActionTypes.KeyUp].actionEvent.Invoke(note);
             }
 
             notesUp.Clear();
@@ -265,8 +248,8 @@ public class InputManager : Singleton<InputManager>
     }
     float GetNote(float noteCheck)
     {
-        return BrSettings.root.middleKey != -1
-            ? Mathf.Clamp(noteCheck - BrSettings.root.middleKey + 13, 1, 25)
+        return BrDisplay.root.middleKey != -1
+            ? noteCheck - BrDisplay.root.middleKey + 13
             : noteCheck;
     }
 
@@ -292,8 +275,8 @@ public class InputManager : Singleton<InputManager>
             keyToggle = !keyToggle;
             if (!keyToggle)
             {
-                foreach (float note in notesDown)
-                    actionDict[ActionTypes.KeyUp].actionEvent.Invoke(note);
+                foreach (var n in notesDown)
+                    actionDict[ActionTypes.KeyUp].actionEvent.Invoke(n.Key);
                 notesDown.Clear();
             }
 
@@ -334,14 +317,14 @@ public class InputManager : Singleton<InputManager>
             {
                 int note = numOctMapping[lastNum] * 5 + keyNoteMapping[lastKey];
 
-                if (notesDown.Contains(note))
+                if (notesDown.ContainsKey(note))
                 {
                     notesDown.Remove(note);
                     actionDict[ActionTypes.KeyUp].actionEvent.Invoke(note);
                 }
                 else
                 {
-                    notesDown.Add(note);
+                    notesDown.Add(note, 64);
                     actionDict[ActionTypes.KeyDown].actionEvent.Invoke(note);
                 }
 
@@ -406,19 +389,26 @@ public class InputManager : Singleton<InputManager>
     }
     public void AddListener<T>(ActionTypes type, Action<float> method)
     {
-        var stateAttribute = (AllowedStatesAttribute)Attribute.GetCustomAttribute(method.Method, typeof(AllowedStatesAttribute));
+        var allowedStateAttribute = (AllowedStates)Attribute.GetCustomAttribute(method.Method, typeof(AllowedStates));
+        var dissallowedStateAttribute = (DissallowedStates)Attribute.GetCustomAttribute(method.Method, typeof(DissallowedStates));
+        var allStateAttribute = (AllowAllAboveState)Attribute.GetCustomAttribute(method.Method, typeof(AllowAllAboveState));
 
-        Action<float> wrappedMethod = method;
-        if (stateAttribute != null)
+        Action<float> wrappedMethod = input =>
         {
-            wrappedMethod = input =>
-            {
-                if (Array.Exists(stateAttribute.States, state => state == GameManager.root.currentState))
-                {
-                    method(input);
-                }
-            };
-        }
+            var State = GameManager.root.State;
+
+            if (allowedStateAttribute != null && !allowedStateAttribute.States.Contains(State))
+                return;
+
+            if (dissallowedStateAttribute != null && dissallowedStateAttribute.States.Contains(State))
+                return;
+
+            if (allStateAttribute != null && State < allStateAttribute.MinState)
+                return;
+
+
+            method(input);
+        };
 
         lock (actionDict)
         {
@@ -426,15 +416,49 @@ public class InputManager : Singleton<InputManager>
         }
     }
 
+    public void AddVelocityListener<T>(ActionTypes type, Action<int, int> method)
+    {
+        var allowedStateAttribute = (AllowedStates)Attribute.GetCustomAttribute(method.Method, typeof(AllowedStates));
+        var dissallowedStateAttribute = (DissallowedStates)Attribute.GetCustomAttribute(method.Method, typeof(DissallowedStates));
+        var allStateAttribute = (AllowAllAboveState)Attribute.GetCustomAttribute(method.Method, typeof(AllowAllAboveState));
+
+        Action<int, int> wrappedMethod = (note, vel) =>
+        {
+            var State = GameManager.root.State;
+
+            if (allowedStateAttribute != null && !allowedStateAttribute.States.Contains(State))
+                return;
+
+            if (dissallowedStateAttribute != null && dissallowedStateAttribute.States.Contains(State))
+                return;
+
+            if (allStateAttribute != null && State >= allStateAttribute.MinState)
+                return;
+
+
+            method(note, vel);
+        };
+
+        lock (actionDict)
+        {
+            actionDict[type].actionWithVelocity += wrappedMethod;
+        }
+    }
+    public void AllNotesOff()
+    {
+        for (int i = 1; i < 26; i++)
+        {
+            actionDict[ActionTypes.KeyUp].actionEvent.Invoke(i);
+        }
+    }
     void OnDisable()
     {
         if (_midiController != null)
-            _midiController.StopEventsListening();
-
-        Keyboard.current.onTextInput -= _ =>
         {
-            UseKeyboard();
-            CRManager.root.Begin(UIFade.root.FadeItems(0.5f * DH.Get<TestOverrides>().uiSpeed, 0, true, new List<GameObject> { _configScreen }), "FadeOutConfig", this);
-        };
+            _midiController.StopEventsListening();
+            _midiController.EventReceived -= UseMIDI;
+        }
+
+        Keyboard.current.onTextInput -= _subscribeCPU;
     }
 }

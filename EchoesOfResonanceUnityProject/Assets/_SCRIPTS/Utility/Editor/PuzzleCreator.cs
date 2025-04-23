@@ -9,6 +9,8 @@ public class PuzzleCreator : MonoBehaviour
     [MenuItem("Utilities/Generate New Puzzle")]
     static void CreateNewPuzzle()
     {
+        DH.RegisterAllAtStartup();
+
         plate = null;
 
         plate = GetPlate();
@@ -29,6 +31,8 @@ public class PuzzleCreator : MonoBehaviour
     [MenuItem("Utilities/Update Immoveable Puzzle")]
     static void UpdateImmoveableExistingPuzzle()
     {
+        DH.RegisterAllAtStartup();
+
         plate = null;
         data = null;
 
@@ -58,6 +62,8 @@ public class PuzzleCreator : MonoBehaviour
     [MenuItem("Utilities/Update Moveable Puzzle")]
     static void UpdateMoveableExistingPuzzle()
     {
+        DH.RegisterAllAtStartup();
+        
         plate = null;
         data = null;
 
@@ -121,7 +127,7 @@ public class PuzzleCreator : MonoBehaviour
 
         for (int i = 0; i < gems.Length; i++)
         {
-            float newNoteFloat = PuzzleUtilities.root.GetNoteNumber(data.solutions[i].noteName);
+            float newNoteFloat = PzUtil.GetNoteNumber(data.solutions[i].noteName);
             var gemMesh = gems[i].transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
 
             for (int j = 0; j < gemMesh.sharedMesh.blendShapeCount; j++)
@@ -173,12 +179,6 @@ public class PuzzleCreator : MonoBehaviour
                         break;
 
                     case Torch torch:
-
-                        torch.flameParticle = torch.transform.GetChild(0).GetComponent<ParticleSystem>();
-                        torch.glowParticle = torch.transform.GetChild(1).GetComponent<ParticleSystem>();
-
-                        torch.torchLight = torch.transform.GetChild(2).GetComponent<Light>();
-                        torch.torchLight.enabled = false;
 
                         break;
                 }

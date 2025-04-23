@@ -6,11 +6,11 @@
    "Generator": "2024.1.1.8691"
   },
   "RootPaths": {
-   "ProjectRoot": "../../../../../EchoesOfResonance_WwiseProject",
-   "SourceFilesRoot": "../../../../../EchoesOfResonance_WwiseProject/.cache",
+   "ProjectRoot": "../../../../../../../../../Documents/WwiseProjects/EchoesOfResonance_WwiseProject",
+   "SourceFilesRoot": "../../../../../../../../../Documents/WwiseProjects/EchoesOfResonance_WwiseProject/.cache",
    "SoundBanksRoot": ".",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "../../../../../EchoesOfResonance_WwiseProject/GeneratedSoundBanks/Windows"
+   "ExternalSourcesOutputRoot": "../../../../../../../../../Documents/WwiseProjects/EchoesOfResonance_WwiseProject/GeneratedSoundBanks/Windows"
   },
   "DefaultAlign": "16",
   "Settings": {
@@ -33,6 +33,6 @@
    "PrintObjectPath": "true",
    "PrintObjectColor": "true"
   },
-  "FileHash": "{4E66551E-7F4D-EC7F-873B-C01D08A2A643}"
+  "FileHash": "{A8ECA240-151D-5486-848A-FB7A0E79F429}"
  }
 }

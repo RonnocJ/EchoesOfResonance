@@ -134,5 +134,13 @@ public class NoteValuePopup : EditorWindow
             GUILayout.EndHorizontal();
         }
     }
+    private void OnDisable()
+{
+    if (_musicFont != null)
+    {
+        UnityEngine.Object.DestroyImmediate(_musicFont);
+        _musicFont = null;
+    }
+}
 }
 #endif

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 [Serializable]
 public class RhythmicMoveStep
@@ -11,7 +12,11 @@ public class RhythmicMoveStep
 
     public void MoveObjectWithMusic()
     {
-        AudioManager.root.PlaySound((moveStep.EffectedProperties != 0 || !moveStep.IsEqualTo(parent.transform)) ? parent.startSound : AudioEvent.None, parent.gameObject, 1, true);
+        if (moveStep.EffectedProperties != 0 && !moveStep.IsEqualTo(parent.transform))
+        {
+            AudioManager.root.PlaySound(parent.startSound, parent.gameObject);
+        }
+
         CRManager.root.Restart(
                 moveStep.ApplyToOverTime(
                     parent.transform,
@@ -26,7 +31,7 @@ public class RhythmicMoveStep
 [Serializable]
 public class MultiRhythmicStep : MultiInteractableStep
 {
-    [SerializeField] private RhythmicMoveStep[] steps;
+    public RhythmicMoveStep[] steps;
     public override void ActivateObject()
     {
         base.ActivateObject();
@@ -59,19 +64,47 @@ public class MultiRhythmicStep : MultiInteractableStep
         }
     }
 }
-public class MultiRhythmicObject : MultiInteractable
+public class MultiRhythmicObject : MultiInteractable, ISaveData
 {
 #if UNITY_EDITOR
     protected override Type GetStepType() => typeof(MultiRhythmicStep);
 #endif
     public AnimationCurve interpolationCurve;
     public AudioEvent startSound;
+    [HideInInspector]
     public List<RhythmicMoveStep> stepList = new();
+    public Dictionary<string, object> AddSaveData()
+    {
+        if ((LinkedData == null && Steps[Steps.Count - 1].activated) || (LinkedData != null && LinkedData.Solved))
+        {
+            if (Steps[Steps.Count - 1] is MultiRhythmicStep rStep)
+            {
+                return new Dictionary<string, object>
+            {
+                {"puzzlePosition", new SaveStruct(rStep.steps[rStep.steps.Length - 1].moveStep)},
+            };
+            }
+        }
+
+        return null;
+    }
+    public void ReadSaveData(Dictionary<string, object> savedData)
+    {
+        if (savedData.TryGetValue("puzzlePosition", out object solvedPositionRaw))
+        {
+            string json = JsonConvert.SerializeObject(solvedPositionRaw);
+            SaveStruct solvedPosition = JsonConvert.DeserializeObject<SaveStruct>(json);
+
+            TrData solvedPos = solvedPosition.LoadData();
+            solvedPos.ApplyTo(transform);
+        }
+    }
     public void SubscribeToMusic()
     {
-        foreach(var step in stepList)
+        foreach (var step in stepList)
         {
-            MusicManager.root.currentSong.AddQueuedCallback($"{gameObject.name}RhythmicQueue", step.note.CurrentValue, step.MoveObjectWithMusic);
+            if (step.moveStep.EffectedProperties == 0 || !step.moveStep.IsEqualTo(transform))
+                MusicManager.root.currentSong.AddQueuedCallback($"{gameObject.name}RhythmicQueue", step.note.CurrentValue, step.MoveObjectWithMusic);
         }
 
         stepList.Clear();

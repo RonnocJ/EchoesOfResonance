@@ -5,11 +5,11 @@
   "SchemaVersion": "16",
   "SoundBankVersion": "154",
   "RootPaths": {
-   "ProjectRoot": "../../../../../EchoesOfResonance_WwiseProject",
-   "SourceFilesRoot": "../../../../../EchoesOfResonance_WwiseProject/.cache",
+   "ProjectRoot": "../../../../../../../../../Documents/WwiseProjects/EchoesOfResonance_WwiseProject",
+   "SourceFilesRoot": "../../../../../../../../../Documents/WwiseProjects/EchoesOfResonance_WwiseProject/.cache",
    "SoundBanksRoot": ".",
    "ExternalSourcesInputFile": "",
-   "ExternalSourcesOutputRoot": "../../../../../EchoesOfResonance_WwiseProject/GeneratedSoundBanks/Windows"
+   "ExternalSourcesOutputRoot": "../../../../../../../../../Documents/WwiseProjects/EchoesOfResonance_WwiseProject/GeneratedSoundBanks/Windows"
   },
   "DialogueEvents": [],
   "SoundBanks": [
@@ -18,25 +18,43 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{32D9834D-91C4-D884-D95C-7D2A91A47286}",
+    "Hash": "{BFAB5539-A987-7A4F-7996-7EA6814F7CD1}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "918930286",
+       "Name": "Meter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\MusicBus\\[Effect Slot [1]: (Meter)]\\Meter (Custom)",
+       "GUID": "{0F746EB0-633A-405A-9A9F-5971283E5C03}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      }
+     ],
      "ShareSets": [
       {
-       "Id": "702543456",
-       "Name": "Tunnel1",
-       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Tunnel1",
-       "GUID": "{CC44B890-9865-4157-965F-86FED27BC4C6}",
-       "LibName": "Wwise Matrix Reverb",
-       "LibId": "7536643"
+       "Id": "415841907",
+       "Name": "Space_Garage",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Huge Spaces\\Space_Garage",
+       "GUID": "{1AF92D84-49DD-4BBC-8F29-6C6D10082B6E}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
       },
       {
-       "Id": "2849147824",
-       "Name": "Medium",
-       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Cathedrals\\Medium",
-       "GUID": "{AEB3F175-958B-45F2-A4C2-3FBD4F456568}",
+       "Id": "1990128658",
+       "Name": "Room_Medium",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Rooms\\Room_Medium",
+       "GUID": "{F5C06EC1-E4A4-4332-A7D3-A89E2986B74F}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      },
+      {
+       "Id": "2791153688",
+       "Name": "Hall_Small",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Halls\\Hall_Small",
+       "GUID": "{D65B5F04-B83B-412C-9434-34A13A477E24}",
        "LibName": "Wwise RoomVerb",
        "LibId": "7733251"
       },
@@ -75,6 +93,11 @@
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\MusicBus",
       "GUID": "{EC62AEBE-2FED-4166-9D40-D71B991A8894}",
       "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "918930286"
+        }
+       ],
        "ShareSets": [
         {
          "Id": "3216246379"
@@ -91,40 +114,40 @@
     ],
     "AuxBusses": [
      {
-      "Id": "1198315964",
-      "Name": "BroadcasterVerb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-      "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}",
+      "Id": "1603003340",
+      "Name": "LargeRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+      "GUID": "{3B830E07-6668-407B-A341-F96922349E00}",
       "PluginRefs": {
        "ShareSets": [
         {
-         "Id": "702543456"
+         "Id": "415841907"
         }
        ]
       }
      },
      {
-      "Id": "2413215442",
-      "Name": "PuzzleVerb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-      "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}",
+      "Id": "1749787712",
+      "Name": "SmallRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\SmallRoomVerb",
+      "GUID": "{D1A44CB0-749F-4D85-971A-AF76DBDC126A}",
       "PluginRefs": {
        "ShareSets": [
         {
-         "Id": "2849147824"
+         "Id": "2791153688"
         }
        ]
       }
      },
      {
-      "Id": "3736295661",
-      "Name": "PlayerVerb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PlayerVerb",
-      "GUID": "{81A2AD3F-732C-44FC-A513-8F42D9967F63}",
+      "Id": "4091100022",
+      "Name": "MediumRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\MediumRoomVerb",
+      "GUID": "{30BB047E-AD41-411F-A3E2-C4097231178D}",
       "PluginRefs": {
        "ShareSets": [
         {
-         "Id": "702543456"
+         "Id": "1990128658"
         }
        ]
       }
@@ -132,139 +155,165 @@
     ],
     "GameParameters": [
      {
+      "Id": "350681501",
+      "Name": "flute_Velocity",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Velocity",
+      "GUID": "{7993BEA7-6892-420B-9592-68603AC6C207}"
+     },
+     {
       "Id": "653430204",
       "Name": "broadcaster_Shutdown",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\broadcaster_Shutdown",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\broadcaster_Shutdown",
       "GUID": "{BB7E510A-0B5A-4455-B69F-E8B2B57D0079}"
      },
      {
       "Id": "1006694123",
       "Name": "music_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\music_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Settings\\music_Volume",
       "GUID": "{E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92}"
      },
      {
       "Id": "1152538158",
       "Name": "finder_Pitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\finder_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\finder_Pitch",
       "GUID": "{EF8C3766-7A4D-4EFC-A30F-4388AC0916AC}"
      },
      {
-      "Id": "1325667752",
-      "Name": "introBridge_StepDuck",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_StepDuck",
-      "GUID": "{2845BBAD-8494-4ECC-B651-50A8A6E730EC}"
+      "Id": "1472233667",
+      "Name": "gemCheckpoint_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Puzzles\\Gems\\gemCheckpoint_Pitch",
+      "GUID": "{2DE58906-0095-45C3-849C-25DC09C65E05}"
      },
      {
       "Id": "1564184899",
       "Name": "sfx_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\sfx_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Settings\\sfx_Volume",
       "GUID": "{B8871244-2A55-425F-91CE-140A28D3407D}"
      },
      {
-      "Id": "1867101979",
-      "Name": "firstElevator_Height",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\firstElevator_Height",
-      "GUID": "{3C290F12-76FB-408F-8F8E-A5BB1E3FB9CD}"
+      "Id": "1786911663",
+      "Name": "player_MoveSpeed",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Player\\player_MoveSpeed",
+      "GUID": "{5862A383-8CAD-4A7C-B3D0-78371C89ACB2}"
      },
      {
-      "Id": "2726482464",
-      "Name": "introBridge_CrossBridge",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_CrossBridge",
-      "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
-     },
-     {
-      "Id": "2969596720",
-      "Name": "cliffsEdge_Fade",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\cliffsEdge_Fade",
-      "GUID": "{74BE150D-AC23-4B5B-A301-4A8E10801D21}"
-     },
-     {
-      "Id": "3217007934",
-      "Name": "introBridge_FadeIn",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_FadeIn",
-      "GUID": "{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}"
+      "Id": "1899861129",
+      "Name": "ambience_Ducking",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Enviroment\\Ambiences\\ambience_Ducking",
+      "GUID": "{81D38A92-ECA7-4CF5-BE90-1128330C5ED9}"
      },
      {
       "Id": "3409173110",
       "Name": "flute_Pitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\flute_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Pitch",
       "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
      }
     ],
     "StateGroups": [
      {
-      "Id": "270858878",
-      "Name": "EntranceHall",
-      "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall",
-      "GUID": "{2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA}",
+      "Id": "2945434178",
+      "Name": "_RingPuzzle",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle",
+      "GUID": "{F9FC9BD4-42D5-43EB-AE81-79FA7C9B6E18}",
       "States": [
+       {
+        "Id": "225972860",
+        "Name": "Checkpoint1",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint1",
+        "GUID": "{779184F5-AAAA-4FC7-B75B-323D0D97E3A5}"
+       },
+       {
+        "Id": "225972862",
+        "Name": "Checkpoint3",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint3",
+        "GUID": "{F9AE0B1D-4D95-4EC7-9257-D3851C386CD1}"
+       },
+       {
+        "Id": "225972863",
+        "Name": "Checkpoint2",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint2",
+        "GUID": "{4FCF60F9-9938-40DA-B58E-491A640B8445}"
+       },
        {
         "Id": "748895195",
         "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\None",
-        "GUID": "{0EC2ED20-3789-40AE-8777-A852B301E348}"
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\None",
+        "GUID": "{6BD2ACE3-7A5E-4B12-B650-25DEDB29E25A}"
        },
        {
-        "Id": "1291433366",
-        "Name": "Base",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Base",
-        "GUID": "{CF315996-1AF3-442E-9FE4-2D48B67C6864}"
-       },
-       {
-        "Id": "3267866961",
-        "Name": "Puzzle04",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle04",
-        "GUID": "{806F89E5-3D79-4240-A224-8606E9E49004}"
-       },
-       {
-        "Id": "3267866964",
-        "Name": "Puzzle01",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle01",
-        "GUID": "{71162D71-7CBB-4EF9-8D04-0F14EDF54A4F}"
-       },
-       {
-        "Id": "3267866966",
-        "Name": "Puzzle03",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle03",
-        "GUID": "{63F3BE9F-80EF-473F-A53B-FBE807E0DCE9}"
-       },
-       {
-        "Id": "3267866967",
-        "Name": "Puzzle02",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle02",
-        "GUID": "{1F8E012D-F98E-49A2-954D-99FEE5421A18}"
+        "Id": "1281810935",
+        "Name": "Start",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Start",
+        "GUID": "{F1FDB50B-69D8-4C32-A79F-F564496D793F}"
        }
       ]
      },
      {
-      "Id": "3800814886",
-      "Name": "Level01Master",
-      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master",
-      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "Id": "3267866964",
+      "Name": "Puzzle01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01",
+      "GUID": "{67A90AE2-BC7B-43D3-AC1A-B54CA4C33074}",
       "States": [
-       {
-        "Id": "270858878",
-        "Name": "EntranceHall",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\EntranceHall",
-        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
-       },
        {
         "Id": "748895195",
         "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\None",
+        "GUID": "{B8B677A5-0034-4A87-9241-A62F91A49EE8}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\ToGameplay",
+        "GUID": "{2F6807F1-BF89-4B54-90FE-3A616045A3E3}"
+       },
+       {
+        "Id": "2715723947",
+        "Name": "RingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\RingPuzzle",
+        "GUID": "{918FDD1B-A0BF-4403-ADEC-C1468FBF0C46}"
+       }
+      ]
+     },
+     {
+      "Id": "3927051694",
+      "Name": "Opening01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01",
+      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\None",
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
+       },
+       {
+        "Id": "1253314903",
+        "Name": "BroadcasterApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BroadcasterApproach",
+        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\ToGameplay",
+        "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
        },
        {
         "Id": "1831982039",
         "Name": "Opening",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\Opening",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Opening",
         "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
+       },
+       {
+        "Id": "2272668956",
+        "Name": "BeforeApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BeforeApproach",
+        "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
        },
        {
         "Id": "3020279701",
         "Name": "GetBroadcaster",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\GetBroadcaster",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\GetBroadcaster",
         "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
        }
       ]
@@ -274,36 +323,20 @@
    {
     "Id": "1465331116",
     "Type": "User",
-    "GUID": "{11F8CFB0-AE41-4B88-8087-4ADA5710DCBC}",
+    "GUID": "{BE551CBF-9663-46FE-A46A-DD268B0E77CE}",
     "Language": "SFX",
-    "Hash": "{2FF6DCF6-A3FF-A9E2-CF98-5AA9A4482F12}",
+    "Hash": "{FD9885BE-06C5-58A1-88E5-075C0D3746CB}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
     "ShortName": "Global",
     "Path": "Global.bnk",
     "Media": [
      {
-      "Id": "18982989",
+      "Id": "11424159",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Ambience, Designed, Abstract, Noisy, Drone, Dark, Noisy, Interference SND56675.wav",
-      "CachePath": "88/{8866802E-F3CB-97D8-FE7F-17EC588A8FFD}.wem"
-     },
-     {
-      "Id": "19683821",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 2.wav",
-      "CachePath": "E8/{E8E0C876-D79A-9AAF-2DC6-42DB1E684013}.wem"
-     },
-     {
-      "Id": "25129230",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Soundly Audio\\Geothermal, Geyser, Eruption, Blow Out, Designed, Iceland 01 SND118385 1.wav",
-      "CachePath": "FE/{FE0B117C-F6F3-F95E-88EF-6D6416602FE6}.wem"
+      "ShortName": "EOR_SFX_Player_Footstep_L_01.wav",
+      "CachePath": "F9/{F9FF1C2E-8E90-E80B-A251-741F90001081}.wem"
      },
      {
       "Id": "28849163",
@@ -314,6 +347,22 @@
       "CachePath": "1E/{1EF9C32F-4FF2-C296-5127-4BDEEEC009D2}.wem"
      },
      {
+      "Id": "63857239",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_Player_Footstep_L_02.wav",
+      "CachePath": "92/{927B4868-981B-56CA-AA3A-C12C4B6C8FBB}.wem"
+     },
+     {
+      "Id": "84687045",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_CrystalRattle_02.wav",
+      "CachePath": "64/{645E86F4-D76D-423B-7B9E-0F66E365ED4A}.wem"
+     },
+     {
       "Id": "92908706",
       "Language": "SFX",
       "Streaming": "false",
@@ -322,60 +371,44 @@
       "CachePath": "3D/{3D572830-6872-D07F-8039-1CE51D2E2F12}.wem"
      },
      {
-      "Id": "95539274",
+      "Id": "101168111",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "BroadcasterBloop.wav",
-      "CachePath": "F0/{F069E3EA-BCC9-2670-5E0E-06DFC5318C53}.wem"
+      "ShortName": "EOR_SFX_CrystalRattle_04.wav",
+      "CachePath": "D9/{D993F2E7-FC70-DCDA-59CA-FA4FE20F21DA}.wem"
      },
      {
-      "Id": "187965447",
+      "Id": "160667901",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 3.wav",
-      "CachePath": "F9/{F9B6F895-21E8-6919-E801-5C6E16B2E93F}.wem"
+      "ShortName": "EOR_SFX_BroadcasterShutdown.wav",
+      "CachePath": "54/{5498FB74-6D31-87B2-FEEA-C43688CE1E9E}.wem"
      },
      {
-      "Id": "198980918",
+      "Id": "223070093",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Bells, Large, Church Bells, Distant 01 SND79387.wav",
-      "CachePath": "D8/{D8B98698-BCB9-47AF-466C-20C78CCA2203}.wem"
+      "ShortName": "EOR_SFX_Player_Footstep_L_03.wav",
+      "CachePath": "81/{812747BC-E332-802E-065A-157076CAA20A}.wem"
      },
      {
-      "Id": "221963859",
+      "Id": "245785361",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Air, Hiss, Steam, Mist, Smoke, Gas, Release, Very Close SND44703.wav",
-      "CachePath": "13/{1345CF97-A3CA-0D90-B3B5-99697D9B3464}.wem"
+      "ShortName": "EOR_SFX_Player_Footstep_R_01.wav",
+      "CachePath": "40/{40AC4B62-7B60-401F-719B-F820645FDA2D}.wem"
      },
      {
-      "Id": "231050069",
+      "Id": "302055694",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513.wav",
-      "CachePath": "3A/{3A98EB36-5429-8354-1935-6D671CC7D773}.wem"
-     },
-     {
-      "Id": "235771073",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Soundly Audio\\Natural Disaster, Earthquake, Impact, Small Crack 01 SND13421.wav",
-      "CachePath": "B9/{B9A6A8AC-5962-708E-91F1-68EF2CB59ED8}.wem"
-     },
-     {
-      "Id": "267754359",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "DoorOpen-003.wav",
-      "CachePath": "6A/{6AAE1727-5E49-2A0A-B445-A894C1706760}.wem"
+      "ShortName": "EOR_SFX_AmbienceLoop.wav",
+      "CachePath": "84/{84948BE5-CA17-449A-3495-717BA8D1B208}.wem"
      },
      {
       "Id": "354894646",
@@ -394,14 +427,6 @@
       "CachePath": "F7/{F74F9284-B695-28D2-D8E9-F219FDF9DA9B}.wem"
      },
      {
-      "Id": "392609066",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Soundly Audio\\Electricity, Sparks, Designed, Electric, Digitalized, Sweetener 01 SND121324.wav",
-      "CachePath": "5A/{5A771D6D-7A01-4F6E-5200-0D8C86A493E9}.wem"
-     },
-     {
       "Id": "401359229",
       "Language": "SFX",
       "Streaming": "false",
@@ -410,36 +435,68 @@
       "CachePath": "C3/{C361C575-F7D9-C813-B72A-90A7F7602351}.wem"
      },
      {
-      "Id": "490563688",
+      "Id": "415480257",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "BroadcasterPlunk.wav",
-      "CachePath": "64/{64D76168-E609-8E2E-03F5-8B7A9BFBC042}.wem"
+      "ShortName": "EOR_SFX_GemCheckpoint_Note13.wav",
+      "CachePath": "57/{577DF091-AFF3-8C56-7E91-3B53C79E61D2}.wem"
      },
      {
-      "Id": "523749856",
+      "Id": "459274136",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_SFX_CheckpointReached.wav",
-      "CachePath": "66/{66A48FE3-237B-5EEE-8B61-141D9F721D6A}.wem"
+      "ShortName": "EOR_SFX_Player_Footstep_R_03.wav",
+      "CachePath": "DB/{DB30738F-10FE-4777-220B-66C38AA8FF20}.wem"
      },
      {
-      "Id": "579110475",
+      "Id": "491289458",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Swooshes, Whoosh, Short, Stove, Dry 01 SND55488.wav",
-      "CachePath": "F0/{F0AFFA4B-C378-732A-54DD-286D536D3FE5}.wem"
+      "ShortName": "EOR_SFX_CrystalRattle_06.wav",
+      "CachePath": "F1/{F14CD750-D1F3-35C4-BDE6-90BF8EC87174}.wem"
      },
      {
-      "Id": "620721570",
+      "Id": "535024750",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Ambience, Designed, Abandoned City Soundscape, Wind, Drone In C 01 SND65645.wav",
-      "CachePath": "50/{50777B60-1FBE-2338-5F12-8C86C9CB60CC}.wem"
+      "ShortName": "EOR_SFX_CrystalRattle_07.wav",
+      "CachePath": "95/{95A9316A-3DF3-4C24-C0D3-7283B50EF7CE}.wem"
+     },
+     {
+      "Id": "538799437",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_Player_Footstep_R_04.wav",
+      "CachePath": "E2/{E2EE5551-97EF-D16A-1D2D-DEBA59EED482}.wem"
+     },
+     {
+      "Id": "592716520",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_CrystalRattle_03.wav",
+      "CachePath": "4D/{4DF7673A-9F47-7F37-5364-431438898B4E}.wem"
+     },
+     {
+      "Id": "628431899",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_TorchLitLoop.wav",
+      "CachePath": "FB/{FB81371E-4E70-8314-43FD-CAA58B3B6241}.wem"
+     },
+     {
+      "Id": "672268205",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_BroadcasterTextBeep.wav",
+      "CachePath": "1C/{1CF43C39-5837-6CF9-CEFF-B411D9859616}.wem"
      },
      {
       "Id": "713251495",
@@ -450,28 +507,44 @@
       "CachePath": "DC/{DCF6609E-A5A8-3434-FAF4-EAE499787961}.wem"
      },
      {
-      "Id": "714574361",
+      "Id": "746783617",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Wind, Gust, Strong Wind, Howling, Desert, Moon Valley Atacama, Chile SND81312.wav",
-      "CachePath": "AA/{AA344128-660F-E3AD-04BE-068CDA6661CE}.wem"
+      "ShortName": "EOR_SFX_GemCheckpoint_Note23.wav",
+      "CachePath": "EC/{ECAEC491-1D7C-CCAC-2085-879CFEA8F737}.wem"
      },
      {
-      "Id": "770221763",
+      "Id": "766559025",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Chains, Movement, Around Metal Fence, Rattle SND28167.wav",
-      "CachePath": "19/{199070F2-8F52-12FE-B0DA-770A20D9CBD2}.wem"
+      "ShortName": "EOR_SFX_CrystalRattle_08.wav",
+      "CachePath": "A9/{A9A083EC-4031-1585-D540-3CD60C390BB9}.wem"
      },
      {
-      "Id": "808061415",
+      "Id": "800311058",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Natural Disaster, Earthquake, Impact, Crack 01 SND13431.wav",
-      "CachePath": "E9/{E9408096-5710-92AE-2D12-6BDD81DE5C36}.wem"
+      "ShortName": "EOR_SFX_Player_Footstep_L_04.wav",
+      "CachePath": "72/{72135352-C588-F9EA-2352-0F8693B398FB}.wem"
+     },
+     {
+      "Id": "823173970",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_Player_Footstep_R_02.wav",
+      "CachePath": "E0/{E0EFFC77-6C55-599B-A2D3-77E5FF801DC6}.wem"
+     },
+     {
+      "Id": "845261788",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemCheckpoint_Note18.wav",
+      "CachePath": "89/{898BC285-2916-DEF5-DEEE-92F5686AA4F9}.wem"
      },
      {
       "Id": "859428089",
@@ -480,14 +553,6 @@
       "Location": "Memory",
       "ShortName": "EOR_FluteInstrument_Note18.wav",
       "CachePath": "6D/{6DB3B207-6F98-54A9-AA25-2F43A2618F87}.wem"
-     },
-     {
-      "Id": "893327983",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "BroadcasterBeep.wav",
-      "CachePath": "BA/{BA552F9E-A570-BF36-CB5A-D9F7891D9182}.wem"
      },
      {
       "Id": "894203654",
@@ -506,61 +571,57 @@
       "CachePath": "FF/{FF6D871E-2DCA-7C84-83A1-FC2BF3F2C218}.wem"
      },
      {
-      "Id": "1022251565",
+      "Id": "917192790",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Electricity, Sparks, Electric Chair, Sparkles, On, Off SND122496.wav",
-      "CachePath": "D0/{D0A83ED7-C8C2-9611-81D6-978AB1A67692}.wem"
+      "ShortName": "EOR_SFX_GemCheckpoint_Click.wav",
+      "CachePath": "FF/{FF88D37E-8355-63DA-4605-828DA7DC8C5D}.wem"
      },
      {
-      "Id": "1029141824",
+      "Id": "918685912",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "Soundly Audio\\Footsteps, Human, Asphalt, Male, Walk SND11513 1.wav",
-      "CachePath": "BD/{BDFAE6EE-DAEB-021D-EC7E-163C0A7222C7}.wem"
+      "ShortName": "EOR_SFX_CrystalRattle_05.wav",
+      "CachePath": "30/{305C21B2-1AB0-6C30-E6D0-1235FA496153}.wem"
+     },
+     {
+      "Id": "962810885",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemCheckpoint_Note03.wav",
+      "CachePath": "C8/{C8645B2F-67BF-D4BE-CCAA-34318DC65406}.wem"
+     },
+     {
+      "Id": "1010531466",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemCheckpoint_Note08.wav",
+      "CachePath": "AD/{AD786FB1-E957-B051-0219-9EA6AF90C3EB}.wem"
+     },
+     {
+      "Id": "1031075374",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_CrystalRattle_01.wav",
+      "CachePath": "8D/{8D261A23-52D6-B6B4-DE26-E2DA7FBBDBC2}.wem"
      }
     ],
-    "Plugins": {
-     "Custom": [
-      {
-       "Id": "458506814",
-       "Name": "Parametric EQ (Custom)",
-       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Player\\PlayerSounds\\Footsteps\\[Effect Slot [0]: (Parametric EQ)]\\Parametric EQ (Custom)",
-       "GUID": "{33A7BDB9-C17B-4EEF-8DFA-4A22F240AFFC}",
-       "LibName": "Wwise Parametric EQ",
-       "LibId": "6881283"
-      }
-     ],
-     "ShareSets": [
-      {
-       "Id": "521572872",
-       "Name": "stepDucking",
-       "ObjectPath": "\\Effects\\Default Work Unit\\Metering\\stepDucking",
-       "GUID": "{6313E9B1-0F33-48B1-9A18-2073282269AD}",
-       "LibName": "Wwise Meter",
-       "LibId": "8454147"
-      },
-      {
-       "Id": "3164629247",
-       "Name": "Holy",
-       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Cathedrals\\Holy",
-       "GUID": "{CC7B8638-C670-4AD5-B3FB-331EA81037F6}",
-       "LibName": "Wwise RoomVerb",
-       "LibId": "7733251"
-      },
-      {
-       "Id": "3451596814",
-       "Name": "Hall_Medium",
-       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Halls\\Hall_Medium",
-       "GUID": "{50286348-176A-4235-9E4C-CA5F73D87818}",
-       "LibName": "Wwise RoomVerb",
-       "LibId": "7733251"
-      }
-     ]
-    },
     "Events": [
+     {
+      "Id": "2473697571",
+      "Name": "muteSFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalChange\\muteSFX",
+      "GUID": "{A618F50D-59D8-4E7A-97D1-9426DD58E8E2}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
      {
       "Id": "4091047182",
       "Name": "pauseAll",
@@ -572,48 +633,38 @@
       "DurationMax": "0"
      },
      {
-      "Id": "2409822221",
-      "Name": "playBroadcasterBeep",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\ScreenFX\\playBroadcasterBeep",
-      "GUID": "{88730A47-1065-4B88-B47A-5ED23D69E404}",
-      "MaxAttenuation": "5",
-      "DurationType": "OneShot",
-      "DurationMin": "0.47193712",
-      "DurationMax": "0.5297316",
+      "Id": "1434361023",
+      "Name": "playBasicAmbience",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Enviroment\\Ambiences\\playBasicAmbience",
+      "GUID": "{8531EA54-0125-4F47-820F-E5231CADFAF0}",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
-        "Id": "893327983"
-       }
-      ],
-      "AuxBusRefs": [
+        "Id": "84687045"
+       },
        {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
-       }
-      ]
-     },
-     {
-      "Id": "893306899",
-      "Name": "playBroadcasterBloop",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\ScreenFX\\playBroadcasterBloop",
-      "GUID": "{357543FE-2B83-476F-802A-4C447C5034BD}",
-      "MaxAttenuation": "5",
-      "DurationType": "OneShot",
-      "DurationMin": "0.5",
-      "DurationMax": "0.5",
-      "MediaRefs": [
+        "Id": "101168111"
+       },
        {
-        "Id": "95539274"
-       }
-      ],
-      "AuxBusRefs": [
+        "Id": "302055694"
+       },
        {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+        "Id": "491289458"
+       },
+       {
+        "Id": "535024750"
+       },
+       {
+        "Id": "592716520"
+       },
+       {
+        "Id": "766559025"
+       },
+       {
+        "Id": "918685912"
+       },
+       {
+        "Id": "1031075374"
        }
       ]
      },
@@ -622,7 +673,7 @@
       "Name": "playBroadcasterFinder",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\playBroadcasterFinder",
       "GUID": "{CB460841-8C98-45EB-A6D2-04B9D173A1CC}",
-      "MaxAttenuation": "3",
+      "MaxAttenuation": "5",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -631,10 +682,10 @@
       ],
       "AuxBusRefs": [
        {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
@@ -643,7 +694,7 @@
       "Name": "playBroadcasterFX",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\playBroadcasterFX",
       "GUID": "{118A0E2C-2E48-448E-8E26-C3C763765575}",
-      "MaxAttenuation": "3",
+      "MaxAttenuation": "5",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -655,10 +706,10 @@
       ],
       "AuxBusRefs": [
        {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
@@ -667,7 +718,7 @@
       "Name": "playBroadcasterNote",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\playBroadcasterNote",
       "GUID": "{FB197FA8-CDE4-48AB-9A13-E0431669CD86}",
-      "MaxAttenuation": "3",
+      "MaxAttenuation": "5",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
@@ -688,33 +739,10 @@
       ],
       "AuxBusRefs": [
        {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
-       }
-      ]
-     },
-     {
-      "Id": "879710867",
-      "Name": "playBroadcasterPlunk",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\ScreenFX\\playBroadcasterPlunk",
-      "GUID": "{CD4B6372-76BB-4643-A192-6E3C351889B1}",
-      "MaxAttenuation": "5",
-      "DurationType": "OneShot",
-      "DurationMin": "0.5",
-      "DurationMax": "0.5",
-      "MediaRefs": [
-       {
-        "Id": "490563688"
-       }
-      ],
-      "AuxBusRefs": [
-       {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
@@ -722,129 +750,74 @@
       "Id": "1481495309",
       "Name": "playCheckpointReached",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Puzzles\\playCheckpointReached",
-      "GUID": "{203155CC-D29A-433D-B5D5-D0FBD3E2F62E}",
-      "MaxAttenuation": "50",
+      "GUID": "{954B8117-75EC-4C04-AD1A-E62D14232489}",
+      "MaxAttenuation": "100",
       "DurationType": "OneShot",
-      "DurationMin": "1.9152067",
-      "DurationMax": "2.0885475",
+      "DurationMin": "4.498685",
+      "DurationMax": "4.498685",
       "MediaRefs": [
        {
-        "Id": "523749856"
+        "Id": "415480257"
+       },
+       {
+        "Id": "746783617"
+       },
+       {
+        "Id": "845261788"
+       },
+       {
+        "Id": "917192790"
+       },
+       {
+        "Id": "962810885"
+       },
+       {
+        "Id": "1010531466"
        }
       ],
       "AuxBusRefs": [
        {
-        "Id": "2413215442",
-        "Name": "PuzzleVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
-       }
-      ]
-     },
-     {
-      "Id": "3639922799",
-      "Name": "playDoorOpen",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playDoorOpen",
-      "GUID": "{E44E47B7-6CC6-47E9-B928-1BE9DEB6A11E}",
-      "DurationType": "OneShot",
-      "DurationMin": "9",
-      "DurationMax": "9",
-      "MediaRefs": [
-       {
-        "Id": "267754359"
-       }
-      ],
-      "AuxBusRefs": [
-       {
-        "Id": "2413215442",
-        "Name": "PuzzleVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+        "Id": "4091100022",
+        "Name": "MediumRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\MediumRoomVerb",
+        "GUID": "{30BB047E-AD41-411F-A3E2-C4097231178D}"
        }
       ]
      },
      {
       "Id": "1088348632",
       "Name": "playFootsteps",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playFootsteps",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Player\\playFootsteps",
       "GUID": "{BAC21353-5E5C-4757-81AA-87E99F990987}",
       "DurationType": "OneShot",
-      "DurationMin": "0.28393936",
-      "DurationMax": "0.48137537",
+      "DurationMin": "0.47193712",
+      "DurationMax": "0.5297316",
       "MediaRefs": [
        {
-        "Id": "19683821"
+        "Id": "11424159"
        },
        {
-        "Id": "187965447"
+        "Id": "63857239"
        },
        {
-        "Id": "231050069"
+        "Id": "223070093"
        },
        {
-        "Id": "1029141824"
-       }
-      ],
-      "PluginRefs": {
-       "Custom": [
-        {
-         "Id": "458506814"
-        }
-       ],
-       "ShareSets": [
-        {
-         "Id": "521572872"
-        }
-       ]
-      },
-      "AuxBusRefs": [
+        "Id": "245785361"
+       },
        {
-        "Id": "3736295661",
-        "Name": "PlayerVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PlayerVerb",
-        "GUID": "{81A2AD3F-732C-44FC-A513-8F42D9967F63}"
+        "Id": "459274136"
+       },
+       {
+        "Id": "538799437"
+       },
+       {
+        "Id": "800311058"
+       },
+       {
+        "Id": "823173970"
        }
       ]
-     },
-     {
-      "Id": "3384925243",
-      "Name": "playIntroAmbience",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playIntroAmbience",
-      "GUID": "{E4525825-2DFF-4F86-80D2-33097BE61493}",
-      "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "18982989"
-       },
-       {
-        "Id": "25129230"
-       },
-       {
-        "Id": "198980918"
-       },
-       {
-        "Id": "235771073"
-       },
-       {
-        "Id": "620721570"
-       },
-       {
-        "Id": "714574361"
-       },
-       {
-        "Id": "770221763"
-       }
-      ],
-      "PluginRefs": {
-       "ShareSets": [
-        {
-         "Id": "3164629247"
-        },
-        {
-         "Id": "3451596814"
-        }
-       ]
-      }
      },
      {
       "Id": "1900847084",
@@ -853,91 +826,63 @@
       "GUID": "{6ED2BAAC-99C6-4670-88B2-28D0E8189633}",
       "MaxAttenuation": "5",
       "DurationType": "OneShot",
-      "DurationMin": "2.734278",
-      "DurationMax": "2.734278",
+      "DurationMin": "6",
+      "DurationMax": "6",
       "MediaRefs": [
        {
-        "Id": "392609066"
-       },
-       {
-        "Id": "1022251565"
+        "Id": "160667901"
        }
       ],
       "AuxBusRefs": [
        {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
      {
-      "Id": "68937622",
-      "Name": "playStoneCrumble",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Puzzles\\playStoneCrumble",
-      "GUID": "{D28448EE-CB91-4F64-B56B-404BF6631979}",
-      "MaxAttenuation": "50",
+      "Id": "3190844778",
+      "Name": "playTextBeep",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\ScreenFX\\playTextBeep",
+      "GUID": "{69BA2FC0-52E6-46A9-B608-73C2297F9875}",
+      "MaxAttenuation": "5",
       "DurationType": "OneShot",
-      "DurationMin": "2.2746446",
-      "DurationMax": "2.4805174",
+      "DurationMin": "0.032399144",
+      "DurationMax": "0.04581931",
       "MediaRefs": [
        {
-        "Id": "808061415"
+        "Id": "672268205"
        }
       ],
       "AuxBusRefs": [
        {
-        "Id": "2413215442",
-        "Name": "PuzzleVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
      {
-      "Id": "3679901891",
-      "Name": "playTorchExtinguish",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playTorchExtinguish",
-      "GUID": "{83ACF214-CA95-4378-9188-8E8781937BD2}",
-      "MaxAttenuation": "50",
-      "DurationType": "OneShot",
-      "DurationMin": "1.5836359",
-      "DurationMax": "1.5836359",
+      "Id": "1496897584",
+      "Name": "playTorchLitLoop",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Enviroment\\Torches\\playTorchLitLoop",
+      "GUID": "{63E66F11-30CB-4753-8622-D85AE45C788F}",
+      "MaxAttenuation": "40",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
-        "Id": "221963859"
+        "Id": "628431899"
        }
       ],
       "AuxBusRefs": [
        {
-        "Id": "2413215442",
-        "Name": "PuzzleVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
-       }
-      ]
-     },
-     {
-      "Id": "1562608897",
-      "Name": "playTorchIgnite",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\playTorchIgnite",
-      "GUID": "{70B32188-EEC9-4A1E-85C7-261ABF5C9EF1}",
-      "MaxAttenuation": "50",
-      "DurationType": "OneShot",
-      "DurationMin": "0.5179825",
-      "DurationMax": "0.5179825",
-      "MediaRefs": [
-       {
-        "Id": "579110475"
-       }
-      ],
-      "AuxBusRefs": [
-       {
-        "Id": "2413215442",
-        "Name": "PuzzleVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+        "Id": "4091100022",
+        "Name": "MediumRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\MediumRoomVerb",
+        "GUID": "{30BB047E-AD41-411F-A3E2-C4097231178D}"
        }
       ]
      },
@@ -956,7 +901,7 @@
       "Name": "stopBroadcasterFX",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\Instrument\\stopBroadcasterFX",
       "GUID": "{1D076EA8-796B-4D74-B668-6C997FE9340A}",
-      "MaxAttenuation": "3",
+      "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "0.5",
       "DurationMax": "0.5",
@@ -967,28 +912,18 @@
       ],
       "AuxBusRefs": [
        {
-        "Id": "1198315964",
-        "Name": "BroadcasterVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-        "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
      {
-      "Id": "941857173",
-      "Name": "stopIntroAmbience",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\stopIntroAmbience",
-      "GUID": "{94E3D522-D3EA-45E7-8DE2-1E0926B8912E}",
-      "MaxAttenuation": "0",
-      "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
-     },
-     {
-      "Id": "2019189489",
-      "Name": "stopTone",
-      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\stopTone",
-      "GUID": "{34313151-BEBD-4197-ABC3-8F6D821386E6}",
+      "Id": "4043078832",
+      "Name": "unmuteSFX",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalChange\\unmuteSFX",
+      "GUID": "{40FB0C1F-049C-48AD-97FD-E05E01032863}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
@@ -997,21 +932,39 @@
     ],
     "GameParameters": [
      {
+      "Id": "350681501",
+      "Name": "flute_Velocity",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Velocity",
+      "GUID": "{7993BEA7-6892-420B-9592-68603AC6C207}"
+     },
+     {
       "Id": "1152538158",
       "Name": "finder_Pitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\finder_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\finder_Pitch",
       "GUID": "{EF8C3766-7A4D-4EFC-A30F-4388AC0916AC}"
      },
      {
-      "Id": "2726482464",
-      "Name": "introBridge_CrossBridge",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_CrossBridge",
-      "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
+      "Id": "1472233667",
+      "Name": "gemCheckpoint_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Puzzles\\Gems\\gemCheckpoint_Pitch",
+      "GUID": "{2DE58906-0095-45C3-849C-25DC09C65E05}"
+     },
+     {
+      "Id": "1786911663",
+      "Name": "player_MoveSpeed",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Player\\player_MoveSpeed",
+      "GUID": "{5862A383-8CAD-4A7C-B3D0-78371C89ACB2}"
+     },
+     {
+      "Id": "1899861129",
+      "Name": "ambience_Ducking",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Enviroment\\Ambiences\\ambience_Ducking",
+      "GUID": "{81D38A92-ECA7-4CF5-BE90-1128330C5ED9}"
      },
      {
       "Id": "3409173110",
       "Name": "flute_Pitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\flute_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Pitch",
       "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
      }
     ]
@@ -1019,28 +972,36 @@
    {
     "Id": "3152323980",
     "Type": "User",
-    "GUID": "{C4C63780-EA50-4C35-AB42-C9D15211B72A}",
+    "GUID": "{8B9F1AB0-60DB-470A-929F-399B2FEFB141}",
     "Language": "SFX",
-    "Hash": "{20DEBD05-1412-2E0B-131C-050136800431}",
+    "Hash": "{117BBB9D-42AF-60E5-4E34-FE0C4832FDA2}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level01",
     "ShortName": "Level01",
     "Path": "Level01.bnk",
     "Media": [
      {
-      "Id": "196761745",
+      "Id": "23216998",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_BoulderChime.wav",
-      "CachePath": "27/{271417E9-5346-D530-C09F-33742591DBFB}.wem"
+      "ShortName": "EOR_SFX_RingTick03.wav",
+      "CachePath": "A8/{A842C52C-B068-1500-960D-1A07B8942B45}.wem"
      },
      {
-      "Id": "212656553",
+      "Id": "164535379",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_SFX_RingTick02.wav",
-      "CachePath": "F1/{F1CD0239-157B-FF47-F8B3-0AC6C26F4F58}.wem"
+      "ShortName": "EOR_Level01_BroadcasterApproachLoop.wav",
+      "CachePath": "30/{30232416-BE7A-F0F8-70A0-92A96772E748}.wem"
+     },
+     {
+      "Id": "251126326",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_PercLoop01.wav",
+      "CachePath": "70/{70CF1046-4E39-B5D4-A510-01ACCE2CA99B}.wem"
      },
      {
       "Id": "310615760",
@@ -1048,31 +1009,47 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_Level01_OpeningBaseLoop.wav",
-      "CachePath": "9D/{9DDC5477-75DC-603E-C910-583231EE34B0}.wem"
+      "CachePath": "12/{12565F6D-1CC6-8157-6E60-947B6A5F458C}.wem"
      },
      {
-      "Id": "454213422",
+      "Id": "506978383",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_SFX_RingTick01.wav",
-      "CachePath": "A2/{A23BCFCC-5B79-A82E-9BD2-2A3103ED300B}.wem"
+      "CachePath": "5A/{5AB39C0F-2C5C-E515-6D6D-D70465BE3E16}.wem"
      },
      {
-      "Id": "495460665",
+      "Id": "551430656",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_SFX_RingTick03.wav",
-      "CachePath": "9C/{9CA79E5B-2778-2A65-FCD7-6268975CFC3E}.wem"
+      "ShortName": "EOR_Level01_Puzzle01_BaseLoopA.wav",
+      "CachePath": "58/{58F62B0C-104A-4822-EC41-2D08E32EC943}.wem"
      },
      {
-      "Id": "598525220",
+      "Id": "563909248",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_EntranceHallCue.wav",
-      "CachePath": "37/{374E16D2-F0B6-B7CA-17A3-D5CF82AC126B}.wem"
+      "ShortName": "EOR_Level01_Puzzle01_OstLoopB.wav",
+      "CachePath": "61/{611B47FA-829A-9C5F-CBDF-4BE46A84FEEE}.wem"
+     },
+     {
+      "Id": "586092724",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_BroadcasterApproachCue.wav",
+      "CachePath": "72/{7247C986-BF6F-B21D-3682-B4978DEF664C}.wem"
+     },
+     {
+      "Id": "618833788",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_PercLoop02.wav",
+      "CachePath": "4B/{4BA3DF10-093F-E78A-6B52-324BF31CD11E}.wem"
      },
      {
       "Id": "646732023",
@@ -1080,7 +1057,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_Level01_GetBroadcasterCue.wav",
-      "CachePath": "37/{377C7F96-730B-8610-C3BC-69C34B8D7DFB}.wem"
+      "CachePath": "B5/{B5CACFD3-1D10-201B-86F1-1E0DD446B06F}.wem"
      },
      {
       "Id": "678171862",
@@ -1088,7 +1065,15 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_Level01_ToGameplayTransition.wav",
-      "CachePath": "BC/{BC108BBF-7848-8BAC-0629-365819313F8A}.wem"
+      "CachePath": "8A/{8AF64267-4E55-64C6-599F-8180DDD97E52}.wem"
+     },
+     {
+      "Id": "695093669",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_OstLoopA.wav",
+      "CachePath": "6C/{6C9675AD-24DB-0156-5013-28F22FF130AD}.wem"
      },
      {
       "Id": "711210221",
@@ -1097,6 +1082,14 @@
       "Location": "Memory",
       "ShortName": "EOR_Level01_OpeningRiff02.wav",
       "CachePath": "E4/{E4C9E0EB-5AA0-9B3D-9718-F4D13FE62E50}.wem"
+     },
+     {
+      "Id": "731935831",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_PuzzleToGameplayTransition.wav",
+      "CachePath": "5B/{5B0F60AB-53B6-6177-4F05-8F9D65656E42}.wem"
      },
      {
       "Id": "802790787",
@@ -1115,14 +1108,6 @@
       "CachePath": "1F/{1FA730D1-1200-64FC-001A-C2D9EEC0C15B}.wem"
      },
      {
-      "Id": "925508350",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_EntranceHallLoop.wav",
-      "CachePath": "A8/{A8E4B38D-87AF-5A12-A6BB-BCA1203D2136}.wem"
-     },
-     {
       "Id": "926822806",
       "Language": "SFX",
       "Streaming": "false",
@@ -1131,120 +1116,106 @@
       "CachePath": "37/{37F07362-63D2-AC5A-C70C-6FB8FC99789B}.wem"
      },
      {
-      "Id": "1049912042",
+      "Id": "960691585",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_RingTick02.wav",
+      "CachePath": "11/{113687C2-34A7-C92B-238E-DB8ABC0A2214}.wem"
+     },
+     {
+      "Id": "1041735732",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_SFX_RingTick04.wav",
-      "CachePath": "07/{07583339-140C-8103-ED27-778AEB023854}.wem"
+      "CachePath": "A1/{A1EB0C78-A4EC-BBED-1515-EE16B29E26E9}.wem"
+     },
+     {
+      "Id": "1044492786",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_BaseLoopB.wav",
+      "CachePath": "86/{864DCC2E-81F2-CF9D-A8D1-8CE3CF27DF0D}.wem"
      }
     ],
     "Events": [
      {
-      "Id": "2019948791",
-      "Name": "playBoulderChime1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playBoulderChime1",
-      "GUID": "{CF077C51-165F-4C94-AA3C-066BEA3310E1}",
+      "Id": "161092132",
+      "Name": "endOpening",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\endOpening",
+      "GUID": "{EAEA8523-58BC-4D3E-A358-37FB2D316A2F}",
+      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "10.402539",
-      "DurationMax": "10.402539",
-      "MediaRefs": [
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
        {
-        "Id": "196761745"
+        "GroupId": "3927051694",
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\None",
+        "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
        }
       ]
      },
      {
-      "Id": "2019948788",
-      "Name": "playBoulderChime2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playBoulderChime2",
-      "GUID": "{7D11826D-2BCA-43E1-AF94-B3725BA943C9}",
+      "Id": "2050963566",
+      "Name": "playRingTick",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\Puzzles01\\playRingTick",
+      "GUID": "{3E26EE3F-6D2A-4BE1-BC3F-EAF8F15001EE}",
       "DurationType": "OneShot",
-      "DurationMin": "10.402539",
-      "DurationMax": "10.402539",
+      "DurationMin": "0.94387424",
+      "DurationMax": "1.0594631",
       "MediaRefs": [
        {
-        "Id": "196761745"
-       }
-      ]
-     },
-     {
-      "Id": "2019948789",
-      "Name": "playBoulderChime3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playBoulderChime3",
-      "GUID": "{353CD24D-0799-4BA3-B984-12CC9CF3C0A2}",
-      "DurationType": "OneShot",
-      "DurationMin": "10.402539",
-      "DurationMax": "10.402539",
-      "MediaRefs": [
-       {
-        "Id": "196761745"
-       }
-      ]
-     },
-     {
-      "Id": "1201866565",
-      "Name": "playRingMoveTick",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playRingMoveTick",
-      "GUID": "{5B8D58D0-1DFA-45D8-B6A6-51F8A2E68D10}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.95760334",
-      "DurationMax": "1.0442737",
-      "MediaRefs": [
-       {
-        "Id": "212656553"
+        "Id": "23216998"
        },
        {
-        "Id": "454213422"
+        "Id": "506978383"
        },
        {
-        "Id": "495460665"
+        "Id": "960691585"
        },
        {
-        "Id": "1049912042"
+        "Id": "1041735732"
        }
       ],
       "AuxBusRefs": [
        {
-        "Id": "2413215442",
-        "Name": "PuzzleVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
      {
-      "Id": "2182868672",
-      "Name": "playToGameplayTransition01",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\playToGameplayTransition01",
-      "GUID": "{B491EA55-985C-40E3-9EC6-AC5926289AC4}",
-      "DurationType": "OneShot",
-      "DurationMin": "16.346848",
-      "DurationMax": "16.346848",
-      "MediaRefs": [
-       {
-        "Id": "678171862"
-       }
-      ]
-     },
-     {
-      "Id": "3352024112",
-      "Name": "startMetronome01",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMetronome01",
+      "Id": "3940236048",
+      "Name": "startMetronome01Opening",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMetronome01Opening",
       "GUID": "{D37E6E52-6B7A-4B65-AC5C-361561FC81AE}",
       "DurationType": "Infinite"
      },
      {
-      "Id": "3518514029",
-      "Name": "startMusic01",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMusic01",
+      "Id": "4094587836",
+      "Name": "startMetronome01Puzzle",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMetronome01Puzzle",
+      "GUID": "{F1F6FB05-3255-4625-9007-02B42C956A76}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "3756572687",
+      "Name": "startMusic01Opening",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMusic01Opening",
       "GUID": "{89188FD3-3475-4D5B-A9F3-54BE90C44217}",
       "DurationType": "Infinite",
       "SwitchContainers": [
        {
         "SwitchValue": {
          "GroupType": "State",
-         "GroupId": "3800814886",
+         "GroupId": "3927051694",
          "Id": "1831982039",
          "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
         },
@@ -1269,7 +1240,7 @@
        {
         "SwitchValue": {
          "GroupType": "State",
-         "GroupId": "3800814886",
+         "GroupId": "3927051694",
          "Id": "3020279701",
          "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
         },
@@ -1282,16 +1253,104 @@
        {
         "SwitchValue": {
          "GroupType": "State",
-         "GroupId": "3800814886",
-         "Id": "270858878",
+         "GroupId": "3927051694",
+         "Id": "1253314903",
          "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
         },
         "MediaRefs": [
          {
-          "Id": "598525220"
+          "Id": "164535379"
          },
          {
-          "Id": "925508350"
+          "Id": "586092724"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3927051694",
+         "Id": "1824561598",
+         "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "678171862"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3927051694",
+         "Id": "2272668956",
+         "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "310615760"
+         },
+         {
+          "Id": "711210221"
+         },
+         {
+          "Id": "802790787"
+         },
+         {
+          "Id": "866702254"
+         },
+         {
+          "Id": "926822806"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "676444101",
+      "Name": "startMusic01Puzzle",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMusic01Puzzle",
+      "GUID": "{68567443-59E1-4B6B-8221-0943AF2ED903}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3267866964",
+         "Id": "2715723947",
+         "GUID": "{918FDD1B-A0BF-4403-ADEC-C1468FBF0C46}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "251126326"
+         },
+         {
+          "Id": "551430656"
+         },
+         {
+          "Id": "563909248"
+         },
+         {
+          "Id": "618833788"
+         },
+         {
+          "Id": "695093669"
+         },
+         {
+          "Id": "1044492786"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3267866964",
+         "Id": "1824561598",
+         "GUID": "{2F6807F1-BF89-4B54-90FE-3A616045A3E3}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "731935831"
          }
         ]
        }
@@ -1300,48 +1359,116 @@
     ],
     "StateGroups": [
      {
-      "Id": "3800814886",
-      "Name": "Level01Master",
-      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master",
-      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "Id": "2945434178",
+      "Name": "_RingPuzzle",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle",
+      "GUID": "{F9FC9BD4-42D5-43EB-AE81-79FA7C9B6E18}",
       "States": [
        {
-        "Id": "270858878",
-        "Name": "EntranceHall",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\EntranceHall",
-        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
+        "Id": "225972860",
+        "Name": "Checkpoint1",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint1",
+        "GUID": "{779184F5-AAAA-4FC7-B75B-323D0D97E3A5}"
+       },
+       {
+        "Id": "225972862",
+        "Name": "Checkpoint3",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint3",
+        "GUID": "{F9AE0B1D-4D95-4EC7-9257-D3851C386CD1}"
+       },
+       {
+        "Id": "225972863",
+        "Name": "Checkpoint2",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint2",
+        "GUID": "{4FCF60F9-9938-40DA-B58E-491A640B8445}"
        },
        {
         "Id": "748895195",
         "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\None",
+        "GUID": "{6BD2ACE3-7A5E-4B12-B650-25DEDB29E25A}"
+       },
+       {
+        "Id": "1281810935",
+        "Name": "Start",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Start",
+        "GUID": "{F1FDB50B-69D8-4C32-A79F-F564496D793F}"
+       }
+      ]
+     },
+     {
+      "Id": "3267866964",
+      "Name": "Puzzle01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01",
+      "GUID": "{67A90AE2-BC7B-43D3-AC1A-B54CA4C33074}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\None",
+        "GUID": "{B8B677A5-0034-4A87-9241-A62F91A49EE8}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\ToGameplay",
+        "GUID": "{2F6807F1-BF89-4B54-90FE-3A616045A3E3}"
+       },
+       {
+        "Id": "2715723947",
+        "Name": "RingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\RingPuzzle",
+        "GUID": "{918FDD1B-A0BF-4403-ADEC-C1468FBF0C46}"
+       }
+      ]
+     },
+     {
+      "Id": "3927051694",
+      "Name": "Opening01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01",
+      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\None",
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
+       },
+       {
+        "Id": "1253314903",
+        "Name": "BroadcasterApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BroadcasterApproach",
+        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\ToGameplay",
+        "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
        },
        {
         "Id": "1831982039",
         "Name": "Opening",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\Opening",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Opening",
         "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
+       },
+       {
+        "Id": "2272668956",
+        "Name": "BeforeApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BeforeApproach",
+        "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
        },
        {
         "Id": "3020279701",
         "Name": "GetBroadcaster",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\GetBroadcaster",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\GetBroadcaster",
         "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
        }
       ]
      }
-    ],
-    "Triggers": [
-     {
-      "Id": "2526236795",
-      "Name": "HintDelay",
-      "ObjectPath": "\\Triggers\\Default Work Unit\\Level01\\FirstElevator\\HintDelay",
-      "GUID": "{325E5FCD-930E-4693-BF65-4E53A604AEDD}"
-     }
     ]
    }
   ],
-  "FileHash": "{3C2530B2-8299-7219-CEF4-AEE930A76AB5}"
+  "FileHash": "{A1A71311-315E-2B1A-F405-A6758ADF604C}"
  }
 }

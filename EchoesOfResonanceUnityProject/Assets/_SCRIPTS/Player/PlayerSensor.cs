@@ -7,7 +7,7 @@ public class PlayerSensor : MonoBehaviour
     {
         if (col.CompareTag("Plate") || col.CompareTag("Cutscene"))
         {
-            PlayerManager.root.savedPosition = new TrData(PlayerManager.root.transform);
+            PlrMngr.root.savedPosition = new TrData(PlrMngr.root.transform);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,15 +20,21 @@ public class PuzzleData : ScriptableObject
         public bool checkpoint;
     }
     public Notes[] solutions;
+    public bool Active;
+    public bool Solved
+    {
+        get =>
+        puzzleType != PuzzleType.Repeatable && solved == solutions.Length;
+    }
     [SerializeField] private int _solved;
     public int solved
     {
         get => _solved;
         set
         {
-            if (_solved != value) OnSolvedChanged.Invoke(value);
+            if (_solved != value && Active) OnSolvedChanged.Invoke(value);
             _solved = value;
-            if (value == solutions.Length) OnPuzzleCompleted.Invoke();
+            if (value == solutions.Length && Active) OnPuzzleCompleted.Invoke();
         }
     }
     [SerializeField] private int _reset;
@@ -37,15 +44,18 @@ public class PuzzleData : ScriptableObject
         set
         {
             _reset = value;
-            if (value == 3) OnReset.Invoke();
+            if (value == 3) 
+            {
+                OnReset.Invoke();
+                Active = false;
+            }
         }
     }
     public AudioEffects[] audioEffects;
 
-    public Action<int> OnSolvedChanged;
-    public Action OnPuzzleCompleted;
-    public Action OnReset;
-
+    public Action<int> OnSolvedChanged = new Action<int>(_ => { });
+    public Action OnPuzzleCompleted = new Action(() => { });
+    public Action OnReset = new Action(() => { });
     public void SetMusicComplete()
     {
         if (audioEffects != null)
@@ -54,55 +64,17 @@ public class PuzzleData : ScriptableObject
             {
                 if (effect.executeOnSolved)
                 {
-                    OnPuzzleCompleted += () => ExecuteActions(effect);
+                    OnPuzzleCompleted += () => effect.ExecuteActions();
                 }
                 else
                 {
-                    OnSolvedChanged += c => { if (c == effect.executeEarly) ExecuteActions(effect); };
+                    OnSolvedChanged += c => { if (c == effect.executeEarly) effect.ExecuteActions(); };
                 }
             }
         }
     }
 
-    public void ExecuteActions(AudioEffects effect)
-    {
-        if ((effect.audioTypes & AudioEffectType.Event) != 0)
-        {
-            foreach (var e in effect.audioEvents)
-            {
-                AudioManager.root.PlaySound(e, MusicManager.root.gameObject);
-            }
-        }
-        if ((effect.audioTypes & AudioEffectType.State) != 0)
-        {
-            foreach (var st in effect.audioStates)
-            {
-                MusicManager.root.SetState(st);
-            }
-        }
-        if ((effect.audioTypes & AudioEffectType.Switch) != 0)
-        {
-            foreach (var sw in effect.audioSwitches)
-            {
-                AudioManager.root.SetSwitch(sw, MusicManager.root.gameObject);
-            }
-        }
-        if ((effect.audioTypes & AudioEffectType.Trigger) != 0)
-        {
-            foreach (var t in effect.audioTriggers)
-            {
-                MusicManager.root.SetTrigger(t);
-            }
-        }
-        if ((effect.audioTypes & AudioEffectType.RTPC) != 0)
-        {
-            foreach (var r in effect.audioRTPCs)
-            {
-                AudioManager.root.SetRTPC(r.parameter, r.value);
-            }
-        }
-
-    }
+    
 }
 #if UNITY_EDITOR 
 [CustomPropertyDrawer(typeof(PuzzleData.Notes))]

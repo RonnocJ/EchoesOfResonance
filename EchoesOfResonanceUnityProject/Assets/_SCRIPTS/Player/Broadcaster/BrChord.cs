@@ -7,7 +7,7 @@ public class BrChord : Singleton<BrChord>, IInputScript
     {
         InputManager.root.AddListener<float>(ActionTypes.ChordDown, PlayChordAbility);
     }
-
+    [AllowedStates(GameState.InPuzzle, GameState.Roaming)]
     void PlayChordAbility(float chordIndex)
     {
         switch(chordIndex)

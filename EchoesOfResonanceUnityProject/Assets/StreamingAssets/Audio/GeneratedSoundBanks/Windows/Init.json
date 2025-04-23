@@ -10,25 +10,43 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{32D9834D-91C4-D884-D95C-7D2A91A47286}",
+    "Hash": "{BFAB5539-A987-7A4F-7996-7EA6814F7CD1}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "918930286",
+       "Name": "Meter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\MusicBus\\[Effect Slot [1]: (Meter)]\\Meter (Custom)",
+       "GUID": "{0F746EB0-633A-405A-9A9F-5971283E5C03}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      }
+     ],
      "ShareSets": [
       {
-       "Id": "702543456",
-       "Name": "Tunnel1",
-       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Tunnel1",
-       "GUID": "{CC44B890-9865-4157-965F-86FED27BC4C6}",
-       "LibName": "Wwise Matrix Reverb",
-       "LibId": "7536643"
+       "Id": "415841907",
+       "Name": "Space_Garage",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Huge Spaces\\Space_Garage",
+       "GUID": "{1AF92D84-49DD-4BBC-8F29-6C6D10082B6E}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
       },
       {
-       "Id": "2849147824",
-       "Name": "Medium",
-       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Cathedrals\\Medium",
-       "GUID": "{AEB3F175-958B-45F2-A4C2-3FBD4F456568}",
+       "Id": "1990128658",
+       "Name": "Room_Medium",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Rooms\\Room_Medium",
+       "GUID": "{F5C06EC1-E4A4-4332-A7D3-A89E2986B74F}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      },
+      {
+       "Id": "2791153688",
+       "Name": "Hall_Small",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Halls\\Hall_Small",
+       "GUID": "{D65B5F04-B83B-412C-9434-34A13A477E24}",
        "LibName": "Wwise RoomVerb",
        "LibId": "7733251"
       },
@@ -67,6 +85,11 @@
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\MusicBus",
       "GUID": "{EC62AEBE-2FED-4166-9D40-D71B991A8894}",
       "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "918930286"
+        }
+       ],
        "ShareSets": [
         {
          "Id": "3216246379"
@@ -83,40 +106,40 @@
     ],
     "AuxBusses": [
      {
-      "Id": "1198315964",
-      "Name": "BroadcasterVerb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\BroadcasterVerb",
-      "GUID": "{01B19565-6C4F-4317-B55B-4F70427BD694}",
+      "Id": "1603003340",
+      "Name": "LargeRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+      "GUID": "{3B830E07-6668-407B-A341-F96922349E00}",
       "PluginRefs": {
        "ShareSets": [
         {
-         "Id": "702543456"
+         "Id": "415841907"
         }
        ]
       }
      },
      {
-      "Id": "2413215442",
-      "Name": "PuzzleVerb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-      "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}",
+      "Id": "1749787712",
+      "Name": "SmallRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\SmallRoomVerb",
+      "GUID": "{D1A44CB0-749F-4D85-971A-AF76DBDC126A}",
       "PluginRefs": {
        "ShareSets": [
         {
-         "Id": "2849147824"
+         "Id": "2791153688"
         }
        ]
       }
      },
      {
-      "Id": "3736295661",
-      "Name": "PlayerVerb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PlayerVerb",
-      "GUID": "{81A2AD3F-732C-44FC-A513-8F42D9967F63}",
+      "Id": "4091100022",
+      "Name": "MediumRoomVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\MediumRoomVerb",
+      "GUID": "{30BB047E-AD41-411F-A3E2-C4097231178D}",
       "PluginRefs": {
        "ShareSets": [
         {
-         "Id": "702543456"
+         "Id": "1990128658"
         }
        ]
       }
@@ -124,139 +147,165 @@
     ],
     "GameParameters": [
      {
+      "Id": "350681501",
+      "Name": "flute_Velocity",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Velocity",
+      "GUID": "{7993BEA7-6892-420B-9592-68603AC6C207}"
+     },
+     {
       "Id": "653430204",
       "Name": "broadcaster_Shutdown",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\broadcaster_Shutdown",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\broadcaster_Shutdown",
       "GUID": "{BB7E510A-0B5A-4455-B69F-E8B2B57D0079}"
      },
      {
       "Id": "1006694123",
       "Name": "music_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\music_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Settings\\music_Volume",
       "GUID": "{E78F3DAA-3B61-408D-BBBE-0E77C0ACDA92}"
      },
      {
       "Id": "1152538158",
       "Name": "finder_Pitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\finder_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\finder_Pitch",
       "GUID": "{EF8C3766-7A4D-4EFC-A30F-4388AC0916AC}"
      },
      {
-      "Id": "1325667752",
-      "Name": "introBridge_StepDuck",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_StepDuck",
-      "GUID": "{2845BBAD-8494-4ECC-B651-50A8A6E730EC}"
+      "Id": "1472233667",
+      "Name": "gemCheckpoint_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Puzzles\\Gems\\gemCheckpoint_Pitch",
+      "GUID": "{2DE58906-0095-45C3-849C-25DC09C65E05}"
      },
      {
       "Id": "1564184899",
       "Name": "sfx_Volume",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\sfx_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Settings\\sfx_Volume",
       "GUID": "{B8871244-2A55-425F-91CE-140A28D3407D}"
      },
      {
-      "Id": "1867101979",
-      "Name": "firstElevator_Height",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\firstElevator_Height",
-      "GUID": "{3C290F12-76FB-408F-8F8E-A5BB1E3FB9CD}"
+      "Id": "1786911663",
+      "Name": "player_MoveSpeed",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Player\\player_MoveSpeed",
+      "GUID": "{5862A383-8CAD-4A7C-B3D0-78371C89ACB2}"
      },
      {
-      "Id": "2726482464",
-      "Name": "introBridge_CrossBridge",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_CrossBridge",
-      "GUID": "{1F7EBEDB-0A9E-4E04-9011-AEAE62D15148}"
-     },
-     {
-      "Id": "2969596720",
-      "Name": "cliffsEdge_Fade",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\cliffsEdge_Fade",
-      "GUID": "{74BE150D-AC23-4B5B-A301-4A8E10801D21}"
-     },
-     {
-      "Id": "3217007934",
-      "Name": "introBridge_FadeIn",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Level01\\introBridge_FadeIn",
-      "GUID": "{65FEA6F6-578C-4316-AE55-25BFE0CA9AAA}"
+      "Id": "1899861129",
+      "Name": "ambience_Ducking",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Enviroment\\Ambiences\\ambience_Ducking",
+      "GUID": "{81D38A92-ECA7-4CF5-BE90-1128330C5ED9}"
      },
      {
       "Id": "3409173110",
       "Name": "flute_Pitch",
-      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\flute_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Pitch",
       "GUID": "{796D6E2C-BDB4-4528-999B-D307F0302A65}"
      }
     ],
     "StateGroups": [
      {
-      "Id": "270858878",
-      "Name": "EntranceHall",
-      "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall",
-      "GUID": "{2AE9A7D4-CACC-4EC1-9D95-FBD8A94000EA}",
+      "Id": "2945434178",
+      "Name": "_RingPuzzle",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle",
+      "GUID": "{F9FC9BD4-42D5-43EB-AE81-79FA7C9B6E18}",
       "States": [
+       {
+        "Id": "225972860",
+        "Name": "Checkpoint1",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint1",
+        "GUID": "{779184F5-AAAA-4FC7-B75B-323D0D97E3A5}"
+       },
+       {
+        "Id": "225972862",
+        "Name": "Checkpoint3",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint3",
+        "GUID": "{F9AE0B1D-4D95-4EC7-9257-D3851C386CD1}"
+       },
+       {
+        "Id": "225972863",
+        "Name": "Checkpoint2",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint2",
+        "GUID": "{4FCF60F9-9938-40DA-B58E-491A640B8445}"
+       },
        {
         "Id": "748895195",
         "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\None",
-        "GUID": "{0EC2ED20-3789-40AE-8777-A852B301E348}"
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\None",
+        "GUID": "{6BD2ACE3-7A5E-4B12-B650-25DEDB29E25A}"
        },
        {
-        "Id": "1291433366",
-        "Name": "Base",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Base",
-        "GUID": "{CF315996-1AF3-442E-9FE4-2D48B67C6864}"
-       },
-       {
-        "Id": "3267866961",
-        "Name": "Puzzle04",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle04",
-        "GUID": "{806F89E5-3D79-4240-A224-8606E9E49004}"
-       },
-       {
-        "Id": "3267866964",
-        "Name": "Puzzle01",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle01",
-        "GUID": "{71162D71-7CBB-4EF9-8D04-0F14EDF54A4F}"
-       },
-       {
-        "Id": "3267866966",
-        "Name": "Puzzle03",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle03",
-        "GUID": "{63F3BE9F-80EF-473F-A53B-FBE807E0DCE9}"
-       },
-       {
-        "Id": "3267866967",
-        "Name": "Puzzle02",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\EntranceHall\\Puzzle02",
-        "GUID": "{1F8E012D-F98E-49A2-954D-99FEE5421A18}"
+        "Id": "1281810935",
+        "Name": "Start",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Start",
+        "GUID": "{F1FDB50B-69D8-4C32-A79F-F564496D793F}"
        }
       ]
      },
      {
-      "Id": "3800814886",
-      "Name": "Level01Master",
-      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master",
-      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "Id": "3267866964",
+      "Name": "Puzzle01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01",
+      "GUID": "{67A90AE2-BC7B-43D3-AC1A-B54CA4C33074}",
       "States": [
-       {
-        "Id": "270858878",
-        "Name": "EntranceHall",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\EntranceHall",
-        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
-       },
        {
         "Id": "748895195",
         "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\None",
+        "GUID": "{B8B677A5-0034-4A87-9241-A62F91A49EE8}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\ToGameplay",
+        "GUID": "{2F6807F1-BF89-4B54-90FE-3A616045A3E3}"
+       },
+       {
+        "Id": "2715723947",
+        "Name": "RingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\RingPuzzle",
+        "GUID": "{918FDD1B-A0BF-4403-ADEC-C1468FBF0C46}"
+       }
+      ]
+     },
+     {
+      "Id": "3927051694",
+      "Name": "Opening01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01",
+      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\None",
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
+       },
+       {
+        "Id": "1253314903",
+        "Name": "BroadcasterApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BroadcasterApproach",
+        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\ToGameplay",
+        "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
        },
        {
         "Id": "1831982039",
         "Name": "Opening",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\Opening",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Opening",
         "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
+       },
+       {
+        "Id": "2272668956",
+        "Name": "BeforeApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BeforeApproach",
+        "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
        },
        {
         "Id": "3020279701",
         "Name": "GetBroadcaster",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\GetBroadcaster",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\GetBroadcaster",
         "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
        }
       ]
@@ -264,6 +313,6 @@
     ]
    }
   ],
-  "FileHash": "{7C5B7142-2547-37F9-664E-7738F79DAE49}"
+  "FileHash": "{942DAE3E-9EDD-4A13-4323-B990BFBBC819}"
  }
 }

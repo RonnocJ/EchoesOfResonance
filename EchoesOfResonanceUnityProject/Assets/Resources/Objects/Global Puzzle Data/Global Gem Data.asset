@@ -12,25 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342ead5fb626e46b798884fe350e7d29, type: 3}
   m_Name: Global Gem Data
   m_EditorClassIdentifier: 
-  gemMeshes:
-  - {fileID: 2962929322132258886, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
-  - {fileID: 256412666039963641, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
-  - {fileID: 3047503064463021889, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
-  - {fileID: 4228556506607390173, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
-  - {fileID: 4348124009803173057, guid: a025a37b345694a42a020fe655efaf2c, type: 3}
   gemColors:
-  - mainColor: {r: 0.15, g: 0, b: 0, a: 1}
-    bottomColor: {r: 0.1, g: 0.05, b: 0, a: 1}
-    topColor: {r: 0.1, g: 0, b: 0.05, a: 1}
-  - mainColor: {r: 0.1, g: 0, b: 0.15, a: 1}
-    bottomColor: {r: 0.125, g: 0, b: 0.025, a: 1}
-    topColor: {r: 0.025, g: 0, b: 0.125, a: 1}
-  - mainColor: {r: 0, g: 0.125, b: 0.125, a: 1}
-    bottomColor: {r: 0, g: 0, b: 0.125, a: 1}
-    topColor: {r: 0, g: 0.075, b: 0.025, a: 1}
-  - mainColor: {r: 0.025, g: 0.1, b: 0, a: 1}
-    bottomColor: {r: 0, g: 0.1, b: 0.1, a: 1}
-    topColor: {r: 0.075, g: 0.1, b: 0, a: 1}
-  - mainColor: {r: 0.075, g: 0.075, b: 0, a: 1}
-    bottomColor: {r: 0.05, g: 0.1, b: 0, a: 1}
-    topColor: {r: 0.1, g: 0.05, b: 0, a: 1}
+  - mainColor: {r: 0.15686275, g: 0, b: 0, a: 1}
+    bottomColor: {r: 0.11764706, g: 0.039215688, b: 0, a: 1}
+    topColor: {r: 0.11764706, g: 0, b: 0.039215688, a: 1}
+  - mainColor: {r: 0.15686275, g: 0.15686275, b: 0, a: 1}
+    bottomColor: {r: 0.078431375, g: 0.15686275, b: 0, a: 1}
+    topColor: {r: 0.15686275, g: 0.078431375, b: 0, a: 1}
+  - mainColor: {r: 0, g: 0.15686275, b: 0, a: 1}
+    bottomColor: {r: 0, g: 0.15686275, b: 0.039215688, a: 1}
+    topColor: {r: 0.039215688, g: 0.15686275, b: 0, a: 1}
+  - mainColor: {r: 0, g: 0, b: 0.15686275, a: 1}
+    bottomColor: {r: 0, g: 0.039215688, b: 0.15686275, a: 1}
+    topColor: {r: 0.039215688, g: 0, b: 0.15686275, a: 1}
+  - mainColor: {r: 0.15686275, g: 0, b: 0.15686275, a: 1}
+    bottomColor: {r: 0.15686275, g: 0, b: 0.078431375, a: 1}
+    topColor: {r: 0.078431375, g: 0, b: 0.15686275, a: 1}

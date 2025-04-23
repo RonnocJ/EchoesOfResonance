@@ -8,7 +8,7 @@ public static class DH
     private static readonly Dictionary<Type, ScriptableObject> _registry = new Dictionary<Type, ScriptableObject>();
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    private static void RegisterAllAtStartup()
+    public static void RegisterAllAtStartup()
     {
         GlobalData[] allData = Resources.LoadAll<GlobalData>("");
         foreach (var data in allData)

@@ -1,35 +1,42 @@
 State Group	ID	Name			Wwise Object Path	Notes
-	270858878	EntranceHall			\Default Work Unit\Level01\EntranceHall	
-	3800814886	Level01Master			\Default Work Unit\Level01\Level01Master	
+	2945434178	_RingPuzzle			\Default Work Unit\Level01\_RingPuzzle	
+	3267866964	Puzzle01			\Default Work Unit\Level01\Puzzle01	
+	3927051694	Opening01			\Default Work Unit\Level01\Opening01	
 
 State	ID	Name	State Group			Notes
-	748895195	None	EntranceHall			
-	1291433366	Base	EntranceHall			
-	3267866961	Puzzle04	EntranceHall			
-	3267866964	Puzzle01	EntranceHall			
-	3267866966	Puzzle03	EntranceHall			
-	3267866967	Puzzle02	EntranceHall			
-	748895195	None	Level01Master			
-	1831982039	Opening	Level01Master			
-	3992841140	GameplayTransition	Level01Master			
+	225972860	Checkpoint1	_RingPuzzle			
+	225972862	Checkpoint3	_RingPuzzle			
+	225972863	Checkpoint2	_RingPuzzle			
+	748895195	None	_RingPuzzle			
+	1281810935	Start	_RingPuzzle			
+	748895195	None	Puzzle01			
+	1824561598	ToGameplay	Puzzle01			
+	2715723947	RingPuzzle	Puzzle01			
+	748895195	None	Opening01			
+	1253314903	BroadcasterApproach	Opening01			
+	1824561598	ToGameplay	Opening01			
+	1831982039	Opening	Opening01			
+	3020279701	GetBroadcaster	Opening01			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	653430204	broadcaster_Shutdown			\Default Work Unit\Global\broadcaster_Shutdown	
-	1006694123	music_Volume			\Default Work Unit\Global\music_Volume	
-	1564184899	sfx_Volume			\Default Work Unit\Global\sfx_Volume	
+	653430204	broadcaster_Shutdown			\Default Work Unit\Global\Broadcaster\broadcaster_Shutdown	
+	1006694123	music_Volume			\Default Work Unit\Global\Settings\music_Volume	
+	1564184899	sfx_Volume			\Default Work Unit\Global\Settings\sfx_Volume	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	2886307548	MusicBus			\Default Work Unit\MusicBus	
 	3803850708	SFXBus			\Default Work Unit\SFXBus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
-	1198315964	BroadcasterVerb			\Default Work Unit\SFXBus\BroadcasterVerb	
-	2413215442	PuzzleVerb			\Default Work Unit\SFXBus\PuzzleVerb	
-	3736295661	PlayerVerb			\Default Work Unit\SFXBus\PlayerVerb	
+	1603003340	LargeRoomVerb			\Default Work Unit\SFXBus\LargeRoomVerb	
+	1749787712	SmallRoomVerb			\Default Work Unit\SFXBus\SmallRoomVerb	
+	4091100022	MediumRoomVerb			\Default Work Unit\SFXBus\MediumRoomVerb	
 
 Effect plug-ins	ID	Name	Type				Notes
-	702543456	Tunnel1	Wwise Matrix Reverb			
-	2849147824	Medium	Wwise RoomVerb			
+	415841907	Space_Garage	Wwise RoomVerb			
+	918930286	Meter (Custom)	Wwise Meter			
+	1990128658	Room_Medium	Wwise RoomVerb			
+	2791153688	Hall_Small	Wwise RoomVerb			
 	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes

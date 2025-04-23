@@ -6,25 +6,25 @@ public class MusicManager : Singleton<MusicManager>, ISaveData
 {
     [SerializeField] private GameObject _configBG;
     [SerializeField] private MusicTracker _defaultSong;
-    public MusicTracker currentSong;
+    public MusicTracker currentSong, loadedSong;
     public GameState GameStateToSet;
-    private readonly Dictionary<AudioEvent, AudioEvent> musicMetronomeRef = new()
-    {
-        {AudioEvent.startMusic01, AudioEvent.startMetronome01}
-    };
     private Dictionary<AudioEvent, uint> playingMusicIds = new();
     private AudioEvent lastSongEvent;
+    private MusicTracker lastSongData;
     private AudioState lastState;
     public Dictionary<string, object> AddSaveData()
     {
         return new()
         {
-            {"lastSong", (lastSongEvent, currentSong.name)}, {"lastState", lastState}
+            {"lastSong", (lastSongEvent, lastSongData.name)}, {"lastState", lastState}
         };
     }
     public void ReadSaveData(Dictionary<string, object> savedData)
     {
-        lastState = AudioState.Level01Master_BREAK_Opening;
+        AkUnitySoundEngine.PostEvent(AudioEvent.muteSFX.ToString(), gameObject);
+        AkUnitySoundEngine.PostEvent(AudioEvent.playBasicAmbience.ToString(), gameObject);
+
+        lastState = AudioState.Opening01_BREAK_Opening;
 
         if (savedData.TryGetValue("lastState", out object lastStateRaw))
         {
@@ -32,8 +32,8 @@ public class MusicManager : Singleton<MusicManager>, ISaveData
             lastState = lastStateData;
         }
 
-        lastSongEvent = AudioEvent.startMusic01;
-        currentSong = _defaultSong;
+        lastSongEvent = AudioEvent.startMusic01Opening;
+        loadedSong = _defaultSong;
 
         if (savedData.TryGetValue("lastSong", out object lastSongRaw))
         {
@@ -41,51 +41,68 @@ public class MusicManager : Singleton<MusicManager>, ISaveData
             (string audioEventStr, string trackerName) = JsonConvert.DeserializeObject<(string, string)>(json);
 
             Enum.TryParse(audioEventStr, out lastSongEvent);
-            currentSong = Resources.Load<MusicTracker>(trackerName) ?? _defaultSong;
+            loadedSong = Resources.Load<MusicTracker>(trackerName) ?? _defaultSong;
         }
+
+        lastSongData = loadedSong;
     }
     public void MusicToGameplay()
     {
-        if (DH.Get<TestOverrides>().skipIntro)
+        PlaySong(loadedSong);
+
+        if (!DH.Get<TestOverrides>().skipIntro)
         {
-            PlaySong(lastSongEvent, currentSong);
-            SetState(lastState);
-            UIFade.root.SetAlpha(0, new() { _configBG });
-            GameManager.root.currentState = GameStateToSet;
+            SetState(currentSong.ToGameplayState);
+            currentSong.AddQueuedCallback("SetMusicStateGameplay", 0.5f, () => SetState(lastState));
+
+            currentSong.AddQueuedCallback("SyncGameplayTransition", currentSong.IntroLength, () =>
+                {
+                    UIUtil.root.SetAlpha(0, new() { _configBG });
+                    GameManager.root.State = GameStateToSet;
+                    AkUnitySoundEngine.PostEvent(AudioEvent.unmuteSFX.ToString(), gameObject);
+                });
         }
         else
         {
-            AkCallbackManager.EventCallback callback = (object inCookie, AkCallbackType type, AkCallbackInfo info) =>
-                {
-                    if (type == AkCallbackType.AK_MusicSyncExit)
-                    {
-                        PlaySong(lastSongEvent, currentSong);
-                        SetState(lastState);
-                        UIFade.root.SetAlpha(0, new() { _configBG });
-                        GameManager.root.currentState = GameStateToSet;
-                    }
-                };
-
-            AkUnitySoundEngine.PostEvent(AudioEvent.playToGameplayTransition01.ToString(), gameObject, (uint)AkCallbackType.AK_MusicSyncExit, callback, null);
+            SetState(lastState);
+            UIUtil.root.SetAlpha(0, new() { _configBG });
+            GameManager.root.State = GameStateToSet;
+            AkUnitySoundEngine.PostEvent(AudioEvent.unmuteSFX.ToString(), gameObject);
         }
     }
-    public void PlaySong(AudioEvent songType, MusicTracker newSong)
+    public void PlaySong(MusicTracker newSong)
     {
-        if (!playingMusicIds.ContainsKey(songType) && musicMetronomeRef.TryGetValue(songType, out AudioEvent metronome) && songType != AudioEvent.None)
+        StopSong();
+
+        if (!playingMusicIds.ContainsKey(newSong.MusicEvent))
         {
-            lastSongEvent = songType;
             currentSong = newSong;
-            playingMusicIds[songType] = AkUnitySoundEngine.PostEvent(songType.ToString(), gameObject);
-            playingMusicIds[metronome] = AkUnitySoundEngine.PostEvent(metronome.ToString(), gameObject, (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition), newSong.MusicCallbackFunction, null);
+
+            playingMusicIds[newSong.MusicEvent] = AkUnitySoundEngine.PostEvent(newSong.MusicEvent.ToString(), gameObject);
+            playingMusicIds[newSong.MetronomeEvent] = AkUnitySoundEngine.PostEvent(newSong.MetronomeEvent.ToString(), gameObject, (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition), newSong.MusicCallbackFunction, null);
+
+            currentSong.Grid = 0;
+
+            if (!(GameManager.root.State is GameState.Cutscene or GameState.InPuzzle))
+            {
+                lastSongEvent = newSong.MusicEvent;
+                lastSongData = newSong;
+            }
         }
     }
 
-    public void StopSong(AudioEvent songType)
+    public void StopSong()
     {
-        if (playingMusicIds.ContainsKey(songType))
+        if (currentSong != null)
         {
-            AudioManager.root.StopSound(songType);
-            playingMusicIds.Remove(songType);
+            AkUnitySoundEngine.StopPlayingID(playingMusicIds[lastSongEvent]);
+            AkUnitySoundEngine.StopPlayingID(playingMusicIds[currentSong.MetronomeEvent]);
+    
+            playingMusicIds.Remove(lastSongEvent);
+            playingMusicIds.Remove(currentSong.MetronomeEvent);
+    
+            lastSongEvent = AudioEvent.None;
+            lastState = AudioState.None;
         }
     }
 
@@ -93,7 +110,7 @@ public class MusicManager : Singleton<MusicManager>, ISaveData
     {
         if (stateType != AudioState.None)
         {
-            if (!(GameManager.root.currentState is GameState.Cutscene or GameState.InPuzzle))
+            if (!(GameManager.root.State is GameState.Cutscene or GameState.InPuzzle) && stateType != currentSong.ToGameplayState)
             {
                 lastState = stateType;
             }

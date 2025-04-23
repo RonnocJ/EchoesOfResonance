@@ -17,6 +17,9 @@ public class MusicTracker : ScriptableObject
             TimeToNextBeat = 0f;
         }
     }
+    public AudioEvent MusicEvent, MetronomeEvent;
+    public AudioState ToGameplayState;
+    public float IntroLength;
     public float Grid, Length;
     public Dictionary<string, CallbackEntry> LoopingCallback = new();
     public Dictionary<string, CallbackEntry> QueuedCallback = new();

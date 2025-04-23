@@ -126,7 +126,14 @@ public static class UWAudioEnumGenerator
 
                             try
                             {
-                                stateIds.Add(unchecked((int)uint.Parse(soundBank.StateGroups[i].States[j].Id)));
+                                int newId = unchecked((int)uint.Parse(soundBank.StateGroups[i].States[j].Id));
+                                
+                                while(stateIds.Contains(newId))
+                                {
+                                    newId++;
+                                }
+                                
+                                stateIds.Add(newId);
                             }
                             catch (FormatException e)
                             {

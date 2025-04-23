@@ -28,6 +28,45 @@ public class AudioEffects
     public AudioSwitch[] audioSwitches;
     public AudioTrigger[] audioTriggers;
     public RTPC[] audioRTPCs;
+    public void ExecuteActions()
+    {
+        if ((audioTypes & AudioEffectType.Event) != 0)
+        {
+            foreach (var e in audioEvents)
+            {
+                AudioManager.root.PlaySound(e);
+            }
+        }
+        if ((audioTypes & AudioEffectType.State) != 0)
+        {
+            foreach (var st in audioStates)
+            {
+                MusicManager.root.SetState(st);
+            }
+        }
+        if ((audioTypes & AudioEffectType.Switch) != 0)
+        {
+            foreach (var sw in audioSwitches)
+            {
+                AudioManager.root.SetSwitch(sw);
+            }
+        }
+        if ((audioTypes & AudioEffectType.Trigger) != 0)
+        {
+            foreach (var t in audioTriggers)
+            {
+                MusicManager.root.SetTrigger(t);
+            }
+        }
+        if ((audioTypes & AudioEffectType.RTPC) != 0)
+        {
+            foreach (var r in audioRTPCs)
+            {
+                AudioManager.root.SetRTPC(r.parameter, r.value);
+            }
+        }
+
+    }
 }
 #if UNITY_EDITOR 
 [CustomPropertyDrawer(typeof(AudioEffects))]

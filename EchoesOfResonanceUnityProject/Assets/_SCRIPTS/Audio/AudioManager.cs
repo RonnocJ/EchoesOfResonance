@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-    private Dictionary<(AudioEvent, GameObject, float), Queue<uint>> postedSoundEvents = new();
+    private Dictionary<(AudioEvent, GameObject, int), Queue<uint>> postedSoundEvents = new();
 
-    void Start()
+    protected override void Awake()
     {
+        base.Awake();
+        
         AkBankManager.LoadBank("Global", false, false);
         AkBankManager.LoadBank("Level01", false, false);
     }
-    public bool PlaySound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1, bool overrideInstanceLock = false)
+    public bool PlaySound(AudioEvent soundType, GameObject soundSource = null, int instanceNumber = 0)
     {
         if (soundType != AudioEvent.None)
         {
@@ -33,7 +35,7 @@ public class AudioManager : Singleton<AudioManager>
                 }
             };
 
-            if (postedSoundEvents.ContainsKey((soundType, sourceObj, instanceNumber)) && !overrideInstanceLock)
+            if (postedSoundEvents.ContainsKey((soundType, sourceObj, instanceNumber)) && instanceNumber > 0)
             {
                 return false;
             }
@@ -54,7 +56,7 @@ public class AudioManager : Singleton<AudioManager>
         return false;
     }
 
-    public bool StopSound(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1)
+    public bool StopSound(AudioEvent soundType, GameObject soundSource = null, int instanceNumber = 0)
     {
         if (soundType != AudioEvent.None)
         {
@@ -76,7 +78,7 @@ public class AudioManager : Singleton<AudioManager>
         return false;
     }
 
-    public bool IsPlaying(AudioEvent soundType, GameObject soundSource = null, float instanceNumber = 1)
+    public bool IsPlaying(AudioEvent soundType, GameObject soundSource = null, int instanceNumber = 0)
     {
         if (postedSoundEvents.ContainsKey((soundType, soundSource != null ? soundSource : gameObject, instanceNumber)))
         {
@@ -93,7 +95,7 @@ public class AudioManager : Singleton<AudioManager>
         }
     }
 
-    public void SetRTPC(AudioRTPC rtpcType, float value, bool isGlobal = true, AudioEvent localEvent = AudioEvent.None, GameObject sourceObject = null, float instanceNumber = 1)
+    public void SetRTPC(AudioRTPC rtpcType, float value, bool isGlobal = true, AudioEvent localEvent = AudioEvent.None, GameObject sourceObject = null, int instanceNumber = 0)
     {
         if (rtpcType != AudioRTPC.None)
         {

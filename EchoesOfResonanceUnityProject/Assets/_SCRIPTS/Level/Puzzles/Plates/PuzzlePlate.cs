@@ -1,73 +1,74 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class PuzzlePlate : MonoBehaviour, IInputScript
+public class PuzzlePlate : MonoBehaviour, IInputScript, ISaveData
 {
     [SerializeField] private Vector3 alignRotation;
     public PuzzleData linkedData;
+    public MusicTracker playMusicOnActivate;
+    public AudioEffects effectsOnActivate;
     public Gem[] gems;
     public Transform targetTr;
     private bool active;
 
-    void Awake()
-    {
-        if (GetComponent<ISpecialPuzzle>() == null)
-        {
-            SetupPuzzle();
-        }
-    }
     public void AddInputs()
     {
         InputManager.root.AddListener<float>(ActionTypes.KeyDown, CheckNote);
+        InputManager.root.AddListener<float>(ActionTypes.KeyDown, StartPuzzle);
+    }
+    public Dictionary<string, object> AddSaveData()
+    {
+        return new()
+        {
+            {"solved", linkedData.Solved}
+        };
+    }
+    public void ReadSaveData(Dictionary<string, object> savedData)
+    {
+        linkedData.Active = false;
+        linkedData.solved = 0;
+        
+        if (savedData.TryGetValue("solved", out object isSolvedRaw))
+        {
+            bool isSolved = Convert.ToBoolean(isSolvedRaw);
+
+            if (isSolved)
+            {
+                linkedData.solved = linkedData.solutions.Length;
+
+                UpdateGem(linkedData.solutions.Length);
+            }
+
+        }
     }
     public void SetupPuzzle()
     {
-        linkedData.OnSolvedChanged += solved => UpdateGem(solved);
-        linkedData.OnPuzzleCompleted += () =>
-        {
-            if (linkedData.puzzleType == PuzzleType.Solveable)
-                PlateCompleted();
-        };
+        linkedData.Active = true;
 
-        linkedData.OnReset += () => EjectPlayer();
+        linkedData.OnSolvedChanged += UpdateGem;
+
+        linkedData.OnReset += EjectPlayer;
         linkedData.SetMusicComplete();
-
-        linkedData.solved = 0;
-        linkedData.reset = 0;
-        active = false;
     }
     public void DeactivatePuzzle()
     {
-        linkedData.OnSolvedChanged -= solved => UpdateGem(solved);
-        linkedData.OnPuzzleCompleted -= () =>
-        {
-            if (linkedData.puzzleType == PuzzleType.Solveable)
-                PlateCompleted();
-        };
+        linkedData.Active = false;
 
-        linkedData.OnReset -= () => EjectPlayer();
+        linkedData.OnSolvedChanged -= UpdateGem;
+
+        linkedData.OnReset -= EjectPlayer;
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Player") && GameManager.root.currentState == GameState.Roaming && linkedData.puzzleType != PuzzleType.Repeatable && linkedData.solved < linkedData.solutions.Length)
+        if (col.CompareTag("Player") && GameManager.root.State == GameState.Roaming && !linkedData.Solved)
         {
-            GameManager.root.currentState = GameState.InPuzzle;
-            GameManager.root.currentPuzzle = linkedData;
-            GameManager.root.currentPlate = this;
-
-            int firstCheckpointIndex = FindNextCheckpointIndex(0);
-
-            BrPitchFinder.root.SetGemList(gems.ToList().Skip(0).Take(firstCheckpointIndex).ToList());
-
             targetTr = col.GetComponent<Transform>();
+            GameManager.root.State = GameState.Synced;
 
-            targetTr.SetParent(transform, true);
-
-            var targetTrData = new TrData(Vector3.up * 4.125f, Quaternion.Euler(alignRotation));
-            CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed), $"AlignPlayerTo{gameObject.name}", this);
-            active = true;
+            BrDisplay.root.SetSyncText(linkedData.solutions[0].noteName);
         }
         else if (col.CompareTag("Boulder"))
         {
@@ -78,13 +79,49 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
             CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed * 0.5f), $"AlignBoulderTo{gameObject.name}", this);
         }
     }
+    void OnTriggerExit(Collider col)
+    {
+        if (col.CompareTag("Player") && GameManager.root.State == GameState.Synced)
+        {
+            targetTr = null;
+            GameManager.root.State = GameState.Roaming;
+
+            BrDisplay.root.LowerTextPriority(DisplayPriority.Sync);
+        }
+    }
+    [AllowedStates(GameState.Synced)]
+    public void StartPuzzle(float noteInput)
+    {
+        if (noteInput == PzUtil.GetNoteNumber(linkedData.solutions[0].noteName) && targetTr != null)
+        {
+            linkedData.reset = 0;
+            SetupPuzzle();
+
+            BrPitchFinder.root.SetGemList(gems.ToList().Skip(0).Take(FindNextCheckpointIndex(0)).ToList());
+
+            targetTr.SetParent(transform, true);
+
+            var targetTrData = new TrData(Vector3.up * 4.125f, Quaternion.Euler(alignRotation));
+            CRManager.root.Begin(targetTrData.ApplyToOverTime(targetTr, DH.Get<GlobalPlateData>().alignSpeed), $"AlignPlayerTo{gameObject.name}", this);
+            active = true;
+
+            GameManager.root.State = GameState.InPuzzle;
+            GameManager.root.currentPuzzle = linkedData;
+            GameManager.root.currentPlate = this;
+
+            if(playMusicOnActivate != null) MusicManager.root.PlaySong(playMusicOnActivate);
+            if (effectsOnActivate != null) effectsOnActivate.ExecuteActions();
+
+            CheckNote(noteInput);
+
+            BrDisplay.root.LowerTextPriority(DisplayPriority.Sync);
+        }
+    }
     [AllowedStates(GameState.InPuzzle)]
     public void CheckNote(float noteInput)
     {
         if (targetTr != null && active)
         {
-            float note = PuzzleUtilities.root.GetNoteNumber(linkedData.solutions[linkedData.solved].noteName);
-
             if (noteInput == 13)
             {
                 linkedData.reset++;
@@ -94,27 +131,34 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
                 linkedData.reset = 0;
             }
 
-            if (note == noteInput && linkedData.reset < 3)
+            if (linkedData.solved < linkedData.solutions.Length && linkedData.reset < 3)
             {
-                linkedData.solved++;
-
-                if (linkedData.solved < linkedData.solutions.Length && linkedData.solutions[linkedData.solved].checkpoint)
+                if (PzUtil.GetNoteNumber(linkedData.solutions[linkedData.solved].noteName) == noteInput)
                 {
-                    for (int i = FindPreviousCheckpointIndex(linkedData.solved - 1); i < linkedData.solved; i++)
+                    linkedData.solved++;
+
+                    if ((linkedData.solved < linkedData.solutions.Length && linkedData.solutions[linkedData.solved].checkpoint) || linkedData.solved == linkedData.solutions.Length)
                     {
-                        MusicManager.root.currentSong.AddQueuedCallback($"{linkedData.name}SequenceSolved", linkedData.solutions[i].noteDuration.CurrentValue, gems[i].CheckpointReached);
+                        for (int i = FindPreviousCheckpointIndex(linkedData.solved - 1); i < linkedData.solved; i++)
+                        {
+                            MusicManager.root.currentSong.AddQueuedCallback($"{gameObject.name}SequenceSolved", linkedData.solutions[i].noteDuration.CurrentValue, gems[i].CheckpointReached);
+                        }
+
+                        if (linkedData.solved < linkedData.solutions.Length)
+                        {
+                            int startIdx = linkedData.solved;
+                            int endIdx = FindNextCheckpointIndex(linkedData.solved);
+
+                            BrPitchFinder.root.SetGemList(gems[startIdx..endIdx].ToList());
+
+                        }
                     }
-
-                    int startIdx = linkedData.solved;
-                    int endIdx = FindNextCheckpointIndex(linkedData.solved);
-
-                    BrPitchFinder.root.SetGemList(gems.ToList().Skip(startIdx).Take(endIdx - startIdx).ToList());
                 }
-            }
-            else
-            {
-                int previousCheckpointIndex = FindPreviousCheckpointIndex(linkedData.solved);
-                linkedData.solved = previousCheckpointIndex;
+                else
+                {
+                    int previousCheckpointIndex = FindPreviousCheckpointIndex(linkedData.solved);
+                    linkedData.solved = previousCheckpointIndex;
+                }
             }
         }
     }
@@ -143,54 +187,34 @@ public class PuzzlePlate : MonoBehaviour, IInputScript
     }
     public void UpdateGem(int solved)
     {
-        for (int i = 0; i < solved; i++)
+        for (int i = 0; i < gems.Length; i++)
         {
-            if (!gems[i].gemLit)
-            {
-                gems[i].LightOn();
-            }
-
-        }
-        for (int j = linkedData.solutions.Length - 1; j >= solved; j--)
-        {
-            if (gems[j].gemLit)
-                gems[j].LightOff();
+            bool lit = i < solved;
+            if (lit && !gems[i].gemLit) gems[i].LightOn();
+            else if (!lit && gems[i].gemLit) gems[i].LightOff();
         }
     }
     void EjectPlayer()
     {
-        linkedData.solved = 0;
-        active = false;
         targetTr.SetParent(null, true);
 
-        if (targetTr.TryGetComponent(out Rigidbody rb))
-        {
-            Vector2 sideForce = Random.insideUnitCircle * DH.Get<GlobalPlateData>().ejectForce;
-            rb.AddForce(new Vector3(sideForce.x, DH.Get<GlobalPlateData>().ejectForce, sideForce.y));
-        }
-
-        CRManager.root.Begin(Cooldown(), $"{gameObject}Cooldown", this);
-
-        GameManager.root.currentState = GameState.Roaming;
-    }
-    IEnumerator Cooldown()
-    {
-        yield return new WaitForSeconds(2f);
-        targetTr = null;
         linkedData.reset = 0;
-    }
-    void PlateCompleted()
-    {
-        GameManager.root.currentState = GameState.Roaming;
-        targetTr.parent = null;
-        targetTr = null;
+        linkedData.Active = false;
+
         active = false;
 
-        for (int i = FindPreviousCheckpointIndex(linkedData.solved - 1); i < linkedData.solved; i++)
+        if (linkedData.Solved)
         {
-            MusicManager.root.currentSong.AddQueuedCallback($"{linkedData.name}SequenceSolved", linkedData.solutions[i].noteDuration.CurrentValue, gems[i].CheckpointReached);
+            GameManager.root.State = GameState.Roaming;
+            targetTr = null;
+        }
+        else
+        {
+            linkedData.solved = 0;
+            GameManager.root.State = GameState.Synced;
         }
     }
+
     void OnDisable()
     {
         DeactivatePuzzle();

@@ -8,28 +8,36 @@
    {
     "Id": "3152323980",
     "Type": "User",
-    "GUID": "{C4C63780-EA50-4C35-AB42-C9D15211B72A}",
+    "GUID": "{8B9F1AB0-60DB-470A-929F-399B2FEFB141}",
     "Language": "SFX",
-    "Hash": "{20DEBD05-1412-2E0B-131C-050136800431}",
+    "Hash": "{117BBB9D-42AF-60E5-4E34-FE0C4832FDA2}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level01",
     "ShortName": "Level01",
     "Path": "Level01.bnk",
     "Media": [
      {
-      "Id": "196761745",
+      "Id": "23216998",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_BoulderChime.wav",
-      "CachePath": "27/{271417E9-5346-D530-C09F-33742591DBFB}.wem"
+      "ShortName": "EOR_SFX_RingTick03.wav",
+      "CachePath": "A8/{A842C52C-B068-1500-960D-1A07B8942B45}.wem"
      },
      {
-      "Id": "212656553",
+      "Id": "164535379",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_SFX_RingTick02.wav",
-      "CachePath": "F1/{F1CD0239-157B-FF47-F8B3-0AC6C26F4F58}.wem"
+      "ShortName": "EOR_Level01_BroadcasterApproachLoop.wav",
+      "CachePath": "30/{30232416-BE7A-F0F8-70A0-92A96772E748}.wem"
+     },
+     {
+      "Id": "251126326",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_PercLoop01.wav",
+      "CachePath": "70/{70CF1046-4E39-B5D4-A510-01ACCE2CA99B}.wem"
      },
      {
       "Id": "310615760",
@@ -37,31 +45,47 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_Level01_OpeningBaseLoop.wav",
-      "CachePath": "9D/{9DDC5477-75DC-603E-C910-583231EE34B0}.wem"
+      "CachePath": "12/{12565F6D-1CC6-8157-6E60-947B6A5F458C}.wem"
      },
      {
-      "Id": "454213422",
+      "Id": "506978383",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_SFX_RingTick01.wav",
-      "CachePath": "A2/{A23BCFCC-5B79-A82E-9BD2-2A3103ED300B}.wem"
+      "CachePath": "5A/{5AB39C0F-2C5C-E515-6D6D-D70465BE3E16}.wem"
      },
      {
-      "Id": "495460665",
+      "Id": "551430656",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_SFX_RingTick03.wav",
-      "CachePath": "9C/{9CA79E5B-2778-2A65-FCD7-6268975CFC3E}.wem"
+      "ShortName": "EOR_Level01_Puzzle01_BaseLoopA.wav",
+      "CachePath": "58/{58F62B0C-104A-4822-EC41-2D08E32EC943}.wem"
      },
      {
-      "Id": "598525220",
+      "Id": "563909248",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_EntranceHallCue.wav",
-      "CachePath": "37/{374E16D2-F0B6-B7CA-17A3-D5CF82AC126B}.wem"
+      "ShortName": "EOR_Level01_Puzzle01_OstLoopB.wav",
+      "CachePath": "61/{611B47FA-829A-9C5F-CBDF-4BE46A84FEEE}.wem"
+     },
+     {
+      "Id": "586092724",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_BroadcasterApproachCue.wav",
+      "CachePath": "72/{7247C986-BF6F-B21D-3682-B4978DEF664C}.wem"
+     },
+     {
+      "Id": "618833788",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_PercLoop02.wav",
+      "CachePath": "4B/{4BA3DF10-093F-E78A-6B52-324BF31CD11E}.wem"
      },
      {
       "Id": "646732023",
@@ -69,7 +93,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_Level01_GetBroadcasterCue.wav",
-      "CachePath": "37/{377C7F96-730B-8610-C3BC-69C34B8D7DFB}.wem"
+      "CachePath": "B5/{B5CACFD3-1D10-201B-86F1-1E0DD446B06F}.wem"
      },
      {
       "Id": "678171862",
@@ -77,7 +101,15 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_Level01_ToGameplayTransition.wav",
-      "CachePath": "BC/{BC108BBF-7848-8BAC-0629-365819313F8A}.wem"
+      "CachePath": "8A/{8AF64267-4E55-64C6-599F-8180DDD97E52}.wem"
+     },
+     {
+      "Id": "695093669",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_OstLoopA.wav",
+      "CachePath": "6C/{6C9675AD-24DB-0156-5013-28F22FF130AD}.wem"
      },
      {
       "Id": "711210221",
@@ -86,6 +118,14 @@
       "Location": "Memory",
       "ShortName": "EOR_Level01_OpeningRiff02.wav",
       "CachePath": "E4/{E4C9E0EB-5AA0-9B3D-9718-F4D13FE62E50}.wem"
+     },
+     {
+      "Id": "731935831",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_PuzzleToGameplayTransition.wav",
+      "CachePath": "5B/{5B0F60AB-53B6-6177-4F05-8F9D65656E42}.wem"
      },
      {
       "Id": "802790787",
@@ -104,14 +144,6 @@
       "CachePath": "1F/{1FA730D1-1200-64FC-001A-C2D9EEC0C15B}.wem"
      },
      {
-      "Id": "925508350",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_EntranceHallLoop.wav",
-      "CachePath": "A8/{A8E4B38D-87AF-5A12-A6BB-BCA1203D2136}.wem"
-     },
-     {
       "Id": "926822806",
       "Language": "SFX",
       "Streaming": "false",
@@ -120,120 +152,106 @@
       "CachePath": "37/{37F07362-63D2-AC5A-C70C-6FB8FC99789B}.wem"
      },
      {
-      "Id": "1049912042",
+      "Id": "960691585",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_RingTick02.wav",
+      "CachePath": "11/{113687C2-34A7-C92B-238E-DB8ABC0A2214}.wem"
+     },
+     {
+      "Id": "1041735732",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_SFX_RingTick04.wav",
-      "CachePath": "07/{07583339-140C-8103-ED27-778AEB023854}.wem"
+      "CachePath": "A1/{A1EB0C78-A4EC-BBED-1515-EE16B29E26E9}.wem"
+     },
+     {
+      "Id": "1044492786",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01_Puzzle01_BaseLoopB.wav",
+      "CachePath": "86/{864DCC2E-81F2-CF9D-A8D1-8CE3CF27DF0D}.wem"
      }
     ],
     "Events": [
      {
-      "Id": "2019948791",
-      "Name": "playBoulderChime1",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playBoulderChime1",
-      "GUID": "{CF077C51-165F-4C94-AA3C-066BEA3310E1}",
+      "Id": "161092132",
+      "Name": "endOpening",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\endOpening",
+      "GUID": "{EAEA8523-58BC-4D3E-A358-37FB2D316A2F}",
+      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "10.402539",
-      "DurationMax": "10.402539",
-      "MediaRefs": [
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
        {
-        "Id": "196761745"
+        "GroupId": "3927051694",
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\None",
+        "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
        }
       ]
      },
      {
-      "Id": "2019948788",
-      "Name": "playBoulderChime2",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playBoulderChime2",
-      "GUID": "{7D11826D-2BCA-43E1-AF94-B3725BA943C9}",
+      "Id": "2050963566",
+      "Name": "playRingTick",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\Puzzles01\\playRingTick",
+      "GUID": "{3E26EE3F-6D2A-4BE1-BC3F-EAF8F15001EE}",
       "DurationType": "OneShot",
-      "DurationMin": "10.402539",
-      "DurationMax": "10.402539",
+      "DurationMin": "0.94387424",
+      "DurationMax": "1.0594631",
       "MediaRefs": [
        {
-        "Id": "196761745"
-       }
-      ]
-     },
-     {
-      "Id": "2019948789",
-      "Name": "playBoulderChime3",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playBoulderChime3",
-      "GUID": "{353CD24D-0799-4BA3-B984-12CC9CF3C0A2}",
-      "DurationType": "OneShot",
-      "DurationMin": "10.402539",
-      "DurationMax": "10.402539",
-      "MediaRefs": [
-       {
-        "Id": "196761745"
-       }
-      ]
-     },
-     {
-      "Id": "1201866565",
-      "Name": "playRingMoveTick",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\playRingMoveTick",
-      "GUID": "{5B8D58D0-1DFA-45D8-B6A6-51F8A2E68D10}",
-      "DurationType": "OneShot",
-      "DurationMin": "0.95760334",
-      "DurationMax": "1.0442737",
-      "MediaRefs": [
-       {
-        "Id": "212656553"
+        "Id": "23216998"
        },
        {
-        "Id": "454213422"
+        "Id": "506978383"
        },
        {
-        "Id": "495460665"
+        "Id": "960691585"
        },
        {
-        "Id": "1049912042"
+        "Id": "1041735732"
        }
       ],
       "AuxBusRefs": [
        {
-        "Id": "2413215442",
-        "Name": "PuzzleVerb",
-        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\PuzzleVerb",
-        "GUID": "{41C84D67-A304-401A-B6BE-DA620AA79A87}"
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
        }
       ]
      },
      {
-      "Id": "2182868672",
-      "Name": "playToGameplayTransition01",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\playToGameplayTransition01",
-      "GUID": "{B491EA55-985C-40E3-9EC6-AC5926289AC4}",
-      "DurationType": "OneShot",
-      "DurationMin": "16.346848",
-      "DurationMax": "16.346848",
-      "MediaRefs": [
-       {
-        "Id": "678171862"
-       }
-      ]
-     },
-     {
-      "Id": "3352024112",
-      "Name": "startMetronome01",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMetronome01",
+      "Id": "3940236048",
+      "Name": "startMetronome01Opening",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMetronome01Opening",
       "GUID": "{D37E6E52-6B7A-4B65-AC5C-361561FC81AE}",
       "DurationType": "Infinite"
      },
      {
-      "Id": "3518514029",
-      "Name": "startMusic01",
-      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMusic01",
+      "Id": "4094587836",
+      "Name": "startMetronome01Puzzle",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMetronome01Puzzle",
+      "GUID": "{F1F6FB05-3255-4625-9007-02B42C956A76}",
+      "DurationType": "Infinite"
+     },
+     {
+      "Id": "3756572687",
+      "Name": "startMusic01Opening",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMusic01Opening",
       "GUID": "{89188FD3-3475-4D5B-A9F3-54BE90C44217}",
       "DurationType": "Infinite",
       "SwitchContainers": [
        {
         "SwitchValue": {
          "GroupType": "State",
-         "GroupId": "3800814886",
+         "GroupId": "3927051694",
          "Id": "1831982039",
          "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
         },
@@ -258,7 +276,7 @@
        {
         "SwitchValue": {
          "GroupType": "State",
-         "GroupId": "3800814886",
+         "GroupId": "3927051694",
          "Id": "3020279701",
          "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
         },
@@ -271,16 +289,104 @@
        {
         "SwitchValue": {
          "GroupType": "State",
-         "GroupId": "3800814886",
-         "Id": "270858878",
+         "GroupId": "3927051694",
+         "Id": "1253314903",
          "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
         },
         "MediaRefs": [
          {
-          "Id": "598525220"
+          "Id": "164535379"
          },
          {
-          "Id": "925508350"
+          "Id": "586092724"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3927051694",
+         "Id": "1824561598",
+         "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "678171862"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3927051694",
+         "Id": "2272668956",
+         "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "310615760"
+         },
+         {
+          "Id": "711210221"
+         },
+         {
+          "Id": "802790787"
+         },
+         {
+          "Id": "866702254"
+         },
+         {
+          "Id": "926822806"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "676444101",
+      "Name": "startMusic01Puzzle",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01Music\\startMusic01Puzzle",
+      "GUID": "{68567443-59E1-4B6B-8221-0943AF2ED903}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3267866964",
+         "Id": "2715723947",
+         "GUID": "{918FDD1B-A0BF-4403-ADEC-C1468FBF0C46}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "251126326"
+         },
+         {
+          "Id": "551430656"
+         },
+         {
+          "Id": "563909248"
+         },
+         {
+          "Id": "618833788"
+         },
+         {
+          "Id": "695093669"
+         },
+         {
+          "Id": "1044492786"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "3267866964",
+         "Id": "1824561598",
+         "GUID": "{2F6807F1-BF89-4B54-90FE-3A616045A3E3}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "731935831"
          }
         ]
        }
@@ -289,48 +395,116 @@
     ],
     "StateGroups": [
      {
-      "Id": "3800814886",
-      "Name": "Level01Master",
-      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master",
-      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "Id": "2945434178",
+      "Name": "_RingPuzzle",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle",
+      "GUID": "{F9FC9BD4-42D5-43EB-AE81-79FA7C9B6E18}",
       "States": [
        {
-        "Id": "270858878",
-        "Name": "EntranceHall",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\EntranceHall",
-        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
+        "Id": "225972860",
+        "Name": "Checkpoint1",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint1",
+        "GUID": "{779184F5-AAAA-4FC7-B75B-323D0D97E3A5}"
+       },
+       {
+        "Id": "225972862",
+        "Name": "Checkpoint3",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint3",
+        "GUID": "{F9AE0B1D-4D95-4EC7-9257-D3851C386CD1}"
+       },
+       {
+        "Id": "225972863",
+        "Name": "Checkpoint2",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Checkpoint2",
+        "GUID": "{4FCF60F9-9938-40DA-B58E-491A640B8445}"
        },
        {
         "Id": "748895195",
         "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\None",
+        "GUID": "{6BD2ACE3-7A5E-4B12-B650-25DEDB29E25A}"
+       },
+       {
+        "Id": "1281810935",
+        "Name": "Start",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\_RingPuzzle\\Start",
+        "GUID": "{F1FDB50B-69D8-4C32-A79F-F564496D793F}"
+       }
+      ]
+     },
+     {
+      "Id": "3267866964",
+      "Name": "Puzzle01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01",
+      "GUID": "{67A90AE2-BC7B-43D3-AC1A-B54CA4C33074}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\None",
+        "GUID": "{B8B677A5-0034-4A87-9241-A62F91A49EE8}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\ToGameplay",
+        "GUID": "{2F6807F1-BF89-4B54-90FE-3A616045A3E3}"
+       },
+       {
+        "Id": "2715723947",
+        "Name": "RingPuzzle",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Puzzle01\\RingPuzzle",
+        "GUID": "{918FDD1B-A0BF-4403-ADEC-C1468FBF0C46}"
+       }
+      ]
+     },
+     {
+      "Id": "3927051694",
+      "Name": "Opening01",
+      "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01",
+      "GUID": "{548E1375-B036-4D37-A58E-E884A4336135}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\None",
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
+       },
+       {
+        "Id": "1253314903",
+        "Name": "BroadcasterApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BroadcasterApproach",
+        "GUID": "{985F4378-1BE0-44BE-9DFA-D1292B06799E}"
+       },
+       {
+        "Id": "1824561598",
+        "Name": "ToGameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\ToGameplay",
+        "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
        },
        {
         "Id": "1831982039",
         "Name": "Opening",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\Opening",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Opening",
         "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
+       },
+       {
+        "Id": "2272668956",
+        "Name": "BeforeApproach",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BeforeApproach",
+        "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
        },
        {
         "Id": "3020279701",
         "Name": "GetBroadcaster",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Level01Master\\GetBroadcaster",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\GetBroadcaster",
         "GUID": "{ABF4F798-A14E-4CDD-84BF-C053446E8D05}"
        }
       ]
      }
-    ],
-    "Triggers": [
-     {
-      "Id": "2526236795",
-      "Name": "HintDelay",
-      "ObjectPath": "\\Triggers\\Default Work Unit\\Level01\\FirstElevator\\HintDelay",
-      "GUID": "{325E5FCD-930E-4693-BF65-4E53A604AEDD}"
-     }
     ]
    }
   ],
-  "FileHash": "{FE650B2C-4CD2-8FCC-E08D-42096B180105}"
+  "FileHash": "{9EE506EE-EFDA-0064-D5B8-BAE0D13AE8D6}"
  }
 }

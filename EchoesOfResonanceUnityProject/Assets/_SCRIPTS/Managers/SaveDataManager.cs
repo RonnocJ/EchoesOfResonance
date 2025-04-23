@@ -29,30 +29,30 @@ public class SaveDataManager : Singleton<SaveDataManager>
         }
 
         var allBehaviours = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
+        int i = 0;
 
         foreach (var b in allBehaviours)
         {
-            if (b.TryGetComponent(out ISaveData saveData))
+            if (b is ISaveData saveData)
             {
-                if (Data.ContainsKey(b.gameObject.name) && Data[b.gameObject.name] is Newtonsoft.Json.Linq.JObject jObject)
+                i++;
+                if (Data.ContainsKey($"{b.gameObject.name}_{i}") && Data[$"{b.gameObject.name}_{i}"] is Newtonsoft.Json.Linq.JObject jObject)
                     saveData.ReadSaveData(jObject.ToObject<Dictionary<string, object>>());
                 else
-                {
                     saveData.ReadSaveData(new Dictionary<string, object>());
-                }
             }
         }
     }
     void WriteAllData()
     {
         var allBehaviours = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None);
+        int i = 0;
 
         foreach (var b in allBehaviours)
         {
-            if (b.TryGetComponent(out ISaveData saveData))
+            if (b is ISaveData saveData && saveData.AddSaveData() != null)
             {
-                string objectKey = b.gameObject.name;
-                Data[objectKey] = saveData.AddSaveData();
+                Data[$"{b.gameObject.name}_{i++}"] = saveData.AddSaveData();
             }
         }
 

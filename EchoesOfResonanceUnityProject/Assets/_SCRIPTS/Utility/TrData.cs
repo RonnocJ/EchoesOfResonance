@@ -110,7 +110,7 @@ public struct TrData
     {
         if ((EffectedProperties & IncludeInMove.Position) != 0 && tr.localPosition != position)
             return false;
-        if ((EffectedProperties & IncludeInMove.Rotation) != 0 && tr.rotation != Quaternion.Euler(rotation))
+        if ((EffectedProperties & IncludeInMove.Rotation) != 0 && tr.localRotation != Quaternion.Euler(rotation))
             return false;
         if ((EffectedProperties & IncludeInMove.Scale) != 0 && tr.localScale != scale)
             return false;
@@ -126,17 +126,17 @@ public struct SaveStruct
 
     public SaveStruct(TrData trData)
     {
-        position = new float[] { trData.position.x, trData.position.y, trData.position.z };
-        rotation = new float[] { trData.rotation.x, trData.rotation.y, trData.rotation.z };
-        scale = new float[] {trData.scale.x, trData.scale.y, trData.scale.z};
+        position = (trData.EffectedProperties & TrData.IncludeInMove.Position) != 0 ? new float[] { trData.position.x, trData.position.y, trData.position.z } : null;
+        rotation = (trData.EffectedProperties & TrData.IncludeInMove.Rotation) != 0 ? new float[] { trData.rotation.x, trData.rotation.y, trData.rotation.z } : null;
+        scale = (trData.EffectedProperties & TrData.IncludeInMove.Scale) != 0 ? new float[] {trData.scale.x, trData.scale.y, trData.scale.z} : null;
     }
 
     public TrData LoadData()
     {
         return new TrData (
-            new Vector3(position[0], position[1], position[2]), 
-            Quaternion.Euler(new Vector3(rotation[0], rotation[1], rotation[2])), 
-            new Vector3(scale[0], scale[1], scale[2])
+            position != null ? new Vector3(position[0], position[1], position[2]) : null, 
+            rotation != null ? Quaternion.Euler(new Vector3(rotation[0], rotation[1], rotation[2])) : null, 
+            scale != null ? new Vector3(scale[0], scale[1], scale[2]) : null
         );
     }
 }

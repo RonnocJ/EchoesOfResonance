@@ -4,90 +4,30 @@ using UnityEngine;
 
 public class BrNotes : MonoBehaviour, IInputScript
 {
-    public int sineResolution;
-    [SerializeField] private float notePlayDrainAmount, noteSustainDrainAmount;
-    [SerializeField] private LineRenderer sineWave;
-    private float frequency, speed, lastNotePlayed;
-    private Vector3[] sinePoints;
     public void AddInputs()
     {
-        InputManager.root.AddListener<float>(ActionTypes.KeyDown, PlayNote);
+        InputManager.root.AddVelocityListener<(int, int)>(ActionTypes.KeyDown, PlayNote);
         InputManager.root.AddListener<float>(ActionTypes.KeyUp, RemoveNote);
     }
-    void Start()
+    [AllowedStates(GameState.InPuzzle, GameState.Roaming, GameState.Synced)]
+    void PlayNote(int newNote, int noteVelocity)
     {
-        lastNotePlayed = 13;
-
-        sineWave.positionCount = sineResolution;
-        sinePoints = new Vector3[sineResolution];
-
-        for (int i = 0; i < sineResolution; i++)
-        {
-            sinePoints[i].x = (i * 1f / sineResolution) - 0.5f;
-        }
-        sineWave.SetPositions(sinePoints);
-
-        BrBattery.root.OnBatteryEmpty += () => AllNotesOff();
-    }
-    [AllowedStates(GameState.InPuzzle, GameState.Roaming)]
-    void PlayNote(float newNote)
-    {
-        BrBattery.root.batteryLevel -= notePlayDrainAmount;
-
-        if (BrBattery.root.notesHeld == 0)
-        {
-            AudioManager.root.PlaySound(AudioEvent.playBroadcasterFX, gameObject);
-        }
-
+        AudioManager.root.PlaySound(AudioEvent.playBroadcasterFX, gameObject, 1);
         AudioManager.root.PlaySound(AudioEvent.playBroadcasterNote, gameObject, newNote);
         AudioManager.root.SetRTPC(AudioRTPC.flute_Pitch, newNote, false, AudioEvent.playBroadcasterNote, gameObject, newNote);
+        AudioManager.root.SetRTPC(AudioRTPC.flute_Velocity, noteVelocity, false, AudioEvent.playBroadcasterNote, gameObject, newNote);
 
         BrBattery.root.notesHeld++;
-        lastNotePlayed = newNote;
-        frequency = 2 + (lastNotePlayed * 0.32f);
-        speed = 1 + (lastNotePlayed * 0.36f);
 
-        BrBattery.root.noteInfoText.text = PuzzleUtilities.root.GetNoteName(lastNotePlayed);
-
-        CRManager.root.Restart(BrBattery.root.DrainBatteryRoutine(noteSustainDrainAmount * BrBattery.root.notesHeld), "DrainBatteryNote", this);
+        BrDisplay.root.SetPlayingText(PzUtil.GetNoteName(newNote), true);         
     }
 
-    [AllowedStates(GameState.InPuzzle, GameState.Roaming)]
+    [AllowAllAboveState(GameState.InPuzzle), DissallowedStates(GameState.Intro)]
     public void RemoveNote(float oldNote)
     {
-        if (AudioManager.root.StopSound(AudioEvent.playBroadcasterNote, gameObject, oldNote))
+        if (AudioManager.root.StopSound(AudioEvent.playBroadcasterNote, gameObject, (int)oldNote))
             BrBattery.root.notesHeld--;
 
-        if (BrBattery.root.notesHeld == 0)
-        {
-            BrBattery.root.noteInfoText.text = "";
-            CRManager.root.Stop("DrainBatteryNote", this);
-        }
-    }
-    public void AllNotesOff()
-    {
-        for (int i = 1; i < 26; i++)
-        {
-            AudioManager.root.StopSound(AudioEvent.playBroadcasterNote, gameObject, i);
-        }
-    }
-    void Update()
-    {
-        if (BrBattery.root.notesHeld > 0)
-        {
-            for (int i = 0; i < sineResolution; i++)
-            {
-                sinePoints[i].y = Mathf.Lerp(sinePoints[i].y, 0.1f * Mathf.Sin((frequency * sinePoints[i].x * 2) + (Time.timeSinceLevelLoad * speed) + frequency / 2), Time.deltaTime * 10);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < sineResolution; i++)
-            {
-                sinePoints[i].y = Mathf.Lerp(sinePoints[i].y, 0, Time.deltaTime * 10);
-            }
-        }
-
-        sineWave.SetPositions(sinePoints);
+        BrDisplay.root.SetPlayingText(PzUtil.GetNoteName(oldNote), false);
     }
 }
