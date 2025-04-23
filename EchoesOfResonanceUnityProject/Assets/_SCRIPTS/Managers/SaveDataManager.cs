@@ -88,3 +88,7 @@ public class SaveDataManager : Singleton<SaveDataManager>
             WriteAllData();
     }
 }
+
+magnet:?xt=urn:btih:2452fd1e3324b12dd12e4ab2e28993cf1734991b&dn=Spectrasonics&tr=http%3a%2f%2fbt2.t-ru.org%2fann&tr=http%3a%2f%2fretracker.local%2fannounce
+
+magnet:?xt=urn:btih:0f6c9e7dc6438d6aca3579c1d6c1ca4017575954&dn=FabFilter%20MORiA.dmg&tr=http%3a%2f%2fbt3.t-ru.org%2fann%3fpk%3da6a6e7e2f6be44306e652b855b687925&tr=http%3a%2f%2fretracker.local%2fannounce
