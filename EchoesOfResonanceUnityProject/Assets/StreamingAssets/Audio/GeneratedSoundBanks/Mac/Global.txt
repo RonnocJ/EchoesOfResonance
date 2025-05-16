@@ -7,6 +7,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	1900847084	playShutoff			\Default Work Unit\GlobalSFX\Broadcaster\DeviceFX\playShutoff	
 	2261249677	stopBroadcasterFX			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\stopBroadcasterFX	
 	2473697571	muteSFX			\Default Work Unit\GlobalChange\muteSFX	
+	2688363534	playGemHum			\Default Work Unit\GlobalSFX\Puzzles\playGemHum	
+	2942752976	stopGemHum			\Default Work Unit\GlobalSFX\Puzzles\stopGemHum	
 	3190844778	playTextBeep			\Default Work Unit\GlobalSFX\Broadcaster\ScreenFX\playTextBeep	
 	3240900869	resumeAll			\Default Work Unit\GlobalChange\resumeAll	
 	3594363913	playBroadcasterNote			\Default Work Unit\GlobalSFX\Broadcaster\Instrument\playBroadcasterNote	
@@ -20,6 +22,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1472233667	gemCheckpoint_Pitch			\Default Work Unit\Global\Puzzles\Gems\gemCheckpoint_Pitch	
 	1786911663	player_MoveSpeed			\Default Work Unit\Global\Player\player_MoveSpeed	
 	1899861129	ambience_Ducking			\Default Work Unit\Global\Enviroment\Ambiences\ambience_Ducking	
+	2427847243	gemHum_Pitch			\Default Work Unit\Global\Puzzles\Gems\gemHum_Pitch	
 	3409173110	flute_Pitch			\Default Work Unit\Global\Broadcaster\flute_Pitch	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -28,6 +31,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	63857239	Footstep_L_02	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\92\{927B4868-981B-56CA-AA3A-C12C4B6C8FBB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\PlayerSounds\PlayerMx\Footsteps\Left\Footstep_L_02		48096
 	84687045	CrystalRattle_02	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\64\{645E86F4-D76D-423B-7B9E-0F66E365ED4A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_02		768096
 	92908706	Note23	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\3D\{3D572830-6872-D07F-8039-1CE51D2E2F12}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\Instrument\FluteSound\Note23		829448
+	96235299	Note18	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\D2\{D29BDAEA-C54F-0577-665F-2628D9018BB0}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\Hum\Note18		2231408
 	101168111	CrystalRattle_04	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\D9\{D993F2E7-FC70-DCDA-59CA-FA4FE20F21DA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_04		768096
 	160667901	BroadcasterShutdown	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\54\{5498FB74-6D31-87B2-FEEA-C43688CE1E9E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\Instrument\FX\BroadcasterShutdown		576096
 	223070093	Footstep_L_03	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\81\{812747BC-E332-802E-065A-157076CAA20A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\PlayerSounds\PlayerMx\Footsteps\Left\Footstep_L_03		48096
@@ -37,13 +41,15 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	369672728	Note03	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\F7\{F74F9284-B695-28D2-D8E9-F219FDF9DA9B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\Instrument\FluteSound\Note03		829448
 	401359229	Note13	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\C3\{C361C575-F7D9-C813-B72A-90A7F7602351}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\Instrument\FluteSound\Note13		829448
 	415480257	Note13	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\57\{577DF091-AFF3-8C56-7E91-3B53C79E61D2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\CheckpointReached\Note13		793664
+	422246361	Note13	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\33\{33B4A8D6-A090-2BFE-1EE4-1B27D929165B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\Hum\Note13		2231408
 	459274136	Footstep_R_03	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\DB\{DB30738F-10FE-4777-220B-66C38AA8FF20}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\PlayerSounds\PlayerMx\Footsteps\Right\Footstep_R_03		48096
 	491289458	CrystalRattle_06	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\F1\{F14CD750-D1F3-35C4-BDE6-90BF8EC87174}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_06		768096
 	535024750	CrystalRattle_07	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\95\{95A9316A-3DF3-4C24-C0D3-7283B50EF7CE}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_07		768096
 	538799437	Footstep_R_04	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\E2\{E2EE5551-97EF-D16A-1D2D-DEBA59EED482}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\PlayerSounds\PlayerMx\Footsteps\Right\Footstep_R_04		48096
+	574237312	Note08	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\D4\{D43A27CE-080E-ADA7-AFF1-05A2D7CF7D14}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\Hum\Note08		2231408
 	592716520	CrystalRattle_03	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\4D\{4DF7673A-9F47-7F37-5364-431438898B4E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_03		768096
 	628431899	TorchLitLoop	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\FB\{FB81371E-4E70-8314-43FD-CAA58B3B6241}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Enviroment\Torches\TorchLitLoop		1344096
-	672268205	TextBeep	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\1C\{1CF43C39-5837-6CF9-CEFF-B411D9859616}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\OtherFX\TextBeep		5800
+	672268205	High	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\0C\{0CDB916E-EEED-67DF-9887-42274D87C6E5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\OtherFX\TextBeep\High		5800
 	713251495	BroadcasterStaticLoop	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\DC\{DCF6609E-A5A8-3434-FAF4-EAE499787961}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\Instrument\FX\BroadcasterStaticLoop		768144
 	746783617	Note23	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\EC\{ECAEC491-1D7C-CCAC-2085-879CFEA8F737}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\CheckpointReached\Note23		793664
 	766559025	CrystalRattle_08	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\A9\{A9A083EC-4031-1585-D540-3CD60C390BB9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_08		768096
@@ -54,8 +60,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	894203654	BroadcasterOn	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\97\{97996CAF-55DE-51F0-052C-1B38B015CD03}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\Instrument\FX\BroadcasterOn		48096
 	899365782	BroadcasterOff	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\FF\{FF6D871E-2DCA-7C84-83A1-FC2BF3F2C218}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Player\Broadcaster\BroadcasterMx\Instrument\FX\BroadcasterOff		48096
 	917192790	GemCheckpoint_Click	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\FF\{FF88D37E-8355-63DA-4605-828DA7DC8C5D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\GemCheckpoint_Click		79030
+	917945695	Note03	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\95\{95A71172-B556-FAD4-0589-E8BE88CEA56A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\Hum\Note03		2231408
 	918685912	CrystalRattle_05	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\30\{305C21B2-1AB0-6C30-E6D0-1235FA496153}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_05		768096
 	962810885	Note03	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\C8\{C8645B2F-67BF-D4BE-CCAA-34318DC65406}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\CheckpointReached\Note03		793664
 	1010531466	Note08	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\AD\{AD786FB1-E957-B051-0219-9EA6AF90C3EB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\CheckpointReached\Note08		793664
 	1031075374	CrystalRattle_01	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\8D\{8D261A23-52D6-B6B4-DE26-E2DA7FBBDBC2}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Ambiences\BasicAmbience\CrystalRattle\CrystalRattle_01		768096
+	1042678378	Note23	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\9A\{9A7591AE-605C-9B07-2C86-8F95B3CDE8AD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Global\Puzzles\Gems\Hum\Note23		2231408
 

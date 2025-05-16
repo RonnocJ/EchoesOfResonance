@@ -28,3 +28,7 @@ MonoBehaviour:
   - mainColor: {r: 0.15686275, g: 0, b: 0.15686275, a: 1}
     bottomColor: {r: 0.15686275, g: 0, b: 0.078431375, a: 1}
     topColor: {r: 0.078431375, g: 0, b: 0.15686275, a: 1}
+  iconPrefab: {fileID: 7394494998170262038, guid: 483f3ccdfda184602a24d278e38ab782, type: 3}
+  checkpointPrefab: {fileID: 1969725863782868563, guid: 012f5b9ad5afd41f6ba8657091d41d80, type: 3}
+  iconOff: {fileID: 126553132, guid: 36122990d01144772b48b2a1dd12708c, type: 3}
+  iconOn: {fileID: 1791985858, guid: 36122990d01144772b48b2a1dd12708c, type: 3}

@@ -15,6 +15,7 @@ MonoBehaviour:
   MusicEvent: -538394609
   MetronomeEvent: -354731248
   ToGameplayState: 1824561599
-  IntroLength: 6
+  PreTitleLength: 4
+  PostTitleLength: 4
   Grid: 2.5
   Length: 22

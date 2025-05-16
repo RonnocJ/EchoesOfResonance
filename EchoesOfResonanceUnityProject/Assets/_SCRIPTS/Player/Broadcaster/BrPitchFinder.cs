@@ -1,86 +1,67 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
+public class BrPitchFinder : Broadcaster
 {
+    public static Action CheckFinder;
     public int laserResolution;
     [SerializeField] private float gemFinderSpeedScale, gemFinderMinSpeed;
+    [SerializeField] private float laserWobbleStrength, laserWobbleSpeed;
     [SerializeField] private LineRenderer gemLaser;
     [SerializeField] private ParticleSystem gemLaserParticle;
-    private float modInput, finderLevel, gemNoteNumber;
-    private string gemNoteName;
+    private float smoothedInput;
+    private PzNote gemNote = new PzNote(13);
     public Transform gemTarget;
-    private List<Gem> currentGems;
-    void Start()
+    public override void Awake()
     {
+        RegisterActiveBroadcaster(this);
         gemLaser.positionCount = laserResolution;
 
-        BrBattery.root.OnBatteryEmpty += DisableFinder;
-        BrBattery.root.OnNotesHeldChange += UpdateModValue;
+        OnHeldNotesEmptied += UpdateGemFinder;
+        OnBatteryEmpty += DisableFinder;
+        CheckFinder += UpdateGemFinder;
     }
-    public void AddInputs()
+    public override void OnNoteOn(int newNote, int velocity)
     {
-        InputManager.root.AddListener<float>(ActionTypes.ModwheelChange, AdjustModValue);
-        InputManager.root.AddListener<float>(ActionTypes.PitchbendChange, UpdateGemFinder);
+        DisableFinder();
     }
-    [AllowedStates(GameState.InPuzzle)]
-    public void AdjustModValue(float newModInput)
+    public override void ModChange(float newModInput)
     {
-        modInput = newModInput;
-        UpdateModValue(BrBattery.root.notesHeld);
+        UpdateGemFinder();
     }
-    public void UpdateModValue(int notesHeld)
+    public override void OnPuzzleExit()
     {
-        if (modInput > 0.2f && GameManager.root.State == GameState.InPuzzle &&  notesHeld == 0)
+        DisableFinder();
+    }
+    public void UpdateGemFinder()
+    {
+        if (modInput > 0.2f && activePuzzle.solutions.Length > activePuzzle.solved) EnableFinder();
+        else DisableFinder();
+    }
+
+    void EnableFinder()
+    {
+        var target = activePlate.gems[activePuzzle.solved].transform;
+
+        if (gemTarget != target)
         {
-            UpdateGemFinder(0);    
+            gemTarget = target;
+
+            gemLaser.enabled = true;
+            gemLaserParticle.Play();
+
+            gemNote = activePuzzle.solutions[activePuzzle.solved].note;
+
+            CRManager.Begin(FindGemRoutine(), "FindGem", this);
+            CRManager.Begin(LaserRoutine(), "DisplayLaser", this);
         }
-        else
-        {
-            modInput = 0;
-            DisableFinder();
-        }
-    }
-
-    [AllowedStates(GameState.InPuzzle)]
-    void UpdateGemFinder(float newPitch)
-    {
-        if (modInput > 0.2f)
-        {
-            if ((gemTarget == null || newPitch != 0f) && currentGems.Count > 0)
-            {
-                gemTarget = FindClosestGem(BrBattery.root.cam.transform.position, currentGems);
-
-                gemLaser.enabled = true;
-                gemLaserParticle.Play();
-
-                if (gemNoteName != GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()].noteName)
-                {
-                    gemNoteName = GameManager.root.currentPuzzle.solutions[gemTarget.GetSiblingIndex()].noteName;
-                    gemNoteNumber = PzUtil.GetNoteNumber(gemNoteName);
-
-                    AudioManager.root.PlaySound(AudioEvent.playBroadcasterFinder, gameObject);
-
-                    CRManager.root.Begin(FindGemRoutine(), "FindGem", this);
-                    CRManager.root.Begin(BrBattery.root.DrainBatteryRoutine(modInput * 0.5f), "DrainBatteryFinder", this);
-                }
-            }
-        }
-        else if (gemTarget != null)
-        {
-            DisableFinder();
-        }
-    }
-    Transform FindClosestGem(Vector3 position, List<Gem> gems)
-    {
-        return gems
-            .OrderBy(gem => Vector3.Angle(gem.transform.position - position, BrBattery.root.cam.transform.forward))
-            .FirstOrDefault()?.transform;
     }
     public void DisableFinder()
     {
+        modInput = 0;
+
         Vector3[] positions = Enumerable.Repeat(Vector3.zero, laserResolution).ToArray();
         gemLaser.SetPositions(positions);
         gemLaser.enabled = false;
@@ -88,51 +69,64 @@ public class BrPitchFinder : Singleton<BrPitchFinder>, IInputScript
 
         gemTarget = null;
 
-        AudioManager.root.StopSound(AudioEvent.playBroadcasterFinder, gameObject);
-
-        CRManager.root.Stop("FindGem", this);
-        CRManager.root.Stop("DrainBatteryFinder", this);
-
-        BrDisplay.root.LowerTextPriority(DisplayPriority.Finder);
-
-        gemNoteNumber = -1;
-        gemNoteName = "";
+        CRManager.Stop("FindGem", this);
+        CRManager.Stop("DisplayLaser", this);
     }
     IEnumerator FindGemRoutine()
     {
-        while (modInput > 0.2f)
+        while (modInput > 0.2)
         {
-            float fakeNoteNumber = Mathf.Round(Random.Range(
-                gemNoteNumber - 1.5f * (4 - finderLevel),
-                gemNoteNumber + 1.5f * (4 - finderLevel)
-            ));
+            finderEstimate = new PzNote(Mathf.Round(UnityEngine.Random.Range(
+                gemNote.Pitch - 1.5f * (4 - finderLevel),
+                gemNote.Pitch + 1.5f * (4 - finderLevel)
+            )));
 
-            fakeNoteNumber = Mathf.Clamp(fakeNoteNumber, 1, 25);
-
-            BrDisplay.root.SetFinderText(PzUtil.GetNoteName(fakeNoteNumber));
-            AudioManager.root.SetRTPC(AudioRTPC.finder_Pitch, fakeNoteNumber);
+            AudioManager.root.SetRTPC(AudioRTPC.finder_Pitch, finderEstimate.Pitch);
 
             yield return new WaitForSeconds(gemFinderMinSpeed + ((4 - finderLevel) * gemFinderSpeedScale));
         }
     }
-    void Update()
+
+    IEnumerator LaserRoutine()
     {
-        if (gemLaser.enabled)
+        float timeOffset = UnityEngine.Random.Range(0f, 1000f);
+
+        while (modInput > 0.2f)
         {
-            finderLevel = Mathf.Round(((modInput * 1.25f) - 0.2f) / 0.25f);
+            smoothedInput = Mathf.Lerp(smoothedInput, Mathf.InverseLerp(0.2f, 1f, modInput), Time.deltaTime * 2.5f);
+            
+            float noiseScale = Mathf.Lerp(laserWobbleSpeed, laserWobbleSpeed / 2f, smoothedInput);
+            float wobbleStrength = Mathf.Lerp(laserWobbleStrength, laserWobbleStrength / 2f, smoothedInput);
+            float t = Time.time;
 
             for (int i = 0; i < laserResolution; i++)
             {
-                Vector3 pos = Vector3.Lerp(gemLaser.transform.position, gemTarget.position, (float)i / laserResolution);
-                gemLaser.SetPosition(i, (i > 0) ? (Random.insideUnitSphere * Mathf.Abs(1 - modInput) * 0.25f) + pos : pos);
+                float progress = (float)i / laserResolution;
+                Vector3 basePos = Vector3.Lerp(gemLaser.transform.position, gemTarget.position, progress);
+
+                if (i > 0)
+                {
+                    float noiseX = Mathf.PerlinNoise(t * noiseScale + i * 0.1f + timeOffset, 0f);
+                    float noiseY = Mathf.PerlinNoise(t * noiseScale + i * 0.1f + timeOffset, 100f);
+                    float noiseZ = Mathf.PerlinNoise(t * noiseScale + i * 0.1f + timeOffset, 200f);
+
+                    Vector3 noiseVec = new Vector3(noiseX - 0.5f, noiseY - 0.5f, noiseZ - 0.5f) * wobbleStrength;
+
+                    gemLaser.SetPosition(i, basePos + noiseVec);
+                }
+                else
+                {
+                    gemLaser.SetPosition(i, basePos);
+                }
             }
 
-            if (GameManager.root.State == GameState.Roaming) AdjustModValue(0);
+            yield return null;
         }
     }
-
-    public void SetGemList(List<Gem> gems)
+    public override void OnDestroy()
     {
-        currentGems = gems;
+        OnHeldNotesEmptied -= UpdateGemFinder;
+        OnBatteryEmpty -= DisableFinder;
+        CheckFinder -= UpdateGemFinder;
     }
 }

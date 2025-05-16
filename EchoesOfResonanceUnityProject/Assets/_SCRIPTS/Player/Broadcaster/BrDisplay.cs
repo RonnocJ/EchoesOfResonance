@@ -1,53 +1,64 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 public enum DisplayPriority
 {
     Default = 0,
-    Finder = 1,
-    Playing = 2,
-    Sync = 3,
+    Sync = 1,
+    Finder = 2,
+    Playing = 3,
     Settings = 4
 }
-public class BrDisplay : Singleton<BrDisplay>, IInputScript, ISaveData
+public class BrDisplay : Broadcaster
 {
-    public TextMeshProUGUI GameInfoText;
+    [SerializeField] private Color bgcolor;
+    [SerializeField] private GameObject screen;
+    [SerializeField] private GameObject backLight;
+    [SerializeField] private Image batteryMeter;
+    [SerializeField] private TextMeshProUGUI gameInfoText;
     private Dictionary<DisplayPriority, string> _activePriority = new();
     public DisplayPriority _currentPriority;
-    [HideInInspector]
-    public float middleKey, tempMiddleKey;
     private GameState oldState;
-    private List<string> _heldNotes = new();
-    void Start()
+    public override void Awake()
     {
+        RegisterActiveBroadcaster(this);
         for (int i = 0; i < 5; i++)
         {
             _activePriority[(DisplayPriority)i] = "";
         }
 
+        OnHeldNotesEmptied += DisplayModText;
+        OnBatteryChange += UpdateBatteryLevel;
+        OnBatteryEmpty += DisplayOff;
+        OnBatteryCharge += DisplayOn;
+
         DefaultText();
     }
-    public void AddInputs()
+    public override void OnPuzzleSynced()
     {
-        InputManager.root.AddListener<float>(ActionTypes.Settings, OpenSettings);
+        SetSyncText(activePuzzle.solutions[0].note.Name);
     }
-    public Dictionary<string, object> AddSaveData()
+    public override void OnPuzzleEnter()
     {
-        return new Dictionary<string, object>
-        {
-            {"middleKey", middleKey},
-        };
+        LowerTextPriority(DisplayPriority.Sync);
     }
-    public void ReadSaveData(Dictionary<string, object> savedData)
+    public override void OnPuzzleExit()
     {
-        this.middleKey = 60f;
-
-        if (savedData.TryGetValue("middleKey", out object middleKey))
-        {
-            this.middleKey = Convert.ToSingle(middleKey);
-        }
+        LowerTextPriority(DisplayPriority.Sync);
+    }
+    public void DisplayOn()
+    {
+        CRManager.Begin(UIUtil.root.FadeToColor(0.5f, 0, bgcolor, new() { screen, backLight }), "BrScreenToGreen", this);
+    }
+    public void DisplayOff()
+    {
+        CRManager.Begin(UIUtil.root.FadeToColor(0.25f, 0, Color.black, new() { screen, backLight }), "BrDisplayOff", this);
+    }
+    public void UpdateBatteryLevel(float changeAmount)
+    {
+        batteryMeter.fillAmount = Mathf.Clamp(batteryMeter.fillAmount + changeAmount, 0, 1);
     }
     void DisplayText(string newText, DisplayPriority newPriority)
     {
@@ -58,20 +69,20 @@ public class BrDisplay : Singleton<BrDisplay>, IInputScript, ISaveData
             switch (newPriority)
             {
                 case DisplayPriority.Playing:
-                    CRManager.root.Restart(AnimatePlayingText(newText), "BrTextAnim", this);
+                    CRManager.Restart(AnimateText(newText), "BrTextAnim", this);
                     break;
                 case DisplayPriority.Finder:
                     if (_currentPriority != newPriority)
                     {
-                        CRManager.root.Restart(AnimateText(newText), "BrTextAnim", this);
+                        CRManager.Restart(AnimateText(newText), "BrTextAnim", this);
                     }
                     else
                     {
-                        GameInfoText.text = newText;
+                        gameInfoText.text = newText;
                     }
                     break;
                 default:
-                    CRManager.root.Restart(AnimateText(newText), "BrTextAnim", this);
+                    CRManager.Restart(AnimateText(newText), "BrTextAnim", this);
                     break;
             }
 
@@ -80,57 +91,38 @@ public class BrDisplay : Singleton<BrDisplay>, IInputScript, ISaveData
     }
     private IEnumerator AnimateText(string newText)
     {
-        if (GameInfoText.text.Contains("Playing:"))
-        {
-            yield return new WaitForSeconds(0.25f);
-        }
         int matchIndex = 0;
-        string oldText = GameInfoText.text;
+        string oldText = gameInfoText.text;
 
         while (matchIndex < oldText.Length && matchIndex < newText.Length && oldText[matchIndex] == newText[matchIndex])
         {
             matchIndex++;
         }
 
-        for (int i = oldText.Length; i > matchIndex; i --)
+        for (int i = oldText.Length; i > matchIndex; i--)
         {
-            GameInfoText.text = oldText.Substring(0, i - 1);
+            gameInfoText.text = oldText.Substring(0, i - 1);
 
-            if (i % 3 == 0)
+            if (i % 2 == 0)
                 yield return new WaitForSeconds(0.01f);
         }
 
-        for (int i = matchIndex; i <= newText.Length; i++)
+        for (int i = matchIndex; i < newText.Length; i++)
         {
-            GameInfoText.text = newText.Substring(0, i);
-            yield return new WaitForSeconds(0.01f);
+            gameInfoText.text = newText.Substring(0, i);
 
-            if (!(oldText.Contains("Estimated") && newText.Contains("Estimated")) && i % 4 == 0 && GameManager.root.State != GameState.Shutdown)
+            if (!(oldText.Contains("Estimated") && newText.Contains("Estimated"))
+                && !(oldText.Contains("Playing") && newText.Contains("Playing"))
+                && GameManager.root.State != GameState.Shutdown
+                && (newText[i] == '\n' || i == newText.Length - 1))
+            {
                 AudioManager.root.PlaySound(AudioEvent.playTextBeep, gameObject);
+                yield return new WaitForSeconds(0.05f);
+            }
+
         }
 
-    }
-    private IEnumerator AnimatePlayingText(string newText)
-    {
-        var diff = DiffText(GameInfoText.text, newText);
-        string display = diff.prefix;
-
-        foreach (var token in diff.removeTokens)
-        {
-            display += $"<s>{token}</s>";
-            GameInfoText.text = "Playing: \n" + display + diff.suffix;
-            yield return new WaitForSeconds(0.025f);
-            display = display.Replace($"<s>{token}</s>", "");
-        }
-
-        foreach (var token in diff.addTokens)
-        {
-            if (!string.IsNullOrEmpty(display) && !display.EndsWith(" & "))
-                display += " & ";
-            display += token;
-            GameInfoText.text = "Playing: \n" + display + diff.suffix;
-            yield return new WaitForSeconds(0.025f);
-        }
+        gameInfoText.text = newText;
     }
     public void LowerTextPriority(DisplayPriority priorityToWipe)
     {
@@ -165,41 +157,31 @@ public class BrDisplay : Singleton<BrDisplay>, IInputScript, ISaveData
                 break;
         }
     }
-    public void SetFinderText(string gemNote)
-    {
-        DisplayText($"Estimated Resonance: \n {gemNote}", DisplayPriority.Finder);
-    }
-    public void SetPlayingText(string newNote, bool addNote)
-    {
-        if (addNote)
-        {
-            _heldNotes.Add(newNote);
-        }
-        else
-        {
-            _heldNotes.Remove(newNote);
-        }
 
+    public override void ModChange(float modInput)
+    {
+        DisplayModText();
+    }
+    private void DisplayModText()
+    {
+        if (modInput > 0.2f)
+            DisplayText($"Estimated Resonance: \n {finderEstimate.Name}", DisplayPriority.Finder);
+        else
+            LowerTextPriority(DisplayPriority.Finder);
+    }
+    public override void OnNoteOn(int newNote, int velocity)
+    {
         string textToSet = "Playing: \n";
 
-        if (_heldNotes.Count > 0)
-        {
-            _heldNotes.Sort();
+        int i = 0;
 
-            if (_heldNotes.Count > 1)
-            {
-                for (int i = 0; i < _heldNotes.Count - 1; i++)
-                {
-                    textToSet += $"{_heldNotes[i]} & ";
-                }
-            }
-
-            textToSet += _heldNotes[_heldNotes.Count - 1];
-        }
-        else
+        foreach (var note in heldNotes)
         {
-            LowerTextPriority(DisplayPriority.Playing);
-            return;
+            textToSet += $"{note.Name}";
+
+            i++;
+            if (i == heldNotes.Count) break;
+            textToSet += " & ";
         }
 
         DisplayText(textToSet, DisplayPriority.Playing);
@@ -209,7 +191,7 @@ public class BrDisplay : Singleton<BrDisplay>, IInputScript, ISaveData
         DisplayText($"Sync Plate detected \n Play {startNote} to connect", DisplayPriority.Sync);
     }
     [AllowAllAboveState(GameState.Settings), DissallowedStates(GameState.Intro)]
-    public void OpenSettings(float newPauseAmount)
+    public override void SettingsChange(float newPauseAmount)
     {
         if (newPauseAmount < 0.5f && oldState != GameState.Settings)
         {
@@ -229,45 +211,12 @@ public class BrDisplay : Singleton<BrDisplay>, IInputScript, ISaveData
             PlrMngr.root.moveInput = 0;
         }
     }
-    private (List<string> removeTokens, List<string> addTokens, string prefix, string suffix) DiffText(string oldText, string newText)
+
+    public override void OnDestroy()
     {
-        string prefix = "Playing: \n";
-        string oldBody = oldText.StartsWith(prefix) ? oldText.Substring(prefix.Length) : oldText;
-        string newBody = newText.StartsWith(prefix) ? newText.Substring(prefix.Length) : newText;
-
-        string[] oldTokens = oldBody.Split(new[] { " & " }, StringSplitOptions.None);
-        string[] newTokens = newBody.Split(new[] { " & " }, StringSplitOptions.None);
-
-        int startMatch = 0;
-        while (startMatch < oldTokens.Length && startMatch < newTokens.Length && oldTokens[startMatch] == newTokens[startMatch])
-        {
-            startMatch++;
-        }
-
-        int endMatch = 0;
-        while (endMatch + startMatch < oldTokens.Length && endMatch + startMatch < newTokens.Length && oldTokens[oldTokens.Length - 1 - endMatch] == newTokens[newTokens.Length - 1 - endMatch])
-        {
-            endMatch++;
-        }
-
-        List<string> removeTokens = new List<string>();
-        for (int i = startMatch; i < oldTokens.Length - endMatch; i++)
-        {
-            removeTokens.Add(oldTokens[i]);
-        }
-
-        List<string> addTokens = new List<string>();
-        for (int i = startMatch; i < newTokens.Length - endMatch; i++)
-        {
-            addTokens.Add(newTokens[i]);
-        }
-
-        string matchedPrefix = string.Join(" & ", newTokens[..startMatch]);
-        if (matchedPrefix != "") matchedPrefix += " & ";
-
-        string matchedSuffix = string.Join(" & ", newTokens[(newTokens.Length - endMatch)..]);
-        if (matchedSuffix != "") matchedSuffix = " & " + matchedSuffix;
-
-        return (removeTokens, addTokens, matchedPrefix, matchedSuffix);
+        OnHeldNotesEmptied -= DisplayModText;
+        OnBatteryChange -= UpdateBatteryLevel;
+        OnBatteryEmpty -= DisplayOff;
+        OnBatteryCharge -= DisplayOn;
     }
 }

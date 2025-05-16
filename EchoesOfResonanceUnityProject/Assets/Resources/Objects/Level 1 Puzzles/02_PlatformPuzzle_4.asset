@@ -14,22 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleType: 1
   solutions:
-  - noteName: C2
+  - note:
+      _pitch: 13
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: B1
+  - note:
+      _pitch: 12
     noteDuration:
       CurrentValue: 0.5
     checkpoint: 0
-  - noteName: D2
+  - note:
+      _pitch: 15
     noteDuration:
       CurrentValue: 0.5
     checkpoint: 0
-  - noteName: F2
+  - note:
+      _pitch: 18
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  _solved: 0
+  Active: 0
+  _solved: 4
   _reset: 0
   audioEffects: []

@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics/Default Work Unit
     guid: d288f2d5f97ced4bb7c6fcd1a98017aa
     GuidInternal: 
-    m_lastTime: -8584641060085292167
+    m_lastTime: -8584640772094775808
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy/Default Work Unit
     guid: f0ce0862294ed74ea8feb85abb8c6979
     GuidInternal: 
-    m_lastTime: -8584571670784157927
+    m_lastTime: -8584571418794775808
     List:
     - name: LargeRoomVerb
       guid: 070e833b68667b40a341f96922349e00
@@ -131,7 +131,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: 0c2db92ef176ac499cdd0c769c78bc4c
     GuidInternal: 
-    m_lastTime: -8584577944899331632
+    m_lastTime: -8584577692914775808
     List:
     - name: Global
       guid: bf1c55be6396fe46a46add268b0e77ce
@@ -182,7 +182,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Enviroment/Ambiences
     guid: 0308af318f2b854090b340c9ccf469dc
     GuidInternal: 
-    m_lastTime: -8584571679558822473
+    m_lastTime: -8584571427574775808
     List:
     - name: playBasicAmbience
       guid: 54ea31852501474f820fe5231cadfaf0
@@ -227,7 +227,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Broadcaster
     guid: dcd7907cc5627243856ab1f081d33fb2
     GuidInternal: 
-    m_lastTime: -8584571679558882870
+    m_lastTime: -8584571427574775808
     List: []
   - PhysicalPath: Events/Default Work Unit.wwu
     PathAndIcons:
@@ -240,7 +240,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit
     guid: 05760e8b89de3649adde474e0d5001d7
     GuidInternal: 
-    m_lastTime: -8584571679558845492
+    m_lastTime: -8584551179797737589
     List: []
   - PhysicalPath: Events/DeviceFX.wwu
     PathAndIcons:
@@ -262,7 +262,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Broadcaster/DeviceFX
     guid: 276b5a02ff9a6747b2810ccef2272506
     GuidInternal: 
-    m_lastTime: -8584569024837518887
+    m_lastTime: -8584568772854775808
     List:
     - name: playShutoff
       guid: acbad26ec699704688b228d0e8189633
@@ -307,7 +307,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Enviroment
     guid: 055ca6a964e2b64aa62bda5e413b55d4
     GuidInternal: 
-    m_lastTime: -8584571679558794322
+    m_lastTime: -8584571427574775808
     List: []
   - PhysicalPath: Events/GlobalChange.wwu
     PathAndIcons:
@@ -323,7 +323,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalChange
     guid: 9567b97703adfd47ac6e04af7d8f3116
     GuidInternal: 
-    m_lastTime: -8584571716137301512
+    m_lastTime: -8584571464154775808
     List:
     - name: muteSFX
       guid: 0df518a6d8597a4e97d19426dd58e8e2
@@ -419,7 +419,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalMusic
     guid: d52ecf674bcd894cb2e4624ec6db47cf
     GuidInternal: 
-    m_lastTime: -8584578864487789578
+    m_lastTime: -8584578612494775808
     List: []
   - PhysicalPath: Events/GlobalSFX.wwu
     PathAndIcons:
@@ -435,7 +435,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX
     guid: c8c12fe90dedb347900c49211ddb045e
     GuidInternal: 
-    m_lastTime: -8584571722243720075
+    m_lastTime: -8584571470254775808
     List: []
   - PhysicalPath: Events/Instrument.wwu
     PathAndIcons:
@@ -457,7 +457,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Broadcaster/Instrument
     guid: ce0e10e72f680b41a0491598e9c0d23e
     GuidInternal: 
-    m_lastTime: -8584571908684809418
+    m_lastTime: -8584571656694775808
     List:
     - name: playBroadcasterFinder
       guid: 410846cb988ceb45a6d204b9d173a1cc
@@ -577,7 +577,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Level01Music
     guid: 638c28170156a2408ade26f9358e9cf9
     GuidInternal: 
-    m_lastTime: -8584571790326736598
+    m_lastTime: -8584571538334775808
     List:
     - name: endOpening
       guid: 2385eaeabc583e4da35837fb2d316a2f
@@ -693,7 +693,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Level01SFX
     guid: f9b0ec324d8851478a93d43f19acbfa1
     GuidInternal: 
-    m_lastTime: -8584571905875829847
+    m_lastTime: -8584571653894775808
     List: []
   - PhysicalPath: Events/Player.wwu
     PathAndIcons:
@@ -712,7 +712,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Player
     guid: 863c016efca8a841aa0d1aed4667bc8a
     GuidInternal: 
-    m_lastTime: -8584571722368924635
+    m_lastTime: -8584571470374775808
     List:
     - name: playFootsteps
       guid: 5313c2ba5c5e574781aa87e99f990987
@@ -754,7 +754,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Puzzles
     guid: fbb37ea4543c2c42b2a5f3311b8e7bcb
     GuidInternal: 
-    m_lastTime: -8584571752052032527
+    m_lastTime: -8584550881704848647
     List:
     - name: playCheckpointReached
       guid: 17814b95ec75044cad1ae62d14232489
@@ -779,6 +779,52 @@ MonoBehaviour:
       maxAttenuation: 100
       maxDuration: 4.498685
       minDuration: 4.498685
+    - name: playGemHum
+      guid: 4ff0fdb215b4294c8702a6b8dec86fe8
+      id: 2688363534
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 05760e8b89de3649adde474e0d5001d7
+      - ElementName: GlobalSFX
+        ObjectType: 12
+        guid: c8c12fe90dedb347900c49211ddb045e
+      - ElementName: Puzzles
+        ObjectType: 12
+        guid: fbb37ea4543c2c42b2a5f3311b8e7bcb
+      - ElementName: playGemHum
+        ObjectType: 3
+        guid: 4ff0fdb215b4294c8702a6b8dec86fe8
+      Path: Events/Default Work Unit/GlobalSFX/Puzzles/playGemHum
+      maxAttenuation: 50
+      maxDuration: 0
+      minDuration: 0
+    - name: stopGemHum
+      guid: 7cb2e365c57b9f4ca46e5612f5169937
+      id: 2942752976
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 05760e8b89de3649adde474e0d5001d7
+      - ElementName: GlobalSFX
+        ObjectType: 12
+        guid: c8c12fe90dedb347900c49211ddb045e
+      - ElementName: Puzzles
+        ObjectType: 12
+        guid: fbb37ea4543c2c42b2a5f3311b8e7bcb
+      - ElementName: stopGemHum
+        ObjectType: 3
+        guid: 7cb2e365c57b9f4ca46e5612f5169937
+      Path: Events/Default Work Unit/GlobalSFX/Puzzles/stopGemHum
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
   - PhysicalPath: Events/Puzzles01.wwu
     PathAndIcons:
     - ElementName: Events
@@ -796,8 +842,31 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/Level01SFX/Puzzles01
     guid: 0e9afcfb80f5b34393bb46605be8f167
     GuidInternal: 
-    m_lastTime: -8584571905760047176
+    m_lastTime: -8584551179797709663
     List:
+    - name: playMonitorTick
+      guid: a4353a4e48de0a4595959c75d307b0e4
+      id: 19295944
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: 05760e8b89de3649adde474e0d5001d7
+      - ElementName: Level01SFX
+        ObjectType: 12
+        guid: f9b0ec324d8851478a93d43f19acbfa1
+      - ElementName: Puzzles01
+        ObjectType: 12
+        guid: 0e9afcfb80f5b34393bb46605be8f167
+      - ElementName: playMonitorTick
+        ObjectType: 3
+        guid: a4353a4e48de0a4595959c75d307b0e4
+      Path: Events/Default Work Unit/Level01SFX/Puzzles01/playMonitorTick
+      maxAttenuation: 100
+      maxDuration: 0.088395834
+      minDuration: 0.088395834
     - name: playRingTick
       guid: 3fee263e2a6de14bbc3feaf8f15001ee
       id: 2050963566
@@ -841,7 +910,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Broadcaster/ScreenFX
     guid: 18b7783b76208e4fbea51b47085db633
     GuidInternal: 
-    m_lastTime: -8584563025465905520
+    m_lastTime: -8584553704909700128
     List:
     - name: playTextBeep
       guid: c02fba69e652a946b60873c2297f9875
@@ -867,7 +936,7 @@ MonoBehaviour:
         guid: c02fba69e652a946b60873c2297f9875
       Path: Events/Default Work Unit/GlobalSFX/Broadcaster/ScreenFX/playTextBeep
       maxAttenuation: 5
-      maxDuration: 0.04581931
+      maxDuration: 0.04854387
       minDuration: 0.032399144
   - PhysicalPath: Events/Torches.wwu
     PathAndIcons:
@@ -889,7 +958,7 @@ MonoBehaviour:
     ParentPath: Events/Default Work Unit/GlobalSFX/Enviroment/Torches
     guid: 156f531828b425458e9b5a12786cc563
     GuidInternal: 
-    m_lastTime: -8584571722152193246
+    m_lastTime: -8584571470154775808
     List:
     - name: playTorchLitLoop
       guid: 116fe663cb3053478622d85ae45c788f
@@ -938,7 +1007,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global/Enviroment/Ambiences
     guid: 6f0007df3b33ee428320fc3f5cbb00c3
     GuidInternal: 
-    m_lastTime: -8584571673376268010
+    m_lastTime: -8584571421394775808
     List:
     - name: ambience_Ducking
       guid: 928ad381a7ecf54cbe901128330c5ed9
@@ -982,7 +1051,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global/Broadcaster
     guid: 318edfd51aa33a4e9d4c4f0bf57a7b76
     GuidInternal: 
-    m_lastTime: -8584569095877733760
+    m_lastTime: -8584568843894775808
     List:
     - name: broadcaster_Shutdown
       guid: 0a517ebb5a0b5544b69fe8b2b57d0079
@@ -1083,7 +1152,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit
     guid: ef613283e916f741a490bc3b685e41fc
     GuidInternal: 
-    m_lastTime: -8584572856626333113
+    m_lastTime: -8584572604634775808
     List: []
   - PhysicalPath: Game Parameters/Enviroment.wwu
     PathAndIcons:
@@ -1102,7 +1171,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global/Enviroment
     guid: a2cc79892927fa42ad568efdae118e4a
     GuidInternal: 
-    m_lastTime: -8584571674736642708
+    m_lastTime: -8584571422754775808
     List: []
   - PhysicalPath: Game Parameters/Gems.wwu
     PathAndIcons:
@@ -1124,7 +1193,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global/Puzzles/Gems
     guid: aa0ec67b20e93b43a91c9a757dfefe7e
     GuidInternal: 
-    m_lastTime: -8584572608014263308
+    m_lastTime: -8584556336194932348
     List:
     - name: gemCheckpoint_Pitch
       guid: 0689e52d9500c345849c25dc09c65e05
@@ -1151,6 +1220,31 @@ MonoBehaviour:
       Path: Game Parameters/Default Work Unit/Global/Puzzles/Gems/gemCheckpoint_Pitch
       Min: 1
       Max: 25
+    - name: gemHum_Pitch
+      guid: 241a5d546043a44fbf6ee20466b810bd
+      id: 2427847243
+      PathAndIcons:
+      - ElementName: Game Parameters
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: ef613283e916f741a490bc3b685e41fc
+      - ElementName: Global
+        ObjectType: 12
+        guid: e3041d3ba2f83d45880615692efc84cf
+      - ElementName: Puzzles
+        ObjectType: 12
+        guid: 5efc278cf26c9f4eb06973962a67be05
+      - ElementName: Gems
+        ObjectType: 12
+        guid: aa0ec67b20e93b43a91c9a757dfefe7e
+      - ElementName: gemHum_Pitch
+        ObjectType: 13
+        guid: 241a5d546043a44fbf6ee20466b810bd
+      Path: Game Parameters/Default Work Unit/Global/Puzzles/Gems/gemHum_Pitch
+      Min: 1
+      Max: 25
   - PhysicalPath: Game Parameters/Global.wwu
     PathAndIcons:
     - ElementName: Game Parameters
@@ -1165,7 +1259,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global
     guid: e3041d3ba2f83d45880615692efc84cf
     GuidInternal: 
-    m_lastTime: -8584571674799529530
+    m_lastTime: -8584571422814775808
     List: []
   - PhysicalPath: Game Parameters/Player.wwu
     PathAndIcons:
@@ -1184,7 +1278,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global/Player
     guid: 08cda077988e1a4685c3159b449b1b3f
     GuidInternal: 
-    m_lastTime: -8584572886803539969
+    m_lastTime: -8584572634814775808
     List:
     - name: player_MoveSpeed
       guid: 83a36258ad8c7c4ab3d078371c89acb2
@@ -1225,7 +1319,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global/Puzzles
     guid: 5efc278cf26c9f4eb06973962a67be05
     GuidInternal: 
-    m_lastTime: -8584572805671713654
+    m_lastTime: -8584572553674775808
     List: []
   - PhysicalPath: Game Parameters/Settings.wwu
     PathAndIcons:
@@ -1244,7 +1338,7 @@ MonoBehaviour:
     ParentPath: Game Parameters/Default Work Unit/Global/Settings
     guid: 5254778303802d45958f914389a9f451
     GuidInternal: 
-    m_lastTime: -8584572887357646683
+    m_lastTime: -8584572635374775808
     List: []
   StateWwu:
   - PhysicalPath: States/Default Work Unit.wwu
@@ -1258,7 +1352,7 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit
     guid: b0e00b1ac79152458f2bacb892dce628
     GuidInternal: 
-    m_lastTime: -8584630406608617913
+    m_lastTime: -8584630118614775808
     List: []
   - PhysicalPath: States/Level01.wwu
     PathAndIcons:
@@ -1274,7 +1368,7 @@ MonoBehaviour:
     ParentPath: States/Default Work Unit/Level01
     guid: 2850dd17a02c1c4fa3806f4777258544
     GuidInternal: 
-    m_lastTime: -8584569013685560485
+    m_lastTime: -8584553733075357268
     List:
     - name: _RingPuzzle
       guid: d49bfcf9d542eb43ae8179fa7c9b6e18
@@ -1410,25 +1504,6 @@ MonoBehaviour:
         guid: 75138e5436b0374da58ee884a4336135
       Path: States/Default Work Unit/Level01/Opening01
       values:
-      - name: BeforeApproach
-        guid: b6a270144369d44eb0b8e29007f02437
-        id: 2272668956
-        PathAndIcons:
-        - ElementName: States
-          ObjectType: 5
-          guid: 00000000000000000000000000000000
-        - ElementName: Default Work Unit
-          ObjectType: 12
-          guid: b0e00b1ac79152458f2bacb892dce628
-        - ElementName: Level01
-          ObjectType: 12
-          guid: 2850dd17a02c1c4fa3806f4777258544
-        - ElementName: Opening01
-          ObjectType: 9
-          guid: 75138e5436b0374da58ee884a4336135
-        - ElementName: BeforeApproach
-          ObjectType: 8
-          guid: b6a270144369d44eb0b8e29007f02437
       - name: BroadcasterApproach
         guid: 78435f98e01bbe449dfad1292b06799e
         id: 1253314903
@@ -1467,6 +1542,25 @@ MonoBehaviour:
         - ElementName: GetBroadcaster
           ObjectType: 8
           guid: 98f7f4ab4ea1dd4c84bfc053446e8d05
+      - name: Intro
+        guid: 29ea8ec8eb35e04997c575116e51d6ca
+        id: 1125500713
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: b0e00b1ac79152458f2bacb892dce628
+        - ElementName: Level01
+          ObjectType: 12
+          guid: 2850dd17a02c1c4fa3806f4777258544
+        - ElementName: Opening01
+          ObjectType: 9
+          guid: 75138e5436b0374da58ee884a4336135
+        - ElementName: Intro
+          ObjectType: 8
+          guid: 29ea8ec8eb35e04997c575116e51d6ca
       - name: None
         guid: 06e259152d58c44f87adcd9ff9ecfd04
         id: 748895195
@@ -1486,25 +1580,6 @@ MonoBehaviour:
         - ElementName: None
           ObjectType: 8
           guid: 06e259152d58c44f87adcd9ff9ecfd04
-      - name: Opening
-        guid: 29ea8ec8eb35e04997c575116e51d6ca
-        id: 1831982039
-        PathAndIcons:
-        - ElementName: States
-          ObjectType: 5
-          guid: 00000000000000000000000000000000
-        - ElementName: Default Work Unit
-          ObjectType: 12
-          guid: b0e00b1ac79152458f2bacb892dce628
-        - ElementName: Level01
-          ObjectType: 12
-          guid: 2850dd17a02c1c4fa3806f4777258544
-        - ElementName: Opening01
-          ObjectType: 9
-          guid: 75138e5436b0374da58ee884a4336135
-        - ElementName: Opening
-          ObjectType: 8
-          guid: 29ea8ec8eb35e04997c575116e51d6ca
       - name: ToGameplay
         guid: e4af80f04ac6e743b622505cb721b08a
         id: 1824561598
@@ -1617,7 +1692,7 @@ MonoBehaviour:
     ParentPath: Switches/Default Work Unit
     guid: 0bac58fb4d69e047ac644075670d242d
     GuidInternal: 
-    m_lastTime: -8584571793375929673
+    m_lastTime: -8584571541394775808
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers/Default Work Unit.wwu
@@ -1631,7 +1706,7 @@ MonoBehaviour:
     ParentPath: Triggers/Default Work Unit
     guid: bfc0f46ffc2ba549bc802ff6fe293cfd
     GuidInternal: 
-    m_lastTime: -8584571903484582616
+    m_lastTime: -8584571651494775808
     List: []
   ExpandedFileSystemItemIds: 
   ExpandedWaapiItemIds: 020000000300000005000000060000000700000008000000090000000a0000000b0000000c0000001000000011000000120000001400000015000000160000001c0000001d0000001e0000001f00000020000000210000002200000023000000260000002700000028000000290000002a00000031000000330000003f0000004600000047000000480000005a0000005b0000005c00000096010000

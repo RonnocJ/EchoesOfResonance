@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	19295944	playMonitorTick			\Default Work Unit\Level01SFX\Puzzles01\playMonitorTick	
 	161092132	endOpening			\Default Work Unit\Level01Music\endOpening	
 	676444101	startMusic01Puzzle			\Default Work Unit\Level01Music\startMusic01Puzzle	
 	2050963566	playRingTick			\Default Work Unit\Level01SFX\Puzzles01\playRingTick	
@@ -21,31 +22,30 @@ State	ID	Name	State Group			Notes
 	1824561598	ToGameplay	Puzzle01			
 	2715723947	RingPuzzle	Puzzle01			
 	748895195	None	Opening01			
+	1125500713	Intro	Opening01			
 	1253314903	BroadcasterApproach	Opening01			
 	1824561598	ToGameplay	Opening01			
-	1831982039	Opening	Opening01			
-	2272668956	BeforeApproach	Opening01			
 	3020279701	GetBroadcaster	Opening01			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	23216998	RingTick03	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\A8\{A842C52C-B068-1500-960D-1A07B8942B45}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Level01\Puzzles01\RingTick\Tick01\RingTick03		96096
-	164535379	EOR_Level01_EntranceHallLoop	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\30\{30232416-BE7A-F0F8-70A0-92A96772E748}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\BroadcasterApproachLoop\Loop\EOR_Level01_EntranceHallLoop		2620480
+	78688198	EOR_Level01Msc_01Opening_IntroB2	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\39\{39E0AD5D-4381-5AFA-D59F-0E8CD7245132}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\Intro\Intro_B2\EOR_Level01Msc_01Opening_IntroB2		10465564
 	251126326	Perc	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\70\{70CF1046-4E39-B5D4-A510-01ACCE2CA99B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\02_PuzzleSwitch\RingPuzzle\LoopA\Perc		4717632
-	310615760	BaseLoop	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\12\{12565F6D-1CC6-8157-6E60-947B6A5F458C}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\OpeningLoop\Loop\BaseLoop		7076928
+	379179364	EOR_Level01Msc_01Opening_IntroB1	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\C9\{C977657A-2DA1-ACF3-92CC-B97C24060130}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\Intro\Intro_B1\EOR_Level01Msc_01Opening_IntroB1		9154844
+	390521249	EOR_Level01Msc_01Opening_IntroA	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\6F\{6F5803EF-4518-6472-8011-5A5BAE92435C}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\Intro\Intro_A\EOR_Level01Msc_01Opening_IntroA		13873436
+	423159114	EOR_Level01Msc_01Opening_BrApproachA	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\31\{31FB0B23-3B9E-9A3A-E19E-E502300F4674}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\BroadcasterApproach\BrApproach_A\EOR_Level01Msc_01Opening_BrApproachA		6795548
 	506978383	RingTick01	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\5A\{5AB39C0F-2C5C-E515-6D6D-D70465BE3E16}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Level01\Puzzles01\RingTick\Tick01\RingTick01		96096
 	551430656	BaseLoopA	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\58\{58F62B0C-104A-4822-EC41-2D08E32EC943}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\02_PuzzleSwitch\RingPuzzle\LoopA\BaseLoopA		5134828
 	563909248	OstLoopB	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\61\{611B47FA-829A-9C5F-CBDF-4BE46A84FEEE}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\02_PuzzleSwitch\RingPuzzle\LoopB\OstLoopB		4193344
-	586092724	EOR_Level01_EntranceHallCue	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\72\{7247C986-BF6F-B21D-3682-B4978DEF664C}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\BroadcasterApproachLoop\Cue\EOR_Level01_EntranceHallCue		4193344
+	608502494	MontiorTick01	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\4B\{4BCCCED5-1F85-D2AB-80EE-8DF5E90BAE6E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Level01\Puzzles01\MontiorTick01		8582
 	618833788	Perc	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\4B\{4BA3DF10-093F-E78A-6B52-324BF31CD11E}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\02_PuzzleSwitch\RingPuzzle\LoopA\Perc		4717632
-	646732023	EOR_Level01_GetBroadcasterCue	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\B5\{B5CACFD3-1D10-201B-86F1-1E0DD446B06F}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\GetBroadcasterCue\EOR_Level01_GetBroadcasterCue		4193344
-	678171862	EOR_Level01_ToGameplayTransition	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\8A\{8AF64267-4E55-64C6-599F-8180DDD97E52}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\OpeningToGameplay\EOR_Level01_ToGameplayTransition		2620480
+	686256247	EOR_Level01Msc_01Opening_GetBr	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\A8\{A8702FA6-C8A2-3B8C-9408-ACDE26ABDE47}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\GetBroadcasterCue\EOR_Level01Msc_01Opening_GetBr		5484828
 	695093669	OstLoopA	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\6C\{6C9675AD-24DB-0156-5013-28F22FF130AD}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\02_PuzzleSwitch\RingPuzzle\LoopA\OstLoopA		4193344
-	711210221	Riff01	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\E4\{E4C9E0EB-5AA0-9B3D-9718-F4D13FE62E50}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\OpeningLoop\Loop\Riff01		2358336
 	731935831	EOR_Level01_PuzzleToGameplayTransition	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\5B\{5B0F60AB-53B6-6177-4F05-8F9D65656E42}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\02_PuzzleSwitch\PuzzleToGameplay\EOR_Level01_PuzzleToGameplayTransition		2620480
-	802790787	Riff02	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\5F\{5F5E0FF5-59DB-B0A5-3901-1DC06537122E}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\OpeningLoop\Loop\Riff02		2358336
-	866702254	Riff01	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\1F\{1FA730D1-1200-64FC-001A-C2D9EEC0C15B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\OpeningLoop\Loop\Riff01		2358336
-	926822806	Riff02	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\37\{37F07362-63D2-AC5A-C70C-6FB8FC99789B}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\OpeningLoop\Loop\Riff02		2358336
+	798916717	EOR_Level01Msc_01Opening_ToGameplayTransition	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\A1\{A158B4C2-9BCC-E5D9-92E4-540C911683E7}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\OpeningToGameplay\EOR_Level01Msc_01Opening_ToGameplayTransition		3911964
+	911325075	EOR_Level01Msc_01Opening_IntroC	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\6B\{6B35CCBC-F3B1-FB41-4616-4B2A6CADBEB2}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\Intro\Intro_C\EOR_Level01Msc_01Opening_IntroC		14922012
 	960691585	RingTick02	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\11\{113687C2-34A7-C92B-238E-DB8ABC0A2214}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Level01\Puzzles01\RingTick\Tick02\RingTick02		96096
 	1041735732	RingTick04	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\A1\{A1EB0C78-A4EC-BBED-1515-EE16B29E26E9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Level01\Puzzles01\RingTick\Tick02\RingTick04		96096
 	1044492786	BaseLoopB	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\86\{864DCC2E-81F2-CF9D-A8D1-8CE3CF27DF0D}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\02_PuzzleSwitch\RingPuzzle\LoopB\BaseLoopB		4717632
+	1054358741	EOR_Level01Msc_01Opening_BrApproachLoop	Y:\Documents\WwiseProjects\EchoesOfResonance_WwiseProject\.cache\5E\{5EEAEF9D-BADC-BD96-677E-470C0DA6C827}.wem		\Interactive Music Hierarchy\Default Work Unit\Level01\01_OpeningSwitch\BroadcasterApproach\BrApproach_Loop\EOR_Level01Msc_01Opening_BrApproachLoop		1552668
 

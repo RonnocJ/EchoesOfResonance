@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6125918153958516236}
   - component: {fileID: 6741227591699026800}
   - component: {fileID: 8760403088364391689}
-  - component: {fileID: 344153186336292581}
   - component: {fileID: 3630712019956474419}
   m_Layer: 0
   m_Name: PuzzlePlate
@@ -89,25 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &344153186336292581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5371344547674050497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 046017ecb8f404e51bdabfbb7e540403, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alignRotation: {x: 0, y: 0, z: 0}
-  linkedData: {fileID: 0}
-  gems: []
-  linkedPuzzles: []
-  executeWithPuzzle:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &3630712019956474419
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -3,12 +3,15 @@ using UnityEngine;
 public class Singleton<T> : MonoBehaviour where T : Component
 {
     private static T _root;
+    private static bool applicationIsQuitting = false;
     public static T root
     {
         get
         {
             if (_root == null)
             {
+                if (applicationIsQuitting) return null;
+
                 _root = FindFirstObjectByType<T>();
                 if (_root == null)
                 {
@@ -31,5 +34,10 @@ public class Singleton<T> : MonoBehaviour where T : Component
         {
             Destroy(gameObject);
         }
+    }
+
+    protected virtual void OnApplicationQuit()
+    {
+        applicationIsQuitting = true;
     }
 }

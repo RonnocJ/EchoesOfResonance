@@ -1,0 +1,59 @@
+{
+  "413e6652-a7b3-41cd-959b-0c818ef75688": {
+    "playerPos": {
+      "position": [
+        -87.97734,
+        4.136112,
+        119.132858
+      ],
+      "rotation": [
+        0.0,
+        327.1976,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "a88783ff-86a2-47a4-bbe8-c3ea03431a3f": {
+    "solved": false
+  },
+  "fc3e543d-a9b9-4a53-944d-60e63290524d": {
+    "savedState": 6
+  },
+  "93866239-3a91-4673-bd23-da14ba06d704": {
+    "lastSong": "Objects/Music/OpeningMusic",
+    "stateGroupOpening01": 748895197
+  },
+  "cc1417c9-6d34-49e8-91c4-702652784bdc": {
+    "lastPosition": {
+      "position": [
+        -4.0,
+        2.885,
+        102.675
+      ],
+      "rotation": [
+        14.9999971,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "7fc833d5-cf1f-433d-8485-ea6092fa44e4": {
+    "solved": false
+  },
+  "06374b5f-6ec8-4079-b83f-4f0d00ab4060": {
+    "hasBroadcaster": true
+  },
+  "09ee4e8e-9e59-40ef-8648-9955eddb802c": {
+    "solved": false
+  }
+}

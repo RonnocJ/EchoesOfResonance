@@ -3,39 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
-[Serializable]
-public class ObjectMoveStep
-{
-    public float shakeTime, moveTime;
-    public TrData target;
-    [HideInInspector]
-    public MultiMoveableObject parent;
-
-    public IEnumerator MoveObject()
-    {
-        if (shakeTime > 0)
-        {
-            Vector3 originalPos = parent.transform.position;
-            float elapsed = 0f;
-
-            while (elapsed < shakeTime)
-            {
-                parent.transform.position += UnityEngine.Random.insideUnitSphere * 0.05f;
-                yield return null;
-
-                parent.transform.position = originalPos;
-                elapsed += Time.deltaTime;
-            }
-        }
-
-        CRManager.root.Restart(target.ApplyToOverTime(parent.transform, moveTime, parent.InterpolationCurve), $"{parent.gameObject}ObjMoveStep", parent);
-        yield return new WaitForSeconds(moveTime);
-    }
-}
 public class MultiMoveStep : MultiInteractableStep
 {
     public ObjectMoveStep[] steps;
-    [HideInInspector]
     public override void ActivateObject()
     {
         base.ActivateObject();
@@ -49,7 +19,7 @@ public class MultiMoveStep : MultiInteractableStep
                 multiParent.stepQueue.Enqueue(step);
             }
 
-            CRManager.root.Begin(multiParent.DepleteMoveQueue(), $"{multiParent.gameObject}DepleteMoveQueue", multiParent);
+            CRManager.Begin(multiParent.DepleteMoveQueue(), $"{multiParent.gameObject}DepleteMoveQueue", multiParent);
         }
     }
 
@@ -65,19 +35,19 @@ public class MultiMoveStep : MultiInteractableStep
                 multiParent.stepQueue.Enqueue(steps[i]);
             }
 
-            CRManager.root.Begin(multiParent.DepleteMoveQueue(), $"{multiParent.gameObject}DepleteMoveQueue", multiParent);
+            CRManager.Begin(multiParent.DepleteMoveQueue(), $"{multiParent.gameObject}DepleteMoveQueue", multiParent);
         }
 
     }
 }
 public class MultiMoveableObject : MultiInteractable, ISaveData
 {
-    public AnimationCurve InterpolationCurve;
+    [SerializeField] private AnimationCurve interpolationCurve;
 #if UNITY_EDITOR
     protected override Type GetStepType() => typeof(MultiMoveStep);
 #endif
     public Queue<ObjectMoveStep> stepQueue = new();
-        public Dictionary<string, object> AddSaveData()
+    public Dictionary<string, object> AddSaveData()
     {
         if ((LinkedData == null && Steps[Steps.Count - 1].activated) || (LinkedData != null && LinkedData.Solved))
         {
@@ -108,7 +78,7 @@ public class MultiMoveableObject : MultiInteractable, ISaveData
         while (stepQueue.Count > 0)
         {
             ObjectMoveStep step = stepQueue.Dequeue();
-            yield return StartCoroutine(step.MoveObject());
+            yield return StartCoroutine(step.MoveObject<MultiMoveableObject>(interpolationCurve));
         }
     }
 }

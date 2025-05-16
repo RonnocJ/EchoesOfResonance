@@ -1,0 +1,96 @@
+{
+  "Player_1": {
+    "playerPos": {
+      "position": [
+        0.040138077,
+        4.249996,
+        1093.2533
+      ],
+      "rotation": [
+        0.0,
+        0.7068172,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "Puzzle01_2": {
+    "solved": true
+  },
+  "GRotator_3": {
+    "puzzlePosition": {
+      "position": null,
+      "rotation": [
+        0.0,
+        240.0,
+        0.0
+      ],
+      "scale": null
+    }
+  },
+  "Game_4": {
+    "savedState": 6
+  },
+  "Audio_5": {
+    "lastSong": "Objects/Music/PuzzleMusic",
+    "stateGroup_RingPuzzle": 225972862,
+    "stateGroupPuzzle01": -1579243349
+  },
+  "CRotator_6": {
+    "puzzlePosition": {
+      "position": null,
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "scale": null
+    }
+  },
+  "FakeBroadcaster_7": {
+    "lastPosition": {
+      "position": [
+        -4.0,
+        2.885,
+        102.675
+      ],
+      "rotation": [
+        15.0000038,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "RingOfFourths_8": {
+    "puzzlePosition": {
+      "position": null,
+      "rotation": [
+        0.0,
+        -180.0,
+        0.0
+      ],
+      "scale": null
+    }
+  },
+  "Broadcaster_9": {
+    "middleKey": 60.0
+  },
+  "PuzzleStand_10": {
+    "solved": false
+  },
+  "PArm_11": {
+    "hasBroadcaster": true
+  },
+  "PuzzleStand_12": {
+    "solved": false
+  }
+}

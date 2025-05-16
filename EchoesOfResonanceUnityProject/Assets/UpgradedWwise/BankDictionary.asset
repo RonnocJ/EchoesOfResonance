@@ -37,6 +37,9 @@ MonoBehaviour:
   - eventName: playFootsteps
     bankName: Global
     eventId: 1088348632
+  - eventName: playGemHum
+    bankName: Global
+    eventId: 2688363534
   - eventName: playShutoff
     bankName: Global
     eventId: 1900847084
@@ -52,12 +55,18 @@ MonoBehaviour:
   - eventName: stopBroadcasterFX
     bankName: Global
     eventId: 2261249677
+  - eventName: stopGemHum
+    bankName: Global
+    eventId: 2942752976
   - eventName: unmuteSFX
     bankName: Global
     eventId: 4043078832
   - eventName: endOpening
     bankName: Level01
     eventId: 161092132
+  - eventName: playMonitorTick
+    bankName: Level01
+    eventId: 19295944
   - eventName: playRingTick
     bankName: Level01
     eventId: 2050963566
@@ -90,6 +99,9 @@ MonoBehaviour:
     Min: 1
     Max: 127
   - Name: gemCheckpoint_Pitch
+    Min: 1
+    Max: 25
+  - Name: gemHum_Pitch
     Min: 1
     Max: 25
   - Name: player_MoveSpeed

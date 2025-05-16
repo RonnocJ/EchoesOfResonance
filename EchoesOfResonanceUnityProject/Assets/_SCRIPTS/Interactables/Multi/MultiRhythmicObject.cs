@@ -3,32 +3,6 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
 [Serializable]
-public class RhythmicMoveStep
-{
-    public NoteValue note;
-    public TrData moveStep;
-    [HideInInspector]
-    public MultiRhythmicObject parent;
-
-    public void MoveObjectWithMusic()
-    {
-        if (moveStep.EffectedProperties != 0 && !moveStep.IsEqualTo(parent.transform))
-        {
-            AudioManager.root.PlaySound(parent.startSound, parent.gameObject);
-        }
-
-        CRManager.root.Restart(
-                moveStep.ApplyToOverTime(
-                    parent.transform,
-                    MusicManager.root.currentSong.GetBeatInSeconds() * note.CurrentValue,
-                    parent.interpolationCurve
-                ),
-                $"{parent.gameObject.name}MultiRhythmicMoveStep",
-                parent
-            );
-    }
-}
-[Serializable]
 public class MultiRhythmicStep : MultiInteractableStep
 {
     public RhythmicMoveStep[] steps;
@@ -104,7 +78,7 @@ public class MultiRhythmicObject : MultiInteractable, ISaveData
         foreach (var step in stepList)
         {
             if (step.moveStep.EffectedProperties == 0 || !step.moveStep.IsEqualTo(transform))
-                MusicManager.root.currentSong.AddQueuedCallback($"{gameObject.name}RhythmicQueue", step.note.CurrentValue, step.MoveObjectWithMusic);
+                MusicManager.root.currentSong.AddQueuedCallback($"{gameObject.name}RhythmicQueue", step.note.CurrentValue, () => step.MoveObjectWithMusic<MultiRhythmicObject>(interpolationCurve, startSound));
         }
 
         stepList.Clear();

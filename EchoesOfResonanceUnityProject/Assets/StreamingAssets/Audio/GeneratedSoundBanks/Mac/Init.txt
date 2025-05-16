@@ -16,6 +16,7 @@ State	ID	Name	State Group			Notes
 	1253314903	BroadcasterApproach	Opening01			
 	1824561598	ToGameplay	Opening01			
 	1831982039	Opening	Opening01			
+	2272668956	BeforeApproach	Opening01			
 	3020279701	GetBroadcaster	Opening01			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes

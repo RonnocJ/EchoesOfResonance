@@ -28,7 +28,7 @@ public abstract class MultiInteractableStep
     {
         activated = true;
 
-        if (timedReset) CRManager.root.Restart(ResetAfterDelay(resetDelay), $"{parent.gameObject}ResetDelayStep{ExecuteEarly}", parent);
+        if (timedReset) CRManager.Restart(ResetAfterDelay(resetDelay), $"{parent.gameObject}ResetDelayStep{ExecuteEarly}", parent);
     }
     public virtual void ResetObject()
     {
@@ -50,6 +50,7 @@ public abstract class MultiInteractable : MonoBehaviour
         set => linkedData = value;
     }
     [SerializeReference] protected List<MultiInteractableStep> Steps = new();
+    private static Dictionary<GameObject, int> _currentStep = new();
 
 #if UNITY_EDITOR
     protected abstract Type GetStepType();
@@ -57,6 +58,8 @@ public abstract class MultiInteractable : MonoBehaviour
 
     public virtual void Awake()
     {
+        _currentStep[gameObject] = 0;
+
         foreach (var step in Steps)
         {
             step.parent = this;
@@ -68,8 +71,12 @@ public abstract class MultiInteractable : MonoBehaviour
             else
             {
                 linkedData.OnSolvedChanged += solved =>
-                {
-                    if (solved >= step.ExecuteEarly && !step.activated) step.ActivateObject();
+                {    
+                    if (solved >= step.ExecuteEarly && _currentStep[gameObject] < solved && !step.activated) 
+                    {
+                        _currentStep[gameObject] = solved;
+                        step.ActivateObject();
+                    }
                 };
             }
         }
@@ -81,7 +88,12 @@ public abstract class MultiInteractable : MonoBehaviour
             {
                 if (!Steps[i].ExecuteOnFinish)
                 {
-                    if ((solved < Steps[i].ExecuteEarly && Steps[i].activated) || (Steps[i].ExecuteEarly == solved && solved == 0))  Steps[i].ResetObject();
+                    
+                    if ((solved < Steps[i].ExecuteEarly && _currentStep[gameObject] > solved && Steps[i].activated) || (Steps[i].ExecuteEarly == solved && solved == 0)) 
+                    {
+                        _currentStep[gameObject] = solved;
+                        Steps[i].ResetObject();
+                    }
                 }
             }
         };

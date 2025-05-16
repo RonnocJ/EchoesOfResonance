@@ -1,0 +1,104 @@
+{
+  "413e6652-a7b3-41cd-959b-0c818ef75688": {
+    "playerPos": {
+      "position": [
+        -115.12883,
+        6.51542854,
+        167.065125
+      ],
+      "rotation": [
+        0.0,
+        334.787842,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "a88783ff-86a2-47a4-bbe8-c3ea03431a3f": {
+    "solved": true
+  },
+  "c1b259f0-5686-4e36-aa85-1d7304eb154b": {
+    "puzzlePosition": {
+      "position": null,
+      "rotation": [
+        0.0,
+        240.0,
+        0.0
+      ],
+      "scale": null
+    }
+  },
+  "fc3e543d-a9b9-4a53-944d-60e63290524d": {
+    "savedState": 6
+  },
+  "93866239-3a91-4673-bd23-da14ba06d704": {
+    "lastSong": "Objects/Music/PuzzleMusic",
+    "stateGroup_RingPuzzle": 225972862,
+    "stateGroupPuzzle01": -1579243349
+  },
+  "8cfe000c-124d-4052-861c-3594981a0ff0": {
+    "puzzlePosition": {
+      "position": null,
+      "rotation": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "scale": null
+    }
+  },
+  "cc1417c9-6d34-49e8-91c4-702652784bdc": {
+    "lastPosition": {
+      "position": [
+        -4.0,
+        2.885,
+        102.675
+      ],
+      "rotation": [
+        15.000001,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "f3d0064e-b719-461e-85be-e9793ab5bd9e": {
+    "puzzlePosition": {
+      "position": null,
+      "rotation": [
+        0.0,
+        -180.0,
+        0.0
+      ],
+      "scale": null
+    }
+  },
+  "342d4816-04e5-4f09-ba8e-e596677d545f": {
+    "puzzlePosition": {
+      "position": null,
+      "rotation": null,
+      "scale": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "7fc833d5-cf1f-433d-8485-ea6092fa44e4": {
+    "solved": false
+  },
+  "06374b5f-6ec8-4079-b83f-4f0d00ab4060": {
+    "hasBroadcaster": true
+  },
+  "09ee4e8e-9e59-40ef-8648-9955eddb802c": {
+    "solved": false
+  }
+}

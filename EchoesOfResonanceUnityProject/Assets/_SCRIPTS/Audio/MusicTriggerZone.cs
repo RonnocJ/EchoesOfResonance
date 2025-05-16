@@ -10,10 +10,7 @@ public class MusicTriggerZone : MonoBehaviour
     public AudioState musicState;
     public GameObject[] beatListeners;
     private bool inTrigger, played;
-    void Awake()
-    {
-        played = false;
-    }
+
     void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))

@@ -4,22 +4,6 @@ using UnityEngine;
 
 public class RhythmicObject : BasicInteractable
 {
-    [Serializable]
-    public class RhythmicMoveStep
-    {
-        public NoteValue note;
-        public TrData moveStep;
-        [HideInInspector]
-        public RhythmicObject parent;
-
-        public void MoveObjectWithMusic()
-        {
-            CRManager.root.Restart(
-                    moveStep.ApplyToOverTime(parent.transform, MusicManager.root.currentSong.GetBeatInSeconds() * note.CurrentValue, parent.interpolationCurve, parent.startSound),
-                    $"{parent.gameObject}RhythmicMoveStep", parent
-                );
-        }
-    }
     public bool looping;
     public AnimationCurve interpolationCurve;
     public AudioEvent startSound;
@@ -52,7 +36,7 @@ public class RhythmicObject : BasicInteractable
         {
             foreach (var step in stepList)
             {
-                MusicManager.root.currentSong.AddLoopingCallback($"{gameObject}RhythmicLoop", step.note.CurrentValue, step.MoveObjectWithMusic);
+                MusicManager.root.currentSong.AddLoopingCallback($"{gameObject}RhythmicLoop", step.note.CurrentValue, () => step.MoveObjectWithMusic<RhythmicObject>(interpolationCurve, startSound));
             }
 
             stepList.Clear();
@@ -61,7 +45,7 @@ public class RhythmicObject : BasicInteractable
         {
             foreach (var step in stepList)
             {
-                MusicManager.root.currentSong.AddQueuedCallback($"{gameObject}RhythmicQueue", step.note.CurrentValue, step.MoveObjectWithMusic);
+                MusicManager.root.currentSong.AddQueuedCallback($"{gameObject}RhythmicQueue", step.note.CurrentValue, () => step.MoveObjectWithMusic<RhythmicObject>(interpolationCurve, startSound));
             }
 
             stepList.Clear();

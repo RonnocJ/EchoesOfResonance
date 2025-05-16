@@ -4,5 +4,5 @@ using UnityEngine;
 public class ChordAbilities : ScriptableObject
 {
     public bool unlocked;
-    public string[] notes;
+    public PzNote[] notes;
 }

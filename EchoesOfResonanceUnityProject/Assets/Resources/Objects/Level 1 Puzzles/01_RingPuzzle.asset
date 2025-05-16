@@ -14,52 +14,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleType: 0
   solutions:
-  - noteName: C2
+  - note:
+      _pitch: 13
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: G1
+  - note:
+      _pitch: 8
     noteDuration:
       CurrentValue: 1
     checkpoint: 1
-  - noteName: C2
+  - note:
+      _pitch: 13
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: G1
+  - note:
+      _pitch: 8
     noteDuration:
       CurrentValue: 1
     checkpoint: 1
-  - noteName: C2
+  - note:
+      _pitch: 13
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: F2
+  - note:
+      _pitch: 18
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: D1
+  - note:
+      _pitch: 3
     noteDuration:
       CurrentValue: 1
     checkpoint: 1
-  - noteName: G1
+  - note:
+      _pitch: 8
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: C2
+  - note:
+      _pitch: 13
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: F2
+  - note:
+      _pitch: 18
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
-  - noteName: A#2
+  - note:
+      _pitch: 23
     noteDuration:
       CurrentValue: 1
     checkpoint: 0
   Active: 0
-  _solved: 3
+  _solved: 0
   _reset: 1
   audioEffects:
   - executeOnSolved: 0

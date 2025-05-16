@@ -18,8 +18,8 @@ public class PickUpBroadcaster : MonoBehaviour
             var alignPlayer = new TrData(_alignPosition, Quaternion.identity);
             var alignCamera = new TrData(Vector3.zero, Quaternion.Euler(_alignView));
 
-            CRManager.root.Begin(alignPlayer.ApplyToOverTime(col.transform, 1f), "AlignPlayerCutscene", this);
-            CRManager.root.Begin(alignCamera.ApplyToOverTime(Camera.main.transform, 0.75f), "AlignCameraCutscene", this);
+            CRManager.Begin(alignPlayer.ApplyToOverTime(col.transform, 1f), "AlignPlayerCutscene", this);
+            CRManager.Begin(alignCamera.ApplyToOverTime(Camera.main.transform, 0.75f), "AlignCameraCutscene", this);
 
             col.GetComponentInChildren<ArmMover>().Invoke(nameof(ArmMover.PickUpBroadcaster), 1.5f);
 

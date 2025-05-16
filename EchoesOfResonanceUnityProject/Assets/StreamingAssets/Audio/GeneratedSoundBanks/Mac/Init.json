@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{DA39189E-6B4B-7DCC-D4D4-856B22B1C11E}",
+    "Hash": "{9472297A-10A3-D8D4-E67A-674B9FE4F03B}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -195,6 +195,12 @@
       "GUID": "{81D38A92-ECA7-4CF5-BE90-1128330C5ED9}"
      },
      {
+      "Id": "2427847243",
+      "Name": "gemHum_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Puzzles\\Gems\\gemHum_Pitch",
+      "GUID": "{545D1A24-4360-4FA4-BF6E-E20466B810BD}"
+     },
+     {
       "Id": "3409173110",
       "Name": "flute_Pitch",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Pitch",
@@ -279,6 +285,12 @@
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
        },
        {
+        "Id": "1125500713",
+        "Name": "Intro",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Intro",
+        "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
+       },
+       {
         "Id": "1253314903",
         "Name": "BroadcasterApproach",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BroadcasterApproach",
@@ -291,18 +303,6 @@
         "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
        },
        {
-        "Id": "1831982039",
-        "Name": "Opening",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Opening",
-        "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
-       },
-       {
-        "Id": "2272668956",
-        "Name": "BeforeApproach",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BeforeApproach",
-        "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
-       },
-       {
         "Id": "3020279701",
         "Name": "GetBroadcaster",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\GetBroadcaster",
@@ -313,6 +313,6 @@
     ]
    }
   ],
-  "FileHash": "{DE8F874A-27D2-7AF6-0AAB-2DCACB35906A}"
+  "FileHash": "{09714280-436F-9AFD-3433-58F62836ABD7}"
  }
 }

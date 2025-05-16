@@ -18,10 +18,10 @@ MonoBehaviour:
     m_Value: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 0.75
+    m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.425
+    m_Value: 1
   scatter:
     m_OverrideState: 1
     m_Value: 0.625
@@ -111,6 +111,7 @@ MonoBehaviour:
   - {fileID: 7250506261280867168}
   - {fileID: 5971048995680987618}
   - {fileID: 2841999652132779319}
+  - {fileID: 3143315517251550485}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -166,13 +167,47 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.96188444, y: 0.98477775, z: 1, w: 0}
+    m_Value: {x: 0.9700035, y: 0.9739006, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.9995048, y: 0.99134636, z: 1, w: -0.07117437}
+    m_Value: {x: 0.9995048, y: 0.99134636, z: 1, w: 0.00487125}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.95283777, z: 0.9302331, w: 0.07117436}
+    m_Value: {x: 1, y: 0.55833936, z: 0.8292778, w: 1}
+--- !u!114 &3143315517251550485
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  midtones:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  highlights:
+    m_OverrideState: 0
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
+  shadowsStart:
+    m_OverrideState: 0
+    m_Value: 0
+  shadowsEnd:
+    m_OverrideState: 0
+    m_Value: 0.3
+  highlightsStart:
+    m_OverrideState: 0
+    m_Value: 0.55
+  highlightsEnd:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!114 &5971048995680987618
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -234,7 +269,7 @@ MonoBehaviour:
   active: 1
   redOutRedIn:
     m_OverrideState: 1
-    m_Value: 110
+    m_Value: 120
   redOutGreenIn:
     m_OverrideState: 1
     m_Value: 40
@@ -242,19 +277,19 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: -10
   greenOutRedIn:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 5
   greenOutGreenIn:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 100
   greenOutBlueIn:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   blueOutRedIn:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   blueOutGreenIn:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   blueOutBlueIn:
     m_OverrideState: 0

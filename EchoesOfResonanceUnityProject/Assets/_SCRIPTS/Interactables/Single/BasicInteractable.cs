@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.Linq;
+using System.Collections.Generic;
 public abstract class BasicInteractable : MonoBehaviour
 {
     [SerializeField] private bool linkedWithPuzzle;
@@ -31,9 +30,11 @@ public abstract class BasicInteractable : MonoBehaviour
     }
     [SerializeField] private bool timedReset;
     [SerializeField] private float resetDelay;
-    private bool _activated;
-    void Awake()
+    private static Dictionary<GameObject, bool> _activated = new();
+    public virtual void Awake()
     {
+        _activated[gameObject] = false;
+
         if (IsLinkedWithPuzzle)
         {
             if (executeOnFinish)
@@ -44,21 +45,21 @@ public abstract class BasicInteractable : MonoBehaviour
             {
                 linkedData.OnSolvedChanged += solved =>
                 {
-                    if (solved >= executeEarly && !_activated) ActivateObject();
-                            else if (_activated && solved < executeEarly) ResetObject();
+                    if (solved >= executeEarly && !_activated[gameObject]) ActivateObject();
+                    else if (_activated[gameObject] && solved < executeEarly) ResetObject();
                 };
             }
         }
     }
     public virtual void ActivateObject()
     {
-        _activated = true;
+        _activated[gameObject] = true;
 
         if (timedReset) Invoke(nameof(ResetObject), resetDelay);
     }
     public virtual void ResetObject()
     {
-        _activated = false;
+        _activated[gameObject] = false;
     }
 }
 #if UNITY_EDITOR 

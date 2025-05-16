@@ -1,93 +1,104 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class BrBattery : Singleton<BrBattery>
+public class BrBattery : Broadcaster
 {
-    private float _batteryLevel = 1f;
-    public event Action OnBatteryEmpty, OnBatteryUpdate;
-    public float batteryLevel
+    public float noteDownDrain;
+    public float noteSustainDrain;
+    public float finderDrain;
+    public float chordDrain;
+    public override void Awake()
     {
-        get => _batteryLevel;
-        set
+        base.Awake();
+        RegisterActiveBroadcaster(this);
+
+        obj = gameObject;
+        OnHeldNotesEmptied += CheckRegen;
+        OnBatteryEmpty += Shutdown; 
+    }
+    public override void OnNoteOn(int newNote, int velocity)
+    {
+        base.OnNoteOn(newNote, velocity);
+        
+        CRManager.Stop("Regen", this);
+
+        batteryLevel -= noteDownDrain;
+        batteryDrainAmount += noteSustainDrain;
+
+        CRManager.Begin(DrainBatteryRoutine(), "DrainBattery", this);
+    }
+    public override void OnNoteOff(float oldNote)
+    {
+        base.OnNoteOff(oldNote);
+
+        batteryDrainAmount -= noteSustainDrain;
+    }
+    public override void ModChange(float newModInput)
+    {
+        base.ModChange(newModInput);
+
+        int newFinderLevel = Mathf.RoundToInt(((modInput * 1.25f) - 0.2f) / 0.25f);
+
+        if(modInput > 0.2f)
         {
-            if (_batteryLevel != value)
+            CRManager.Stop("Regen", this);
+
+            if(newFinderLevel != finderLevel)
             {
-                if (_batteryLevel > value)
-                {
-                    CRManager.root.Restart(RegenRoutine(), "Regen", this);
-                }
+                batteryDrainAmount -= GetFinderDrain(finderLevel);
+                batteryDrainAmount += GetFinderDrain(newFinderLevel);
 
-                _batteryLevel = value;
-                float clampedValue = Mathf.Clamp(value, 0, 1);
-
-                OnBatteryUpdate.Invoke();
-
-                if (_batteryLevel < clampedValue)
-                {
-                    OnBatteryEmpty?.Invoke();
-                    CRManager.root.Begin(ShutdownRoutine(), "Shutdown", this);
-                }
-
-                _batteryLevel = clampedValue;
+                finderLevel = newFinderLevel;
             }
+
+            CRManager.Begin(DrainBatteryRoutine(), "DrainBattery", this);
+        }
+        else
+        {
+            batteryDrainAmount -= GetFinderDrain(finderLevel);
+            CheckRegen();
         }
     }
-    private int _notesHeld;
-    public event Action<int> OnNotesHeldChange;
-    [HideInInspector]
-    public int notesHeld
+    public override void OnPuzzleSynced()
     {
-        get => _notesHeld;
-        set
-        {
-            if (_notesHeld != value)
-            {
-                _notesHeld = value;
-                OnNotesHeldChange.Invoke(_notesHeld);
-
-                CRManager.root.Restart(DrainBatteryRoutine(noteSustainDrainAmount * _notesHeld), "DrainBatteryNote", this);
-
-                if(value > _notesHeld)
-                {
-                    batteryLevel -= notePlayDrainAmount;
-                }
-                else if(value == 0)
-                {
-                    CRManager.root.Stop("DrainBatteryNote", this);
-                }
-            }
-        }
+        base.OnPuzzleSynced();
     }
-    [SerializeField] private float notePlayDrainAmount, noteSustainDrainAmount;
-    public Color DefaultBgColor;
-    [SerializeField] private Image batteryMeter;
-    public GameObject BackgroundScreen;
-    public GameObject BackLight;
-    [SerializeField] private TextMeshProUGUI noteInfoText;
-    public Camera cam;
-
-    void Start()
+    public override void OnPuzzleEnter()
     {
-        batteryLevel = 1f;
-        OnBatteryUpdate += () => UpdateBatteryLevel();
+        base.OnPuzzleEnter();
     }
-
-    public IEnumerator DrainBatteryRoutine(float amount)
+    public override void OnPuzzleExit()
     {
-        while (batteryLevel > 0f)
+        base.OnPuzzleExit();
+        batteryDrainAmount -= GetFinderDrain(finderLevel);
+    }
+    private float GetFinderDrain(int newFinderLevel)
+    {
+        return Mathf.Pow(newFinderLevel, 2) * finderDrain;
+    }
+    private void CheckRegen()
+    {
+        if(modInput < 0.2f || GameManager.root.State != GameState.InPuzzle)
+            CRManager.Restart(RegenRoutine(), "Regen", this);
+
+    }
+    private void Shutdown()
+    {
+        CRManager.Begin(ShutdownRoutine(), "Shutdown", this);
+    }
+    public IEnumerator DrainBatteryRoutine()
+    {
+        while (draining)
         {
-            batteryLevel -= amount * Time.deltaTime;
+            batteryLevel -= batteryDrainAmount * Time.deltaTime;
             yield return null;
-        }
+        } 
     }
     IEnumerator RegenRoutine()
     {
         float regenMultiplier = 1;
-        yield return new WaitForSeconds(0.75f);
-        while (batteryLevel < 1f)
+        yield return new WaitForSeconds(1.5f);
+        while (batteryLevel < 1f && !draining)
         {
             batteryLevel += regenMultiplier * 0.05f * Time.deltaTime;
             regenMultiplier *= 1.005f;
@@ -99,54 +110,24 @@ public class BrBattery : Singleton<BrBattery>
         GameManager.root.State = GameState.Shutdown;
 
         InputManager.root.AllNotesOff();
+        
+        if(activePlate != null) activePlate.EjectPlayer();
 
-        batteryMeter.fillAmount = 0;
-
-        AudioManager.root.StopSound(AudioEvent.playBroadcasterFX, gameObject, 1);
-        AudioManager.root.PlaySound(AudioEvent.playShutoff, gameObject);
-        AudioManager.root.SetRTPC(AudioRTPC.broadcaster_Shutdown, 100);
-
-        CRManager.root.Stop("Regen", this);
-        CRManager.root.Stop("DrainBatteryNote", this);
-
-        CRManager.root.Begin(UIUtil.root.FadeToColor(0.2f, 0, Color.black, new() { BackgroundScreen, BackLight }), "BrScreenToBlack", this);
+        CRManager.Stop("Regen", this);
+        CRManager.Stop("DrainBatteryNote", this);
 
         yield return new WaitForSeconds(5f);
 
-        AudioManager.root.SetRTPC(AudioRTPC.broadcaster_Shutdown, 0);
-
         batteryLevel = 1f;
+
+        OnBatteryCharge?.Invoke();
         
-        CRManager.root.Begin(UIUtil.root.FadeToColor(0.1f, 0, DefaultBgColor, new() { BackgroundScreen, BackLight }), "BrScreenToGreen", this);
-
-        for (int i = 0; i < 50; i++)
-        {
-            batteryMeter.fillAmount += 0.02f;
-            yield return null;
-        }
-        RaycastHit[] hits = Physics.SphereCastAll(PlrMngr.root.transform.position, 1f, Vector3.down, 4f);
-
-        foreach (var hit in hits)
-        {
-            if (hit.collider.GetComponent<PuzzlePlate>())
-            {
-                GameManager.root.State = GameState.Synced;
-                break;
-            }
-        }
-
-        if (GameManager.root.State == GameState.Shutdown)
-        {
-            GameManager.root.State = GameState.Roaming;
-        }
+        GameManager.root.State = GameState.Roaming;
     }
-    public void UpdateBatteryLevel()
+    public override void OnDestroy()
     {
-        batteryMeter.fillAmount = Mathf.SmoothStep(batteryMeter.fillAmount, batteryLevel, Time.deltaTime * 10f);
-    }
-
-    void OnDisable()
-    {
-        OnBatteryUpdate -= UpdateBatteryLevel;
+        base.OnDestroy();
+        OnHeldNotesEmptied -= CheckRegen;
+        OnBatteryEmpty -= Shutdown; 
     }
 }

@@ -8,6 +8,7 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
 {
     static public bool HasBroadcaster;
     [SerializeField] private float _armMoveSpeed;
+    [SerializeField] private BrDisplay brDisplay;
     [SerializeField] private Transform _fakeBroadcaster;
     private int _setControlHash, _playControlHash, _obtainedBroadcasterHash;
     private Animator _armAnim;
@@ -17,11 +18,11 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
         _setControlHash = Animator.StringToHash("SetIn");
         _playControlHash = Animator.StringToHash("Playing");
         _obtainedBroadcasterHash = Animator.StringToHash("HasBroadcaster");
-
-        BrBattery.root.OnNotesHeldChange += CheckNotes;
     }
     public void AddInputs()
     {
+        InputManager.root.AddListener<float>(ActionTypes.KeyDown, CheckNotes);
+        InputManager.root.AddListener<float>(ActionTypes.KeyUp, CheckNotes);
         InputManager.root.AddListener<float>(ActionTypes.Settings, MoveArmSettings);
     }
     public Dictionary<string, object> AddSaveData()
@@ -43,8 +44,11 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
 
         if (!HasBroadcaster)
         {
-            BrBattery.root.BackgroundScreen.GetComponent<Image>().color = Color.black;
-            BrBattery.root.BackLight.GetComponent<Light>().color = Color.black;
+            brDisplay.DisplayOff();
+        }
+        else
+        {
+            brDisplay.DisplayOn();
         }
 
         _armAnim.SetBool(_obtainedBroadcasterHash, HasBroadcaster);
@@ -60,22 +64,24 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
     public void EndCutscene()
     {
         GameManager.root.State = GameState.Roaming;
+        MusicManager.root.RefreshMusicData();
 
-        var br = BrBattery.root;
-        CRManager.root.Begin(UIUtil.root.FadeToColor(0.5f, 0, br.DefaultBgColor, new() { br.BackgroundScreen, br.BackLight }), "BrScreenToGreen", br);
+        brDisplay.DisplayOn();
 
         var resetCamera = new TrData(Vector3.zero, Quaternion.identity);
-        CRManager.root.Begin(resetCamera.ApplyToOverTime(Camera.main.transform, 0.5f), "ResetCameraCutscene", this);
-        
+        CRManager.Begin(resetCamera.ApplyToOverTime(Camera.main.transform, 0.5f), "ResetCameraCutscene", this);
+
         HasBroadcaster = true;
     }
-    void CheckNotes(int notesHeld)
+    void CheckNotes(float newNote)
     {
-        CRManager.root.Restart(MoveArmPlaying(notesHeld), "ReturnArmIdle", this);
+        CRManager.Restart(MoveArmPlaying(), "CheckArm", this);
     }
-    IEnumerator MoveArmPlaying(int notesHeld)
+    IEnumerator MoveArmPlaying()
     {
-        if(notesHeld > 0)
+        yield return null;
+
+        if (Broadcaster.heldNotes.Count > 0)
         {
             _armAnim.SetBool(_playControlHash, true);
         }
@@ -83,17 +89,20 @@ public class ArmMover : MonoBehaviour, IInputScript, ISaveData
         {
             yield return new WaitForSeconds(0.25f);
             _armAnim.SetBool(_playControlHash, false);
-        }       
+
+            if (Broadcaster.heldNotes.Count == 0)
+                brDisplay.LowerTextPriority(DisplayPriority.Playing);
+        }
     }
 
     [AllowAllAboveState(GameState.Settings), DissallowedStates(GameState.Intro, GameState.Shutdown)]
     void MoveArmSettings(float setingsInput)
     {
-        CRManager.root.Restart(InterpolateAnimation(_setControlHash, _armAnim.GetFloat(_setControlHash), setingsInput), "MoveArmSettings", this);
+        CRManager.Restart(InterpolateAnimation(_setControlHash, _armAnim.GetFloat(_setControlHash), setingsInput), "MoveArmSettings", this);
     }
     public void StopBroadcasterSounds()
     {
-        AudioManager.root.PlaySound(AudioEvent.stopBroadcasterFX, BrBattery.root.gameObject);
+        AudioManager.root.PlaySound(AudioEvent.stopBroadcasterFX, Broadcaster.obj);
     }
     IEnumerator InterpolateAnimation(int param, float beginValue, float endValue)
     {

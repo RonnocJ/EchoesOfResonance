@@ -18,7 +18,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{DA39189E-6B4B-7DCC-D4D4-856B22B1C11E}",
+    "Hash": "{9472297A-10A3-D8D4-E67A-674B9FE4F03B}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -203,6 +203,12 @@
       "GUID": "{81D38A92-ECA7-4CF5-BE90-1128330C5ED9}"
      },
      {
+      "Id": "2427847243",
+      "Name": "gemHum_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Puzzles\\Gems\\gemHum_Pitch",
+      "GUID": "{545D1A24-4360-4FA4-BF6E-E20466B810BD}"
+     },
+     {
       "Id": "3409173110",
       "Name": "flute_Pitch",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Pitch",
@@ -287,6 +293,12 @@
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
        },
        {
+        "Id": "1125500713",
+        "Name": "Intro",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Intro",
+        "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
+       },
+       {
         "Id": "1253314903",
         "Name": "BroadcasterApproach",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BroadcasterApproach",
@@ -297,18 +309,6 @@
         "Name": "ToGameplay",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\ToGameplay",
         "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
-       },
-       {
-        "Id": "1831982039",
-        "Name": "Opening",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Opening",
-        "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
-       },
-       {
-        "Id": "2272668956",
-        "Name": "BeforeApproach",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BeforeApproach",
-        "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
        },
        {
         "Id": "3020279701",
@@ -325,7 +325,7 @@
     "Type": "User",
     "GUID": "{BE551CBF-9663-46FE-A46A-DD268B0E77CE}",
     "Language": "SFX",
-    "Hash": "{FD9885BE-06C5-58A1-88E5-075C0D3746CB}",
+    "Hash": "{1F219388-451E-DE4F-A5A0-1CA24B448EF5}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Global",
     "ShortName": "Global",
     "Path": "Global.bnk",
@@ -369,6 +369,14 @@
       "Location": "Memory",
       "ShortName": "EOR_FluteInstrument_Note23.wav",
       "CachePath": "3D/{3D572830-6872-D07F-8039-1CE51D2E2F12}.wem"
+     },
+     {
+      "Id": "96235299",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemHum_Note18.wav",
+      "CachePath": "D2/{D29BDAEA-C54F-0577-665F-2628D9018BB0}.wem"
      },
      {
       "Id": "101168111",
@@ -443,6 +451,14 @@
       "CachePath": "57/{577DF091-AFF3-8C56-7E91-3B53C79E61D2}.wem"
      },
      {
+      "Id": "422246361",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemHum_Note13.wav",
+      "CachePath": "33/{33B4A8D6-A090-2BFE-1EE4-1B27D929165B}.wem"
+     },
+     {
       "Id": "459274136",
       "Language": "SFX",
       "Streaming": "false",
@@ -475,6 +491,14 @@
       "CachePath": "E2/{E2EE5551-97EF-D16A-1D2D-DEBA59EED482}.wem"
      },
      {
+      "Id": "574237312",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemHum_Note08.wav",
+      "CachePath": "D4/{D43A27CE-080E-ADA7-AFF1-05A2D7CF7D14}.wem"
+     },
+     {
       "Id": "592716520",
       "Language": "SFX",
       "Streaming": "false",
@@ -496,7 +520,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "EOR_SFX_BroadcasterTextBeep.wav",
-      "CachePath": "1C/{1CF43C39-5837-6CF9-CEFF-B411D9859616}.wem"
+      "CachePath": "0C/{0CDB916E-EEED-67DF-9887-42274D87C6E5}.wem"
      },
      {
       "Id": "713251495",
@@ -579,6 +603,14 @@
       "CachePath": "FF/{FF88D37E-8355-63DA-4605-828DA7DC8C5D}.wem"
      },
      {
+      "Id": "917945695",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemHum_Note03.wav",
+      "CachePath": "95/{95A71172-B556-FAD4-0589-E8BE88CEA56A}.wem"
+     },
+     {
       "Id": "918685912",
       "Language": "SFX",
       "Streaming": "false",
@@ -609,6 +641,14 @@
       "Location": "Memory",
       "ShortName": "EOR_SFX_CrystalRattle_01.wav",
       "CachePath": "8D/{8D261A23-52D6-B6B4-DE26-E2DA7FBBDBC2}.wem"
+     },
+     {
+      "Id": "1042678378",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_SFX_GemHum_Note23.wav",
+      "CachePath": "9A/{9A7591AE-605C-9B07-2C86-8F95B3CDE8AD}.wem"
      }
     ],
     "Events": [
@@ -820,6 +860,39 @@
       ]
      },
      {
+      "Id": "2688363534",
+      "Name": "playGemHum",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Puzzles\\playGemHum",
+      "GUID": "{B2FDF04F-B415-4C29-8702-A6B8DEC86FE8}",
+      "MaxAttenuation": "50",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "96235299"
+       },
+       {
+        "Id": "422246361"
+       },
+       {
+        "Id": "574237312"
+       },
+       {
+        "Id": "917945695"
+       },
+       {
+        "Id": "1042678378"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "1603003340",
+        "Name": "LargeRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\LargeRoomVerb",
+        "GUID": "{3B830E07-6668-407B-A341-F96922349E00}"
+       }
+      ]
+     },
+     {
       "Id": "1900847084",
       "Name": "playShutoff",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Broadcaster\\DeviceFX\\playShutoff",
@@ -850,7 +923,7 @@
       "MaxAttenuation": "5",
       "DurationType": "OneShot",
       "DurationMin": "0.032399144",
-      "DurationMax": "0.04581931",
+      "DurationMax": "0.04854387",
       "MediaRefs": [
        {
         "Id": "672268205"
@@ -920,6 +993,16 @@
       ]
      },
      {
+      "Id": "2942752976",
+      "Name": "stopGemHum",
+      "ObjectPath": "\\Events\\Default Work Unit\\GlobalSFX\\Puzzles\\stopGemHum",
+      "GUID": "{65E3B27C-7BC5-4C9F-A46E-5612F5169937}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
       "Id": "4043078832",
       "Name": "unmuteSFX",
       "ObjectPath": "\\Events\\Default Work Unit\\GlobalChange\\unmuteSFX",
@@ -962,6 +1045,12 @@
       "GUID": "{81D38A92-ECA7-4CF5-BE90-1128330C5ED9}"
      },
      {
+      "Id": "2427847243",
+      "Name": "gemHum_Pitch",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Puzzles\\Gems\\gemHum_Pitch",
+      "GUID": "{545D1A24-4360-4FA4-BF6E-E20466B810BD}"
+     },
+     {
       "Id": "3409173110",
       "Name": "flute_Pitch",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\Global\\Broadcaster\\flute_Pitch",
@@ -974,7 +1063,7 @@
     "Type": "User",
     "GUID": "{8B9F1AB0-60DB-470A-929F-399B2FEFB141}",
     "Language": "SFX",
-    "Hash": "{117BBB9D-42AF-60E5-4E34-FE0C4832FDA2}",
+    "Hash": "{DB8762D0-1485-9323-FD48-5FF6BABBD72A}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level01",
     "ShortName": "Level01",
     "Path": "Level01.bnk",
@@ -988,12 +1077,12 @@
       "CachePath": "A8/{A842C52C-B068-1500-960D-1A07B8942B45}.wem"
      },
      {
-      "Id": "164535379",
+      "Id": "78688198",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_BroadcasterApproachLoop.wav",
-      "CachePath": "30/{30232416-BE7A-F0F8-70A0-92A96772E748}.wem"
+      "ShortName": "EOR_Level01Msc_01Opening_IntroB2.wav",
+      "CachePath": "39/{39E0AD5D-4381-5AFA-D59F-0E8CD7245132}.wem"
      },
      {
       "Id": "251126326",
@@ -1004,12 +1093,28 @@
       "CachePath": "70/{70CF1046-4E39-B5D4-A510-01ACCE2CA99B}.wem"
      },
      {
-      "Id": "310615760",
+      "Id": "379179364",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_OpeningBaseLoop.wav",
-      "CachePath": "12/{12565F6D-1CC6-8157-6E60-947B6A5F458C}.wem"
+      "ShortName": "EOR_Level01Msc_01Opening_IntroB1.wav",
+      "CachePath": "C9/{C977657A-2DA1-ACF3-92CC-B97C24060130}.wem"
+     },
+     {
+      "Id": "390521249",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01Msc_01Opening_IntroA.wav",
+      "CachePath": "6F/{6F5803EF-4518-6472-8011-5A5BAE92435C}.wem"
+     },
+     {
+      "Id": "423159114",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01Msc_01Opening_BrApproachA.wav",
+      "CachePath": "31/{31FB0B23-3B9E-9A3A-E19E-E502300F4674}.wem"
      },
      {
       "Id": "506978383",
@@ -1036,12 +1141,12 @@
       "CachePath": "61/{611B47FA-829A-9C5F-CBDF-4BE46A84FEEE}.wem"
      },
      {
-      "Id": "586092724",
+      "Id": "608502494",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_BroadcasterApproachCue.wav",
-      "CachePath": "72/{7247C986-BF6F-B21D-3682-B4978DEF664C}.wem"
+      "ShortName": "EOR_SFX_MontiorTick01.wav",
+      "CachePath": "4B/{4BCCCED5-1F85-D2AB-80EE-8DF5E90BAE6E}.wem"
      },
      {
       "Id": "618833788",
@@ -1052,20 +1157,12 @@
       "CachePath": "4B/{4BA3DF10-093F-E78A-6B52-324BF31CD11E}.wem"
      },
      {
-      "Id": "646732023",
+      "Id": "686256247",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_GetBroadcasterCue.wav",
-      "CachePath": "B5/{B5CACFD3-1D10-201B-86F1-1E0DD446B06F}.wem"
-     },
-     {
-      "Id": "678171862",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_ToGameplayTransition.wav",
-      "CachePath": "8A/{8AF64267-4E55-64C6-599F-8180DDD97E52}.wem"
+      "ShortName": "EOR_Level01Msc_01Opening_GetBr.wav",
+      "CachePath": "A8/{A8702FA6-C8A2-3B8C-9408-ACDE26ABDE47}.wem"
      },
      {
       "Id": "695093669",
@@ -1076,14 +1173,6 @@
       "CachePath": "6C/{6C9675AD-24DB-0156-5013-28F22FF130AD}.wem"
      },
      {
-      "Id": "711210221",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_OpeningRiff02.wav",
-      "CachePath": "E4/{E4C9E0EB-5AA0-9B3D-9718-F4D13FE62E50}.wem"
-     },
-     {
       "Id": "731935831",
       "Language": "SFX",
       "Streaming": "false",
@@ -1092,28 +1181,20 @@
       "CachePath": "5B/{5B0F60AB-53B6-6177-4F05-8F9D65656E42}.wem"
      },
      {
-      "Id": "802790787",
+      "Id": "798916717",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_OpeningRiff03.wav",
-      "CachePath": "5F/{5F5E0FF5-59DB-B0A5-3901-1DC06537122E}.wem"
+      "ShortName": "EOR_Level01Msc_01Opening_ToGameplayTransition.wav",
+      "CachePath": "A1/{A158B4C2-9BCC-E5D9-92E4-540C911683E7}.wem"
      },
      {
-      "Id": "866702254",
+      "Id": "911325075",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "EOR_Level01_OpeningRiff01.wav",
-      "CachePath": "1F/{1FA730D1-1200-64FC-001A-C2D9EEC0C15B}.wem"
-     },
-     {
-      "Id": "926822806",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "EOR_Level01_OpeningRiff04.wav",
-      "CachePath": "37/{37F07362-63D2-AC5A-C70C-6FB8FC99789B}.wem"
+      "ShortName": "EOR_Level01Msc_01Opening_IntroC.wav",
+      "CachePath": "6B/{6B35CCBC-F3B1-FB41-4616-4B2A6CADBEB2}.wem"
      },
      {
       "Id": "960691585",
@@ -1138,6 +1219,14 @@
       "Location": "Memory",
       "ShortName": "EOR_Level01_Puzzle01_BaseLoopB.wav",
       "CachePath": "86/{864DCC2E-81F2-CF9D-A8D1-8CE3CF27DF0D}.wem"
+     },
+     {
+      "Id": "1054358741",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "EOR_Level01Msc_01Opening_BrApproachLoop.wav",
+      "CachePath": "5E/{5EEAEF9D-BADC-BD96-677E-470C0DA6C827}.wem"
      }
     ],
     "Events": [
@@ -1157,6 +1246,29 @@
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\None",
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
+       }
+      ]
+     },
+     {
+      "Id": "19295944",
+      "Name": "playMonitorTick",
+      "ObjectPath": "\\Events\\Default Work Unit\\Level01SFX\\Puzzles01\\playMonitorTick",
+      "GUID": "{4E3A35A4-DE48-450A-9595-9C75D307B0E4}",
+      "MaxAttenuation": "100",
+      "DurationType": "OneShot",
+      "DurationMin": "0.088395834",
+      "DurationMax": "0.088395834",
+      "MediaRefs": [
+       {
+        "Id": "608502494"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "4091100022",
+        "Name": "MediumRoomVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\SFXBus\\MediumRoomVerb",
+        "GUID": "{30BB047E-AD41-411F-A3E2-C4097231178D}"
        }
       ]
      },
@@ -1216,24 +1328,21 @@
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "3927051694",
-         "Id": "1831982039",
+         "Id": "1125500713",
          "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
         },
         "MediaRefs": [
          {
-          "Id": "310615760"
+          "Id": "78688198"
          },
          {
-          "Id": "711210221"
+          "Id": "379179364"
          },
          {
-          "Id": "802790787"
+          "Id": "390521249"
          },
          {
-          "Id": "866702254"
-         },
-         {
-          "Id": "926822806"
+          "Id": "911325075"
          }
         ]
        },
@@ -1246,7 +1355,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "646732023"
+          "Id": "686256247"
          }
         ]
        },
@@ -1259,10 +1368,10 @@
         },
         "MediaRefs": [
          {
-          "Id": "164535379"
+          "Id": "423159114"
          },
          {
-          "Id": "586092724"
+          "Id": "1054358741"
          }
         ]
        },
@@ -1275,32 +1384,7 @@
         },
         "MediaRefs": [
          {
-          "Id": "678171862"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "3927051694",
-         "Id": "2272668956",
-         "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "310615760"
-         },
-         {
-          "Id": "711210221"
-         },
-         {
-          "Id": "802790787"
-         },
-         {
-          "Id": "866702254"
-         },
-         {
-          "Id": "926822806"
+          "Id": "798916717"
          }
         ]
        }
@@ -1435,6 +1519,12 @@
         "GUID": "{1559E206-582D-4FC4-87AD-CD9FF9ECFD04}"
        },
        {
+        "Id": "1125500713",
+        "Name": "Intro",
+        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Intro",
+        "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
+       },
+       {
         "Id": "1253314903",
         "Name": "BroadcasterApproach",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BroadcasterApproach",
@@ -1447,18 +1537,6 @@
         "GUID": "{F080AFE4-C64A-43E7-B622-505CB721B08A}"
        },
        {
-        "Id": "1831982039",
-        "Name": "Opening",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\Opening",
-        "GUID": "{C88EEA29-35EB-49E0-97C5-75116E51D6CA}"
-       },
-       {
-        "Id": "2272668956",
-        "Name": "BeforeApproach",
-        "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\BeforeApproach",
-        "GUID": "{1470A2B6-6943-4ED4-B0B8-E29007F02437}"
-       },
-       {
         "Id": "3020279701",
         "Name": "GetBroadcaster",
         "ObjectPath": "\\States\\Default Work Unit\\Level01\\Opening01\\GetBroadcaster",
@@ -1469,6 +1547,6 @@
     ]
    }
   ],
-  "FileHash": "{BB22790C-2D8C-FDF5-AE67-DF9C073FFEAE}"
+  "FileHash": "{F0B9EE82-7A8B-CD6B-5601-BF965A6CE573}"
  }
 }

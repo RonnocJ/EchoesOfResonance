@@ -3,7 +3,7 @@
   "Platform": {
    "Name": "Windows",
    "BasePlatform": "Windows",
-   "Generator": "2024.1.1.8691"
+   "Generator": "2024.1.4.8780"
   },
   "RootPaths": {
    "ProjectRoot": "../../../../../../../../../Documents/WwiseProjects/EchoesOfResonance_WwiseProject",
@@ -33,6 +33,6 @@
    "PrintObjectPath": "true",
    "PrintObjectColor": "true"
   },
-  "FileHash": "{A8ECA240-151D-5486-848A-FB7A0E79F429}"
+  "FileHash": "{8896310A-9C44-DCD8-723B-A1E9C1844B7C}"
  }
 }
